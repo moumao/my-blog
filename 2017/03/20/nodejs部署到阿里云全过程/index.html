@@ -10,8 +10,6 @@
     
     <title>
         
-            My First Post | 
-        
         Blog
     </title>
 
@@ -48,7 +46,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="My First Post | Blog">
+    <meta property="og:title" content="Blog">
     <meta property="og:description" content="null">
     
 
@@ -270,7 +268,7 @@
         
     
             <p class="article-headline-p">
-                My First Post
+                
             </p>
         </div>
 
@@ -289,7 +287,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>moumao</strong>
-        <span>3月 16, 2017</span>
+        <span>3月 20, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -329,7 +327,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=My First Post&url=http://yoursite.com//2017/03/16/My-First-Post/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://yoursite.com//2017/03/20/nodejs部署到阿里云全过程/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -350,7 +348,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Blog&title=My First Post&summary=null&pics=http://yoursite.com/img/moumao.png&url=http://yoursite.com/2017/03/16/My-First-Post/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Blog&title=&summary=null&pics=http://yoursite.com/img/moumao.png&url=http://yoursite.com/2017/03/20/nodejs部署到阿里云全过程/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -368,7 +366,85 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <p>转自<a href="http://www.jianshu.com/p/0496ef49b2a5" target="_blank" rel="external">Nodejs 部署到阿里云全过程</a><br>整个部署过程学到了不少东西，记录一下。</p>
+<blockquote>
+<p>参考了以下文章：<br> <a href="http://itbilu.com/other/relate/NJ2TJohl.html" target="_blank" rel="external">http://itbilu.com/other/relate/NJ2TJohl.html</a><br><a href="https://segmentfault.com/a/1190000004051670" target="_blank" rel="external">https://segmentfault.com/a/1190000004051670</a><br><a href="http://borninsummer.com/2015/06/17/notes-on-developing-nodejs-webapp/" target="_blank" rel="external">http://borninsummer.com/2015/06/17/notes-on-developing-nodejs-webapp/</a><br><a href="https://bbs.aliyun.com/read/146189.html" target="_blank" rel="external">https://bbs.aliyun.com/read/146189.html</a></p>
+</blockquote>
+<p><strong>1. 到阿里云购买云服务器 ECS 。</strong><br><a href="https://www.aliyun.com/product/ecs" target="_blank" rel="external">https://www.aliyun.com/product/ecs</a><br>如果是在校学生，在淘宝有实名认证，且在学信网有注册，可以试试抢学生的首月优惠套餐。<a href="https://www.aliyun.com/act/aliyun/campus.html" target="_blank" rel="external">https://www.aliyun.com/act/aliyun/campus.html</a><br>作为一个穷逼+不熟悉服务器配置的菜鸟。选了最便宜的套餐：<br>CPU： 1核 / 内存： 1024 MB / 带宽：1Mbps / 操作系统： CentOS 7.0<br>购买环节会设置 ssh 登陆密码，记下密码。<br>登陆到阿里云，查看购买的实例。<br>注意公网 IP，下一步会用到<br><img src="http://img.blog.csdn.net/20170212142340544?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="购买的实例"><br><strong>2. 登陆服务器</strong><br>sudo ssh 你的服务器ip地址</p>
+<blockquote>
+<p>关于 ssh 登陆，具体可以看<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a> 这篇文章。</p>
+</blockquote>
+<p>提示输入mac的密码，提示输入服务器密码。<br>输入后连接成功并显示服务器信息，如下：<br><img src="http://img.blog.csdn.net/20170212142549327?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="成功的状态"></p>
+<p>登陆服务器后。这里对于我这个 Linux 菜鸟有个大坑………就是 Linux 系统常见的目录结构和文件放置区域。<br>使用 root 用户身份登陆后，会直接进入到下图 红色箭头标出的 root 目录下。先 cd .. 跳转到上一层, 再 ls -a ，就可以看到类似下图的目录结构了。</p>
+<p><img src="http://img.blog.csdn.net/20170212142640688?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图片引用自《鸟哥的Linux》"></p>
+<p><strong>3.安装 node 和 mongodb</strong></p>
+<blockquote>
+<p>node – 编译后二进制文件应在/usr/local/bin/node 下<br> mongodb –安装在/usr/local/mongodb 下</p>
+</blockquote>
+<p>下面就一步一步来，首先升级CentOS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y update</div></pre></td></tr></table></figure>
+<p>升级后，跳转到 /usr/local/src , 这个文件夹通常用来存放软件源代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/src</div></pre></td></tr></table></figure>
+<p>下载 nodejs 代码，也可以使用scp命令直接上传，因为下载实在太慢了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://nodejs.org/dist/v0.12.5/node-v0.12.5.tar.gz</div><div class="line">//注*根据最新版本号为准</div></pre></td></tr></table></figure>
+<p>解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xzvf node-v0.12.5.tar.gz</div></pre></td></tr></table></figure>
+<p>进入解压后的文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd node-v0.12.5</div></pre></td></tr></table></figure>
+<p>执行配置脚本来进行编译预处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure</div></pre></td></tr></table></figure>
+<p>编译源代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line">//注*这个时间可能会很久</div></pre></td></tr></table></figure>
+<p>当编译完成后，需要使之在系统范围内可用, 编译后的二进制文件将被放置到系统路径，默认情况下，Node二进制文件应该放在/user/local/bin/node文件夹下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make install</div></pre></td></tr></table></figure>
+<p>安装 express 和 forever，这两个模块都推荐 global 安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -g install express forever</div></pre></td></tr></table></figure>
+<p>建立超级链接, 不然 sudo node 时会报 “command not found”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /usr/local/bin/node /usr/bin/node</div><div class="line">sudo ln -s /usr/local/lib/node /usr/lib/node</div><div class="line">sudo ln -s /usr/local/bin/npm /usr/bin/npm</div><div class="line">sudo ln -s /usr/local/bin/node-waf /usr/bin/node-waf</div><div class="line">sudo ln -s /usr/local/bin/forever /usr/bin/forever</div></pre></td></tr></table></figure>
+<p>Nodejs到这里就基本安装完成了。</p>
+<p><strong>下面来安装mongodb</strong></p>
+<blockquote>
+<p>软件安装位置：/usr/local/mongodb<br>数据存放位置：/var/mongodb/data<br>日志存放位置：/var/mongodb/logs</p>
+</blockquote>
+<p>首先下载安装包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local</div><div class="line">wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz</div></pre></td></tr></table></figure>
+<p>解压安装包，重命名文件夹为mongodb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tar zxvf mongodb-linux-x86_64-2.6.0.tgz</div><div class="line">mv mongodb-linux-x86_64-2.6.0 mongodb</div></pre></td></tr></table></figure>
+<p>创建数据和日志存放目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir /var/mongodb</div><div class="line">mkdir /var/mongodb/data</div><div class="line">mkdir /var/mongodb/logs</div></pre></td></tr></table></figure>
+<p>打开rc.local文件，添加CentOS开机启动项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/rc.d/rc.local</div></pre></td></tr></table></figure>
+<p>将mongodb启动命令追加到本文件中，让mongodb开机自启动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath </div><div class="line">/var/mongodb/logs/log.log -fork</div></pre></td></tr></table></figure>
+<p>关闭 vim 后，直接手动启动mongodb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath </div><div class="line">/var/mongodb/logs/log.log -fork</div></pre></td></tr></table></figure>
+<p>看到类似的信息，说明已启动成功。我在这里发了个傻，以为26308是port号，导致后面设置port时折腾了好久。其实这里的 forked process 和 port 号是两个东西， 这个是程序本身在Server上的进程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">forked process: 26308</div></pre></td></tr></table></figure>
+<p>启动mongo shell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/mongodb/bin/</div><div class="line">./mongo</div></pre></td></tr></table></figure>
+<p>在 mongo shell 中创建管理员及数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">use admin //admin 数据库</div><div class="line">db.createUser(&#123;</div><div class="line">user: &quot;用户名&quot;,</div><div class="line">pwd:&quot;登陆密码&quot;,</div><div class="line">roles:[&quot;userAdminAnyDatabase&quot;] //超级管理员</div><div class="line">&#125;)</div><div class="line"></div><div class="line">use databaseFoo //nodeapp 要连接的数据库</div><div class="line">db.createUser(&#123;</div><div class="line">user: &quot;用户名&quot;,</div><div class="line">pwd:&quot;登陆密码&quot;,</div><div class="line">roles:[&quot;readWrite&quot;] //读写权限</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>到这里 mongodb 基本已经安装设置完成了。具体数据的迁移导入可自行研究。</p>
+<p><strong>4.配置及启动node app</strong></p>
+<p>我们把 nodeapp 的程序放在 /home 下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /home</div></pre></td></tr></table></figure>
+<p>我使用 <a href="http://git.oschina.net/" target="_blank" rel="external">http://git.oschina.net/</a> 管理代码。它的私有库是免费的。基本操作和 github 一样。<br>复制代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://git.oschina.net/xxxxxxx/nodeapp.git   //你的repo地址</div></pre></td></tr></table></figure>
+<p>注*同时可以使用图形化程序进行上传如File Zilla<img src="http://img.blog.csdn.net/20170212201742447?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="FZ"><br>进入 nodeapp 文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd nodeapp</div></pre></td></tr></table></figure>
+<p>（若后续代码变更，提交到 git repo 后直接git pull即可部署代码）<br>安装nodeapp的所有依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
+<p>在启动文件 ( 我的是 app.js ) 中设置数据库连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim app.js</div></pre></td></tr></table></figure>
+<p>数据库连接类似下面的格式，由于数据库安装在同一服务器，因此 host 为127.0.0.1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dbUrl = &apos;mongodb://用户名:登陆密码@127.0.0.1/databaseFoo&apos;;</div><div class="line">mongoose.connect(dbUrl)</div></pre></td></tr></table></figure>
+<p>这里要注意，如果直接 npm start 或 node app.js 启动，则一旦退出 ssh 远程登陆，nodeapp 就会停止运行。因此我们使用 forever 启动 nodeapp。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NODE_ENV=production forever start app.js</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如今可以使用PM2启动程序，步骤如下：<br>使用它要先安装它，用root账号和全局模式安装一下：<br><code>npm install -g pm2</code><br>用它来启动程序（在当前目录下可以直接启动）<br><code>pm2 start app.js --name uops</code></p>
+</blockquote>
+<p>在蹚过无数坑后，项目部署成功。用浏览器打开 公网IP:端口号 即可看到 nodeapp 的首页</p>
+
     
 
     
@@ -391,21 +467,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/03/20/nodejs部署到阿里云全过程/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/03/16/hello-world/" id="post_nav-older" class="next-content">
+        <a href="/2017/03/16/My-First-Post/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
