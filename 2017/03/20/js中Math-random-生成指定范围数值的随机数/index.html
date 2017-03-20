@@ -10,7 +10,7 @@
     
     <title>
         
-            about | 
+             js中Math.random()生成指定范围数值的随机数 | 
         
         Blog
     </title>
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="moumao">
     <meta name="description" content="null">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="null,js">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -48,9 +48,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="about | Blog">
+    <meta property="og:title" content=" js中Math.random()生成指定范围数值的随机数 | Blog">
     <meta property="og:description" content="null">
-    
+    <meta property="og:article:tag" content="js"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -210,6 +210,41 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
 
 <!-- Layouts -->
 
@@ -235,7 +270,7 @@
         
     
             <p class="article-headline-p">
-                about
+                 js中Math.random()生成指定范围数值的随机数
             </p>
         </div>
 
@@ -278,7 +313,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/js/">js</a>
     </ul>
     
 
@@ -294,7 +329,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=about&url=http://yoursite.com//about/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title= js中Math.random()生成指定范围数值的随机数&url=http://yoursite.com//2017/03/20/js中Math-random-生成指定范围数值的随机数/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -315,7 +350,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Blog&title=about&summary=null&pics=http://yoursite.com/img/moumao.png&url=http://yoursite.com/about/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Blog&title= js中Math.random()生成指定范围数值的随机数&summary=null&pics=http://yoursite.com/img/moumao.png&url=http://yoursite.com/2017/03/20/js中Math-random-生成指定范围数值的随机数/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -333,7 +368,33 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <p><strong>定义和用法</strong></p>
+<p>random() 方法可返回介于 0 ~ 1 之间的一个随机数。</p>
+<p><strong>语法</strong></p>
+<p>Math.random()</p>
+<p><strong>返回值</strong></p>
+<p>0.0 ~ 1.0 之间的一个伪随机数。</p>
+<p><strong>实例</strong></p>
+<p>在本例中，我们将取得介于 0 到 1 之间的一个随机数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">document.write(Math.random());</div><div class="line">&lt;/script&gt;</div><div class="line">// 输出：</div><div class="line">0.15246391076246546</div></pre></td></tr></table></figure>
+<p><strong>关于如何生成指定范围值的随机数？</strong></p>
+<blockquote>
+<p>利用 parseInt()、Math.floor() 或者 Math.ceil()进行四舍五入处理</p>
+</blockquote>
+<p>我们看到，直接使用Math.random()方法，生成的是一个小于1的数，所以：</p>
+<blockquote>
+<p>Math.random()*5</p>
+</blockquote>
+<p>得到的结果是一个小于5的随机数。而我们通常希望得到的是0-5之间的整数，所以我们需要对得到的结果四舍五入处理一下，从而得到我们期望的整数。parseInt()、Math.floor()和Math.ceil()都可以起到四舍五入的作用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var randomNum = Math.random()*5;</div><div class="line">alert(randomNum); // 2.9045290905811183 </div><div class="line">alert(parseInt(randomNum,10)); // 2</div><div class="line">alert(Math.floor(randomNum)); // 2</div><div class="line">alert(Math.ceil(randomNum)); // 3</div></pre></td></tr></table></figure></p>
+<p>由测试的代码我们可以看到，<code>parseInt()</code>和<code>Math.floor()</code>的效果是一样的，都是向下取整数部分。所以<code>parseInt(Math.random()*5,10)</code>和<code>Math.floor(Math.random()*5)</code>都是生成的0-4之间的随机数，<code>Math.ceil(Math.random()*5)</code>则是生成的1-5之间的随机数。</p>
+<p><strong>生成指定范围数值随机数</strong></p>
+<p>如果你希望生成1到任意值的随机数，公式就是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// max - 期望的最大值</div><div class="line">parseInt(Math.random()*max,10)+1;</div><div class="line">Math.floor(Math.random()*max)+1;</div><div class="line">Math.ceil(Math.random()*max);</div></pre></td></tr></table></figure>
+<p>如果你希望生成0到任意值的随机数，公式就是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// max - 期望的最大值</div><div class="line">parseInt(Math.random()*(max+1),10);</div><div class="line">Math.floor(Math.random()*(max+1));</div></pre></td></tr></table></figure>
+<p>如果你希望生成任意值到任意值的随机数，公式就是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// max - 期望的最大值</div><div class="line">// min - 期望的最小值 </div><div class="line">parseInt(Math.random()*(max-min+1)+min,10);</div><div class="line">Math.floor(Math.random()*(max-min+1)+min);</div></pre></td></tr></table></figure>
+
     
 
     
@@ -361,6 +422,14 @@
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2017/03/16/My-First-Post/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -523,6 +592,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
