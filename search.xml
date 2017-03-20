@@ -9,6 +9,12 @@
       <content type="html"></content>
       
         
+        <tags>
+            
+            <tag> HelloWorld </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -95,6 +101,12 @@
 ]]></content>
       
         
+        <tags>
+            
+            <tag> Node.js </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -111,6 +123,12 @@
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
       
+        
+        <tags>
+            
+            <tag> HelloWorld </tag>
+            
+        </tags>
         
     </entry>
     
