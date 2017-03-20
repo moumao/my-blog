@@ -44,20 +44,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[My First Post]]></title>
-      <url>http://yoursite.com/2017/03/16/My-First-Post/</url>
-      <content type="html"></content>
-      
-        
-        <tags>
-            
-            <tag> HelloWorld </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Node.js部署到阿里云服务器]]></title>
       <url>http://yoursite.com/2017/03/16/nodejs%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%A8%E8%BF%87%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>整个部署过程学到了不少东西，记录一下。</p>
