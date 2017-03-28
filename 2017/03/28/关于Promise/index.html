@@ -10,7 +10,7 @@
     
     <title>
         
-            归档 | 
+            关于Promise | 
         
         某猫のBlog
     </title>
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="moumao">
     <meta name="description" content="null">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="null,js promise">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -48,9 +48,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | 某猫のBlog">
+    <meta property="og:title" content="关于Promise | 某猫のBlog">
     <meta property="og:description" content="null">
-    
+    <meta property="og:article:tag" content="js promise"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -208,155 +208,244 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
 
-    <!-- Normal Post -->
-    
-        
-        
-            <!-- Paradox Thumbnail -->
-            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是-Promise"><span class="post-toc-number">2.</span> <span class="post-toc-text">什么是 Promise</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#兼容性"><span class="post-toc-number">3.</span> <span class="post-toc-text">兼容性</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/random/bg1.jpg)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://segmentfault.com/img/bVmrXU)">
     
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/03/16/nodejs部署到阿里云全过程/">Node.js部署到阿里云服务器</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            整个部署过程学到了不少东西，记录一下。
-
-参考了以下文章： 
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/03/16/nodejs部署到阿里云全过程/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/header.jpg" width="44px" height="44px" alt="moumao's avatar">
-            </div>
-            <div>
-                <strong>moumao</strong>
-                <span>3月 16, 2017</span>
-            </div>
+            <p class="article-headline-p">
+                关于Promise
+            </p>
         </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
+
+
+
+
+
                 
-            </span>
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
 
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/header.jpg" width="44px" height="44px" alt="Author Avatar"/>
     </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>moumao</strong>
+        <span>3月 28, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/js-promise/">js promise</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=关于Promise&url=http://yoursite.com//2017/03/28/关于Promise/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=某猫のBlog&title=关于Promise&summary=null&pics=http://yoursite.com/img/moumao.png&url=http://yoursite.com/2017/03/28/关于Promise/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
 </div>
 
-        
-        
-        
-    
-        
-        
-            <!-- Paradox Thumbnail -->
-            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/03/16/hello-world/">Hello World</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Welcome to Hexo
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/03/16/hello-world/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/header.jpg" width="44px" height="44px" alt="moumao's avatar">
-            </div>
-            <div>
-                <strong>moumao</strong>
-                <span>3月 16, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
                 
-            </span>
 
-            
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
+<p>首先设想一个日常开发常常会遇到的需求：在多个接口异步请求数据，然后利用这些数据来进行一系列的操作。一般会这样去写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">url: &apos;......&apos;,</div><div class="line">success: function (data) &#123;</div><div class="line">$.ajax(&#123;</div><div class="line">// 要在第一个请求成功后才可以执行下一步</div><div class="line">url: &apos;......&apos;,</div><div class="line">success: function (data) &#123;</div><div class="line">// ......</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125; &#125;);</div></pre></td></tr></table></figure>
+<p>这样的写法的原理是，当执行一些异步操作时，我们需要知道操作是否已经完成，所有当执行完成的时候会返回一个回调函数，表示操作已经完成。</p>
+<p>使用回调函数的形式理解起来并不困难，但是实际的应用当中会有以下的缺点：</p>
+<blockquote>
+<p>1.在需要多个操作的时候，会导致多个回调函数嵌套，导致代码不够直观，就是常说的 Callback Hell。<br>2.如果几个异步操作之间并没有前后顺序之分（例如不需要前一个请求的结果作为后一个请求的参数）时，同样需要等待上一个操作完成再实行下一个操作。</p>
+</blockquote>
+<p>为了解决上述的问题，Promise 对象应运而生，在 EMCAScript 2015 当中已经成为标准。</p>
+<h2 id="什么是-Promise"><a href="#什么是-Promise" class="headerlink" title="什么是 Promise"></a>什么是 Promise</h2><hr>
+<blockquote>
+<p>一个 Promise 对象可以理解为一次将要执行的操作（常常被用于异步操作），使用了 Promise<br>对象之后可以用一种链式调用的方式来组织代码，让代码更加直观。而且由于 Promise.all<br>这样的方法存在，可以让同时执行多个操作变得简单。接下来就来简单介绍 Promise 对象。</p>
+</blockquote>
+<p><strong>resolve 和 reject</strong></p>
+<p>首先来看一段使用了 Promise 对象的代码。首先来看一段使用了 Promise 对象的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function helloWorld (ready) &#123;</div><div class="line">return new Promise(function (resolve, reject) &#123;</div><div class="line">if (ready) &#123;</div><div class="line">resolve(&quot;Hello World!&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">reject(&quot;Good bye!&quot;);</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">helloWorld(true).then(function (message) &#123;</div><div class="line">alert(message);</div><div class="line">&#125;, function (error) &#123;</div><div class="line">alert(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面的代码实现的功能非常简单，helloWord 函数接受一个参数，如果为 true 就打印 “Hello World!”，如果为 false 就打印错误的信息。helloWord 函数返回的是一个 Promise 对象。</p>
+<p>在 Promise 对象当中有两个重要方法————resolve 和 reject。</p>
+<p>resolve 方法可以使 Promise 对象的状态改变成成功，同时传递一个参数用于后续成功后的操作，在这个例子当中就是 Hello World! 字符串。</p>
+<p>reject 方法则是将 Promise 对象的状态改变为失败，同时将错误的信息传递到后续错误处理的操作。</p>
+<p><strong>Promise 的三种状态</strong></p>
+<p>上面提到了 resolve 和 reject 可以改变 Promise 对象的状态，那么它究竟有哪些状态呢？</p>
+<blockquote>
+<p>Promise 对象有三种状态：</p>
+<p>1.Fulfilled 可以理解为成功的状态<br>2.Rejected 可以理解为失败的状态 Pending 既不是 Fulfilld 也不是<br>3.Rejected 的状态，可以理解为 Promise 对象实例创建时候的初始状态</p>
+</blockquote>
+<p>helloWorld 的例子中的 then 方法就是根据 Promise 对象的状态来确定执行的操作，resolve 时执行第一个函数（onFulfilled），reject 时执行第二个函数（onRejected）。</p>
+<p><strong>then 和 catch</strong></p>
+<p><strong>then</strong></p>
+<p>helloWorld 的例子当中利用了 then(onFulfilld, onRejected) 方法来执行一个任务打印 “Hello World!”，在多个任务的情况下 then 方法同样可以用一个清晰的方式完成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function printHello (ready) &#123;</div><div class="line">return new Promise(function (resolve, reject) &#123;</div><div class="line">if (ready) &#123;</div><div class="line">resolve(&quot;Hello&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">reject(&quot;Good bye!&quot;);</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function printWorld () &#123;</div><div class="line">alert(&quot;World&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function printExclamation () &#123;</div><div class="line">alert(&quot;!&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">printHello(true)</div><div class="line">.then(function(message)&#123;</div><div class="line">alert(message);</div><div class="line">&#125;)</div><div class="line">.then(printWorld)</div><div class="line">.then(printExclamation);</div></pre></td></tr></table></figure>
+<p>上述例子通过链式调用的方式，按顺序打印出了相应的内容。then 可以使用链式调用的写法原因在于，每一次执行该方法时总是会返回一个 Promise 对象。另外，在 then onFulfilled 的函数当中的返回值，可以作为后续操作的参数，因此上面的例子也可以写成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">printHello(true).then(function (message) &#123;</div><div class="line">return message;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">return message  + &apos; World&apos;;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">return message + &apos;!&apos;;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">alert(message);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>catch</strong><br>catch 方法是 then(onFulfilled, onRejected) 方法当中 onRejected 函数的一个简单的写法，也就是说可以写成 then(fn).catch(fn)，相当于 then(fn).then(null, fn)。使用 catch 的写法比一般的写法更加清晰明确。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">somePromise().then(function () &#123;</div><div class="line">return anotherPromise();</div><div class="line">&#125;).then(function () &#123;</div><div class="line">return yetAnotherPromise();</div><div class="line">&#125;).catch(console.log.bind(console)); // &lt;-- this is badass</div></pre></td></tr></table></figure>
+<p><strong>Promise.all 和 Promise.race</strong></p>
+<p>Promise.all 可以接收一个元素为 Promise 对象的数组作为参数，当这个数组里面所有的 Promise 对象都变为 resolve 时，该方法才会返回。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var p1 = new Promise(function (resolve) &#123;</div><div class="line">setTimeout(function () &#123;</div><div class="line">resolve(&quot;Hello&quot;);</div><div class="line">&#125;, 3000);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var p2 = new Promise(function (resolve) &#123;</div><div class="line">setTimeout(function () &#123;</div><div class="line">resolve(&quot;World&quot;);</div><div class="line">&#125;, 1000);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">Promise.all([p1, p2]).then(function (result) &#123;</div><div class="line">console.log(result); // [&quot;Hello&quot;, &quot;World&quot;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面的例子模拟了传输两个数据需要不同的时长，虽然 p2 的速度比 p1 要快，但是 Promise.all 方法会按照数组里面的顺序将结果返回。</p>
+<p>日常开发中经常会遇到这样的需求，在不同的接口请求数据然后拼合成自己所需的数据，通常这些接口之间没有关联（例如不需要前一个接口的数据作为后一个接口的参数），这个时候 Promise.all 方法就可以派上用场了。</p>
+<p>还有一个和 Promise.all 相类似的方法 Promise.race，它同样接收一个数组，不同的是只要该数组中的 Promise 对象的状态发生变化（无论是 resolve 还是 reject）该方法都会返回。</p>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><hr>
+<p><img src="https://segmentfault.com/img/bVmrXU" alt="这里写图片描述"><br>在浏览器端，一些主流的浏览器都已经可以使用 Promise 对象进行开发，在 Node.js 配合 babel 也可以很方便地使用。</p>
+<p>如果要兼容旧的浏览器，建议可以寻找一些第三方的解决方案，例如 jQuery 的 $.Deferred。</p>
 
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/03/24/JS中的回调函数/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-        
-        
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/archives/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-        </nav>
-    
-
-    
-        <script>
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 5; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')')
-
-        locatePost = locatePost.next();
-    }
-</script>
-
-    
-</div>
 
 
                     
