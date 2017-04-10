@@ -1,1223 +1,1182 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://localhost:4000">
-  <title>某猫のBlog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="某猫のBlog">
-<meta property="og:url" content="http://localhost:4000/index.html">
-<meta property="og:site_name" content="某猫のBlog">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="某猫のBlog">
-  
-    <link rel="alternative" href="/atom.xml" title="某猫のBlog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" type="text/css" href="/./main.2d7529.css">
-  <style type="text/css">
-  
-    #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
-    }
-  </style>
-  
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
 
-  
+    <!-- Title -->
+    
+    <title>
+        
+        某猫のBlog
+    </title>
 
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/moumao.png">
+    <link rel="icon" sizes="192x192" href="/img/moumao.png">
+    <link rel="apple-touch-icon" href="/img/moumao.png">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="moumao">
+    <meta name="description" content="null">
+    <meta name="keywords" content="null">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="某猫のBlog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://localhost:4000">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="某猫のBlog">
+    <meta property="og:description" content="null">
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #757575 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #757575 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #757575 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
 </head>
 
-<body>
-  <div id="container" q-class="show:isCtnShow">
-    <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" q-class="show:isShow">
-      
-<div class="overlay" style="background: #4d4d4d"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			<img src="http://a4.qpic.cn/psb?/V136Rh7x0JJ798/CtG2s3epXoFcJTVErWCeWDHm9zKfrVoPfGSHb7bxVh0!/b/dN8AAAAAAAAA&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=OAQ4BAAAAAAFFzQ!&amp;tm=1489971600&amp;sce=60-2-2&amp;rf=viewer_4" class="js-avatar">
-		</a>
-		<hgroup>
-		  <h1 class="header-author"><a href="/">moumao</a></h1>
-		</hgroup>
-		
 
-		<nav class="header-menu">
-			<ul>
-			
-				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/随笔/">随笔</a></li>
-	        
-			</ul>
-		</nav>
-		<nav class="header-smart-menu">
-    		
-    			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
+    
+        <!-- Paradox Header -->
+        <!-- Daily pic -->
+<div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
+
+    <!-- Pic & Slogan -->
+    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/coverpic.jpg)">
+        <p class="index-top-block-slogan"><a href="#">
+        
             
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
+                腹有诗书气自华
             
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
-    			
-            
-		</nav>
-		<nav class="header-nav">
-			<div class="social">
-				
-					<a class="github" target="_blank" href="https://github.com/moumao" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="mail" target="_blank" href="/1195358569@qq.com" title="mail"><i class="icon-mail"></i></a>
-		        
-			</div>
-		</nav>
-	</header>		
+        
+        </a></p>
+    </div>
+
+    <!-- Avatar & Name -->
+    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <!-- Author Avatar -->
+        <div id="author-avatar">
+            <img src="/img/header.jpg" width="32px" height="32px" alt="avatar">
+        </div>
+        <div>
+            <strong>moumao</strong>
+        </div>
+    </div>
 </div>
 
-    </div>
-    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
-      
-<nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
-	<div class="btnctn js-mobile-btnctn">
-  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
-	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img src="http://a4.qpic.cn/psb?/V136Rh7x0JJ798/CtG2s3epXoFcJTVErWCeWDHm9zKfrVoPfGSHb7bxVh0!/b/dN8AAAAAAAAA&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=OAQ4BAAAAAAFFzQ!&amp;tm=1489971600&amp;sce=60-2-2&amp;rf=viewer_4" class="js-avatar">
-			</div>
-			<hgroup>
-			  <h1 class="header-author js-header-author">moumao</h1>
-			</hgroup>
-			
-			
-			
-				
-			
-				
-			
-			
-			
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/moumao" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="mail" target="_blank" href="/1195358569@qq.com" title="mail"><i class="icon-mail"></i></a>
-			        
-				</div>
-			</nav>
+        <!-- Blog info -->
+<div class="mdl-card mdl-shadow--2dp something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop index-top-block">
 
-			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
-				
-				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
-		        
-				</ul>
-			</nav>
-		</header>				
-	</div>
-	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
-</nav>
-
-      <div id="wrapper" class="body-wrap">
-        <div class="menu-l">
-          <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
-          </div>
-          <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-meta标签总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+    <!-- Search -->
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/05/meta标签总结/">meta标签总结</a>
-    </h1>
-  
 
-        
-        <a href="/2017/04/05/meta标签总结/" class="archive-article-date">
-  	<time datetime="2017-04-05T03:28:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
-<p>meta 元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。</p>
-</blockquote>
-<p>以上是w3c上的解释。元信息，是用来描述数据的数据，也就是用来描述当前页面的一些信息。例如：定义页面的说明，关键字、作者等等。</p>
-<h2 id="包含的属性"><a href="#包含的属性" class="headerlink" title="包含的属性"></a>包含的属性</h2><p><strong>1.name属性</strong></p>
-<p>name 属性提供了名称/值对中的名称（而后面要说的content属性则是该名称对应的值）。假如我们把页面想象成一个我们生活中的实物的话，拿个人简历来作类比，诸如姓名、性别、籍贯、技能、项目经验等等这些都可以看做是个人简历的name属性，content属性相当于这些名称对应的值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;名称&quot; content=&quot;具体的描述&quot;&gt;</div></pre></td></tr></table></figure>
-<p><strong>2.content属性</strong></p>
-<p>content 属性提供了名称/值对中的值。该值可以是任何有效的字符串。<br>content 属性始终要和 name 属性或 http-equiv 属性一起使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;名称&quot; content=&quot;具体的描述&quot;&gt;</div></pre></td></tr></table></figure></p>
-<p><strong>3.http-equiv属性</strong></p>
-<p>equiv是equivalent的简写，是相等的，等价物的意思。不难理解，相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助正确和精确地显示网页内容，与之对应的属性值为content，content中的内容其实就是各个参数的变量值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta http-equiv=&quot;名称&quot; content=&quot;具体的描述&quot;&gt;</div></pre></td></tr></table></figure>
-<h2 id="常用的标签"><a href="#常用的标签" class="headerlink" title="常用的标签"></a>常用的标签</h2><p>使用 HTML5 doctype，不区分大小写。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt; //使用 HTML5 doctype，不区分大小写</div></pre></td></tr></table></figure>
-<p>声明文档使用的字符编码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;meta http-equiv=&quot;content-Type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;  //旧的HTML，不推荐</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt; //HTML5设定网页字符集的方式，推荐使用UTF-8</div></pre></td></tr></table></figure>
-<p>renderer(双核浏览器渲染方式)</p>
-<blockquote>
-<p>说明：renderer是为双核浏览器准备的，用于指定双核浏览器默认以何种方式渲染页面。比如说360浏览器。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt; //默认webkit内核</div><div class="line">&lt;meta name=&quot;renderer&quot; content=&quot;ie-comp&quot;&gt; //默认IE兼容模式</div><div class="line">&lt;meta name=&quot;renderer&quot; content=&quot;ie-stand&quot;&gt; //默认IE标准模式</div></pre></td></tr></table></figure>
-<p>X-UA-Compatible(浏览器采取何种版本渲染当前页面)</p>
-<blockquote>
-<p>说明：用于告知浏览器以何种版本来渲染页面。（一般都设置为最新模式，在各大框架中这个设置也很常见。）</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt; //指定IE和Chrome使用最新版本渲染当前页面</div></pre></td></tr></table></figure>
-<p>refresh(自动刷新并指向某页面)</p>
-<blockquote>
-<p>说明：网页将在设定的时间内，自动刷新并调向设定的网址。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta http-equiv=&quot;Refresh&quot; content=&quot;5;url=http://www.w3school.com.cn&quot; /&gt; //5秒后重定向到w3c官网</div></pre></td></tr></table></figure>
-<p><strong>SEO 优化</strong></p>
-<p>页面描述</p>
-<blockquote>
-<p>每个网页都应有一个不超过 150 个字符且能准确反映网页内容的描述标签</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;description&quot; content=&quot;不超过150个字符&quot;&gt; &lt;!-- 页面描述 --&gt;</div></pre></td></tr></table></figure>
-<p>页面关键词</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt; &lt;!-- 页面关键词 --&gt;</div></pre></td></tr></table></figure>
-<p>定义页面标题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;title&gt;标题&lt;/title&gt;</div></pre></td></tr></table></figure>
-<p>定义网页作者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;author&quot; content=&quot;name, email@gmail.com&quot;&gt; &lt;!-- 网页作者 --&gt;</div></pre></td></tr></table></figure>
-<p>定义网页搜索引擎索引方式，robotterms是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;&gt; &lt;!-- 搜索引擎抓取 --&gt;</div></pre></td></tr></table></figure>
-<p>为移动设备添加 viewport</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name =&quot;viewport&quot; content =&quot;initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no&quot;&gt;</div></pre></td></tr></table></figure>
-<p><a href="http://bigc.at/ios-webapp-viewport-meta.orz" target="_blank" rel="external">width=device-width 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边</a></p>
-<blockquote>
-<p>content 参数：</p>
-<p>width viewport 宽度(数值/device-width) height viewport<br>高度(数值/device-height) initial-scale 初始缩放比例 maximum-scale 最大缩放比例<br>minimum-scale 最小缩放比例 user-scalable 是否允许用户缩放(yes/no) minimal-ui <em>iOS<br>7.1 beta 2</em> 中新增属性（<em>注意：iOS8 中已经删除</em>），可以在页面加载时最小化上下状态栏。这是一个布尔值，可以直接这样写：<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui"></p>
-</blockquote>
-<h2 id="以及一些其他的标签"><a href="#以及一些其他的标签" class="headerlink" title="以及一些其他的标签"></a>以及一些其他的标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 声明文档使用的字符编码 --&gt;</div><div class="line">&lt;meta charset=&apos;utf-8&apos;&gt;</div><div class="line">&lt;!-- 优先使用 IE 最新版本和 Chrome --&gt;</div><div class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt;</div><div class="line">&lt;!-- 页面描述 --&gt;</div><div class="line">&lt;meta name=&quot;description&quot; content=&quot;不超过150个字符&quot;/&gt;</div><div class="line">&lt;!-- 页面关键词 --&gt;</div><div class="line">&lt;meta name=&quot;keywords&quot; content=&quot;&quot;/&gt;</div><div class="line">&lt;!-- 网页作者 --&gt;</div><div class="line">&lt;meta name=&quot;author&quot; content=&quot;name, email@gmail.com&quot;/&gt;</div><div class="line">&lt;!-- 搜索引擎抓取 --&gt;</div><div class="line">&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;</div><div class="line">&lt;!-- 为移动设备添加 viewport --&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no&quot;&gt;</div><div class="line">&lt;!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz --&gt;</div><div class="line"></div><div class="line">&lt;!-- iOS 设备 begin --&gt;</div><div class="line">&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;标题&quot;&gt;</div><div class="line">&lt;!-- 添加到主屏后的标题（iOS 6 新增） --&gt;</div><div class="line">&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;/&gt;</div><div class="line">&lt;!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 --&gt;</div><div class="line"></div><div class="line">&lt;meta name=&quot;apple-itunes-app&quot; content=&quot;app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL&quot;&gt;</div><div class="line">&lt;!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） --&gt;</div><div class="line">&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;/&gt;</div><div class="line">&lt;!-- 设置苹果工具栏颜色 --&gt;</div><div class="line">&lt;meta name=&quot;format-detection&quot; content=&quot;telphone=no, email=no&quot;/&gt;</div><div class="line">&lt;!-- 忽略页面中的数字识别为电话，忽略email识别 --&gt;</div><div class="line">&lt;!-- 启用360浏览器的极速模式(webkit) --&gt;</div><div class="line">&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;</div><div class="line">&lt;!-- 避免IE使用兼容模式 --&gt;</div><div class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</div><div class="line">&lt;!-- 不让百度转码 --&gt;</div><div class="line">&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-siteapp&quot; /&gt;</div><div class="line">&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;</div><div class="line">&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;true&quot;&gt;</div><div class="line">&lt;!-- 微软的老式浏览器 --&gt;</div><div class="line">&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot;&gt;</div><div class="line">&lt;!-- uc强制竖屏 --&gt;</div><div class="line">&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait&quot;&gt;</div><div class="line">&lt;!-- QQ强制竖屏 --&gt;</div><div class="line">&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait&quot;&gt;</div><div class="line">&lt;!-- UC强制全屏 --&gt;</div><div class="line">&lt;meta name=&quot;full-screen&quot; content=&quot;yes&quot;&gt;</div><div class="line">&lt;!-- QQ强制全屏 --&gt;</div><div class="line">&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;</div><div class="line">&lt;!-- UC应用模式 --&gt;</div><div class="line">&lt;meta name=&quot;browsermode&quot; content=&quot;application&quot;&gt;</div><div class="line">&lt;!-- QQ应用模式 --&gt;</div><div class="line">&lt;meta name=&quot;x5-page-mode&quot; content=&quot;app&quot;&gt;</div><div class="line">&lt;!-- windows phone 点击无高光 --&gt;</div><div class="line">&lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;</div><div class="line">&lt;!-- iOS 图标 begin --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;/apple-touch-icon-57x57-precomposed.png&quot;/&gt;</div><div class="line">&lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;114x114&quot; href=&quot;/apple-touch-icon-114x114-precomposed.png&quot;/&gt;</div><div class="line">&lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;144x144&quot; href=&quot;/apple-touch-icon-144x144-precomposed.png&quot;/&gt;</div><div class="line">&lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&gt;</div><div class="line">&lt;!-- iOS 图标 end --&gt;</div><div class="line"></div><div class="line">&lt;!-- iOS 启动画面 begin --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;768x1004&quot; href=&quot;/splash-screen-768x1004.png&quot;/&gt;</div><div class="line">&lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;1536x2008&quot; href=&quot;/splash-screen-1536x2008.png&quot;/&gt;</div><div class="line">&lt;!-- iPad 竖屏 1536x2008（Retina） --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;1024x748&quot; href=&quot;/Default-Portrait-1024x748.png&quot;/&gt;</div><div class="line">&lt;!-- iPad 横屏 1024x748（标准分辨率） --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;2048x1496&quot; href=&quot;/splash-screen-2048x1496.png&quot;/&gt;</div><div class="line">&lt;!-- iPad 横屏 2048x1496（Retina） --&gt;</div><div class="line"></div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;/splash-screen-320x480.png&quot;/&gt;</div><div class="line">&lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;640x960&quot; href=&quot;/splash-screen-640x960.png&quot;/&gt;</div><div class="line">&lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;640x1136&quot; href=&quot;/splash-screen-640x1136.png&quot;/&gt;</div><div class="line">&lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&gt;</div><div class="line">&lt;!-- iOS 启动画面 end --&gt;</div><div class="line"></div><div class="line">&lt;!-- iOS 设备 end --&gt;</div><div class="line">&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#000&quot;/&gt;</div><div class="line">&lt;!-- Windows 8 磁贴颜色 --&gt;</div><div class="line">&lt;meta name=&quot;msapplication-TileImage&quot; content=&quot;icon.png&quot;/&gt;</div><div class="line">&lt;!-- Windows 8 磁贴图标 --&gt;</div><div class="line"></div><div class="line">&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;RSS&quot; href=&quot;/rss.xml&quot;/&gt;</div><div class="line">&lt;!-- 添加 RSS 订阅 --&gt;</div><div class="line">&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/ico&quot; href=&quot;/favicon.ico&quot;/&gt;</div><div class="line">&lt;!-- 添加 favicon icon --&gt;</div><div class="line"></div><div class="line">&lt;!-- sns 社交标签 begin --&gt;</div><div class="line">&lt;!-- 参考微博API --&gt;</div><div class="line">&lt;meta property=&quot;og:type&quot; content=&quot;类型&quot; /&gt;</div><div class="line">&lt;meta property=&quot;og:url&quot; content=&quot;URL地址&quot; /&gt;</div><div class="line">&lt;meta property=&quot;og:title&quot; content=&quot;标题&quot; /&gt;</div><div class="line">&lt;meta property=&quot;og:image&quot; content=&quot;图片&quot; /&gt;</div><div class="line">&lt;meta property=&quot;og:description&quot; content=&quot;描述&quot; /&gt;</div><div class="line">&lt;!-- sns 社交标签 end --&gt;</div></pre></td></tr></table></figure>
-<p>参考：<a href="https://github.com/yisibl/blog/issues/1" target="_blank" rel="external">常用的 HTML 头部标签</a></p>
 
-      
 
-      
+
+    <!-- Local -->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
+        <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
+            <i class="material-icons mdl-color-text--white" role="presentation">search</i>
+        </label>
+
+        <form autocomplete="off" id="search-form" class="mdl-textfield__expandable-holder">
+            <input type="text" id="search" class="form-control mdl-textfield__input search-input" name="q" results="0" placeholder=""/>
+            <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
+        </form>
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">meta</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/html/" class="article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
+    <div id="local-search-result"></div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/05/meta标签总结/">展开全文 >></a>
-        </p>
-      
 
-      
-      <div class="clearfix"></div>
+    <!-- LOGO -->
+    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
+        <a href="http://www.moumaobuchiyu.com">
+            <img src="/img/moumao.png" alt="logo" />
+        </a>
     </div>
-  </div>
-</article>
 
-
-
-
-
-
-
-
-  
-    <article id="post-关于Promise" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/关于Promise/">关于Promise</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/28/关于Promise/" class="archive-article-date">
-  	<time datetime="2017-03-28T03:15:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
-<p>首先设想一个日常开发常常会遇到的需求：在多个接口异步请求数据，然后利用这些数据来进行一系列的操作。一般会这样去写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">url: &apos;......&apos;,</div><div class="line">success: function (data) &#123;</div><div class="line">$.ajax(&#123;</div><div class="line">// 要在第一个请求成功后才可以执行下一步</div><div class="line">url: &apos;......&apos;,</div><div class="line">success: function (data) &#123;</div><div class="line">// ......</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125; &#125;);</div></pre></td></tr></table></figure>
-<p>这样的写法的原理是，当执行一些异步操作时，我们需要知道操作是否已经完成，所有当执行完成的时候会返回一个回调函数，表示操作已经完成。</p>
-<p>使用回调函数的形式理解起来并不困难，但是实际的应用当中会有以下的缺点：</p>
-<blockquote>
-<p>1.在需要多个操作的时候，会导致多个回调函数嵌套，导致代码不够直观，就是常说的 Callback Hell。<br>2.如果几个异步操作之间并没有前后顺序之分（例如不需要前一个请求的结果作为后一个请求的参数）时，同样需要等待上一个操作完成再实行下一个操作。</p>
-</blockquote>
-<p>为了解决上述的问题，Promise 对象应运而生，在 EMCAScript 2015 当中已经成为标准。</p>
-<h2 id="什么是-Promise"><a href="#什么是-Promise" class="headerlink" title="什么是 Promise"></a>什么是 Promise</h2><hr>
-<blockquote>
-<p>一个 Promise 对象可以理解为一次将要执行的操作（常常被用于异步操作），使用了 Promise<br>对象之后可以用一种链式调用的方式来组织代码，让代码更加直观。而且由于 Promise.all<br>这样的方法存在，可以让同时执行多个操作变得简单。接下来就来简单介绍 Promise 对象。</p>
-</blockquote>
-<p><strong>resolve 和 reject</strong></p>
-<p>首先来看一段使用了 Promise 对象的代码。首先来看一段使用了 Promise 对象的代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function helloWorld (ready) &#123;</div><div class="line">return new Promise(function (resolve, reject) &#123;</div><div class="line">if (ready) &#123;</div><div class="line">resolve(&quot;Hello World!&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">reject(&quot;Good bye!&quot;);</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">helloWorld(true).then(function (message) &#123;</div><div class="line">alert(message);</div><div class="line">&#125;, function (error) &#123;</div><div class="line">alert(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>上面的代码实现的功能非常简单，helloWord 函数接受一个参数，如果为 true 就打印 “Hello World!”，如果为 false 就打印错误的信息。helloWord 函数返回的是一个 Promise 对象。</p>
-<p>在 Promise 对象当中有两个重要方法————resolve 和 reject。</p>
-<p>resolve 方法可以使 Promise 对象的状态改变成成功，同时传递一个参数用于后续成功后的操作，在这个例子当中就是 Hello World! 字符串。</p>
-<p>reject 方法则是将 Promise 对象的状态改变为失败，同时将错误的信息传递到后续错误处理的操作。</p>
-<p><strong>Promise 的三种状态</strong></p>
-<p>上面提到了 resolve 和 reject 可以改变 Promise 对象的状态，那么它究竟有哪些状态呢？</p>
-<blockquote>
-<p>Promise 对象有三种状态：</p>
-<p>1.Fulfilled 可以理解为成功的状态<br>2.Rejected 可以理解为失败的状态 Pending 既不是 Fulfilld 也不是<br>3.Rejected 的状态，可以理解为 Promise 对象实例创建时候的初始状态</p>
-</blockquote>
-<p>helloWorld 的例子中的 then 方法就是根据 Promise 对象的状态来确定执行的操作，resolve 时执行第一个函数（onFulfilled），reject 时执行第二个函数（onRejected）。</p>
-<p><strong>then 和 catch</strong></p>
-<p><strong>then</strong></p>
-<p>helloWorld 的例子当中利用了 then(onFulfilld, onRejected) 方法来执行一个任务打印 “Hello World!”，在多个任务的情况下 then 方法同样可以用一个清晰的方式完成。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function printHello (ready) &#123;</div><div class="line">return new Promise(function (resolve, reject) &#123;</div><div class="line">if (ready) &#123;</div><div class="line">resolve(&quot;Hello&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">reject(&quot;Good bye!&quot;);</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function printWorld () &#123;</div><div class="line">alert(&quot;World&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function printExclamation () &#123;</div><div class="line">alert(&quot;!&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">printHello(true)</div><div class="line">.then(function(message)&#123;</div><div class="line">alert(message);</div><div class="line">&#125;)</div><div class="line">.then(printWorld)</div><div class="line">.then(printExclamation);</div></pre></td></tr></table></figure>
-<p>上述例子通过链式调用的方式，按顺序打印出了相应的内容。then 可以使用链式调用的写法原因在于，每一次执行该方法时总是会返回一个 Promise 对象。另外，在 then onFulfilled 的函数当中的返回值，可以作为后续操作的参数，因此上面的例子也可以写成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">printHello(true).then(function (message) &#123;</div><div class="line">return message;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">return message  + &apos; World&apos;;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">return message + &apos;!&apos;;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">alert(message);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><strong>catch</strong><br>catch 方法是 then(onFulfilled, onRejected) 方法当中 onRejected 函数的一个简单的写法，也就是说可以写成 then(fn).catch(fn)，相当于 then(fn).then(null, fn)。使用 catch 的写法比一般的写法更加清晰明确。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">somePromise().then(function () &#123;</div><div class="line">return anotherPromise();</div><div class="line">&#125;).then(function () &#123;</div><div class="line">return yetAnotherPromise();</div><div class="line">&#125;).catch(console.log.bind(console)); // &lt;-- this is badass</div></pre></td></tr></table></figure>
-<p><strong>Promise.all 和 Promise.race</strong></p>
-<p>Promise.all 可以接收一个元素为 Promise 对象的数组作为参数，当这个数组里面所有的 Promise 对象都变为 resolve 时，该方法才会返回。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var p1 = new Promise(function (resolve) &#123;</div><div class="line">setTimeout(function () &#123;</div><div class="line">resolve(&quot;Hello&quot;);</div><div class="line">&#125;, 3000);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var p2 = new Promise(function (resolve) &#123;</div><div class="line">setTimeout(function () &#123;</div><div class="line">resolve(&quot;World&quot;);</div><div class="line">&#125;, 1000);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">Promise.all([p1, p2]).then(function (result) &#123;</div><div class="line">console.log(result); // [&quot;Hello&quot;, &quot;World&quot;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>上面的例子模拟了传输两个数据需要不同的时长，虽然 p2 的速度比 p1 要快，但是 Promise.all 方法会按照数组里面的顺序将结果返回。</p>
-<p>日常开发中经常会遇到这样的需求，在不同的接口请求数据然后拼合成自己所需的数据，通常这些接口之间没有关联（例如不需要前一个接口的数据作为后一个接口的参数），这个时候 Promise.all 方法就可以派上用场了。</p>
-<p>还有一个和 Promise.all 相类似的方法 Promise.race，它同样接收一个数组，不同的是只要该数组中的 Promise 对象的状态发生变化（无论是 resolve 还是 reject）该方法都会返回。</p>
-<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><hr>
-<p><img src="https://segmentfault.com/img/bVmrXU" alt="这里写图片描述"><br>在浏览器端，一些主流的浏览器都已经可以使用 Promise 对象进行开发，在 Node.js 配合 babel 也可以很方便地使用。</p>
-<p>如果要兼容旧的浏览器，建议可以寻找一些第三方的解决方案，例如 jQuery 的 $.Deferred。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/28/关于Promise/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-JS中的回调函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/JS中的回调函数/">JS中的回调函数</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/24/JS中的回调函数/" class="archive-article-date">
-  	<time datetime="2017-03-24T00:28:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###关于回调函数</p>
-<p>首先要了解，在 js 中，函数也是对象，可以赋值给变量，可以作为参数放在函数的参数列表中。比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var doSomething = function(a,b)</div><div class="line">&#123;</div><div class="line">return a + b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这段代码的意思是定义一个匿名函数，这个匿名函数除了没有名字之外，其他跟普通的函数没有什么两样。然后把匿名函数赋值给变量doSomething。接下来我们调用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(doSomething(2,3));//5</div></pre></td></tr></table></figure>
-<p>回调函数，就是放在另外一个函数（如 parent）的参数列表中，作为参数传递给这个 parent，然后在 parent 函数体的某个位置执行:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var doit = function(callback)</div><div class="line">&#123;</div><div class="line">var a = 1,</div><div class="line">b = 2,</div><div class="line">c = 3;</div><div class="line">var t = callback(a,b,c);</div><div class="line">return t + 10;</div><div class="line">&#125;;</div><div class="line">var d = doit(function(x,y,z)&#123;</div><div class="line">return (x+y+z);</div><div class="line">&#125;);</div><div class="line">console.log(d);</div></pre></td></tr></table></figure>
-<p>先定义 doit 函数，有一个参数 callback。这个 callback 就是回调函数，名字可以任意取。看函数体，先定义三个变量 a,b,c。然后调用 callback 函数。最后返回一个值。</p>
-<p>下面就调用 doit 函数了。要注意的是，刚才定义 doit 时，callback 并没有定义，所以刚才并不知道 callback 是干什么用的。这其实很好理解，我们平时定义函数的时候，参数也只是给出了一个名字，比如 a,在函数体中使用 a，但整个过程也并不知道 a 到底是什么，只有在调用那个函数的时候才指定 a 的具体值，比如2.回过头来，在调用 doit 的时候，我们就需要指定 callback 究竟是个什么东西了。可以看到，这个函数完成了一个 sum 功能。</p>
-<p>上述代码的执行过程是：</p>
-<p>调用 doit函数，参数是一个匿名函数；进入 doit 的函数体中，先定义 a,b,c，然后执行刚才的匿名函数，参数是 a,b,c，并返回一个 t，最后返回一个 t+10给 d。</p>
-<hr>
-<p>传统函数以参数形式输入数据，并且使用返回语句返回值。理论上，在函数结尾处有一个return返回语句，结构上就是：一个输入点和一个输出点。这比较容易理解，函数本质上就是输入和输出之间实现过程的映射。</p>
-<p>但是，当函数的实现过程非常漫长，你是选择等待函数完成处理，还是使用回调函数进行异步处理呢？这种情况下，使用回调函数变得至关重要，例如：AJAX请求。若是使用回调函数进行处理，代码就可以继续进行其他任务，而无需空等。实际开发中，经常在javascript中使用异步调用，甚至在这里强烈推荐使用。</p>
-<p>因此，回调本质上是一种设计模式，并且jQuery(包括其他框架)的设计原则遵循了这个模式。</p>
-<p>在JavaScript中，回调函数具体的定义为：函数A作为参数(函数引用)传递到另一个函数B中，并且这个函数B执行函数A。我们就说函数A叫做回调函数。如果没有名称(函数表达式)，就叫做匿名回调函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//基本方式</div><div class="line">function doSomething(callback) &#123;</div><div class="line">// … </div><div class="line">// Call the callback</div><div class="line">callback(&apos;stuff&apos;, &apos;goes&apos;, &apos;here&apos;);</div><div class="line">&#125; </div><div class="line">function foo(a, b, c) &#123;</div><div class="line">// I&apos;m the callback</div><div class="line">alert(a + &quot; &quot; + b + &quot; &quot; + c);</div><div class="line">&#125; </div><div class="line">doSomething(foo);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//匿名函数的形式</div><div class="line">function dosomething(damsg, callback)&#123;</div><div class="line">alert(damsg);</div><div class="line">if(typeof callback == &quot;function&quot;) </div><div class="line">callback();</div><div class="line">&#125; </div><div class="line">dosomething(&quot;回调函数&quot;, function()&#123;</div><div class="line">alert(&quot;和 jQuery 的 callbacks 形式一样!&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>所以callback 不一定用于异步，一般同步(阻塞)的场景下也经常用到回调，比如要求执行某些操作后执行回调函数。</p>
-<p><strong>回调什么时候执行</strong></p>
-<p>回调函数，一般在同步情境下是最后执行的，而在异步情境下有可能不执行，因为事件没有被触发或者条件不满足。</p>
-<p><strong>回调函数的使用场合</strong></p>
-<p>资源加载：动态加载js文件后执行回调，加载iframe后执行回调，ajax操作回调，图片加载完成执行回调，AJAX等等。</p>
-<p>DOM事件及Node.js事件基于回调机制(Node.js回调可能会出现多层回调嵌套的问题)。</p>
-<p>setTimeout的延迟时间为0，这个hack经常被用到，settimeout调用的函数其实就是一个callback的体现</p>
-<p>链式调用：链式调用的时候，在赋值器(setter)方法中(或者本身没有返回值的方法中)很容易实现链式调用，而取值器(getter)相对来说不好实现链式调用，因为你需要取值器返回你需要的数据而不是this指针，如果要实现链式方法，可以用回调函数来实现setTimeout、setInterval的函数调用得到其返回值。由于两个函数都是异步的，即：他们的调用时序和程序的主流程是相对独立的，所以没有办法在主体里面等待它们的返回值，它们被打开的时候程序也不会停下来等待，否则也就失去了setTimeout及setInterval的意义了，所以用return已经没有意义，只能使用callback。callback的意义在于将timer执行的结果通知给代理函数进行及时处理。</p>
-<p><strong>回调函数的传递</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$.get(&apos;myhtmlpage.html&apos;, myCallBack);//这是对的</div><div class="line">$.get(&apos;myhtmlpage.html&apos;, myCallBack(&apos;foo&apos;, &apos;bar&apos;));//这是错的，那么要带参数呢？</div><div class="line">$.get(&apos;myhtmlpage.html&apos;, function()&#123;//带参数的使用函数表达式</div><div class="line">myCallBack(&apos;foo&apos;, &apos;bar&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>另外，最好保证回调存在且必须是函数引用或者函数表达式： (callback &amp;&amp; typeof(callback) ===<br>“function”) &amp;&amp; callback();</p>
-</blockquote>
-<hr>
-<p>###回调函数使用实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//使用call方法</div><div class="line">function Thing(name) &#123;</div><div class="line">this.name = name;</div><div class="line">&#125;</div><div class="line">Thing.prototype.doSomething = function(callback) &#123;</div><div class="line">// Call our callback, but using our own instance as the context</div><div class="line">callback.call(this);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function foo() &#123;</div><div class="line">alert(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var t = new Thing(&apos;Joe&apos;);</div><div class="line">t.doSomething(foo); // Alerts &quot;Joe&quot; via `foo`</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//传参数</div><div class="line">function Thing(name) &#123;</div><div class="line">this.name = name;</div><div class="line">&#125;</div><div class="line">Thing.prototype.doSomething = function(callback, salutation) &#123;</div><div class="line">// Call our callback, but using our own instance as the context</div><div class="line">callback.call(this, salutation);</div><div class="line">&#125; </div><div class="line">function foo(salutation) &#123;</div><div class="line">alert(salutation + &quot; &quot; + this.name);</div><div class="line">&#125; </div><div class="line">var t = new Thing(&apos;Joe&apos;);</div><div class="line">t.doSomething(foo, &apos;Hi&apos;); // Alerts &quot;Hi Joe&quot; via `foo`</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//使用apply传参</div><div class="line">function Thing(name) &#123;</div><div class="line">this.name = name;</div><div class="line">&#125;</div><div class="line">Thing.prototype.doSomething = function(callback) &#123;</div><div class="line">// Call our callback, but using our own instance as the context</div><div class="line">callback.apply(this, [&apos;Hi&apos;, 3, 2, 1]);</div><div class="line">&#125; </div><div class="line">function foo(salutation, three, two, one) &#123;</div><div class="line">alert(salutation + &quot; &quot; + this.name + &quot; – &quot; + three + &quot; &quot; + two + &quot; &quot; + one);</div><div class="line">&#125; </div><div class="line">var t = new Thing(&apos;Joe&apos;);</div><div class="line">t.doSomething(foo); // Alerts &quot;Hi Joe – 3 2 1&quot; via `foo`</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//假如提供的数据源是一整数,为某学生的分数,当num&lt;=0,由底层处理,当n&gt;0时由高层处理.</div><div class="line">//将下面这个函数拷贝下来存盘为1.js</div><div class="line">function f(num,callback)&#123;</div><div class="line">if(num&lt;0) &#123; </div><div class="line">alert(&quot;调用低层函数处理!&quot;);</div><div class="line">alert(&quot;分数不能为负,输入错误!&quot;); </div><div class="line">&#125;else if(num==0)&#123;</div><div class="line">alert(&quot;调用低层函数处理!&quot;);</div><div class="line">alert(&quot;该学生可能未参加考试！&quot;);</div><div class="line">&#125;else&#123;</div><div class="line">alert(&quot;调用高层函数处理!&quot;);</div><div class="line">callback();</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">//将下面这个test.html文件存盘与1.js在一个目录下：</div><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</div><div class="line">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=gb2312&quot;&gt;</div><div class="line">&lt;script src=&quot;1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;title&gt;无标题文档&lt;/title&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">function test()&#123;</div><div class="line">var p=document.getElementById(&quot;pp&quot;);</div><div class="line">pp.innerText=&quot;&quot;;</div><div class="line">var num=document.getElementById(&quot;score&quot;).value;</div><div class="line">f(num,function()&#123; //匿名高层处理函数</div><div class="line">if(num&lt;60) alert(&quot;未及格！&quot;);</div><div class="line">else if(num&lt;=90) alert(&quot;该生成绩优良！&quot;);</div><div class="line">else alert(&quot;该生成绩优秀!&quot;); &#125;)</div><div class="line">pp.innerText=&quot;by since1978 qq558064!&quot;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">&lt;p&gt;</div><div class="line">回调函数示例:当学生成绩score&lt;=0分时候，由底层处理；当score&gt;0时，由高层处理。</div><div class="line">&lt;/p&gt;</div><div class="line">请输入学生成绩&lt;input type=&quot;text&quot; id=&quot;score&quot;&gt; </div><div class="line">&lt;input type=&quot;button&quot; onClick=&quot;test()&quot; value=&quot; 看看结果&quot;&gt;</div><div class="line">&lt;p id=&quot;pp&quot;&gt;&lt;/p&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//node.js中出现的回调函数</div><div class="line">app.use(function(req, res, next) &#123;</div><div class="line">var err = new Error(&apos;Not Found&apos;);</div><div class="line">err.status = 404;</div><div class="line">next(err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<hr>
-<p>###小结<br>回调函数是实现js异步编程的四种方法之一，但并不推荐用此方法： 回调函数的优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合（Coupling），流程会很混乱，而且每个任务只能指定一个回调函数。</p>
-<p>不过正如上文所说，回调函数不一定用于异步，一般同步(阻塞)的场景下也经常用到回调，比如要求执行某些操作后执行回调函数。</p>
-<blockquote>
-<p>在javascript中回调函数非常重要，它们几乎无处不在</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">回调函数</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/24/JS中的回调函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-什么是动态HTML？-DHTML" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/什么是动态HTML？-DHTML/">什么是动态HTML？-DHTML</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/23/什么是动态HTML？-DHTML/" class="archive-article-date">
-  	<time datetime="2017-03-23T14:07:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>DHTML是Dynamic HTML的简称，中文译为“动态超文本标记语言”，主要用途是提**TML页面的交互性和可操作性。它是建立在传统HTML基础上的客户端动态技术，是一种技术的总称，它通过HTML、VBScript、JavaScript邮和CSS等语言、技术使网页能够具有动态交互功能。虽然HTML语言可以制作出具有复杂格式的网页，但这样制作出来的网页只包含静态内容。凡是网页上有任何信息需要更新，浏览器就必须从服务器上重新下载整个网页，因而给网络造成极大的负担。它是建立在传统HTML基础上的客户端动态技术。</p>
-<p>DHTML实现了网页从Web服务器下载后无需再经过服务的处理，而在浏览器中直接动态地更新网页的内容、排版样式和动画的功能。例如，当鼠标指针移到文章段落中时，段落能够变成蓝色，或者当鼠标指针移到一个超级链接上时，会自动生成一个下拉式子链接目录等。这是近年来网络飞速发展进程中员振奋人心也最具实用性的技术之一。DHTML是一种通过各种技术的综合发展而来的概念，这些技术包括JavaScript、VBScript、DOM(Document Object Mode，文档对象模型)、Layers和CSS(Cascading Style Sheets，层又叠样式表)等。目前IE4．0以上的大多数浏览器都加入了对DHTML的支持，主要包括以下内容：</p>
-<blockquote>
-<p>①动态内容(Dynamic Content)：动态地更新网页内容，可“动态”地插入、修改或删除网页的元件，如文字、图像、标记等。​</p>
-<p>②动态排版样式(Dynamic Style<br>Sheets)：W3C的CSS样式表提供了设定HTML标记的字体大小、字形、样式、粗细、文字颜色、行高度、加底线或加中间横线、缩排、与边缘距离、靠左右或置中、背景图片或颜色等排版功能，而“动态排版样式”即可以“动态”地改变排版样式。</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">dhtml</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/html/" class="article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/23/什么是动态HTML？-DHTML/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-JS中this的指向" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/22/JS中this的指向/">JS中this的指向</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/22/JS中this的指向/" class="archive-article-date">
-  	<time datetime="2017-03-22T06:14:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>this是Javascript语言的一个关键字。</strong> </p>
-<p>它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。比如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function test()&#123; </div><div class="line"></div><div class="line">　　　　this.x = 1; </div><div class="line"></div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是，调用函数的那个对象。</p>
-</blockquote>
-<p>下面分四种情况，详细讨论this的用法。<br>
-        
-          <a class="article-more-a" href="/2017/03/22/JS中this的指向/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">this</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/22/JS中this的指向/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-js中Math-random-生成指定范围数值的随机数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/20/js中Math-random-生成指定范围数值的随机数/"> js中Math.random()生成指定范围数值的随机数</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/20/js中Math-random-生成指定范围数值的随机数/" class="archive-article-date">
-  	<time datetime="2017-03-20T15:43:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>定义和用法</strong></p>
-<p>random() 方法可返回介于 0 ~ 1 之间的一个随机数。</p>
-<p><strong>语法</strong></p>
-<p>Math.random()</p>
-<p><strong>返回值</strong></p>
-<p>0.0 ~ 1.0 之间的一个伪随机数。</p>
-<p><strong>实例</strong></p>
-<p>在本例中，我们将取得介于 0 到 1 之间的一个随机数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">document.write(Math.random());</div><div class="line">&lt;/script&gt;</div><div class="line">// 输出：</div><div class="line">0.15246391076246546</div></pre></td></tr></table></figure>
-<p><strong>关于如何生成指定范围值的随机数？</strong></p>
-<blockquote>
-<p>利用 parseInt()、Math.floor() 或者 Math.ceil()进行四舍五入处理</p>
-</blockquote>
-<p>我们看到，直接使用Math.random()方法，生成的是一个小于1的数，所以：</p>
-<blockquote>
-<p>Math.random()*5</p>
-</blockquote>
-<p>得到的结果是一个小于5的随机数。而我们通常希望得到的是0-5之间的整数，所以我们需要对得到的结果四舍五入处理一下，从而得到我们期望的整数。parseInt()、Math.floor()和Math.ceil()都可以起到四舍五入的作用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var randomNum = Math.random()*5;</div><div class="line">alert(randomNum); // 2.9045290905811183 </div><div class="line">alert(parseInt(randomNum,10)); // 2</div><div class="line">alert(Math.floor(randomNum)); // 2</div><div class="line">alert(Math.ceil(randomNum)); // 3</div></pre></td></tr></table></figure></p>
-<p>由测试的代码我们可以看到，<code>parseInt()</code>和<code>Math.floor()</code>的效果是一样的，都是向下取整数部分。所以<code>parseInt(Math.random()*5,10)</code>和<code>Math.floor(Math.random()*5)</code>都是生成的0-4之间的随机数，<code>Math.ceil(Math.random()*5)</code>则是生成的1-5之间的随机数。</p>
-<p><strong>生成指定范围数值随机数</strong></p>
-<p>如果你希望生成1到任意值的随机数，公式就是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// max - 期望的最大值</div><div class="line">parseInt(Math.random()*max,10)+1;</div><div class="line">Math.floor(Math.random()*max)+1;</div><div class="line">Math.ceil(Math.random()*max);</div></pre></td></tr></table></figure>
-<p>如果你希望生成0到任意值的随机数，公式就是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// max - 期望的最大值</div><div class="line">parseInt(Math.random()*(max+1),10);</div><div class="line">Math.floor(Math.random()*(max+1));</div></pre></td></tr></table></figure>
-<p>如果你希望生成任意值到任意值的随机数，公式就是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// max - 期望的最大值</div><div class="line">// min - 期望的最小值 </div><div class="line">parseInt(Math.random()*(max-min+1)+min,10);</div><div class="line">Math.floor(Math.random()*(max-min+1)+min);</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/20/js中Math-random-生成指定范围数值的随机数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-nodejs部署到阿里云全过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/16/nodejs部署到阿里云全过程/">Node.js部署到阿里云服务器</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/16/nodejs部署到阿里云全过程/" class="archive-article-date">
-  	<time datetime="2017-03-16T07:26:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>整个部署过程学到了不少东西，记录一下。</p>
-<blockquote>
-<p>参考了以下文章：<br> <a href="http://itbilu.com/other/relate/NJ2TJohl.html" target="_blank" rel="external">http://itbilu.com/other/relate/NJ2TJohl.html</a><br><a href="https://segmentfault.com/a/1190000004051670" target="_blank" rel="external">https://segmentfault.com/a/1190000004051670</a><br><a href="http://borninsummer.com/2015/06/17/notes-on-developing-nodejs-webapp/" target="_blank" rel="external">http://borninsummer.com/2015/06/17/notes-on-developing-nodejs-webapp/</a><br><a href="https://bbs.aliyun.com/read/146189.html" target="_blank" rel="external">https://bbs.aliyun.com/read/146189.html</a></p>
-</blockquote>
-<p><strong>1. 到阿里云购买云服务器 ECS 。</strong><br><a href="https://www.aliyun.com/product/ecs" target="_blank" rel="external">https://www.aliyun.com/product/ecs</a><br>如果是在校学生，在淘宝有实名认证，且在学信网有注册，可以试试抢学生的首月优惠套餐。<a href="https://www.aliyun.com/act/aliyun/campus.html" target="_blank" rel="external">https://www.aliyun.com/act/aliyun/campus.html</a><br>作为一个穷逼+不熟悉服务器配置的菜鸟。选了最便宜的套餐：<br>CPU： 1核 / 内存： 1024 MB / 带宽：1Mbps / 操作系统： CentOS 7.0<br>购买环节会设置 ssh 登陆密码，记下密码。<br>登陆到阿里云，查看购买的实例。<br>注意公网 IP，下一步会用到<br><img src="http://img.blog.csdn.net/20170212142340544?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="购买的实例"><br><strong>2. 登陆服务器</strong><br>sudo ssh 你的服务器ip地址</p>
-<blockquote>
-<p>关于 ssh 登陆，具体可以看<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a> 这篇文章。</p>
-</blockquote>
-<p>提示输入mac的密码，提示输入服务器密码。<br>输入后连接成功并显示服务器信息，如下：<br><img src="http://img.blog.csdn.net/20170212142549327?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="成功的状态"></p>
-<p>登陆服务器后。这里对于我这个 Linux 菜鸟有个大坑………就是 Linux 系统常见的目录结构和文件放置区域。<br>使用 root 用户身份登陆后，会直接进入到下图 红色箭头标出的 root 目录下。先 cd .. 跳转到上一层, 再 ls -a ，就可以看到类似下图的目录结构了。</p>
-<p><img src="http://img.blog.csdn.net/20170212142640688?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图片引用自《鸟哥的Linux》"></p>
-<p><strong>3.安装 node 和 mongodb</strong></p>
-<blockquote>
-<p>node – 编译后二进制文件应在/usr/local/bin/node 下<br> mongodb –安装在/usr/local/mongodb 下</p>
-</blockquote>
-<p>下面就一步一步来，首先升级CentOS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y update</div></pre></td></tr></table></figure>
-<p>升级后，跳转到 /usr/local/src , 这个文件夹通常用来存放软件源代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/src</div></pre></td></tr></table></figure>
-<p>下载 nodejs 代码，也可以使用scp命令直接上传，因为下载实在太慢了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://nodejs.org/dist/v0.12.5/node-v0.12.5.tar.gz</div><div class="line">//注*根据最新版本号为准</div></pre></td></tr></table></figure>
-<p>解压</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xzvf node-v0.12.5.tar.gz</div></pre></td></tr></table></figure>
-<p>进入解压后的文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd node-v0.12.5</div></pre></td></tr></table></figure>
-<p>执行配置脚本来进行编译预处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure</div></pre></td></tr></table></figure>
-<p>编译源代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line">//注*这个时间可能会很久</div></pre></td></tr></table></figure>
-<p>当编译完成后，需要使之在系统范围内可用, 编译后的二进制文件将被放置到系统路径，默认情况下，Node二进制文件应该放在/user/local/bin/node文件夹下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make install</div></pre></td></tr></table></figure>
-<p>安装 express 和 forever，这两个模块都推荐 global 安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -g install express forever</div></pre></td></tr></table></figure>
-<p>建立超级链接, 不然 sudo node 时会报 “command not found”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /usr/local/bin/node /usr/bin/node</div><div class="line">sudo ln -s /usr/local/lib/node /usr/lib/node</div><div class="line">sudo ln -s /usr/local/bin/npm /usr/bin/npm</div><div class="line">sudo ln -s /usr/local/bin/node-waf /usr/bin/node-waf</div><div class="line">sudo ln -s /usr/local/bin/forever /usr/bin/forever</div></pre></td></tr></table></figure>
-<p>Nodejs到这里就基本安装完成了。</p>
-<p><strong>下面来安装mongodb</strong></p>
-<blockquote>
-<p>软件安装位置：/usr/local/mongodb<br>数据存放位置：/var/mongodb/data<br>日志存放位置：/var/mongodb/logs</p>
-</blockquote>
-<p>首先下载安装包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local</div><div class="line">wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz</div></pre></td></tr></table></figure>
-<p>解压安装包，重命名文件夹为mongodb</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tar zxvf mongodb-linux-x86_64-2.6.0.tgz</div><div class="line">mv mongodb-linux-x86_64-2.6.0 mongodb</div></pre></td></tr></table></figure>
-<p>创建数据和日志存放目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir /var/mongodb</div><div class="line">mkdir /var/mongodb/data</div><div class="line">mkdir /var/mongodb/logs</div></pre></td></tr></table></figure>
-<p>打开rc.local文件，添加CentOS开机启动项：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/rc.d/rc.local</div></pre></td></tr></table></figure>
-<p>将mongodb启动命令追加到本文件中，让mongodb开机自启动：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath </div><div class="line">/var/mongodb/logs/log.log -fork</div></pre></td></tr></table></figure>
-<p>关闭 vim 后，直接手动启动mongodb</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath </div><div class="line">/var/mongodb/logs/log.log -fork</div></pre></td></tr></table></figure>
-<p>看到类似的信息，说明已启动成功。我在这里发了个傻，以为26308是port号，导致后面设置port时折腾了好久。其实这里的 forked process 和 port 号是两个东西， 这个是程序本身在Server上的进程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">forked process: 26308</div></pre></td></tr></table></figure>
-<p>启动mongo shell</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/mongodb/bin/</div><div class="line">./mongo</div></pre></td></tr></table></figure>
-<p>在 mongo shell 中创建管理员及数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">use admin //admin 数据库</div><div class="line">db.createUser(&#123;</div><div class="line">user: &quot;用户名&quot;,</div><div class="line">pwd:&quot;登陆密码&quot;,</div><div class="line">roles:[&quot;userAdminAnyDatabase&quot;] //超级管理员</div><div class="line">&#125;)</div><div class="line"></div><div class="line">use databaseFoo //nodeapp 要连接的数据库</div><div class="line">db.createUser(&#123;</div><div class="line">user: &quot;用户名&quot;,</div><div class="line">pwd:&quot;登陆密码&quot;,</div><div class="line">roles:[&quot;readWrite&quot;] //读写权限</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>到这里 mongodb 基本已经安装设置完成了。具体数据的迁移导入可自行研究。</p>
-<p><strong>4.配置及启动node app</strong></p>
-<p>我们把 nodeapp 的程序放在 /home 下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /home</div></pre></td></tr></table></figure>
-<p>我使用 <a href="http://git.oschina.net/" target="_blank" rel="external">http://git.oschina.net/</a> 管理代码。它的私有库是免费的。基本操作和 github 一样。<br>复制代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://git.oschina.net/xxxxxxx/nodeapp.git   //你的repo地址</div></pre></td></tr></table></figure>
-<p>注*同时可以使用图形化程序进行上传如File Zilla<img src="http://img.blog.csdn.net/20170212201742447?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="FZ"><br>进入 nodeapp 文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd nodeapp</div></pre></td></tr></table></figure>
-<p>（若后续代码变更，提交到 git repo 后直接git pull即可部署代码）<br>安装nodeapp的所有依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
-<p>在启动文件 ( 我的是 app.js ) 中设置数据库连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim app.js</div></pre></td></tr></table></figure>
-<p>数据库连接类似下面的格式，由于数据库安装在同一服务器，因此 host 为127.0.0.1：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dbUrl = &apos;mongodb://用户名:登陆密码@127.0.0.1/databaseFoo&apos;;</div><div class="line">mongoose.connect(dbUrl)</div></pre></td></tr></table></figure>
-<p>这里要注意，如果直接 npm start 或 node app.js 启动，则一旦退出 ssh 远程登陆，nodeapp 就会停止运行。因此我们使用 forever 启动 nodeapp。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NODE_ENV=production forever start app.js</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如今可以使用PM2启动程序，步骤如下：<br>使用它要先安装它，用root账号和全局模式安装一下：<br><code>npm install -g pm2</code><br>用它来启动程序（在当前目录下可以直接启动）<br><code>pm2 start app.js --name uops</code></p>
-</blockquote>
-<p>在蹚过无数坑后，项目部署成功。用浏览器打开 公网IP:端口号 即可看到 nodeapp 的首页</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/node.js/" class="article-tag-list-link color3">node.js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/16/nodejs部署到阿里云全过程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
-
-
-          </div>
+    <!-- Infomation -->
+    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
+        <!-- Blog Title -->
+        <div>
+            <strong>某猫のBlog</strong>
         </div>
-      </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2017 moumao
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+        <div class="section-spacer"></div>
+
+        <!-- Pages -->
+        <button id="show-pages-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">view_carousel</i>
+            <span class="visuallyhidden">Pages</span>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
+            
+                <a class="index_share-link" href="/about" title="关于我">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        关于我
+                    </li>
+                </a>
+            
+                <a class="index_share-link" href="/tags" title="标签云">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        标签云
+                    </li>
+                </a>
+            
+        </ul>
+
+        <!-- Menu -->
+        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">more_vert</i>
+            <span class="visuallyhidden">show menu</span>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
+            
+
+            
+
+            
+                <a class="index_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=某猫のBlog&url=http://localhost:4000/&pic=&searchPic=false&style=simple" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        分享到微博
+                    </li>
+                </a>
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+                <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=某猫のBlog&title=某猫のBlog&summary=null&pics=http://localhost:4000/img/moumao.png&url=http://localhost:4000/" target="_blank">
+                    <li class="mdl-menu__item">
+                        分享到 QQ
+                    </li>
+                </a>
+            
+
+            
+        </ul>
     </div>
-  </div>
-</footer>
+</div>
+
+    
+    <div class="locate-thumbnail-symbol"></div>
+    <!-- Pin on top -->
+    
+
+    <!-- Normal Post -->
+    
+        
+        
+            <!-- Paradox Thumbnail -->
+            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/random/bg7.jpg)">
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/04/05/meta标签总结/">meta标签总结</a></p>
     </div>
-    <script>
-	var yiliaConfig = {
-		mathjax: false,
-		isHome: true,
-		isPost: false,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false,
-		root: "/",
-		innerArchive: true,
-		showTags: false
-	}
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            定义
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/04/05/meta标签总结/" target="_self">继续阅读</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/header.jpg" width="44px" height="44px" alt="moumao's avatar">
+            </div>
+            <div>
+                <strong>moumao</strong>
+                <span>4月 05, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/html/">html</a>
+            </span>
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+        
+        
+        
+    
+        
+        
+            <!-- Paradox Thumbnail -->
+            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://segmentfault.com/img/bVmrXU)">
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/03/28/关于Promise/">关于Promise</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            前言
+首先...
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/03/28/关于Promise/" target="_self">继续阅读</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/header.jpg" width="44px" height="44px" alt="moumao's avatar">
+            </div>
+            <div>
+                <strong>moumao</strong>
+                <span>3月 28, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/javascript/">javascript</a>
+            </span>
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+        
+        
+        
+    
+        
+        
+            <!-- Paradox Thumbnail -->
+            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/random/bg5.jpg)">
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/03/24/JS中的回调函数/">JS中的回调函数</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            ###关于回调函数
+首先要了解，在 js 中，函数也是对象，可以赋值给变量，可以作为参数放在函数的参数列表中。比如：
+
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/03/24/JS中的回调函数/" target="_self">继续阅读</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/header.jpg" width="44px" height="44px" alt="moumao's avatar">
+            </div>
+            <div>
+                <strong>moumao</strong>
+                <span>3月 24, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/javascript/">javascript</a>
+            </span>
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+        
+        
+        
+    
+        
+        
+            <!-- Paradox Thumbnail -->
+            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/random/bg4.jpg)">
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/03/23/什么是动态HTML？-DHTML/">什么是动态HTML？-DHTML</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            DHTML是Dynamic HTML的简称，中文译为“动态超文本标记语言”，主要用途是提**TML页面的交互性和可操作性。它是建立在传统HTML基础...
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/03/23/什么是动态HTML？-DHTML/" target="_self">继续阅读</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/header.jpg" width="44px" height="44px" alt="moumao's avatar">
+            </div>
+            <div>
+                <strong>moumao</strong>
+                <span>3月 23, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/html/">html</a>
+            </span>
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+        
+        
+        
+    
+        
+        
+            <!-- Paradox Thumbnail -->
+            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/random/bg2.jpg)">
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/03/22/JS中this的指向/">JS中this的指向</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            this是Javascript语言的一个关键字。 
+它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。比如:
+12345function test()&#123; 　　　　this.x = 1; 　　&#125;
+
+随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是，调用函数的那个对象。
+
+下面分四种情况，详细讨论this的用法。
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/03/22/JS中this的指向/" target="_self">继续阅读</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/header.jpg" width="44px" height="44px" alt="moumao's avatar">
+            </div>
+            <div>
+                <strong>moumao</strong>
+                <span>3月 22, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/javascript/">javascript</a>
+            </span>
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+        
+        
+        
+    
+        
+        
+            <!-- Paradox Thumbnail -->
+            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/random/bg3.jpg)">
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/03/20/js中Math-random-生成指定范围数值的随机数/"> js中Math.random()生成指定范围数值的随机数</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            定义和用法
+random() 方法可返回介于 0 ~ 1 之间的一个随机数。
+
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/03/20/js中Math-random-生成指定范围数值的随机数/" target="_self">继续阅读</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/header.jpg" width="44px" height="44px" alt="moumao's avatar">
+            </div>
+            <div>
+                <strong>moumao</strong>
+                <span>3月 20, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/javascript/">javascript</a>
+            </span>
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+        
+        
+        
+    
+        
+        
+            <!-- Paradox Thumbnail -->
+            <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/random/bg1.jpg)">
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/03/16/nodejs部署到阿里云全过程/">Node.js部署到阿里云服务器</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            整个部署过程学到了不少东西，记录一下。
+
+参考了以下文章： 
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/03/16/nodejs部署到阿里云全过程/" target="_self">继续阅读</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/header.jpg" width="44px" height="44px" alt="moumao's avatar">
+            </div>
+            <div>
+                <strong>moumao</strong>
+                <span>3月 16, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/node-js/">node.js</a>
+            </span>
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+        
+        
+        
+    
+
+    
+    <!-- Index nav -->
+        <nav class="material-nav mdl-cell mdl-cell--12-col">
+            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
+        </nav>
+    
+
+    
+        <script>
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 7; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')')
+
+        locatePost = locatePost.next();
+    }
 </script>
 
-<script>!function(t){function n(r){if(e[r])return e[r].exports;var o=e[r]={exports:{},id:r,loaded:!1};return t[r].call(o.exports,o,o.exports,n),o.loaded=!0,o.exports}var e={};return n.m=t,n.c=e,n.p="./",n(0)}([function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function o(t,n){var e=/\/|index.html/g;return t.replace(e,"")===n.replace(e,"")}function i(){for(var t=document.querySelectorAll(".js-header-menu li a"),n=window.location.pathname,e=0,r=t.length;e<r;e++){var i=t[e];o(n,i.getAttribute("href"))&&(0,d.default)(i,"active")}}function u(t){for(var n=t.offsetLeft,e=t.offsetParent;null!==e;)n+=e.offsetLeft,e=e.offsetParent;return n}function f(t){for(var n=t.offsetTop,e=t.offsetParent;null!==e;)n+=e.offsetTop,e=e.offsetParent;return n}function c(t,n,e,r,o){var i=u(t),c=f(t)-n;if(c-e<=o){var a=t.$newDom;a||(a=t.cloneNode(!0),(0,h.default)(t,a),t.$newDom=a,a.style.position="fixed",a.style.top=(e||c)+"px",a.style.left=i+"px",a.style.zIndex=r||2,a.style.width="100%",a.style.color="#fff"),a.style.visibility="visible",t.style.visibility="hidden"}else{t.style.visibility="visible";var s=t.$newDom;s&&(s.style.visibility="hidden")}}function a(){var t=document.querySelector(".js-overlay"),n=document.querySelector(".js-header-menu");c(t,document.body.scrollTop,-63,2,0),c(n,document.body.scrollTop,1,3,0)}function s(){document.querySelector("#container").addEventListener("scroll",function(t){a()}),window.addEventListener("scroll",function(t){a()}),a()}function l(){x.default.versions.mobile&&window.screen.width<800&&(i(),s())}var p=e(71),d=r(p),v=e(72),y=(r(v),e(84)),h=r(y),b=e(69),x=r(b),m=e(75),g=r(m),w=e(70);l(),(0,w.addLoadEvent)(function(){g.default.init()}),t.exports={}},function(t,n){var e=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=e)},function(t,n){var e={}.hasOwnProperty;t.exports=function(t,n){return e.call(t,n)}},function(t,n,e){var r=e(49),o=e(15);t.exports=function(t){return r(o(t))}},function(t,n,e){t.exports=!e(8)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,e){var r=e(6),o=e(12);t.exports=e(4)?function(t,n,e){return r.f(t,n,o(1,e))}:function(t,n,e){return t[n]=e,t}},function(t,n,e){var r=e(10),o=e(30),i=e(24),u=Object.defineProperty;n.f=e(4)?Object.defineProperty:function(t,n,e){if(r(t),n=i(n,!0),r(e),o)try{return u(t,n,e)}catch(t){}if("get"in e||"set"in e)throw TypeError("Accessors not supported!");return"value"in e&&(t[n]=e.value),t}},function(t,n,e){var r=e(22)("wks"),o=e(13),i=e(1).Symbol,u="function"==typeof i,f=t.exports=function(t){return r[t]||(r[t]=u&&i[t]||(u?i:o)("Symbol."+t))};f.store=r},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n,e){var r=e(35),o=e(16);t.exports=Object.keys||function(t){return r(t,o)}},function(t,n,e){var r=e(11);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var e=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++e+r).toString(36))}},function(t,n){var e=t.exports={version:"2.4.0"};"number"==typeof __e&&(__e=e)},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n){t.exports={}},function(t,n){t.exports=!0},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,e){var r=e(6).f,o=e(2),i=e(7)("toStringTag");t.exports=function(t,n,e){t&&!o(t=e?t:t.prototype,i)&&r(t,i,{configurable:!0,value:n})}},function(t,n,e){var r=e(22)("keys"),o=e(13);t.exports=function(t){return r[t]||(r[t]=o(t))}},function(t,n,e){var r=e(1),o="__core-js_shared__",i=r[o]||(r[o]={});t.exports=function(t){return i[t]||(i[t]={})}},function(t,n){var e=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:e)(t)}},function(t,n,e){var r=e(11);t.exports=function(t,n){if(!r(t))return t;var e,o;if(n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;if("function"==typeof(e=t.valueOf)&&!r(o=e.call(t)))return o;if(!n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;throw TypeError("Can't convert object to primitive value")}},function(t,n,e){var r=e(1),o=e(14),i=e(18),u=e(26),f=e(6).f;t.exports=function(t){var n=o.Symbol||(o.Symbol=i?{}:r.Symbol||{});"_"==t.charAt(0)||t in n||f(n,t,{value:u.f(t)})}},function(t,n,e){n.f=e(7)},function(t,n,e){var r=e(1),o=e(14),i=e(46),u=e(5),f="prototype",c=function(t,n,e){var a,s,l,p=t&c.F,d=t&c.G,v=t&c.S,y=t&c.P,h=t&c.B,b=t&c.W,x=d?o:o[n]||(o[n]={}),m=x[f],g=d?r:v?r[n]:(r[n]||{})[f];d&&(e=n);for(a in e)s=!p&&g&&void 0!==g[a],s&&a in x||(l=s?g[a]:e[a],x[a]=d&&"function"!=typeof g[a]?e[a]:h&&s?i(l,r):b&&g[a]==l?function(t){var n=function(n,e,r){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(n);case 2:return new t(n,e)}return new t(n,e,r)}return t.apply(this,arguments)};return n[f]=t[f],n}(l):y&&"function"==typeof l?i(Function.call,l):l,y&&((x.virtual||(x.virtual={}))[a]=l,t&c.R&&m&&!m[a]&&u(m,a,l)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,t.exports=c},function(t,n){var e={}.toString;t.exports=function(t){return e.call(t).slice(8,-1)}},function(t,n,e){var r=e(11),o=e(1).document,i=r(o)&&r(o.createElement);t.exports=function(t){return i?o.createElement(t):{}}},function(t,n,e){t.exports=!e(4)&&!e(8)(function(){return 7!=Object.defineProperty(e(29)("div"),"a",{get:function(){return 7}}).a})},function(t,n,e){"use strict";var r=e(18),o=e(27),i=e(36),u=e(5),f=e(2),c=e(17),a=e(51),s=e(20),l=e(58),p=e(7)("iterator"),d=!([].keys&&"next"in[].keys()),v="@@iterator",y="keys",h="values",b=function(){return this};t.exports=function(t,n,e,x,m,g,w){a(e,n,x);var O,S,_,j=function(t){if(!d&&t in A)return A[t];switch(t){case y:return function(){return new e(this,t)};case h:return function(){return new e(this,t)}}return function(){return new e(this,t)}},P=n+" Iterator",E=m==h,M=!1,A=t.prototype,T=A[p]||A[v]||m&&A[m],L=T||j(m),N=m?E?j("entries"):L:void 0,C="Array"==n?A.entries||T:T;if(C&&(_=l(C.call(new t)),_!==Object.prototype&&(s(_,P,!0),r||f(_,p)||u(_,p,b))),E&&T&&T.name!==h&&(M=!0,L=function(){return T.call(this)}),r&&!w||!d&&!M&&A[p]||u(A,p,L),c[n]=L,c[P]=b,m)if(O={values:E?L:j(h),keys:g?L:j(y),entries:N},w)for(S in O)S in A||i(A,S,O[S]);else o(o.P+o.F*(d||M),n,O);return O}},function(t,n,e){var r=e(10),o=e(55),i=e(16),u=e(21)("IE_PROTO"),f=function(){},c="prototype",a=function(){var t,n=e(29)("iframe"),r=i.length,o="<",u=">";for(n.style.display="none",e(48).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write(o+"script"+u+"document.F=Object"+o+"/script"+u),t.close(),a=t.F;r--;)delete a[c][i[r]];return a()};t.exports=Object.create||function(t,n){var e;return null!==t?(f[c]=r(t),e=new f,f[c]=null,e[u]=t):e=a(),void 0===n?e:o(e,n)}},function(t,n,e){var r=e(35),o=e(16).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return r(t,o)}},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,e){var r=e(2),o=e(3),i=e(45)(!1),u=e(21)("IE_PROTO");t.exports=function(t,n){var e,f=o(t),c=0,a=[];for(e in f)e!=u&&r(f,e)&&a.push(e);for(;n.length>c;)r(f,e=n[c++])&&(~i(a,e)||a.push(e));return a}},function(t,n,e){t.exports=e(5)},function(t,n,e){var r=e(15);t.exports=function(t){return Object(r(t))}},function(t,n,e){t.exports={default:e(41),__esModule:!0}},function(t,n,e){t.exports={default:e(42),__esModule:!0}},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}n.__esModule=!0;var o=e(39),i=r(o),u=e(38),f=r(u),c="function"==typeof f.default&&"symbol"==typeof i.default?function(t){return typeof t}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":typeof t};n.default="function"==typeof f.default&&"symbol"===c(i.default)?function(t){return"undefined"==typeof t?"undefined":c(t)}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":"undefined"==typeof t?"undefined":c(t)}},function(t,n,e){e(65),e(63),e(66),e(67),t.exports=e(14).Symbol},function(t,n,e){e(64),e(68),t.exports=e(26).f("iterator")},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n){t.exports=function(){}},function(t,n,e){var r=e(3),o=e(61),i=e(60);t.exports=function(t){return function(n,e,u){var f,c=r(n),a=o(c.length),s=i(u,a);if(t&&e!=e){for(;a>s;)if(f=c[s++],f!=f)return!0}else for(;a>s;s++)if((t||s in c)&&c[s]===e)return t||s||0;return!t&&-1}}},function(t,n,e){var r=e(43);t.exports=function(t,n,e){if(r(t),void 0===n)return t;switch(e){case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}}},function(t,n,e){var r=e(9),o=e(34),i=e(19);t.exports=function(t){var n=r(t),e=o.f;if(e)for(var u,f=e(t),c=i.f,a=0;f.length>a;)c.call(t,u=f[a++])&&n.push(u);return n}},function(t,n,e){t.exports=e(1).document&&document.documentElement},function(t,n,e){var r=e(28);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,n,e){var r=e(28);t.exports=Array.isArray||function(t){return"Array"==r(t)}},function(t,n,e){"use strict";var r=e(32),o=e(12),i=e(20),u={};e(5)(u,e(7)("iterator"),function(){return this}),t.exports=function(t,n,e){t.prototype=r(u,{next:o(1,e)}),i(t,n+" Iterator")}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n,e){var r=e(9),o=e(3);t.exports=function(t,n){for(var e,i=o(t),u=r(i),f=u.length,c=0;f>c;)if(i[e=u[c++]]===n)return e}},function(t,n,e){var r=e(13)("meta"),o=e(11),i=e(2),u=e(6).f,f=0,c=Object.isExtensible||function(){return!0},a=!e(8)(function(){return c(Object.preventExtensions({}))}),s=function(t){u(t,r,{value:{i:"O"+ ++f,w:{}}})},l=function(t,n){if(!o(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!i(t,r)){if(!c(t))return"F";if(!n)return"E";s(t)}return t[r].i},p=function(t,n){if(!i(t,r)){if(!c(t))return!0;if(!n)return!1;s(t)}return t[r].w},d=function(t){return a&&v.NEED&&c(t)&&!i(t,r)&&s(t),t},v=t.exports={KEY:r,NEED:!1,fastKey:l,getWeak:p,onFreeze:d}},function(t,n,e){var r=e(6),o=e(10),i=e(9);t.exports=e(4)?Object.defineProperties:function(t,n){o(t);for(var e,u=i(n),f=u.length,c=0;f>c;)r.f(t,e=u[c++],n[e]);return t}},function(t,n,e){var r=e(19),o=e(12),i=e(3),u=e(24),f=e(2),c=e(30),a=Object.getOwnPropertyDescriptor;n.f=e(4)?a:function(t,n){if(t=i(t),n=u(n,!0),c)try{return a(t,n)}catch(t){}if(f(t,n))return o(!r.f.call(t,n),t[n])}},function(t,n,e){var r=e(3),o=e(33).f,i={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],f=function(t){try{return o(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==i.call(t)?f(t):o(r(t))}},function(t,n,e){var r=e(2),o=e(37),i=e(21)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=o(t),r(t,i)?t[i]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n,e){var r=e(23),o=e(15);t.exports=function(t){return function(n,e){var i,u,f=String(o(n)),c=r(e),a=f.length;return c<0||c>=a?t?"":void 0:(i=f.charCodeAt(c),i<55296||i>56319||c+1===a||(u=f.charCodeAt(c+1))<56320||u>57343?t?f.charAt(c):i:t?f.slice(c,c+2):(i-55296<<10)+(u-56320)+65536)}}},function(t,n,e){var r=e(23),o=Math.max,i=Math.min;t.exports=function(t,n){return t=r(t),t<0?o(t+n,0):i(t,n)}},function(t,n,e){var r=e(23),o=Math.min;t.exports=function(t){return t>0?o(r(t),9007199254740991):0}},function(t,n,e){"use strict";var r=e(44),o=e(52),i=e(17),u=e(3);t.exports=e(31)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,e=this._i++;return!t||e>=t.length?(this._t=void 0,o(1)):"keys"==n?o(0,e):"values"==n?o(0,t[e]):o(0,[e,t[e]])},"values"),i.Arguments=i.Array,r("keys"),r("values"),r("entries")},function(t,n){},function(t,n,e){"use strict";var r=e(59)(!0);e(31)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,e=this._i;return e>=n.length?{value:void 0,done:!0}:(t=r(n,e),this._i+=t.length,{value:t,done:!1})})},function(t,n,e){"use strict";var r=e(1),o=e(2),i=e(4),u=e(27),f=e(36),c=e(54).KEY,a=e(8),s=e(22),l=e(20),p=e(13),d=e(7),v=e(26),y=e(25),h=e(53),b=e(47),x=e(50),m=e(10),g=e(3),w=e(24),O=e(12),S=e(32),_=e(57),j=e(56),P=e(6),E=e(9),M=j.f,A=P.f,T=_.f,L=r.Symbol,N=r.JSON,C=N&&N.stringify,k="prototype",F=d("_hidden"),q=d("toPrimitive"),I={}.propertyIsEnumerable,B=s("symbol-registry"),D=s("symbols"),W=s("op-symbols"),H=Object[k],K="function"==typeof L,R=r.QObject,J=!R||!R[k]||!R[k].findChild,U=i&&a(function(){return 7!=S(A({},"a",{get:function(){return A(this,"a",{value:7}).a}})).a})?function(t,n,e){var r=M(H,n);r&&delete H[n],A(t,n,e),r&&t!==H&&A(H,n,r)}:A,G=function(t){var n=D[t]=S(L[k]);return n._k=t,n},$=K&&"symbol"==typeof L.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof L},z=function(t,n,e){return t===H&&z(W,n,e),m(t),n=w(n,!0),m(e),o(D,n)?(e.enumerable?(o(t,F)&&t[F][n]&&(t[F][n]=!1),e=S(e,{enumerable:O(0,!1)})):(o(t,F)||A(t,F,O(1,{})),t[F][n]=!0),U(t,n,e)):A(t,n,e)},Y=function(t,n){m(t);for(var e,r=b(n=g(n)),o=0,i=r.length;i>o;)z(t,e=r[o++],n[e]);return t},Q=function(t,n){return void 0===n?S(t):Y(S(t),n)},X=function(t){var n=I.call(this,t=w(t,!0));return!(this===H&&o(D,t)&&!o(W,t))&&(!(n||!o(this,t)||!o(D,t)||o(this,F)&&this[F][t])||n)},V=function(t,n){if(t=g(t),n=w(n,!0),t!==H||!o(D,n)||o(W,n)){var e=M(t,n);return!e||!o(D,n)||o(t,F)&&t[F][n]||(e.enumerable=!0),e}},Z=function(t){for(var n,e=T(g(t)),r=[],i=0;e.length>i;)o(D,n=e[i++])||n==F||n==c||r.push(n);return r},tt=function(t){for(var n,e=t===H,r=T(e?W:g(t)),i=[],u=0;r.length>u;)!o(D,n=r[u++])||e&&!o(H,n)||i.push(D[n]);return i};K||(L=function(){if(this instanceof L)throw TypeError("Symbol is not a constructor!");var t=p(arguments.length>0?arguments[0]:void 0),n=function(e){this===H&&n.call(W,e),o(this,F)&&o(this[F],t)&&(this[F][t]=!1),U(this,t,O(1,e))};return i&&J&&U(H,t,{configurable:!0,set:n}),G(t)},f(L[k],"toString",function(){return this._k}),j.f=V,P.f=z,e(33).f=_.f=Z,e(19).f=X,e(34).f=tt,i&&!e(18)&&f(H,"propertyIsEnumerable",X,!0),v.f=function(t){return G(d(t))}),u(u.G+u.W+u.F*!K,{Symbol:L});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),et=0;nt.length>et;)d(nt[et++]);for(var nt=E(d.store),et=0;nt.length>et;)y(nt[et++]);u(u.S+u.F*!K,"Symbol",{for:function(t){return o(B,t+="")?B[t]:B[t]=L(t)},keyFor:function(t){if($(t))return h(B,t);throw TypeError(t+" is not a symbol!")},useSetter:function(){J=!0},useSimple:function(){J=!1}}),u(u.S+u.F*!K,"Object",{create:Q,defineProperty:z,defineProperties:Y,getOwnPropertyDescriptor:V,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),N&&u(u.S+u.F*(!K||a(function(){var t=L();return"[null]"!=C([t])||"{}"!=C({a:t})||"{}"!=C(Object(t))})),"JSON",{stringify:function(t){if(void 0!==t&&!$(t)){for(var n,e,r=[t],o=1;arguments.length>o;)r.push(arguments[o++]);return n=r[1],"function"==typeof n&&(e=n),!e&&x(n)||(n=function(t,n){if(e&&(n=e.call(this,t,n)),!$(n))return n}),r[1]=n,C.apply(N,r)}}}),L[k][q]||e(5)(L[k],q,L[k].valueOf),l(L,"Symbol"),l(Math,"Math",!0),l(r.JSON,"JSON",!0)},function(t,n,e){e(25)("asyncIterator")},function(t,n,e){e(25)("observable")},function(t,n,e){e(62);for(var r=e(1),o=e(5),i=e(17),u=e(7)("toStringTag"),f=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],c=0;c<5;c++){var a=f[c],s=r[a],l=s&&s.prototype;l&&!l[u]&&o(l,u,a),i[a]=i.Array}},function(t,n){"use strict";var e={versions:function(){var t=window.navigator.userAgent;return{trident:t.indexOf("Trident")>-1,presto:t.indexOf("Presto")>-1,webKit:t.indexOf("AppleWebKit")>-1,gecko:t.indexOf("Gecko")>-1&&t.indexOf("KHTML")==-1,mobile:!!t.match(/AppleWebKit.*Mobile.*/),ios:!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:t.indexOf("Android")>-1||t.indexOf("Linux")>-1,iPhone:t.indexOf("iPhone")>-1||t.indexOf("Mac")>-1,iPad:t.indexOf("iPad")>-1,webApp:t.indexOf("Safari")==-1,weixin:t.indexOf("MicroMessenger")==-1}}()};t.exports=e},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}var o=e(40),i=r(o),u=function(){function t(t,n,e){return n||e?String.fromCharCode(n||e):o[t]||t}function n(t){return l[t]}var e=/&quot;|&lt;|&gt;|&amp;|&nbsp;|&apos;|&#(\d+);|&#(\d+)/g,r=/['<> "&]/g,o={"&quot;":'"',"&lt;":"<","&gt;":">","&amp;":"&","&nbsp;":" "},f=/\u00a0/g,c=/<br\s*\/?>/gi,a=/\r?\n/g,s=/\s/g,l={};for(var p in o)l[o[p]]=p;return o["&apos;"]="'",l["'"]="&#39;",{encode:function(t){return t?(""+t).replace(r,n).replace(a,"<br/>").replace(s,"&nbsp;"):""},decode:function(n){return n?(""+n).replace(c,"\n").replace(e,t).replace(f," "):""},encodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},encodeBase16forJSON:function(t){if(!t)return t;t=t.replace(/[\u4E00-\u9FBF]/gi,function(t){return escape(t).replace("%u","\\u")});for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},decodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e+=2)n.push(String.fromCharCode("0x"+t.slice(e,e+2)));return n.join("")},encodeObject:function(t){if(t instanceof Array)for(var n=0,e=t.length;e>n;n++)t[n]=u.encodeObject(t[n]);else if("object"==("undefined"==typeof t?"undefined":(0,i.default)(t)))for(var r in t)t[r]=u.encodeObject(t[r]);else if("string"==typeof t)return u.encode(t);return t},loadScript:function(t){var n=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(n),n.setAttribute("src",t)},addLoadEvent:function(t){var n=window.onload;"function"!=typeof window.onload?window.onload=t:window.onload=function(){n(),t()}}}}();t.exports=u},function(t,n){function e(t,n){t.classList?t.classList.add(n):t.className+=" "+n}t.exports=e},function(t,n){function e(t,n){if(t.classList)t.classList.remove(n);else{var e=new RegExp("(^|\\b)"+n.split(" ").join("|")+"(\\b|$)","gi");t.className=t.className.replace(e," ")}}t.exports=e},,,function(t,n){"use strict";function e(){var t=document.querySelector("#page-nav");if(t&&!document.querySelector("#page-nav .extend.prev")&&(t.innerHTML='<a class="extend prev disabled" rel="prev">&laquo; Prev</a>'+t.innerHTML),t&&!document.querySelector("#page-nav .extend.next")&&(t.innerHTML=t.innerHTML+'<a class="extend next disabled" rel="next">Next &raquo;</a>'),yiliaConfig&&yiliaConfig.open_in_new){var n=document.querySelectorAll(".article-entry a:not(.article-more-a)");n.forEach(function(t){t.setAttribute("target","_blank")})}var e=document.querySelector("#js-aboutme");e&&0!==e.length&&(e.innerHTML=e.innerText)}t.exports={init:e}},,,,,,,,,function(t,n){function e(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var e=t.nextSibling;return e?t.parentNode.insertBefore(n,e):t.parentNode.appendChild(n)}t.exports=e}])</script><script src="/./main.2d7529.js"></script><script>!function(){var e=function(e){var t=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(t),t.setAttribute("src",e)};e("/slider.885efe.js")}()</script>
-
-
     
-<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
-  <div class="tools-nav header-menu">
-    
-    
-      
-      
-      
-    
-      
-      
-      
-    
-      
-      
-      
-    
-    
-
-    <ul style="width: 70%">
-    
-    
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
-      
-        
-    </ul>
-  </div>
-  <div class="tools-wrap">
-    
-    	<section class="tools-section tools-section-all" q-show="innerArchive">
-        <div class="search-wrap">
-          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
-          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
-          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
-        </div>
-        <div class="widget tagcloud search-tag">
-          <p class="search-tag-wording">tag:</p>
-          <label class="search-switch">
-            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
-          </label>
-          <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">this</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">回调函数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HelloWorld</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">meta</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">dhtml</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">promise</a>
-              </li>
-            
-            <div class="clearfix"></div>
-          </ul>
-        </div>
-        <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
-            2、在根目录_config.yml里添加配置：
-<pre style="font-size: 12px;" q-show="jsonFail">
-  jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: true
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-</pre>
-          </p>
-          <li class="search-li" q-repeat="items" q-show="isShow">
-            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
-            <p class="search-time">
-              <i class="icon-calendar icon"></i>
-              <span q-text="date|dateformat"></span>
-            </p>
-            <p class="search-tag">
-              <i class="icon-price-tags icon"></i>
-              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
-            </p>
-          </li>
-        </ul>
-    	</section>
-    
-
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
-
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">欢迎来到我的&lt;br&gt;&lt;br&gt;博客</div>
-  	  	
-    	</section>
-    
-  </div>
-  
 </div>
-    <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
 
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
 
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/head-bg.jpg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
 
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
 
-            <div class="pswp__top-bar">
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/header.jpg" alt="moumao's avatar">
+    </div>
 
-                <!--  Controls are self-explanatory. Order can be changed. -->
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        1195358569@qq.com
+        <b class="caret"></b>
+    </a>
+</div>
 
-                <div class="pswp__counter"></div>
 
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
 
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
 
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
 
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+    <!-- Categories  -->
+    
 
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="关于我">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">polymer</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
 
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
+    <!-- Article Number  -->
+    
+</ul>
 
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
 
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
 
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
 
-        </div>
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
 
     </div>
 
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
 </div>
-  </div>
-</body>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="http://weibo.com/u/3168872804" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/moumao" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+        <a href="http://space.bilibili.com/21100473/#!/index" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-bilibili.png);">
+                <span class="visuallyhidden">Bilibili</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;某猫のBlog
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+    <script>
+    var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: 'xml',
+            success: function( xmlResponse ) {
+                // get the contents from search data
+                var datas = $( 'entry', xmlResponse ).map(function() {
+                    return {
+                        title: $( 'title', this ).text(),
+                        content: $('content',this).text(),
+                        url: $( 'url' , this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function() {
+                    var str='<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = '';
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function(data) {
+                        var isMatch = true;
+                        var content_index = [];
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g,'').toLowerCase();
+                        var data_url = data.url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if(data_title !== '' && data_content !== '') {
+                            keywords.forEach(function(keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if( index_title < 0 && index_content < 0 ) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += '<li><a href="'+ data_url +'" class="search-result-title" target="_blank">'+ data_title;
+                            var content = data.content.trim().replace(/<[^>]+>/g, '');
+                            if (first_occur >= 0) {
+                                // cut out characters
+                                var start = first_occur - 6;
+                                var end = first_occur + 6;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 10;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, 'gi');
+                                    match_content = match_content.replace(regS, '<em class="search-keyword">'+keyword+'</em>');
+                                })
+                                str += '<p class="search-result">' + match_content + '...</p>' +'</a>';
+                            }
+                        }
+                    });
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    }
+</script>
+
+
+    <script>
+        var inputArea = document.querySelector('#search');
+        var getSearchFile = function() {
+            var path = 'search.xml';
+            searchFunc(path, 'search', 'local-search-result');
+        }
+
+        if(inputArea) {
+            inputArea.onfocus = function() {
+                getSearchFile();
+            }
+        }
+    </script>
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
 </html>
