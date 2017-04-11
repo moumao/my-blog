@@ -625,6 +625,15 @@ p.no-result {
 .post-page-content{
     padding: 40px;
 }
+.post-page-content p{
+    overflow: auto;
+}
+.post-page-content p a{
+    display: inline-block;
+}
+.post-page-content p img{
+    width: 100%;
+}
 .highlight{
     overflow: auto;
     background-color: rgba(232, 232, 232, 0.61);
