@@ -9,7 +9,7 @@
   
     <!-- stylesheets list from config.yml -->
     
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+      <link rel="stylesheet" href="/css/materialize.min.css">
     
       <link rel="stylesheet" href="/css/Vateral.css">
     
@@ -122,7 +122,7 @@
 <div id="recent-posts">
   
 
-      <div class="recent-post-item" style="background-image:url(/images/random/bg2.jpg)" >
+      <div class="recent-post-item lazy"   data-original="/images/random/bg2.jpg" style="background-image:url(/images/random/bg2.jpg)" >
         <a class="recent-post-link" href="/2017/03/22/JS中this的指向/">
         <div class="post-hover">
           <!--title-->
@@ -166,7 +166,7 @@
 
   
 
-      <div class="recent-post-item" style="background-image:url(/images/random/bg3.jpg)" >
+      <div class="recent-post-item lazy"   data-original="/images/random/bg3.jpg" style="background-image:url(/images/random/bg3.jpg)" >
         <a class="recent-post-link" href="/2017/03/20/js中Math-random-生成指定范围数值的随机数/">
         <div class="post-hover">
           <!--title-->
@@ -207,7 +207,7 @@ random() 方法可返回介于 0 ~ 1 之间的一个随机数。
 
   
 
-      <div class="recent-post-item" style="background-image:url(/images/random/bg1.jpg)" >
+      <div class="recent-post-item lazy"   data-original="/images/random/bg1.jpg" style="background-image:url(/images/random/bg1.jpg)" >
         <a class="recent-post-link" href="/2017/03/16/nodejs部署到阿里云全过程/">
         <div class="post-hover">
           <!--title-->
@@ -247,7 +247,7 @@ random() 方法可返回介于 0 ~ 1 之间的一个随机数。
 
   
 
-      <div class="recent-post-item" style="background-image:url(/images/random/bg10.jpg)" >
+      <div class="recent-post-item lazy"   data-original="/images/random/bg10.jpg" style="background-image:url(/images/random/bg10.jpg)" >
         <a class="recent-post-link" href="/2017/01/28/hello-world/">
         <div class="post-hover">
           <!--title-->
@@ -305,12 +305,19 @@ random() 方法可返回介于 0 ~ 1 之间的一个随机数。
   
     <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="/js/jquery.lazyload.js"></script>
+  
+    <script src="/js/materialize.min.js"></script>
   
     <script src="/js/jquery.rotate.min.js"></script>
   
     <script src="/js/Vateral.js"></script>
   
 
+<script>
+    $(function(){
+        $(".lazy").lazyload();
+    })
+</script>
 </body>
 </html>

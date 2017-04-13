@@ -71,6 +71,10 @@ body{
     transition: background-color .5s;
     float: left;
     cursor: Pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
 }
 .nav-list a .nav-ico{
     width: 30px;
@@ -685,6 +689,9 @@ blockquote{
     box-shadow: 0 0 3px rgba(158, 158, 158, 0.69);
     text-align: center;
 }
+.ol{
+    list-style:none;
+}
 .post-toc-none p{
     line-height: 30px;
     margin: 0;
@@ -699,6 +706,10 @@ blockquote{
     background-color: white;
     padding: 10px;
     box-shadow: 0 0 3px rgba(158, 158, 158, 0.69);
+}
+.post-toc-child{
+    list-style:none;
+    padding-left: 20px;
 }
 .post-toc a{
     color: #707070;
