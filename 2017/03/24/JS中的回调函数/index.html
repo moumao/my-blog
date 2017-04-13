@@ -31,7 +31,7 @@
               <p>moumao</p>
               <div class="nav-link">
                   
-                  <div class="link-box"><a href="https://github.com/moumao" target="_blank"><div class="link-box-img"><img src="/images/link/github.png" ondragstart="return false;"></div></a></div>
+                  <div class="link-box"><a  href="https://github.com/moumao" target="_blank"><div class="link-box-img"><img src="/images/link/github.png" ondragstart="return false;"></div></a></div>
                   
 
                   
@@ -61,7 +61,7 @@
           <!--Homepage-->
           
           <li class="nav-list">
-              <a href="/" target="_self">
+              <a href="/"  target="_self">
                   <div class="nav-ico"><img src="/images/ico/home.png"> </div><p>主页</p>
               </a>
           </li>
@@ -211,16 +211,16 @@
   
     <script src="/js/jquery.rotate.min.js"></script>
   
-    <script src="/js/jquery.lazyload.js"></script>
-  
-    <script src="/js/jquery.scrollstop,jss"></script>
+    <script src="/js/lazyload.min.js"></script>
   
     <script src="/js/Vateral.js"></script>
   
 
 <script>
     $(function(){
-        $("div.lazy").lazyload();
+        $(".lazy").lazyload({
+            effect : "fadeIn"
+        });
     })
 </script>
 </body>

@@ -31,7 +31,7 @@
               <p>moumao</p>
               <div class="nav-link">
                   
-                  <div class="link-box"><a href="https://github.com/moumao" target="_blank"><div class="link-box-img"><img src="/images/link/github.png" ondragstart="return false;"></div></a></div>
+                  <div class="link-box"><a  href="https://github.com/moumao" target="_blank"><div class="link-box-img"><img src="/images/link/github.png" ondragstart="return false;"></div></a></div>
                   
 
                   
@@ -61,7 +61,7 @@
           <!--Homepage-->
           
           <li class="nav-list">
-              <a href="/" target="_self">
+              <a href="/"  target="_self">
                   <div class="nav-ico"><img src="/images/ico/home.png"> </div><p>主页</p>
               </a>
           </li>
@@ -136,7 +136,7 @@
 <div id="recent-posts">
   
 
-      <div class="recent-post-item lazy"   data-original="/images/random/bg8.jpg" style="background-image:url(/images/random/bg8.jpg)" >
+      <div class="recent-post-item lazy"   data-original="/images/random/bg8.jpg"  >
         <a class="recent-post-link" href="/2017/04/11/历经半个月-终于用上了自己开发的hexo主题/">
         <div class="post-hover">
           <!--title-->
@@ -174,7 +174,7 @@
 
   
 
-      <div class="recent-post-item lazy"   data-original="/images/random/bg7.jpg" style="background-image:url(/images/random/bg7.jpg)" >
+      <div class="recent-post-item lazy"   data-original="/images/random/bg7.jpg"  >
         <a class="recent-post-link" href="/2017/04/05/meta标签总结/">
         <div class="post-hover">
           <!--title-->
@@ -213,7 +213,7 @@ meta 元素可提供有关页面...
 
   
 
-      <div class="recent-post-item lazy"   data-original="/images/random/bg9.jpg" style="background-image:url(/images/random/bg9.jpg)" >
+      <div class="recent-post-item lazy"   data-original="/images/random/bg9.jpg"  >
         <a class="recent-post-link" href="/2017/03/28/关于Promise/">
         <div class="post-hover">
           <!--title-->
@@ -252,7 +252,7 @@ meta 元素可提供有关页面...
 
   
 
-      <div class="recent-post-item lazy"   data-original="/images/random/bg5.jpg" style="background-image:url(/images/random/bg5.jpg)" >
+      <div class="recent-post-item lazy"   data-original="/images/random/bg5.jpg"  >
         <a class="recent-post-link" href="/2017/03/24/JS中的回调函数/">
         <div class="post-hover">
           <!--title-->
@@ -292,7 +292,7 @@ meta 元素可提供有关页面...
 
   
 
-      <div class="recent-post-item lazy"   data-original="/images/random/bg4.jpg" style="background-image:url(/images/random/bg4.jpg)" >
+      <div class="recent-post-item lazy"   data-original="/images/random/bg4.jpg"  >
         <a class="recent-post-link" href="/2017/03/23/什么是动态HTML？-DHTML/">
         <div class="post-hover">
           <!--title-->
@@ -354,16 +354,16 @@ meta 元素可提供有关页面...
   
     <script src="/js/jquery.rotate.min.js"></script>
   
-    <script src="/js/jquery.lazyload.js"></script>
-  
-    <script src="/js/jquery.scrollstop,jss"></script>
+    <script src="/js/lazyload.min.js"></script>
   
     <script src="/js/Vateral.js"></script>
   
 
 <script>
     $(function(){
-        $("div.lazy").lazyload();
+        $(".lazy").lazyload({
+            effect : "fadeIn"
+        });
     })
 </script>
 </body>
