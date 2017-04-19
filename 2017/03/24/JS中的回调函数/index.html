@@ -237,6 +237,13 @@
             effect : "fadeIn"
         });
     })
+
+    var options = [
+        {selector: '.friends', offset: 0, callback: function(el) {
+            Materialize.showStaggeredList($(el));
+        } },
+    ];
+    Materialize.scrollFire(options);
 </script>
 </body>
 </html>

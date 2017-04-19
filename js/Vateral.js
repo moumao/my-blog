@@ -17,7 +17,24 @@ $(function () {
     }
     window.onload=loadings();
 });
+$(function () {
+    function friendsload() {
+        var times=0;
+        $(".friends-link").each(function () {
+            var friend=$(this);
+            var time=times*200;
+            times++;
+            setTimeout(function () {
+                friend.animate({
+                    "margin-left":"150px",
+                    "margin-right":"150px"
+                },300)
+            },500+time);
 
+        });
+    }
+    window.onload=friendsload();
+});
 (function () {
     var weight=$("body").width();
     if(weight<=768){
@@ -241,3 +258,4 @@ $("#local-search-result").bind("DOMNodeRemoved DOMNodeInserted", function(e) {
         return false;
     });
 })();
+
