@@ -30,6 +30,12 @@
     /* Support for IE. */
     font-feature-settings: 'liga';
 }
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    display: block;
+    font-size: 30px;
+    height: 40px;
+    line-height: 40px;
+}
 body{
     margin: 0;
     padding: 0;
@@ -393,8 +399,12 @@ p.no-result {
     position: absolute;
     right: 45px;
     top:20px;
-    padding: 5px;
+
     cursor: Pointer;
+}
+.material-up{
+    font-size: 20px;
+    margin: 5px;
 }
 .up img{
     position: absolute;
@@ -591,8 +601,8 @@ p.no-result {
 .next-text{
     width: 40px;
     height: 40px;
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     border-radius: 20px;
     overflow: hidden;
     transition: box-shadow .5s,background-color .5s;
