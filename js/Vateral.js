@@ -46,8 +46,8 @@ $(function () {
                 var times=0;
                 $(".friends-link").each(function () {
                     var friend=$(this);
-                    var time=times*200;
                     times++;
+                    var time=times*200;
                     setTimeout(function () {
                         friend.animate({
                             "margin-left":"150px",
