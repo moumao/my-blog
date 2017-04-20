@@ -14,6 +14,13 @@
       <link rel="stylesheet" href="/css/Vateral.css">
     
   
+  
+    <!-- Single Gallery Page -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/magnific-popup.css" rel="stylesheet">
+    <link href="/css/templatemo_style.css" rel="stylesheet" type="text/css">
+    
 </head>
 <body>
 <div class="loader">
@@ -107,7 +114,7 @@
           
           <li class="nav-list">
               <a href="/photo" target="_self">
-                  <div class="nav-ico"><i class="material-icons">insert_photo</i> </div><p>摄影</p>
+                  <div class="nav-ico"><i class="material-icons">insert_photo</i> </div><p>影集</p>
               </a>
           </li>
           
@@ -132,8 +139,63 @@
 </div>
 <div id="content-outer">
   <div id="content-inner">
-    <h1>影集</h1>
+    <style type="text/css">
+    form {
+        float: left;
+        font-weight: 400;
+        max-width: 300px;
+        width: 100%;
+    }
+    #local-search-result li:first-child{
+        margin-top: 45px;
+    }
+    @media screen and (max-width: 980px){
+        form {
 
+        margin: 0 auto;
+    }}
+
+</style>
+<div class="main-container" id="photo">
+    <nav class="main-nav" style="background-color: white;border-bottom: #DDDDDD 1px solid;box-shadow: none;height: 104px">
+        <div id="logo" class="left" style="color: #707070">影集</div>
+    </nav>
+    <div class="content-container">
+        <header>
+            <h1 class="center-text">某猫の影集</h1>
+            <h2 class="center-text">这里是我日常放照片的地方</h2>
+        </header>
+        <div id="portfolio-content" class="center-text">
+            <div class="portfolio-page">
+                
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" href="/images/photo/1-large.jpg">
+                                <img src="/images/photo/1-small.jpg" alt="image 1">
+                                <div class="detail">
+                                    <h3>夕阳</h3>
+                                    <p>示例照片的简介</p>
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" href="/images/photo/2-large.jpg">
+                                <img src="/images/photo/2-small.jpg" alt="image 2">
+                                <div class="detail">
+                                    <h3>小路</h3>
+                                    <p>示例照片的简介</p>
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
   </div>
 </div>
 <div id="bottom-outer">
@@ -144,18 +206,35 @@
   </div>
 </div>
 
-  <!-- scripts list from theme config.yml -->
-  
-    <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
-  
-    <script src="/js/materialize.min.js"></script>
-  
-    <script src="/js/jquery.rotate.min.js"></script>
-  
-    <script src="/js/lazyload.min.js"></script>
-  
-    <script src="/js/Vateral.js"></script>
-  
+<!-- Single Gallery Page -->
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/js/modernizr.2.5.3.min.js"></script>
+<script type="text/javascript" src="/js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="/js/templatemo_script.js"></script>
+<script type="text/javascript">
+        $('.pagination li').click(changePage);
+        $('.portfolio-item').magnificPopup({
+            type: 'image',
+            gallery:{
+                enabled:true
+            }
+        });
+</script>
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/jquery.rotate.min.js"></script>
+
+<script src="/js/lazyload.min.js"></script>
+
+<script src="/js/Vateral.js"></script>
+
 
 <script>
     $(function(){
