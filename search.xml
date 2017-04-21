@@ -4,6 +4,122 @@
   
     
     <entry>
+      <title><![CDATA[在服务器上搭建hexo博客]]></title>
+      <url>https://www.moumaobuchiyu.com/2017/04/21/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>随着<a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank" rel="external">Vateral主题</a>的开发接近了尾声，在对主题速度优化的时候发现之前用的githubpage问题多多：首先就是因为在国内的原因，访问速度本身就很慢，曾经有次加载一张16kb的图标时间耗费了26s！！？其次，在对资源做CDN托管加速时，域名是需要备案的，显然githubpage也是做不了的；所以果断舍弃了这个把hexo搭建到了我的阿里云服务器上</p>
+</blockquote>
+<p>总体来说还是比把hexo搭建到github上要复杂一些的，期间遇到了不少坑，也参考了很多资料，这里详细的总结一下具体的步骤。</p>
+<h2 id="hexo的架构"><a href="#hexo的架构" class="headerlink" title="hexo的架构"></a>hexo的架构</h2><hr>
+<p><img src="https://segmentfault.com/img/remote/1460000005723405" alt="hexo的架构"></p>
+<p>首先我们要理解hexo是如何实现静态博客通过服务器访问的</p>
+<blockquote>
+<p>通过上图我们可以知道，整个流程就是在本地通过<code>hexo g</code> 渲染博客的静态文件，然后通过<code>hexo d</code> 把静态文件 push到服务器上我们自己创建的git仓库,服务器再通过 git-hooks 同步网站根目录，这样就可以访问了</p>
+</blockquote>
+<h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><hr>
+<p><strong>第一步：</strong> 安装node.js以及本地Hexo初始化<br><strong>第二步：</strong> 服务器环境搭建，包括安装 Git 、Nginx配置 、创建 git 用户<br><strong>第三步：</strong> 使用Git自动化部署发布博客</p>
+<h2 id="本地环境"><a href="#本地环境" class="headerlink" title="本地环境"></a>本地环境</h2><hr>
+<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install node</div></pre></td></tr></table></figure>
+<h3 id="初始化Hexo博客"><a href="#初始化Hexo博客" class="headerlink" title="初始化Hexo博客"></a>初始化Hexo博客</h3><p>首先创建 你的Hexo 目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mkdir &quot;your hexo dir name&quot;//创建一个自定义的hexo目录，比如我就在用户根目录创建了一个myhexo文件夹（macOS)</div><div class="line">$ cd &quot;your hexo dir name&quot;//进入到刚刚创建的目录</div></pre></td></tr></table></figure>
+<p>然后安装 hexo-cli，安装hexo-cli 需要 root 权限，使用 sudo 运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<p>初始化该文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
+<p>安装hexo的扩展插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
+<p>等执行成功以后安装两个插件， hexo-deployer-git 和 hexo-server ,这俩插件的作用分别是使用Git自动部署，和本地简单的服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div><div class="line">npm install hero-server --save</div></pre></td></tr></table></figure>
+<p>以及一些其他插件（<strong>*非必选</strong>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">npm install hexo-admin --save</div><div class="line">npm install hexo-generator-archive --save</div><div class="line">npm install hexo-generator-feed --save</div><div class="line">npm install hexo-generator-search --save</div><div class="line">npm install hexo-generator-tag --save</div><div class="line">npm install hexo-generator-sitemap --save</div></pre></td></tr></table></figure>
+<p>到这里hexo的本地搭建已经基本结束了，快来新建一个文章并在本地启动吧~</p>
+<h3 id="生成自己的第一篇文章"><a href="#生成自己的第一篇文章" class="headerlink" title="生成自己的第一篇文章"></a>生成自己的第一篇文章</h3><p>使用 hexo new &lt;文章名称&gt; 来新建文章，该命令会成成一个 .md文件放置在 sources/_posts文件夹。（<strong>*在hexo目录下执行命令</strong>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;hello Hexo&quot;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>执行该命令后在hexo目录下的 sources/_posts文件夹里生成了刚刚创建的hello<br>Hexo.md的markdown文件，然后就可以通过本地或者在线的markdown编辑器就可以创作自己的博客了~</p>
+</blockquote>
+<p>编辑完毕以后， 使用hexo g将 .md文件渲染成静态文件，然后启动hexo-server</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo g</div><div class="line">hexo server</div></pre></td></tr></table></figure>
+<p>打开 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 如果看到 hexo 的初始页面证明安装成功。</p>
+<h3 id="生成ssh公钥密钥"><a href="#生成ssh公钥密钥" class="headerlink" title="生成ssh公钥密钥"></a>生成ssh公钥密钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~/.ssh</div><div class="line">$ ssh-keygen</div></pre></td></tr></table></figure>
+<p>它先要求你确认保存公钥的位置（.ssh/id_rsa），然后它会让你重复一个密码两次，如果不想在使用公钥的时候输入密码，可以留空；具体生产方法可以<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">参考这里</a></p>
+<blockquote>
+<p>这个公钥将会复制到服务器的证书中，添加公钥之后可以防止每次 push 都输入密码。</p>
+</blockquote>
+<p>至此，本地环境的搭建已经基本结束。</p>
+<h2 id="服务器环境搭建"><a href="#服务器环境搭建" class="headerlink" title="服务器环境搭建"></a>服务器环境搭建</h2><hr>
+<h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><p>因为我们是拿nginx做 Web 服务器，所以我们需要安装部署好nginx，如果没有安装，推荐使用<a href="https://lnmp.org/install.html" target="_blank" rel="external">LNMP一键安装包</a></p>
+<blockquote>
+<p>我们可以专门为hexo创建一个部署目录，比如我创建了/home/www/hexo文件夹，并把nginx的配置文件nginx.conf中的部署目录改为/home/www/hexo，配置文件一般在/usr/local/nginx/conf里；同样可以使用默认目录，nginx的默认目录为/var/www/html，如果使用LNMP一键安装包，则默认的部署目录为/home/wwwroot/default</p>
+</blockquote>
+<h3 id="安装node-js-1"><a href="#安装node-js-1" class="headerlink" title="安装node.js"></a>安装node.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -</div><div class="line">$ apt-get install -y nodejs</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果遇到问题可以参考<a href="https://www.moumaobuchiyu.com/2017/03/16/nodejs%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%A8%E8%BF%87%E7%A8%8B/">Node.js部署到阿里云服务器</a>里边有更详细的关于node.js的步骤</p>
+</blockquote>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ apt-get install git</div></pre></td></tr></table></figure>
+<h3 id="创建一个git用户"><a href="#创建一个git用户" class="headerlink" title="创建一个git用户"></a>创建一个git用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo adduser git</div></pre></td></tr></table></figure>
+<blockquote>
+<p>虽说现在的仓库只有我们自己在使用，新建一个 git 用户显得不是很有必要，但是为了安全起见，还是建议使用单独的 git 用户来专门运行<br>git 服务</p>
+<h3 id="添加证书登录"><a href="#添加证书登录" class="headerlink" title="添加证书登录"></a>添加证书登录</h3><p>把刚在在本地创建或者已经拥有的公钥，也就是 ~/.ssh/id_rsa.pub 文件里的内容添加到服务器的 /home/git/.ssh/authorized_keys 文件中，如上所说，添加公钥之后可以防止每次 push 都输入密码。（*可以直接执行<code>cat ~/.ssh/id_rsa.pub | pbcopy</code> 复制）</p>
+<p>###初始化 Git 仓库<br>可以将git仓库放到自定义位置，我是将其放在 /var/repo/blog.git 目录下的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo mkdir /var/repo</div><div class="line">$ cd /var/repo</div><div class="line">$ sudo git init --bare blog.git</div></pre></td></tr></table></figure>
+<p>使用 –bare 参数，Git 就会创建一个裸仓库，裸仓库没有工作区，我们不会在裸仓库上进行操作，它只为共享而存在。</p>
+<h3 id="配置-git-hooks"><a href="#配置-git-hooks" class="headerlink" title="配置 git hooks"></a>配置 git hooks</h3><blockquote>
+<p>我们这里要使用的是 post-receive 的 hook，这个 hook 会在整个 git 操作过程完结以后被运行，关于 hooks<br>的详情内容可以<a href="https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90" target="_blank" rel="external">参考这里</a>。</p>
+</blockquote>
+<p>在 blog.git/hooks 目录下新建一个 post-receive 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cd /var/repo/blog.git/hooks</div></pre></td></tr></table></figure>
+<p>编辑这个文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim post-receive</div></pre></td></tr></table></figure>
+<p>在 post-receive 文件中写入如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">git --work-tree=/home/www/hexo --git-dir=/var/repo/blog.git checkout -f</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意，/home/www/hexo 要换成你自己的部署目录，正如上文所说，我是的配置目录是/home/www/hexo。/var/repo/blog.git是git仓库的位置。上面那句 git 命令可以在我们每次 push 完之后，把部署目录更新到博客的最新生成状态。这样便可以完成达到自动部署的目的了。</p>
+</blockquote>
+<p>设置这个文件的可执行权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod +x post-receive</div></pre></td></tr></table></figure>
+<h3 id="改变-blog-git-目录的拥有者为-git-用户"><a href="#改变-blog-git-目录的拥有者为-git-用户" class="headerlink" title="改变 blog.git 目录的拥有者为 git 用户"></a>改变 blog.git 目录的拥有者为 git 用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo chown -R git:git blog.git</div></pre></td></tr></table></figure>
+<h3 id="禁用-git-用户的-shell-登录权限"><a href="#禁用-git-用户的-shell-登录权限" class="headerlink" title="禁用 git 用户的 shell 登录权限"></a>禁用 git 用户的 shell 登录权限</h3><p>出于安全考虑，我们要让 git 用户不能通过 shell 登录。可以编辑 /etc/passwd 来实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/passwd</div></pre></td></tr></table></figure>
+<p>将</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git:x:1001:1001:,,,:/home/git:/bin/bash</div></pre></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</div></pre></td></tr></table></figure>
+<p>这样 git 用户可以通过 ssh 正常使用 git，但是无法登录 sehll。</p>
+<p>至此，服务器环境的搭建已经基本结束。</p>
+<h2 id="配置本地-config-yml文件-完成自动化部署"><a href="#配置本地-config-yml文件-完成自动化部署" class="headerlink" title="配置本地_config.yml文件,完成自动化部署"></a>配置本地_config.yml文件,完成自动化部署</h2><hr>
+<h3 id="现在配置-hexo-的-deploy。"><a href="#现在配置-hexo-的-deploy。" class="headerlink" title="现在配置 hexo 的 deploy。"></a>现在配置 hexo 的 deploy。</h3><p>修改 hexo 目录下的 _config.yml 找到 deploy, 修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">type: git</div><div class="line">repo: git@www.moumaobuchiyu.com:/var/repo/blog.git</div><div class="line">branch: master</div></pre></td></tr></table></figure>
+<blockquote>
+<p>repo 的地址为你自己的地址以及 git 仓库目录</p>
+</blockquote>
+<p>至此，我们的 hexo 自动部署已经全部配置好了</p>
+<h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><p>新建文章：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new &quot;post name&quot;</div></pre></td></tr></table></figure>
+<p>生成 &amp; 部署：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</div></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.viosey.com/2016/10/05/Install-hexo-vps-git/" target="_blank" rel="external">在 VPS 上搭建 Hexo 博客，使用 Git 部署</a><br><a href="https://segmentfault.com/a/1190000005723321" target="_blank" rel="external">阿里云VPS搭建自己的的Hexo博客</a><br><a href="http://www.swiftyper.com/2016/04/17/deploy-hexo-with-git-hook/" target="_blank" rel="external">使用 Git Hook 自动部署 Hexo 到个人 VPS</a><br><a href="http://sumyblog.me/2015/11/02/use-git-hooks-for-hexo-automatic-deployment/" target="_blank" rel="external">使用git hooks进行hexo博客自动化部署</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> 服务器 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[大学算是毕业了]]></title>
       <url>https://www.moumaobuchiyu.com/2017/04/18/%E5%A4%A7%E5%AD%A6%E7%AE%97%E6%98%AF%E6%AF%95%E4%B8%9A%E4%BA%86/</url>
       <content type="html"><![CDATA[<p>上了两年多大学，现在算是基本毕业了吧<br>现在被学校忽悠到什么杰普软件公司培训几个月<br>还是培训JavaEE。。。。<br>折腾了几天才安顿到苏州附近的昆山<br>到这里的两天更新了友链和摄影界面</p>
