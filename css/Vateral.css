@@ -712,6 +712,15 @@ p.no-result {
 .post-page-content p img{
     width: 100%;
 }
+.post-page-content h2{
+    font-size: 2.56rem;
+}
+.post-page-content h3{
+    font-size: 1.8rem;
+}
+.post-page-content  pre{
+    margin: 0;
+}
 .highlight{
     overflow: auto;
     background-color: rgba(232, 232, 232, 0.61);
@@ -934,4 +943,9 @@ blockquote{
         margin-top: 0;!important;
     }
 
+}
+@media only screen and (max-width: 350px){
+    .post-toc-btn{
+        display: none;g
+    }
 }
