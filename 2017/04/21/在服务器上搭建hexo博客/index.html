@@ -193,9 +193,9 @@
 <h3 id="创建一个git用户"><a href="#创建一个git用户" class="headerlink" title="创建一个git用户"></a>创建一个git用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo adduser git</div></pre></td></tr></table></figure>
 <blockquote>
 <p>虽说现在的仓库只有我们自己在使用，新建一个 git 用户显得不是很有必要，但是为了安全起见，还是建议使用单独的 git 用户来专门运行<br>git 服务</p>
+</blockquote>
 <h3 id="添加证书登录"><a href="#添加证书登录" class="headerlink" title="添加证书登录"></a>添加证书登录</h3><p>把刚在在本地创建或者已经拥有的公钥，也就是 ~/.ssh/id_rsa.pub 文件里的内容添加到服务器的 /home/git/.ssh/authorized_keys 文件中，如上所说，添加公钥之后可以防止每次 push 都输入密码。（*可以直接执行<code>cat ~/.ssh/id_rsa.pub | pbcopy</code> 复制）</p>
 <p>###初始化 Git 仓库<br>可以将git仓库放到自定义位置，我是将其放在 /var/repo/blog.git 目录下的</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo mkdir /var/repo</div><div class="line">$ cd /var/repo</div><div class="line">$ sudo git init --bare blog.git</div></pre></td></tr></table></figure>
 <p>使用 –bare 参数，Git 就会创建一个裸仓库，裸仓库没有工作区，我们不会在裸仓库上进行操作，它只为共享而存在。</p>
 <h3 id="配置-git-hooks"><a href="#配置-git-hooks" class="headerlink" title="配置 git hooks"></a>配置 git hooks</h3><blockquote>
