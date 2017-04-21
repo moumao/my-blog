@@ -634,9 +634,15 @@ p.no-result {
 }
 
 /*标签页*/
-#archive{
+.tag{
     width: 1050px;
     display: block;
+    margin: 0 auto;
+}
+#archive{
+    width: 1050px;
+    height: auto;
+    display: inline-block;
     margin: 0 auto;
     margin-top: 150px;
     position: relative;
@@ -840,6 +846,9 @@ blockquote{
     #archive{
         width: 96%;
     }
+    .tag{
+        width: 96%;
+    }
     #post{
         width: 96%;
     }
@@ -870,7 +879,7 @@ blockquote{
         font-size: 10px;
     }
     #archive{
-       margin-top: 100px;
+       margin-top: 50px;
     }
     #archive .tag-list .tag-list-item{
         padding: 10px;
