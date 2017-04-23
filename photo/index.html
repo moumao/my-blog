@@ -151,7 +151,6 @@
 
         margin: 0 auto;
     }}
-
 </style>
 <div class="main-container" id="photo">
     <nav class="main-nav" style="background-color: white;border-bottom: #DDDDDD 1px solid;box-shadow: none;height: 104px">
@@ -167,26 +166,664 @@
                 
                     
                         <div class="portfolio-group">
-                            <a class="portfolio-item" href="/images/photo/1-large.jpg">
-                                <img src="/images/photo/1-small.jpg" alt="image 1">
+                            <a class="portfolio-item" id="href"  href="/images/photo/1-large.jpg">
+                                <img id="imgElement" src="/images/photo/1-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/1-small.jpg" alt="image 1">
                                 <div class="detail">
-                                    <h3>夕阳</h3>
-                                    <p>示例照片的简介</p>
+                                    <h3>中华风lo</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：155 光圈：2.8</p>-->
                                     <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
                                 </div>
                             </a>
                         </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
                     
                         <div class="portfolio-group">
-                            <a class="portfolio-item" href="/images/photo/2-large.jpg">
-                                <img src="/images/photo/2-small.jpg" alt="image 2">
+                            <a class="portfolio-item" id="href"  href="/images/photo/2-large.jpg">
+                                <img id="imgElement" src="/images/photo/2-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/2-small.jpg" alt="image 2">
                                 <div class="detail">
-                                    <h3>小路</h3>
-                                    <p>示例照片的简介</p>
+                                    <h3>汉服</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：35 光圈：1.4</p>-->
                                     <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
                                 </div>
                             </a>
                         </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/3-large.jpg">
+                                <img id="imgElement" src="/images/photo/3-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/3-small.jpg" alt="image 3">
+                                <div class="detail">
+                                    <h3>汉服-2</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：155 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/4-large.jpg">
+                                <img id="imgElement" src="/images/photo/4-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/4-small.jpg" alt="image 4">
+                                <div class="detail">
+                                    <h3>童话风lo</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：170 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/5-large.jpg">
+                                <img id="imgElement" src="/images/photo/5-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/5-small.jpg" alt="image 5">
+                                <div class="detail">
+                                    <h3>欧风lo</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：105 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/6-large.jpg">
+                                <img id="imgElement" src="/images/photo/6-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/6-small.jpg" alt="image 6">
+                                <div class="detail">
+                                    <h3>穹妹</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：35 光圈：1.4</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/7-large.jpg">
+                                <img id="imgElement" src="/images/photo/7-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/7-small.jpg" alt="image 7">
+                                <div class="detail">
+                                    <h3>东条希</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：70 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/8-large.jpg">
+                                <img id="imgElement" src="/images/photo/8-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/8-small.jpg" alt="image 8">
+                                <div class="detail">
+                                    <h3>JK</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：35 光圈：1.4</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/9-large.jpg">
+                                <img id="imgElement" src="/images/photo/9-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/9-small.jpg" alt="image 9">
+                                <div class="detail">
+                                    <h3>欧风lo-2</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：115 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/10-large.jpg">
+                                <img id="imgElement" src="/images/photo/10-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/10-small.jpg" alt="image 10">
+                                <div class="detail">
+                                    <h3>童话风lo-2</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：35 光圈：1.4</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/11-large.jpg">
+                                <img id="imgElement" src="/images/photo/11-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/11-small.jpg" alt="image 11">
+                                <div class="detail">
+                                    <h3>中华风lo-2</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：200 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/12-large.jpg">
+                                <img id="imgElement" src="/images/photo/12-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/12-small.jpg" alt="image 12">
+                                <div class="detail">
+                                    <h3>汉服-3</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：200 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/13-large.jpg">
+                                <img id="imgElement" src="/images/photo/13-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/13-small.jpg" alt="image 13">
+                                <div class="detail">
+                                    <h3>日常</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：200 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/14-large.jpg">
+                                <img id="imgElement" src="/images/photo/14-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/14-small.jpg" alt="image 14">
+                                <div class="detail">
+                                    <h3>现代风lo</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：200 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/15-large.jpg">
+                                <img id="imgElement" src="/images/photo/15-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/15-small.jpg" alt="image 15">
+                                <div class="detail">
+                                    <h3>粉色JK</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：200 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/17-large.jpg">
+                                <img id="imgElement" src="/images/photo/17-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/17-small.jpg" alt="image 16">
+                                <div class="detail">
+                                    <h3>死库水</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：200 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/16-large.jpg">
+                                <img id="imgElement" src="/images/photo/16-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/16-small.jpg" alt="image 17">
+                                <div class="detail">
+                                    <h3>狐妖</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：200 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/19-large.jpg">
+                                <img id="imgElement" src="/images/photo/19-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/19-small.jpg" alt="image 18">
+                                <div class="detail">
+                                    <h3>狐妖-2</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：200 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/18-large.jpg">
+                                <img id="imgElement" src="/images/photo/18-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/18-small.jpg" alt="image 19">
+                                <div class="detail">
+                                    <h3>花鸟卷</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：200 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
+                    
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" id="href"  href="/images/photo/20-large.jpg">
+                                <img id="imgElement" src="/images/photo/20-large.jpg" style="opacity: 0">
+                                <img  src="/images/photo/20-small.jpg" alt="image 20">
+                                <div class="detail">
+                                    <h3>花鸟卷-2</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机:</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段:</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈:</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门:</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">ISO:</p>
+                                    <!--<p>相机： Canon EOS 5D Mark III 焦距：200 光圈：2.8</p>-->
+                                    <span class="btn" style="color: #707070;text-align: center;padding:0">查看</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="/js/exif.js"></script>
+                        <script type="text/javascript">
+                           /* EXIF.getData(document.getElementById('imgElement'), function(){
+                                var make = EXIF.getTag(this, "Make"),
+                                    model = EXIF.getTag(this, "Model");
+                                //alert("I was taken by a " + make + " " + model);
+                            });*/
+                           var image = new Image();
+                           image.src=$(".portfolio-item:last-child").attr("href");
+                           alert(image.src)
+                           EXIF.getData(image, function() {
+                               var model = EXIF.getTag(this, "Model");
+                               alert(model)
+                           })
+                        </script>-->
                     
                 
             </div>
@@ -209,14 +846,43 @@
 <script type="text/javascript" src="/js/modernizr.2.5.3.min.js"></script>
 <script type="text/javascript" src="/js/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript" src="/js/templatemo_script.js"></script>
+<script type="text/javascript" src="/js/exif.js"></script>
 <script type="text/javascript">
         $('.pagination li').click(changePage);
         $('.portfolio-item').magnificPopup({
-            type: 'image',
-            gallery:{
-                enabled:true
-            }
+              type: 'image',
+              gallery:{
+                  enabled:true
+              }
         });
+        $(document).ready(function () {
+          $(".portfolio-item").each(function () {
+            var image = new Image();
+            var father =$(this).find(".detail");
+            image.src=$(this).attr("href");
+            image.onload = function() {
+                EXIF.getData(image, function(){
+                  var  Model = EXIF.getTag(image, "Model");//相机
+                  var  FocalLength = EXIF.getTag(image, "FocalLength");//焦段
+                  var  FNumber = EXIF.getTag(image, "FNumber");//光圈
+                  var  ExposureTime = 1/EXIF.getTag(image, "ExposureTime");//快门
+                  var  ISOSpeedRatings = EXIF.getTag(image, "ISOSpeedRatings");//ISO
+                  if (Model==undefined ||FocalLength==undefined ||FNumber==undefined ||ExposureTime==undefined ||ISOSpeedRatings==undefined ){
+                      Model="暂无数据"
+                      FocalLength="暂无数据"
+                      FNumber="暂无数据"
+                      ExposureTime="暂无数据"
+                      ISOSpeedRatings="暂无数据"
+                  }
+                  father.children(".Model").append(Model);
+                  father.children(".FocalLength").append(FocalLength);
+                  father.children(".FNumber").append(FNumber);
+                  father.children(".ExposureTime").append(ExposureTime);
+                  father.children(".ISOSpeedRatings").append(ISOSpeedRatings);
+                })
+            }
+          })
+        })
 </script>
 
 
