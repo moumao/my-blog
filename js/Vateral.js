@@ -2,7 +2,9 @@
 $(function () {
     function loadings() {
         $("body").css({
-            "overflow-y":"hidden"
+            "overflow-y":"hidden",
+            "overflow-x":"hidden"
+
         });
         setTimeout(function(){
             var loader = document.getElementsByClassName("loader")[0];
