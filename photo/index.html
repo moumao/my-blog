@@ -682,27 +682,6 @@
 <script type="text/javascript" src="https://moumao.moumaobuchiyu.com/js/exif.js"></script>
 <script type="text/javascript">
 
-    /*window.onload = function() {
-
-        var placeholder = document.querySelector('.placeholder'),
-            small = placeholder.querySelector('.img-small');
-
-        // 1: load small image and show it
-        var img = new Image();
-        img.src = small.src;
-        img.onload = function () {
-            small.classList.add('loaded');
-        };
-
-        // 2: load large image
-        var imgLarge = new Image();
-        imgLarge.src = placeholder.dataset.large;
-        imgLarge.classList.add('load-big-photo');
-        imgLarge.onload = function () {
-            imgLarge.classList.add('loaded');
-        };
-        placeholder.appendChild(imgLarge);
-    }*/
 
     var boxes=$('.portfolio-item');
     boxes.magnificPopup({
@@ -711,96 +690,84 @@
               enabled:true
           }
     });
-    /*boxes.find(".img-small").each(function () {
-
-        $(this).load(function () {
-
-            $(this).animate({
-                "opacity":1
-            },800)
-            var _this=$(this)
-            setTimeout(function () {
-                _this.parent(".portfolio-group ").css({
-                    "backgroundImage":"none"
-                })
-            },1300)
-        })
-
-    })*/
 
     var t_img; // 定时器
     var isLoad = true; // 控制变量
 
-    // 判断图片加载状况，加载完成后回调
-    isImgLoad(function(){
-        // 加载完成
-        boxes.each(function () {
-            var small=$(this).find(".img-small")
-            small.animate({
-                "opacity":1
-            },800)
-            var _this=$(this)
-            setTimeout(function () {
-                _this.parent(".portfolio-group ").css({
-                    "backgroundImage":"none"
-                })
-            },1300)
-        })
-
-    });
 
     // 判断图片加载的函数
     function isImgLoad(callback){
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
         $('.img-small').each(function(){
             // 找到为0就将isLoad设为false，并退出each
-            if(this.height === 0){
+            if(!this.complete){
                 isLoad = false;
                 return false;
             }
         });
         // 为true，没有发现为0的。加载完毕
         if(isLoad){
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
+            clearTimeout(t_img);
             callback();
             // 为false，因为找到了没有加载完成的图，将调用定时器递归
         }else{
             isLoad = true;
             t_img = setTimeout(function(){
                 isImgLoad(callback); // 递归扫描
-            },100); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+            },100);
         }
     }
 
-    boxes.each(function () {
-
-        var image = new Image();
-        var father =$(this).find(".detail");
-        image.src=$(this).attr("href");
-        image.onload = function() {
-            EXIF.getData(image, function(){
-                var  Model = EXIF.getTag(image, "Model");//相机
-                var  FocalLength = EXIF.getTag(image, "FocalLength");//焦段
-                var  FNumber = EXIF.getTag(image, "FNumber");//光圈
-                var  ExposureTime = 1/EXIF.getTag(image, "ExposureTime");//快门
-                var  ISOSpeedRatings = EXIF.getTag(image, "ISOSpeedRatings");//ISO
-                if (Model==undefined ||FocalLength==undefined ||FNumber==undefined ||ExposureTime==undefined ||ISOSpeedRatings==undefined ){
-                    Model="暂无数据"
-                    FocalLength="暂无数据"
-                    FNumber="暂无数据"
-                    ExposureTime="暂无数据"
-                    ISOSpeedRatings="暂无数据"
-                }
-                father.children(".Model").empty().append("相机："+Model);
-                father.children(".FocalLength").empty().append("焦段："+FocalLength);
-                father.children(".FNumber").empty().append("快门："+FNumber);
-                father.children(".ExposureTime").empty().append("光圈："+ExposureTime);
-                father.children(".ISOSpeedRatings").empty().append("感光度："+ISOSpeedRatings);
+    $(document).ready(function () {
+        // 判断图片加载状况，加载完成后回调
+        isImgLoad(function(){
+            // 加载完成
+            boxes.each(function () {
+                var small=$(this).find(".img-small")
+                small.animate({
+                    "opacity":1
+                },800)
+                var _this=$(this)
+                setTimeout(function () {
+                    _this.parent(".portfolio-group ").css({
+                        "backgroundImage":"none"
+                    })
+                },1300)
             })
-        }
+
+        });
+
+        boxes.each(function () {
+            
+            var image = new Image();
+            var father =$(this).find(".detail");
+            image.src=$(this).attr("href");
+            image.onload = function() {
+                EXIF.getData(image, function(){
+                    var  Model = EXIF.getTag(image, "Model");//相机
+                    var  FocalLength = EXIF.getTag(image, "FocalLength");//焦段
+                    var  FNumber = EXIF.getTag(image, "FNumber");//光圈
+                    var  ExposureTime = 1/EXIF.getTag(image, "ExposureTime");//快门
+                    var  ISOSpeedRatings = EXIF.getTag(image, "ISOSpeedRatings");//ISO
+                    if (Model==undefined ||FocalLength==undefined ||FNumber==undefined ||ExposureTime==undefined ||ISOSpeedRatings==undefined ){
+                        Model="暂无数据"
+                        FocalLength="暂无数据"
+                        FNumber="暂无数据"
+                        ExposureTime="暂无数据"
+                        ISOSpeedRatings="暂无数据"
+                    }
+                    father.children(".Model").empty().append("相机："+Model);
+                    father.children(".FocalLength").empty().append("焦段："+FocalLength);
+                    father.children(".FNumber").empty().append("快门："+FNumber);
+                    father.children(".ExposureTime").empty().append("光圈："+ExposureTime);
+                    father.children(".ISOSpeedRatings").empty().append("感光度："+ISOSpeedRatings);
+                })
+            }
+        })
     })
+
+
+
+
 
 
 </script>
