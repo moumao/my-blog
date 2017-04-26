@@ -683,7 +683,7 @@
     $(document).ready(function () {
 
         // 加载完成
-        boxes.each(function () {
+        /*boxes.each(function () {
 
             var small=$(this).find(".img-small")
             var _this=$(this)
@@ -699,14 +699,25 @@
                     })
                 },1200)
             })
-        })
+        })*/
 
         boxes.each(function () {
 
+            var small=$(this).find(".img-small")
+            var _this=$(this)
             var image = new Image();
             var father =$(this).find(".detail");
             image.src=$(this).attr("href");
             image.onload = function() {
+                small.animate({
+                    "opacity":1
+                },800)
+
+                setTimeout(function () {
+                    _this.parent(".portfolio-group ").css({
+                        "backgroundImage":"none"
+                    })
+                },1200)
                 EXIF.getData(image, function(){
                     var  Model = EXIF.getTag(image, "Model");//相机
                     var  FocalLength = EXIF.getTag(image, "FocalLength");//焦段
