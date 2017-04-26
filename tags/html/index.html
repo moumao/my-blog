@@ -228,20 +228,5 @@ meta 元素可提供有关页面...
 <script src="/js/Vateral.min.js"></script>
 
 
-<script>
-    $(function(){
-        $(".lazy").lazyload({
-            effect : "fadeIn"
-        });
-    })
-
-    var options = [
-        {selector: '.friends', offset: 0, callback: function(el) {
-            Materialize.showStaggeredList($(el));
-        } },
-    ];
-    Materialize.scrollFire(options);
-
-</script>
 </body>
 </html>

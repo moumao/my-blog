@@ -280,3 +280,8 @@ $("#local-search-result").bind("DOMNodeRemoved DOMNodeInserted", function(e) {
     });
 })();
 
+$(function(){
+    $(".lazy").lazyload({
+        effect : "fadeIn"
+    });
+})
