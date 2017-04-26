@@ -15,7 +15,7 @@ $(function () {
             setTimeout(function(){
                 loader.style.display="none";
             },500)
-        },500);//强制显示loading
+        });//强制显示loading
     }
     window.onload=loadings();
 });
