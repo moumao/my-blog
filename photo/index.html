@@ -734,8 +734,9 @@
     // 判断图片加载状况，加载完成后回调
     isImgLoad(function(){
         // 加载完成
-        $(".img-small").each(function () {
-            $(this).animate({
+        boxes.each(function () {
+            var small=$(this).find(".img-small")
+            small.animate({
                 "opacity":1
             },800)
             var _this=$(this)
