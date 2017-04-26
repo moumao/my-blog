@@ -826,13 +826,13 @@
         var small = $(this).find(".img-small");
         small.animate({
             "opacity":1
-        })
+        },1000)
         var _this=$(this)
         setTimeout(function () {
             _this.parent(".portfolio-group ").css({
                 "backgroundImage":"none"
             })
-        },300)
+        },1500)
     })
     boxes.each(function () {
 
