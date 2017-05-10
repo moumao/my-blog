@@ -12,7 +12,7 @@
     
       <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/materialize.min.css">
     
-      <link rel="stylesheet" href="/css/Vateral.min.css">
+      <link rel="stylesheet" href="/css/Vateral.css">
     
   
   
@@ -22,7 +22,9 @@
             font-weight:300;
         }
     </style>
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
+<script src="/js/prism-line-numbers.min.js"></script></head>
 <body>
 <div class="progress" >
     <div class="indeterminate"></div>
@@ -163,65 +165,91 @@
 <p>node – 编译后二进制文件应在/usr/local/bin/node 下<br> mongodb –安装在/usr/local/mongodb 下</p>
 </blockquote>
 <p>下面就一步一步来，首先升级CentOS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y update</div></pre></td></tr></table></figure>
-<p>升级后，跳转到 /usr/local/src , 这个文件夹通常用来存放软件源代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/src</div></pre></td></tr></table></figure>
-<p>下载 nodejs 代码，也可以使用scp命令直接上传，因为下载实在太慢了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://nodejs.org/dist/v0.12.5/node-v0.12.5.tar.gz</div><div class="line">//注*根据最新版本号为准</div></pre></td></tr></table></figure>
-<p>解压</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xzvf node-v0.12.5.tar.gz</div></pre></td></tr></table></figure>
-<p>进入解压后的文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd node-v0.12.5</div></pre></td></tr></table></figure>
-<p>执行配置脚本来进行编译预处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure</div></pre></td></tr></table></figure>
-<p>编译源代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line">//注*这个时间可能会很久</div></pre></td></tr></table></figure>
-<p>当编译完成后，需要使之在系统范围内可用, 编译后的二进制文件将被放置到系统路径，默认情况下，Node二进制文件应该放在/user/local/bin/node文件夹下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make install</div></pre></td></tr></table></figure>
-<p>安装 express 和 forever，这两个模块都推荐 global 安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -g install express forever</div></pre></td></tr></table></figure>
-<p>建立超级链接, 不然 sudo node 时会报 “command not found”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /usr/local/bin/node /usr/bin/node</div><div class="line">sudo ln -s /usr/local/lib/node /usr/lib/node</div><div class="line">sudo ln -s /usr/local/bin/npm /usr/bin/npm</div><div class="line">sudo ln -s /usr/local/bin/node-waf /usr/bin/node-waf</div><div class="line">sudo ln -s /usr/local/bin/forever /usr/bin/forever</div></pre></td></tr></table></figure>
-<p>Nodejs到这里就基本安装完成了。</p>
+<pre><code>yum -y update
+</code></pre><p>升级后，跳转到 /usr/local/src , 这个文件夹通常用来存放软件源代码</p>
+<pre><code>cd /usr/local/src
+</code></pre><p>下载 nodejs 代码，也可以使用scp命令直接上传，因为下载实在太慢了。</p>
+<pre><code>wget http://nodejs.org/dist/v0.12.5/node-v0.12.5.tar.gz
+//注*根据最新版本号为准
+</code></pre><p>解压</p>
+<pre><code>tar -xzvf node-v0.12.5.tar.gz
+</code></pre><p>进入解压后的文件夹</p>
+<pre><code>cd node-v0.12.5
+</code></pre><p>执行配置脚本来进行编译预处理</p>
+<pre><code>./configure
+</code></pre><p>编译源代码</p>
+<pre><code>make
+//注*这个时间可能会很久
+</code></pre><p>当编译完成后，需要使之在系统范围内可用, 编译后的二进制文件将被放置到系统路径，默认情况下，Node二进制文件应该放在/user/local/bin/node文件夹下</p>
+<pre><code>make install
+</code></pre><p>安装 express 和 forever，这两个模块都推荐 global 安装</p>
+<pre><code>npm -g install express forever
+</code></pre><p>建立超级链接, 不然 sudo node 时会报 “command not found”</p>
+<pre><code>sudo ln -s /usr/local/bin/node /usr/bin/node
+sudo ln -s /usr/local/lib/node /usr/lib/node
+sudo ln -s /usr/local/bin/npm /usr/bin/npm
+sudo ln -s /usr/local/bin/node-waf /usr/bin/node-waf
+sudo ln -s /usr/local/bin/forever /usr/bin/forever
+</code></pre><p>Nodejs到这里就基本安装完成了。</p>
 <p><strong>下面来安装mongodb</strong></p>
 <blockquote>
 <p>软件安装位置：/usr/local/mongodb<br>数据存放位置：/var/mongodb/data<br>日志存放位置：/var/mongodb/logs</p>
 </blockquote>
 <p>首先下载安装包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local</div><div class="line">wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz</div></pre></td></tr></table></figure>
-<p>解压安装包，重命名文件夹为mongodb</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tar zxvf mongodb-linux-x86_64-2.6.0.tgz</div><div class="line">mv mongodb-linux-x86_64-2.6.0 mongodb</div></pre></td></tr></table></figure>
-<p>创建数据和日志存放目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir /var/mongodb</div><div class="line">mkdir /var/mongodb/data</div><div class="line">mkdir /var/mongodb/logs</div></pre></td></tr></table></figure>
-<p>打开rc.local文件，添加CentOS开机启动项：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/rc.d/rc.local</div></pre></td></tr></table></figure>
-<p>将mongodb启动命令追加到本文件中，让mongodb开机自启动：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath </div><div class="line">/var/mongodb/logs/log.log -fork</div></pre></td></tr></table></figure>
-<p>关闭 vim 后，直接手动启动mongodb</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath </div><div class="line">/var/mongodb/logs/log.log -fork</div></pre></td></tr></table></figure>
-<p>看到类似的信息，说明已启动成功。我在这里发了个傻，以为26308是port号，导致后面设置port时折腾了好久。其实这里的 forked process 和 port 号是两个东西， 这个是程序本身在Server上的进程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">forked process: 26308</div></pre></td></tr></table></figure>
-<p>启动mongo shell</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/mongodb/bin/</div><div class="line">./mongo</div></pre></td></tr></table></figure>
-<p>在 mongo shell 中创建管理员及数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">use admin //admin 数据库</div><div class="line">db.createUser(&#123;</div><div class="line">user: &quot;用户名&quot;,</div><div class="line">pwd:&quot;登陆密码&quot;,</div><div class="line">roles:[&quot;userAdminAnyDatabase&quot;] //超级管理员</div><div class="line">&#125;)</div><div class="line"></div><div class="line">use databaseFoo //nodeapp 要连接的数据库</div><div class="line">db.createUser(&#123;</div><div class="line">user: &quot;用户名&quot;,</div><div class="line">pwd:&quot;登陆密码&quot;,</div><div class="line">roles:[&quot;readWrite&quot;] //读写权限</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>到这里 mongodb 基本已经安装设置完成了。具体数据的迁移导入可自行研究。</p>
+<pre><code>cd /usr/local
+wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz
+</code></pre><p>解压安装包，重命名文件夹为mongodb</p>
+<pre><code>tar zxvf mongodb-linux-x86_64-2.6.0.tgz
+mv mongodb-linux-x86_64-2.6.0 mongodb
+</code></pre><p>创建数据和日志存放目录</p>
+<pre><code>mkdir /var/mongodb
+mkdir /var/mongodb/data
+mkdir /var/mongodb/logs
+</code></pre><p>打开rc.local文件，添加CentOS开机启动项：</p>
+<pre><code>vim /etc/rc.d/rc.local
+</code></pre><p>将mongodb启动命令追加到本文件中，让mongodb开机自启动：</p>
+<pre><code>/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath 
+/var/mongodb/logs/log.log -fork
+</code></pre><p>关闭 vim 后，直接手动启动mongodb</p>
+<pre><code>/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath 
+/var/mongodb/logs/log.log -fork
+</code></pre><p>看到类似的信息，说明已启动成功。我在这里发了个傻，以为26308是port号，导致后面设置port时折腾了好久。其实这里的 forked process 和 port 号是两个东西， 这个是程序本身在Server上的进程。</p>
+<pre><code>forked process: 26308
+</code></pre><p>启动mongo shell</p>
+<pre><code>cd /usr/local/mongodb/bin/
+./mongo
+</code></pre><p>在 mongo shell 中创建管理员及数据库</p>
+<pre><code>use admin //admin 数据库
+db.createUser({
+user: &quot;用户名&quot;,
+pwd:&quot;登陆密码&quot;,
+roles:[&quot;userAdminAnyDatabase&quot;] //超级管理员
+})
+
+use databaseFoo //nodeapp 要连接的数据库
+db.createUser({
+user: &quot;用户名&quot;,
+pwd:&quot;登陆密码&quot;,
+roles:[&quot;readWrite&quot;] //读写权限
+})
+</code></pre><p>到这里 mongodb 基本已经安装设置完成了。具体数据的迁移导入可自行研究。</p>
 <p><strong>4.配置及启动node app</strong></p>
 <p>我们把 nodeapp 的程序放在 /home 下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /home</div></pre></td></tr></table></figure>
-<p>我使用 <a href="http://git.oschina.net/" target="_blank" rel="external">http://git.oschina.net/</a> 管理代码。它的私有库是免费的。基本操作和 github 一样。<br>复制代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://git.oschina.net/xxxxxxx/nodeapp.git   //你的repo地址</div></pre></td></tr></table></figure>
-<p>注*同时可以使用图形化程序进行上传如File Zilla<img src="http://img.blog.csdn.net/20170212201742447?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="FZ"><br>进入 nodeapp 文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd nodeapp</div></pre></td></tr></table></figure>
-<p>（若后续代码变更，提交到 git repo 后直接git pull即可部署代码）<br>安装nodeapp的所有依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
-<p>在启动文件 ( 我的是 app.js ) 中设置数据库连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim app.js</div></pre></td></tr></table></figure>
-<p>数据库连接类似下面的格式，由于数据库安装在同一服务器，因此 host 为127.0.0.1：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dbUrl = &apos;mongodb://用户名:登陆密码@127.0.0.1/databaseFoo&apos;;</div><div class="line">mongoose.connect(dbUrl)</div></pre></td></tr></table></figure>
-<p>这里要注意，如果直接 npm start 或 node app.js 启动，则一旦退出 ssh 远程登陆，nodeapp 就会停止运行。因此我们使用 forever 启动 nodeapp。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NODE_ENV=production forever start app.js</div></pre></td></tr></table></figure>
-<blockquote>
+<pre><code>cd /home
+</code></pre><p>我使用 <a href="http://git.oschina.net/" target="_blank" rel="external">http://git.oschina.net/</a> 管理代码。它的私有库是免费的。基本操作和 github 一样。<br>复制代码：</p>
+<pre><code>git clone https://git.oschina.net/xxxxxxx/nodeapp.git   //你的repo地址
+</code></pre><p>注*同时可以使用图形化程序进行上传如File Zilla<img src="http://img.blog.csdn.net/20170212201742447?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="FZ"><br>进入 nodeapp 文件夹</p>
+<pre><code>cd nodeapp
+</code></pre><p>（若后续代码变更，提交到 git repo 后直接git pull即可部署代码）<br>安装nodeapp的所有依赖</p>
+<pre><code>npm install
+</code></pre><p>在启动文件 ( 我的是 app.js ) 中设置数据库连接</p>
+<pre><code>vim app.js
+</code></pre><p>数据库连接类似下面的格式，由于数据库安装在同一服务器，因此 host 为127.0.0.1：</p>
+<pre><code>var dbUrl = &#39;mongodb://用户名:登陆密码@127.0.0.1/databaseFoo&#39;;
+mongoose.connect(dbUrl)
+</code></pre><p>这里要注意，如果直接 npm start 或 node app.js 启动，则一旦退出 ssh 远程登陆，nodeapp 就会停止运行。因此我们使用 forever 启动 nodeapp。</p>
+<pre><code>NODE_ENV=production forever start app.js
+</code></pre><blockquote>
 <p>如今可以使用PM2启动程序，步骤如下：<br>使用它要先安装它，用root账号和全局模式安装一下：<br><code>npm install -g pm2</code><br>用它来启动程序（在当前目录下可以直接启动）<br><code>pm2 start app.js --name uops</code></p>
 </blockquote>
 <p>在蹚过无数坑后，项目部署成功。用浏览器打开 公网IP:端口号 即可看到 nodeapp 的首页</p>

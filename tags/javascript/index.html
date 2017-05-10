@@ -12,7 +12,7 @@
     
       <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/materialize.min.css">
     
-      <link rel="stylesheet" href="/css/Vateral.min.css">
+      <link rel="stylesheet" href="/css/Vateral.css">
     
   
   
@@ -22,7 +22,9 @@
             font-weight:300;
         }
     </style>
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
+<script src="/js/prism-line-numbers.min.js"></script></head>
 <body>
 <div class="progress" >
     <div class="indeterminate"></div>
@@ -193,7 +195,7 @@
               
               ###关于回调函数
 首先要了解，在 js 中，函数也是对象，可以赋值给变量，可以作为参数放在函数的参数列表中。比如：
-
+var doSomethi...
               
           </p>
         </div>
@@ -225,7 +227,11 @@
               
               this是Javascript语言的一个关键字。 
 它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。比如:
-12345function test()&#123; 　　　　this.x = 1; 　　&#125;
+function test(){ 
+
+　　　　this.x = 1; 
+
+　　}
 
 随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是，调用函数的那个对象。
 

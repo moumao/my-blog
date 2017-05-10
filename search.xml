@@ -68,30 +68,39 @@
 <h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><hr>
 <p><strong>第一步：</strong> 安装node.js以及本地Hexo初始化<br><strong>第二步：</strong> 服务器环境搭建，包括安装 Git 、Nginx配置 、创建 git 用户<br><strong>第三步：</strong> 使用Git自动化部署发布博客</p>
 <h2 id="本地环境"><a href="#本地环境" class="headerlink" title="本地环境"></a>本地环境</h2><hr>
-<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install node</div></pre></td></tr></table></figure>
-<h3 id="初始化Hexo博客"><a href="#初始化Hexo博客" class="headerlink" title="初始化Hexo博客"></a>初始化Hexo博客</h3><p>首先创建 你的Hexo 目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mkdir &quot;your hexo dir name&quot;//创建一个自定义的hexo目录，比如我就在用户根目录创建了一个myhexo文件夹（macOS)</div><div class="line">$ cd &quot;your hexo dir name&quot;//进入到刚刚创建的目录</div></pre></td></tr></table></figure>
-<p>然后安装 hexo-cli，安装hexo-cli 需要 root 权限，使用 sudo 运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g hexo-cli</div></pre></td></tr></table></figure>
-<p>初始化该文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
-<p>安装hexo的扩展插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
-<p>等执行成功以后安装两个插件， hexo-deployer-git 和 hexo-server ,这俩插件的作用分别是使用Git自动部署，和本地简单的服务器。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div><div class="line">npm install hero-server --save</div></pre></td></tr></table></figure>
-<p>以及一些其他插件（<strong>*非必选</strong>）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">npm install hexo-admin --save</div><div class="line">npm install hexo-generator-archive --save</div><div class="line">npm install hexo-generator-feed --save</div><div class="line">npm install hexo-generator-search --save</div><div class="line">npm install hexo-generator-tag --save</div><div class="line">npm install hexo-generator-sitemap --save</div></pre></td></tr></table></figure>
-<p>到这里hexo的本地搭建已经基本结束了，快来新建一个文章并在本地启动吧~</p>
+<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><pre><code>$ brew install node
+</code></pre><h3 id="初始化Hexo博客"><a href="#初始化Hexo博客" class="headerlink" title="初始化Hexo博客"></a>初始化Hexo博客</h3><p>首先创建 你的Hexo 目录</p>
+<pre><code>$ mkdir &quot;your hexo dir name&quot;//创建一个自定义的hexo目录，比如我就在用户根目录创建了一个myhexo文件夹（macOS)
+$ cd &quot;your hexo dir name&quot;//进入到刚刚创建的目录
+</code></pre><p>然后安装 hexo-cli，安装hexo-cli 需要 root 权限，使用 sudo 运行</p>
+<pre><code>sudo npm install -g hexo-cli
+</code></pre><p>初始化该文件夹</p>
+<pre><code>hexo init
+</code></pre><p>安装hexo的扩展插件</p>
+<pre><code>npm install
+</code></pre><p>等执行成功以后安装两个插件， hexo-deployer-git 和 hexo-server ,这俩插件的作用分别是使用Git自动部署，和本地简单的服务器。</p>
+<pre><code>npm install hexo-deployer-git --save
+npm install hero-server --save
+</code></pre><p>以及一些其他插件（<strong>*非必选</strong>）</p>
+<pre><code>npm install hexo-admin --save
+npm install hexo-generator-archive --save
+npm install hexo-generator-feed --save
+npm install hexo-generator-search --save
+npm install hexo-generator-tag --save
+npm install hexo-generator-sitemap --save
+</code></pre><p>到这里hexo的本地搭建已经基本结束了，快来新建一个文章并在本地启动吧~</p>
 <h3 id="生成自己的第一篇文章"><a href="#生成自己的第一篇文章" class="headerlink" title="生成自己的第一篇文章"></a>生成自己的第一篇文章</h3><p>使用 hexo new &lt;文章名称&gt; 来新建文章，该命令会成成一个 .md文件放置在 sources/_posts文件夹。（<strong>*在hexo目录下执行命令</strong>）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;hello Hexo&quot;</div></pre></td></tr></table></figure>
-<blockquote>
+<pre><code>hexo new &quot;hello Hexo&quot;
+</code></pre><blockquote>
 <p>执行该命令后在hexo目录下的 sources/_posts文件夹里生成了刚刚创建的hello<br>Hexo.md的markdown文件，然后就可以通过本地或者在线的markdown编辑器就可以创作自己的博客了~</p>
 </blockquote>
 <p>编辑完毕以后， 使用hexo g将 .md文件渲染成静态文件，然后启动hexo-server</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo g</div><div class="line">hexo server</div></pre></td></tr></table></figure>
-<p>打开 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 如果看到 hexo 的初始页面证明安装成功。</p>
-<h3 id="生成ssh公钥密钥"><a href="#生成ssh公钥密钥" class="headerlink" title="生成ssh公钥密钥"></a>生成ssh公钥密钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~/.ssh</div><div class="line">$ ssh-keygen</div></pre></td></tr></table></figure>
-<p>它先要求你确认保存公钥的位置（.ssh/id_rsa），然后它会让你重复一个密码两次，如果不想在使用公钥的时候输入密码，可以留空；具体生产方法可以<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">参考这里</a></p>
+<pre><code>hexo g
+hexo server
+</code></pre><p>打开 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 如果看到 hexo 的初始页面证明安装成功。</p>
+<h3 id="生成ssh公钥密钥"><a href="#生成ssh公钥密钥" class="headerlink" title="生成ssh公钥密钥"></a>生成ssh公钥密钥</h3><pre><code>$ cd ~/.ssh
+$ ssh-keygen
+</code></pre><p>它先要求你确认保存公钥的位置（.ssh/id_rsa），然后它会让你重复一个密码两次，如果不想在使用公钥的时候输入密码，可以留空；具体生产方法可以<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">参考这里</a></p>
 <blockquote>
 <p>这个公钥将会复制到服务器的证书中，添加公钥之后可以防止每次 push 都输入密码。</p>
 </blockquote>
@@ -101,54 +110,61 @@
 <blockquote>
 <p>我们可以专门为hexo创建一个部署目录，比如我创建了/home/www/hexo文件夹，并把nginx的配置文件nginx.conf中的部署目录改为/home/www/hexo，配置文件一般在/usr/local/nginx/conf里；同样可以使用默认目录，nginx的默认目录为/var/www/html，如果使用LNMP一键安装包，则默认的部署目录为/home/wwwroot/default</p>
 </blockquote>
-<h3 id="安装node-js-1"><a href="#安装node-js-1" class="headerlink" title="安装node.js"></a>安装node.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -</div><div class="line">$ apt-get install -y nodejs</div></pre></td></tr></table></figure>
-<blockquote>
+<h3 id="安装node-js-1"><a href="#安装node-js-1" class="headerlink" title="安装node.js"></a>安装node.js</h3><pre><code>$ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+$ apt-get install -y nodejs
+</code></pre><blockquote>
 <p>如果遇到问题可以参考<a href="https://www.moumaobuchiyu.com/2017/03/16/nodejs%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%A8%E8%BF%87%E7%A8%8B/">Node.js部署到阿里云服务器</a>里边有更详细的关于node.js的步骤</p>
 </blockquote>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ apt-get install git</div></pre></td></tr></table></figure>
-<h3 id="创建一个git用户"><a href="#创建一个git用户" class="headerlink" title="创建一个git用户"></a>创建一个git用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo adduser git</div></pre></td></tr></table></figure>
-<blockquote>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><pre><code>$ apt-get install git
+</code></pre><h3 id="创建一个git用户"><a href="#创建一个git用户" class="headerlink" title="创建一个git用户"></a>创建一个git用户</h3><pre><code>$ sudo adduser git
+</code></pre><blockquote>
 <p>虽说现在的仓库只有我们自己在使用，新建一个 git 用户显得不是很有必要，但是为了安全起见，还是建议使用单独的 git 用户来专门运行<br>git 服务</p>
 </blockquote>
 <h3 id="添加证书登录"><a href="#添加证书登录" class="headerlink" title="添加证书登录"></a>添加证书登录</h3><p>把刚在在本地创建或者已经拥有的公钥，也就是 ~/.ssh/id_rsa.pub 文件里的内容添加到服务器的 /home/git/.ssh/authorized_keys 文件中，如上所说，添加公钥之后可以防止每次 push 都输入密码。（*可以直接执行<code>cat ~/.ssh/id_rsa.pub | pbcopy</code> 复制）</p>
 <p>###初始化 Git 仓库<br>可以将git仓库放到自定义位置，我是将其放在 /var/repo/blog.git 目录下的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo mkdir /var/repo</div><div class="line">$ cd /var/repo</div><div class="line">$ sudo git init --bare blog.git</div></pre></td></tr></table></figure>
-<p>使用 –bare 参数，Git 就会创建一个裸仓库，裸仓库没有工作区，我们不会在裸仓库上进行操作，它只为共享而存在。</p>
+<pre><code>$ sudo mkdir /var/repo
+$ cd /var/repo
+$ sudo git init --bare blog.git
+</code></pre><p>使用 –bare 参数，Git 就会创建一个裸仓库，裸仓库没有工作区，我们不会在裸仓库上进行操作，它只为共享而存在。</p>
 <h3 id="配置-git-hooks"><a href="#配置-git-hooks" class="headerlink" title="配置 git hooks"></a>配置 git hooks</h3><blockquote>
 <p>我们这里要使用的是 post-receive 的 hook，这个 hook 会在整个 git 操作过程完结以后被运行，关于 hooks<br>的详情内容可以<a href="https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90" target="_blank" rel="external">参考这里</a>。</p>
 </blockquote>
 <p>在 blog.git/hooks 目录下新建一个 post-receive 文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cd /var/repo/blog.git/hooks</div></pre></td></tr></table></figure>
-<p>编辑这个文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim post-receive</div></pre></td></tr></table></figure>
-<p>在 post-receive 文件中写入如下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">git --work-tree=/home/www/hexo --git-dir=/var/repo/blog.git checkout -f</div></pre></td></tr></table></figure>
-<blockquote>
+<pre><code>$ cd /var/repo/blog.git/hooks
+</code></pre><p>编辑这个文件</p>
+<pre><code>$ vim post-receive
+</code></pre><p>在 post-receive 文件中写入如下内容</p>
+<pre><code>#!/bin/sh
+git --work-tree=/home/www/hexo --git-dir=/var/repo/blog.git checkout -f
+</code></pre><blockquote>
 <p>注意，/home/www/hexo 要换成你自己的部署目录，正如上文所说，我是的配置目录是/home/www/hexo。/var/repo/blog.git是git仓库的位置。上面那句 git 命令可以在我们每次 push 完之后，把部署目录更新到博客的最新生成状态。这样便可以完成达到自动部署的目的了。</p>
 </blockquote>
 <p>设置这个文件的可执行权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod +x post-receive</div></pre></td></tr></table></figure>
-<h3 id="改变-blog-git-目录的拥有者为-git-用户"><a href="#改变-blog-git-目录的拥有者为-git-用户" class="headerlink" title="改变 blog.git 目录的拥有者为 git 用户"></a>改变 blog.git 目录的拥有者为 git 用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo chown -R git:git blog.git</div></pre></td></tr></table></figure>
-<h3 id="禁用-git-用户的-shell-登录权限"><a href="#禁用-git-用户的-shell-登录权限" class="headerlink" title="禁用 git 用户的 shell 登录权限"></a>禁用 git 用户的 shell 登录权限</h3><p>出于安全考虑，我们要让 git 用户不能通过 shell 登录。可以编辑 /etc/passwd 来实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/passwd</div></pre></td></tr></table></figure>
-<p>将</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git:x:1001:1001:,,,:/home/git:/bin/bash</div></pre></td></tr></table></figure>
-<p>改成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</div></pre></td></tr></table></figure>
-<p>这样 git 用户可以通过 ssh 正常使用 git，但是无法登录 sehll。</p>
+<pre><code>chmod +x post-receive
+</code></pre><h3 id="改变-blog-git-目录的拥有者为-git-用户"><a href="#改变-blog-git-目录的拥有者为-git-用户" class="headerlink" title="改变 blog.git 目录的拥有者为 git 用户"></a>改变 blog.git 目录的拥有者为 git 用户</h3><pre><code>$ sudo chown -R git:git blog.git
+</code></pre><h3 id="禁用-git-用户的-shell-登录权限"><a href="#禁用-git-用户的-shell-登录权限" class="headerlink" title="禁用 git 用户的 shell 登录权限"></a>禁用 git 用户的 shell 登录权限</h3><p>出于安全考虑，我们要让 git 用户不能通过 shell 登录。可以编辑 /etc/passwd 来实现</p>
+<pre><code>vim /etc/passwd
+</code></pre><p>将</p>
+<pre><code>git:x:1001:1001:,,,:/home/git:/bin/bash
+</code></pre><p>改成</p>
+<pre><code>git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
+</code></pre><p>这样 git 用户可以通过 ssh 正常使用 git，但是无法登录 sehll。</p>
 <p>至此，服务器环境的搭建已经基本结束。</p>
 <h2 id="配置本地-config-yml文件-完成自动化部署"><a href="#配置本地-config-yml文件-完成自动化部署" class="headerlink" title="配置本地_config.yml文件,完成自动化部署"></a>配置本地_config.yml文件,完成自动化部署</h2><hr>
 <h3 id="现在配置-hexo-的-deploy。"><a href="#现在配置-hexo-的-deploy。" class="headerlink" title="现在配置 hexo 的 deploy。"></a>现在配置 hexo 的 deploy。</h3><p>修改 hexo 目录下的 _config.yml 找到 deploy, 修改为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">type: git</div><div class="line">repo: git@www.moumaobuchiyu.com:/var/repo/blog.git</div><div class="line">branch: master</div></pre></td></tr></table></figure>
-<blockquote>
+<pre><code>deploy:
+type: git
+repo: git@www.moumaobuchiyu.com:/var/repo/blog.git
+branch: master
+</code></pre><blockquote>
 <p>repo 的地址为你自己的地址以及 git 仓库目录</p>
 </blockquote>
 <p>至此，我们的 hexo 自动部署已经全部配置好了</p>
 <h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><p>新建文章：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new &quot;post name&quot;</div></pre></td></tr></table></figure>
-<p>生成 &amp; 部署：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</div></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.viosey.com/2016/10/05/Install-hexo-vps-git/" target="_blank" rel="external">在 VPS 上搭建 Hexo 博客，使用 Git 部署</a><br><a href="https://segmentfault.com/a/1190000005723321" target="_blank" rel="external">阿里云VPS搭建自己的的Hexo博客</a><br><a href="http://www.swiftyper.com/2016/04/17/deploy-hexo-with-git-hook/" target="_blank" rel="external">使用 Git Hook 自动部署 Hexo 到个人 VPS</a><br><a href="http://sumyblog.me/2015/11/02/use-git-hooks-for-hexo-automatic-deployment/" target="_blank" rel="external">使用git hooks进行hexo博客自动化部署</a></p>
+<pre><code>$ hexo new &quot;post name&quot;
+</code></pre><p>生成 &amp; 部署：</p>
+<pre><code>$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
+</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.viosey.com/2016/10/05/Install-hexo-vps-git/" target="_blank" rel="external">在 VPS 上搭建 Hexo 博客，使用 Git 部署</a><br><a href="https://segmentfault.com/a/1190000005723321" target="_blank" rel="external">阿里云VPS搭建自己的的Hexo博客</a><br><a href="http://www.swiftyper.com/2016/04/17/deploy-hexo-with-git-hook/" target="_blank" rel="external">使用 Git Hook 自动部署 Hexo 到个人 VPS</a><br><a href="http://sumyblog.me/2015/11/02/use-git-hooks-for-hexo-automatic-deployment/" target="_blank" rel="external">使用git hooks进行hexo博客自动化部署</a></p>
 ]]></content>
       
         <categories>
@@ -229,54 +245,156 @@
 <p>以上是w3c上的解释。元信息，是用来描述数据的数据，也就是用来描述当前页面的一些信息。例如：定义页面的说明，关键字、作者等等。</p>
 <h2 id="包含的属性"><a href="#包含的属性" class="headerlink" title="包含的属性"></a>包含的属性</h2><p><strong>1.name属性</strong></p>
 <p>name 属性提供了名称/值对中的名称（而后面要说的content属性则是该名称对应的值）。假如我们把页面想象成一个我们生活中的实物的话，拿个人简历来作类比，诸如姓名、性别、籍贯、技能、项目经验等等这些都可以看做是个人简历的name属性，content属性相当于这些名称对应的值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;名称&quot; content=&quot;具体的描述&quot;&gt;</div></pre></td></tr></table></figure>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>名称<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>具体的描述<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>2.content属性</strong></p>
-<p>content 属性提供了名称/值对中的值。该值可以是任何有效的字符串。<br>content 属性始终要和 name 属性或 http-equiv 属性一起使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;名称&quot; content=&quot;具体的描述&quot;&gt;</div></pre></td></tr></table></figure></p>
-<p><strong>3.http-equiv属性</strong></p>
+<p>content 属性提供了名称/值对中的值。该值可以是任何有效的字符串。<br>content 属性始终要和 name 属性或 http-equiv 属性一起使用。</p>
+<pre><code>&lt;meta name=&quot;名称&quot; content=&quot;具体的描述&quot;&gt;
+</code></pre><p><strong>3.http-equiv属性</strong></p>
 <p>equiv是equivalent的简写，是相等的，等价物的意思。不难理解，相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助正确和精确地显示网页内容，与之对应的属性值为content，content中的内容其实就是各个参数的变量值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta http-equiv=&quot;名称&quot; content=&quot;具体的描述&quot;&gt;</div></pre></td></tr></table></figure>
-<h2 id="常用的标签"><a href="#常用的标签" class="headerlink" title="常用的标签"></a>常用的标签</h2><p>使用 HTML5 doctype，不区分大小写。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt; //使用 HTML5 doctype，不区分大小写</div></pre></td></tr></table></figure>
-<p>声明文档使用的字符编码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;meta http-equiv=&quot;content-Type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;  //旧的HTML，不推荐</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt; //HTML5设定网页字符集的方式，推荐使用UTF-8</div></pre></td></tr></table></figure>
-<p>renderer(双核浏览器渲染方式)</p>
+<pre><code>&lt;meta http-equiv=&quot;名称&quot; content=&quot;具体的描述&quot;&gt;
+</code></pre><h2 id="常用的标签"><a href="#常用的标签" class="headerlink" title="常用的标签"></a>常用的标签</h2><p>使用 HTML5 doctype，不区分大小写。</p>
+<pre><code>&lt;!DOCTYPE html&gt; //使用 HTML5 doctype，不区分大小写
+</code></pre><p>声明文档使用的字符编码</p>
+<pre><code>&lt;meta http-equiv=&quot;content-Type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;  //旧的HTML，不推荐
+&lt;meta charset=&quot;utf-8&quot;&gt; //HTML5设定网页字符集的方式，推荐使用UTF-8
+</code></pre><p>renderer(双核浏览器渲染方式)</p>
 <blockquote>
 <p>说明：renderer是为双核浏览器准备的，用于指定双核浏览器默认以何种方式渲染页面。比如说360浏览器。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt; //默认webkit内核</div><div class="line">&lt;meta name=&quot;renderer&quot; content=&quot;ie-comp&quot;&gt; //默认IE兼容模式</div><div class="line">&lt;meta name=&quot;renderer&quot; content=&quot;ie-stand&quot;&gt; //默认IE标准模式</div></pre></td></tr></table></figure>
-<p>X-UA-Compatible(浏览器采取何种版本渲染当前页面)</p>
+<pre><code>&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt; //默认webkit内核
+&lt;meta name=&quot;renderer&quot; content=&quot;ie-comp&quot;&gt; //默认IE兼容模式
+&lt;meta name=&quot;renderer&quot; content=&quot;ie-stand&quot;&gt; //默认IE标准模式
+</code></pre><p>X-UA-Compatible(浏览器采取何种版本渲染当前页面)</p>
 <blockquote>
 <p>说明：用于告知浏览器以何种版本来渲染页面。（一般都设置为最新模式，在各大框架中这个设置也很常见。）</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt; //指定IE和Chrome使用最新版本渲染当前页面</div></pre></td></tr></table></figure>
-<p>refresh(自动刷新并指向某页面)</p>
+<pre><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt; //指定IE和Chrome使用最新版本渲染当前页面
+</code></pre><p>refresh(自动刷新并指向某页面)</p>
 <blockquote>
 <p>说明：网页将在设定的时间内，自动刷新并调向设定的网址。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta http-equiv=&quot;Refresh&quot; content=&quot;5;url=http://www.w3school.com.cn&quot; /&gt; //5秒后重定向到w3c官网</div></pre></td></tr></table></figure>
-<p><strong>SEO 优化</strong></p>
+<pre><code>&lt;meta http-equiv=&quot;Refresh&quot; content=&quot;5;url=http://www.w3school.com.cn&quot; /&gt; //5秒后重定向到w3c官网
+</code></pre><p><strong>SEO 优化</strong></p>
 <p>页面描述</p>
 <blockquote>
 <p>每个网页都应有一个不超过 150 个字符且能准确反映网页内容的描述标签</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;description&quot; content=&quot;不超过150个字符&quot;&gt; &lt;!-- 页面描述 --&gt;</div></pre></td></tr></table></figure>
-<p>页面关键词</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt; &lt;!-- 页面关键词 --&gt;</div></pre></td></tr></table></figure>
-<p>定义页面标题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;title&gt;标题&lt;/title&gt;</div></pre></td></tr></table></figure>
-<p>定义网页作者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;author&quot; content=&quot;name, email@gmail.com&quot;&gt; &lt;!-- 网页作者 --&gt;</div></pre></td></tr></table></figure>
-<p>定义网页搜索引擎索引方式，robotterms是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;&gt; &lt;!-- 搜索引擎抓取 --&gt;</div></pre></td></tr></table></figure>
-<p>为移动设备添加 viewport</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name =&quot;viewport&quot; content =&quot;initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no&quot;&gt;</div></pre></td></tr></table></figure>
-<p><a href="http://bigc.at/ios-webapp-viewport-meta.orz" target="_blank" rel="external">width=device-width 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边</a></p>
+<pre><code>&lt;meta name=&quot;description&quot; content=&quot;不超过150个字符&quot;&gt; &lt;!-- 页面描述 --&gt;
+</code></pre><p>页面关键词</p>
+<pre><code>&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt; &lt;!-- 页面关键词 --&gt;
+</code></pre><p>定义页面标题</p>
+<pre><code>&lt;title&gt;标题&lt;/title&gt;
+</code></pre><p>定义网页作者</p>
+<pre><code>&lt;meta name=&quot;author&quot; content=&quot;name, email@gmail.com&quot;&gt; &lt;!-- 网页作者 --&gt;
+</code></pre><p>定义网页搜索引擎索引方式，robotterms是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。</p>
+<pre><code>&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;&gt; &lt;!-- 搜索引擎抓取 --&gt;
+</code></pre><p>为移动设备添加 viewport</p>
+<pre><code>&lt;meta name =&quot;viewport&quot; content =&quot;initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no&quot;&gt;
+</code></pre><p><a href="http://bigc.at/ios-webapp-viewport-meta.orz" target="_blank" rel="external">width=device-width 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边</a></p>
 <blockquote>
 <p>content 参数：</p>
 <p>width viewport 宽度(数值/device-width) height viewport<br>高度(数值/device-height) initial-scale 初始缩放比例 maximum-scale 最大缩放比例<br>minimum-scale 最小缩放比例 user-scalable 是否允许用户缩放(yes/no) minimal-ui <em>iOS<br>7.1 beta 2</em> 中新增属性（<em>注意：iOS8 中已经删除</em>），可以在页面加载时最小化上下状态栏。这是一个布尔值，可以直接这样写：<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui"></p>
 </blockquote>
-<h2 id="以及一些其他的标签"><a href="#以及一些其他的标签" class="headerlink" title="以及一些其他的标签"></a>以及一些其他的标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 声明文档使用的字符编码 --&gt;</div><div class="line">&lt;meta charset=&apos;utf-8&apos;&gt;</div><div class="line">&lt;!-- 优先使用 IE 最新版本和 Chrome --&gt;</div><div class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt;</div><div class="line">&lt;!-- 页面描述 --&gt;</div><div class="line">&lt;meta name=&quot;description&quot; content=&quot;不超过150个字符&quot;/&gt;</div><div class="line">&lt;!-- 页面关键词 --&gt;</div><div class="line">&lt;meta name=&quot;keywords&quot; content=&quot;&quot;/&gt;</div><div class="line">&lt;!-- 网页作者 --&gt;</div><div class="line">&lt;meta name=&quot;author&quot; content=&quot;name, email@gmail.com&quot;/&gt;</div><div class="line">&lt;!-- 搜索引擎抓取 --&gt;</div><div class="line">&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;</div><div class="line">&lt;!-- 为移动设备添加 viewport --&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no&quot;&gt;</div><div class="line">&lt;!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz --&gt;</div><div class="line"></div><div class="line">&lt;!-- iOS 设备 begin --&gt;</div><div class="line">&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;标题&quot;&gt;</div><div class="line">&lt;!-- 添加到主屏后的标题（iOS 6 新增） --&gt;</div><div class="line">&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;/&gt;</div><div class="line">&lt;!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 --&gt;</div><div class="line"></div><div class="line">&lt;meta name=&quot;apple-itunes-app&quot; content=&quot;app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL&quot;&gt;</div><div class="line">&lt;!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） --&gt;</div><div class="line">&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;/&gt;</div><div class="line">&lt;!-- 设置苹果工具栏颜色 --&gt;</div><div class="line">&lt;meta name=&quot;format-detection&quot; content=&quot;telphone=no, email=no&quot;/&gt;</div><div class="line">&lt;!-- 忽略页面中的数字识别为电话，忽略email识别 --&gt;</div><div class="line">&lt;!-- 启用360浏览器的极速模式(webkit) --&gt;</div><div class="line">&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;</div><div class="line">&lt;!-- 避免IE使用兼容模式 --&gt;</div><div class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</div><div class="line">&lt;!-- 不让百度转码 --&gt;</div><div class="line">&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-siteapp&quot; /&gt;</div><div class="line">&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;</div><div class="line">&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;true&quot;&gt;</div><div class="line">&lt;!-- 微软的老式浏览器 --&gt;</div><div class="line">&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot;&gt;</div><div class="line">&lt;!-- uc强制竖屏 --&gt;</div><div class="line">&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait&quot;&gt;</div><div class="line">&lt;!-- QQ强制竖屏 --&gt;</div><div class="line">&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait&quot;&gt;</div><div class="line">&lt;!-- UC强制全屏 --&gt;</div><div class="line">&lt;meta name=&quot;full-screen&quot; content=&quot;yes&quot;&gt;</div><div class="line">&lt;!-- QQ强制全屏 --&gt;</div><div class="line">&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;</div><div class="line">&lt;!-- UC应用模式 --&gt;</div><div class="line">&lt;meta name=&quot;browsermode&quot; content=&quot;application&quot;&gt;</div><div class="line">&lt;!-- QQ应用模式 --&gt;</div><div class="line">&lt;meta name=&quot;x5-page-mode&quot; content=&quot;app&quot;&gt;</div><div class="line">&lt;!-- windows phone 点击无高光 --&gt;</div><div class="line">&lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;</div><div class="line">&lt;!-- iOS 图标 begin --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;/apple-touch-icon-57x57-precomposed.png&quot;/&gt;</div><div class="line">&lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;114x114&quot; href=&quot;/apple-touch-icon-114x114-precomposed.png&quot;/&gt;</div><div class="line">&lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;144x144&quot; href=&quot;/apple-touch-icon-144x144-precomposed.png&quot;/&gt;</div><div class="line">&lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&gt;</div><div class="line">&lt;!-- iOS 图标 end --&gt;</div><div class="line"></div><div class="line">&lt;!-- iOS 启动画面 begin --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;768x1004&quot; href=&quot;/splash-screen-768x1004.png&quot;/&gt;</div><div class="line">&lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;1536x2008&quot; href=&quot;/splash-screen-1536x2008.png&quot;/&gt;</div><div class="line">&lt;!-- iPad 竖屏 1536x2008（Retina） --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;1024x748&quot; href=&quot;/Default-Portrait-1024x748.png&quot;/&gt;</div><div class="line">&lt;!-- iPad 横屏 1024x748（标准分辨率） --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;2048x1496&quot; href=&quot;/splash-screen-2048x1496.png&quot;/&gt;</div><div class="line">&lt;!-- iPad 横屏 2048x1496（Retina） --&gt;</div><div class="line"></div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;/splash-screen-320x480.png&quot;/&gt;</div><div class="line">&lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;640x960&quot; href=&quot;/splash-screen-640x960.png&quot;/&gt;</div><div class="line">&lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&gt;</div><div class="line">&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;640x1136&quot; href=&quot;/splash-screen-640x1136.png&quot;/&gt;</div><div class="line">&lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&gt;</div><div class="line">&lt;!-- iOS 启动画面 end --&gt;</div><div class="line"></div><div class="line">&lt;!-- iOS 设备 end --&gt;</div><div class="line">&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#000&quot;/&gt;</div><div class="line">&lt;!-- Windows 8 磁贴颜色 --&gt;</div><div class="line">&lt;meta name=&quot;msapplication-TileImage&quot; content=&quot;icon.png&quot;/&gt;</div><div class="line">&lt;!-- Windows 8 磁贴图标 --&gt;</div><div class="line"></div><div class="line">&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;RSS&quot; href=&quot;/rss.xml&quot;/&gt;</div><div class="line">&lt;!-- 添加 RSS 订阅 --&gt;</div><div class="line">&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/ico&quot; href=&quot;/favicon.ico&quot;/&gt;</div><div class="line">&lt;!-- 添加 favicon icon --&gt;</div><div class="line"></div><div class="line">&lt;!-- sns 社交标签 begin --&gt;</div><div class="line">&lt;!-- 参考微博API --&gt;</div><div class="line">&lt;meta property=&quot;og:type&quot; content=&quot;类型&quot; /&gt;</div><div class="line">&lt;meta property=&quot;og:url&quot; content=&quot;URL地址&quot; /&gt;</div><div class="line">&lt;meta property=&quot;og:title&quot; content=&quot;标题&quot; /&gt;</div><div class="line">&lt;meta property=&quot;og:image&quot; content=&quot;图片&quot; /&gt;</div><div class="line">&lt;meta property=&quot;og:description&quot; content=&quot;描述&quot; /&gt;</div><div class="line">&lt;!-- sns 社交标签 end --&gt;</div></pre></td></tr></table></figure>
-<p>参考：<a href="https://github.com/yisibl/blog/issues/1" target="_blank" rel="external">常用的 HTML 头部标签</a></p>
+<h2 id="以及一些其他的标签"><a href="#以及一些其他的标签" class="headerlink" title="以及一些其他的标签"></a>以及一些其他的标签</h2><pre><code>&lt;!-- 声明文档使用的字符编码 --&gt;
+&lt;meta charset=&#39;utf-8&#39;&gt;
+&lt;!-- 优先使用 IE 最新版本和 Chrome --&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt;
+&lt;!-- 页面描述 --&gt;
+&lt;meta name=&quot;description&quot; content=&quot;不超过150个字符&quot;/&gt;
+&lt;!-- 页面关键词 --&gt;
+&lt;meta name=&quot;keywords&quot; content=&quot;&quot;/&gt;
+&lt;!-- 网页作者 --&gt;
+&lt;meta name=&quot;author&quot; content=&quot;name, email@gmail.com&quot;/&gt;
+&lt;!-- 搜索引擎抓取 --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;
+&lt;!-- 为移动设备添加 viewport --&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no&quot;&gt;
+&lt;!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz --&gt;
+
+&lt;!-- iOS 设备 begin --&gt;
+&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;标题&quot;&gt;
+&lt;!-- 添加到主屏后的标题（iOS 6 新增） --&gt;
+&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;/&gt;
+&lt;!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 --&gt;
+
+&lt;meta name=&quot;apple-itunes-app&quot; content=&quot;app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL&quot;&gt;
+&lt;!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） --&gt;
+&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;/&gt;
+&lt;!-- 设置苹果工具栏颜色 --&gt;
+&lt;meta name=&quot;format-detection&quot; content=&quot;telphone=no, email=no&quot;/&gt;
+&lt;!-- 忽略页面中的数字识别为电话，忽略email识别 --&gt;
+&lt;!-- 启用360浏览器的极速模式(webkit) --&gt;
+&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;
+&lt;!-- 避免IE使用兼容模式 --&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+&lt;!-- 不让百度转码 --&gt;
+&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-siteapp&quot; /&gt;
+&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;
+&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;true&quot;&gt;
+&lt;!-- 微软的老式浏览器 --&gt;
+&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot;&gt;
+&lt;!-- uc强制竖屏 --&gt;
+&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait&quot;&gt;
+&lt;!-- QQ强制竖屏 --&gt;
+&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait&quot;&gt;
+&lt;!-- UC强制全屏 --&gt;
+&lt;meta name=&quot;full-screen&quot; content=&quot;yes&quot;&gt;
+&lt;!-- QQ强制全屏 --&gt;
+&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;
+&lt;!-- UC应用模式 --&gt;
+&lt;meta name=&quot;browsermode&quot; content=&quot;application&quot;&gt;
+&lt;!-- QQ应用模式 --&gt;
+&lt;meta name=&quot;x5-page-mode&quot; content=&quot;app&quot;&gt;
+&lt;!-- windows phone 点击无高光 --&gt;
+&lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;
+&lt;!-- iOS 图标 begin --&gt;
+&lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;/apple-touch-icon-57x57-precomposed.png&quot;/&gt;
+&lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&gt;
+&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;114x114&quot; href=&quot;/apple-touch-icon-114x114-precomposed.png&quot;/&gt;
+&lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&gt;
+&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;144x144&quot; href=&quot;/apple-touch-icon-144x144-precomposed.png&quot;/&gt;
+&lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&gt;
+&lt;!-- iOS 图标 end --&gt;
+
+&lt;!-- iOS 启动画面 begin --&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;768x1004&quot; href=&quot;/splash-screen-768x1004.png&quot;/&gt;
+&lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;1536x2008&quot; href=&quot;/splash-screen-1536x2008.png&quot;/&gt;
+&lt;!-- iPad 竖屏 1536x2008（Retina） --&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;1024x748&quot; href=&quot;/Default-Portrait-1024x748.png&quot;/&gt;
+&lt;!-- iPad 横屏 1024x748（标准分辨率） --&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;2048x1496&quot; href=&quot;/splash-screen-2048x1496.png&quot;/&gt;
+&lt;!-- iPad 横屏 2048x1496（Retina） --&gt;
+
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;/splash-screen-320x480.png&quot;/&gt;
+&lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;640x960&quot; href=&quot;/splash-screen-640x960.png&quot;/&gt;
+&lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; sizes=&quot;640x1136&quot; href=&quot;/splash-screen-640x1136.png&quot;/&gt;
+&lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&gt;
+&lt;!-- iOS 启动画面 end --&gt;
+
+&lt;!-- iOS 设备 end --&gt;
+&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#000&quot;/&gt;
+&lt;!-- Windows 8 磁贴颜色 --&gt;
+&lt;meta name=&quot;msapplication-TileImage&quot; content=&quot;icon.png&quot;/&gt;
+&lt;!-- Windows 8 磁贴图标 --&gt;
+
+&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;RSS&quot; href=&quot;/rss.xml&quot;/&gt;
+&lt;!-- 添加 RSS 订阅 --&gt;
+&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/ico&quot; href=&quot;/favicon.ico&quot;/&gt;
+&lt;!-- 添加 favicon icon --&gt;
+
+&lt;!-- sns 社交标签 begin --&gt;
+&lt;!-- 参考微博API --&gt;
+&lt;meta property=&quot;og:type&quot; content=&quot;类型&quot; /&gt;
+&lt;meta property=&quot;og:url&quot; content=&quot;URL地址&quot; /&gt;
+&lt;meta property=&quot;og:title&quot; content=&quot;标题&quot; /&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;图片&quot; /&gt;
+&lt;meta property=&quot;og:description&quot; content=&quot;描述&quot; /&gt;
+&lt;!-- sns 社交标签 end --&gt;
+</code></pre><p>参考：<a href="https://github.com/yisibl/blog/issues/1" target="_blank" rel="external">常用的 HTML 头部标签</a></p>
 ]]></content>
       
         <categories>
@@ -301,8 +419,18 @@
       <url>https://www.moumaobuchiyu.com/2017/03/28/%E5%85%B3%E4%BA%8EPromise/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
 <p>首先设想一个日常开发常常会遇到的需求：在多个接口异步请求数据，然后利用这些数据来进行一系列的操作。一般会这样去写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">url: &apos;......&apos;,</div><div class="line">success: function (data) &#123;</div><div class="line">$.ajax(&#123;</div><div class="line">// 要在第一个请求成功后才可以执行下一步</div><div class="line">url: &apos;......&apos;,</div><div class="line">success: function (data) &#123;</div><div class="line">// ......</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125; &#125;);</div></pre></td></tr></table></figure>
-<p>这样的写法的原理是，当执行一些异步操作时，我们需要知道操作是否已经完成，所有当执行完成的时候会返回一个回调函数，表示操作已经完成。</p>
+<pre><code>$.ajax({
+url: &#39;......&#39;,
+success: function (data) {
+$.ajax({
+// 要在第一个请求成功后才可以执行下一步
+url: &#39;......&#39;,
+success: function (data) {
+// ......
+}
+});
+} });
+</code></pre><p>这样的写法的原理是，当执行一些异步操作时，我们需要知道操作是否已经完成，所有当执行完成的时候会返回一个回调函数，表示操作已经完成。</p>
 <p>使用回调函数的形式理解起来并不困难，但是实际的应用当中会有以下的缺点：</p>
 <blockquote>
 <p>1.在需要多个操作的时候，会导致多个回调函数嵌套，导致代码不够直观，就是常说的 Callback Hell。<br>2.如果几个异步操作之间并没有前后顺序之分（例如不需要前一个请求的结果作为后一个请求的参数）时，同样需要等待上一个操作完成再实行下一个操作。</p>
@@ -314,8 +442,22 @@
 </blockquote>
 <p><strong>resolve 和 reject</strong></p>
 <p>首先来看一段使用了 Promise 对象的代码。首先来看一段使用了 Promise 对象的代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function helloWorld (ready) &#123;</div><div class="line">return new Promise(function (resolve, reject) &#123;</div><div class="line">if (ready) &#123;</div><div class="line">resolve(&quot;Hello World!&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">reject(&quot;Good bye!&quot;);</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">helloWorld(true).then(function (message) &#123;</div><div class="line">alert(message);</div><div class="line">&#125;, function (error) &#123;</div><div class="line">alert(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>上面的代码实现的功能非常简单，helloWord 函数接受一个参数，如果为 true 就打印 “Hello World!”，如果为 false 就打印错误的信息。helloWord 函数返回的是一个 Promise 对象。</p>
+<pre><code>function helloWorld (ready) {
+return new Promise(function (resolve, reject) {
+if (ready) {
+resolve(&quot;Hello World!&quot;);
+} else {
+reject(&quot;Good bye!&quot;);
+}
+});
+}
+
+helloWorld(true).then(function (message) {
+alert(message);
+}, function (error) {
+alert(error);
+});
+</code></pre><p>上面的代码实现的功能非常简单，helloWord 函数接受一个参数，如果为 true 就打印 “Hello World!”，如果为 false 就打印错误的信息。helloWord 函数返回的是一个 Promise 对象。</p>
 <p>在 Promise 对象当中有两个重要方法————resolve 和 reject。</p>
 <p>resolve 方法可以使 Promise 对象的状态改变成成功，同时传递一个参数用于后续成功后的操作，在这个例子当中就是 Hello World! 字符串。</p>
 <p>reject 方法则是将 Promise 对象的状态改变为失败，同时将错误的信息传递到后续错误处理的操作。</p>
@@ -329,15 +471,64 @@
 <p><strong>then 和 catch</strong></p>
 <p><strong>then</strong></p>
 <p>helloWorld 的例子当中利用了 then(onFulfilld, onRejected) 方法来执行一个任务打印 “Hello World!”，在多个任务的情况下 then 方法同样可以用一个清晰的方式完成。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function printHello (ready) &#123;</div><div class="line">return new Promise(function (resolve, reject) &#123;</div><div class="line">if (ready) &#123;</div><div class="line">resolve(&quot;Hello&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">reject(&quot;Good bye!&quot;);</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function printWorld () &#123;</div><div class="line">alert(&quot;World&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function printExclamation () &#123;</div><div class="line">alert(&quot;!&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">printHello(true)</div><div class="line">.then(function(message)&#123;</div><div class="line">alert(message);</div><div class="line">&#125;)</div><div class="line">.then(printWorld)</div><div class="line">.then(printExclamation);</div></pre></td></tr></table></figure>
-<p>上述例子通过链式调用的方式，按顺序打印出了相应的内容。then 可以使用链式调用的写法原因在于，每一次执行该方法时总是会返回一个 Promise 对象。另外，在 then onFulfilled 的函数当中的返回值，可以作为后续操作的参数，因此上面的例子也可以写成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">printHello(true).then(function (message) &#123;</div><div class="line">return message;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">return message  + &apos; World&apos;;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">return message + &apos;!&apos;;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">alert(message);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><strong>catch</strong><br>catch 方法是 then(onFulfilled, onRejected) 方法当中 onRejected 函数的一个简单的写法，也就是说可以写成 then(fn).catch(fn)，相当于 then(fn).then(null, fn)。使用 catch 的写法比一般的写法更加清晰明确。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">somePromise().then(function () &#123;</div><div class="line">return anotherPromise();</div><div class="line">&#125;).then(function () &#123;</div><div class="line">return yetAnotherPromise();</div><div class="line">&#125;).catch(console.log.bind(console)); // &lt;-- this is badass</div></pre></td></tr></table></figure>
-<p><strong>Promise.all 和 Promise.race</strong></p>
+<pre><code>function printHello (ready) {
+return new Promise(function (resolve, reject) {
+if (ready) {
+resolve(&quot;Hello&quot;);
+} else {
+reject(&quot;Good bye!&quot;);
+}
+});
+}
+
+function printWorld () {
+alert(&quot;World&quot;);
+}
+
+function printExclamation () {
+alert(&quot;!&quot;);
+}
+
+printHello(true)
+.then(function(message){
+alert(message);
+})
+.then(printWorld)
+.then(printExclamation);
+</code></pre><p>上述例子通过链式调用的方式，按顺序打印出了相应的内容。then 可以使用链式调用的写法原因在于，每一次执行该方法时总是会返回一个 Promise 对象。另外，在 then onFulfilled 的函数当中的返回值，可以作为后续操作的参数，因此上面的例子也可以写成：</p>
+<pre><code>printHello(true).then(function (message) {
+return message;
+}).then(function (message) {
+return message  + &#39; World&#39;;
+}).then(function (message) {
+return message + &#39;!&#39;;
+}).then(function (message) {
+alert(message);
+});
+</code></pre><p><strong>catch</strong><br>catch 方法是 then(onFulfilled, onRejected) 方法当中 onRejected 函数的一个简单的写法，也就是说可以写成 then(fn).catch(fn)，相当于 then(fn).then(null, fn)。使用 catch 的写法比一般的写法更加清晰明确。</p>
+<pre><code>somePromise().then(function () {
+return anotherPromise();
+}).then(function () {
+return yetAnotherPromise();
+}).catch(console.log.bind(console)); // &lt;-- this is badass
+</code></pre><p><strong>Promise.all 和 Promise.race</strong></p>
 <p>Promise.all 可以接收一个元素为 Promise 对象的数组作为参数，当这个数组里面所有的 Promise 对象都变为 resolve 时，该方法才会返回。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var p1 = new Promise(function (resolve) &#123;</div><div class="line">setTimeout(function () &#123;</div><div class="line">resolve(&quot;Hello&quot;);</div><div class="line">&#125;, 3000);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var p2 = new Promise(function (resolve) &#123;</div><div class="line">setTimeout(function () &#123;</div><div class="line">resolve(&quot;World&quot;);</div><div class="line">&#125;, 1000);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">Promise.all([p1, p2]).then(function (result) &#123;</div><div class="line">console.log(result); // [&quot;Hello&quot;, &quot;World&quot;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>上面的例子模拟了传输两个数据需要不同的时长，虽然 p2 的速度比 p1 要快，但是 Promise.all 方法会按照数组里面的顺序将结果返回。</p>
+<pre><code>var p1 = new Promise(function (resolve) {
+setTimeout(function () {
+resolve(&quot;Hello&quot;);
+}, 3000);
+});
+
+var p2 = new Promise(function (resolve) {
+setTimeout(function () {
+resolve(&quot;World&quot;);
+}, 1000);
+});
+
+Promise.all([p1, p2]).then(function (result) {
+console.log(result); // [&quot;Hello&quot;, &quot;World&quot;]
+});
+</code></pre><p>上面的例子模拟了传输两个数据需要不同的时长，虽然 p2 的速度比 p1 要快，但是 Promise.all 方法会按照数组里面的顺序将结果返回。</p>
 <p>日常开发中经常会遇到这样的需求，在不同的接口请求数据然后拼合成自己所需的数据，通常这些接口之间没有关联（例如不需要前一个接口的数据作为后一个接口的参数），这个时候 Promise.all 方法就可以派上用场了。</p>
 <p>还有一个和 Promise.all 相类似的方法 Promise.race，它同样接收一个数组，不同的是只要该数组中的 Promise 对象的状态发生变化（无论是 resolve 还是 reject）该方法都会返回。</p>
 <h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><hr>
@@ -367,12 +558,26 @@
       <url>https://www.moumaobuchiyu.com/2017/03/24/JS%E4%B8%AD%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</url>
       <content type="html"><![CDATA[<p>###关于回调函数</p>
 <p>首先要了解，在 js 中，函数也是对象，可以赋值给变量，可以作为参数放在函数的参数列表中。比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var doSomething = function(a,b)</div><div class="line">&#123;</div><div class="line">return a + b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这段代码的意思是定义一个匿名函数，这个匿名函数除了没有名字之外，其他跟普通的函数没有什么两样。然后把匿名函数赋值给变量doSomething。接下来我们调用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(doSomething(2,3));//5</div></pre></td></tr></table></figure>
-<p>回调函数，就是放在另外一个函数（如 parent）的参数列表中，作为参数传递给这个 parent，然后在 parent 函数体的某个位置执行:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var doit = function(callback)</div><div class="line">&#123;</div><div class="line">var a = 1,</div><div class="line">b = 2,</div><div class="line">c = 3;</div><div class="line">var t = callback(a,b,c);</div><div class="line">return t + 10;</div><div class="line">&#125;;</div><div class="line">var d = doit(function(x,y,z)&#123;</div><div class="line">return (x+y+z);</div><div class="line">&#125;);</div><div class="line">console.log(d);</div></pre></td></tr></table></figure>
-<p>先定义 doit 函数，有一个参数 callback。这个 callback 就是回调函数，名字可以任意取。看函数体，先定义三个变量 a,b,c。然后调用 callback 函数。最后返回一个值。</p>
+<pre><code>var doSomething = function(a,b)
+{
+return a + b;
+}
+</code></pre><p>这段代码的意思是定义一个匿名函数，这个匿名函数除了没有名字之外，其他跟普通的函数没有什么两样。然后把匿名函数赋值给变量doSomething。接下来我们调用：</p>
+<pre><code>console.log(doSomething(2,3));//5
+</code></pre><p>回调函数，就是放在另外一个函数（如 parent）的参数列表中，作为参数传递给这个 parent，然后在 parent 函数体的某个位置执行:</p>
+<pre><code>var doit = function(callback)
+{
+var a = 1,
+b = 2,
+c = 3;
+var t = callback(a,b,c);
+return t + 10;
+};
+var d = doit(function(x,y,z){
+return (x+y+z);
+});
+console.log(d);
+</code></pre><p>先定义 doit 函数，有一个参数 callback。这个 callback 就是回调函数，名字可以任意取。看函数体，先定义三个变量 a,b,c。然后调用 callback 函数。最后返回一个值。</p>
 <p>下面就调用 doit 函数了。要注意的是，刚才定义 doit 时，callback 并没有定义，所以刚才并不知道 callback 是干什么用的。这其实很好理解，我们平时定义函数的时候，参数也只是给出了一个名字，比如 a,在函数体中使用 a，但整个过程也并不知道 a 到底是什么，只有在调用那个函数的时候才指定 a 的具体值，比如2.回过头来，在调用 doit 的时候，我们就需要指定 callback 究竟是个什么东西了。可以看到，这个函数完成了一个 sum 功能。</p>
 <p>上述代码的执行过程是：</p>
 <p>调用 doit函数，参数是一个匿名函数；进入 doit 的函数体中，先定义 a,b,c，然后执行刚才的匿名函数，参数是 a,b,c，并返回一个 t，最后返回一个 t+10给 d。</p>
@@ -381,9 +586,27 @@
 <p>但是，当函数的实现过程非常漫长，你是选择等待函数完成处理，还是使用回调函数进行异步处理呢？这种情况下，使用回调函数变得至关重要，例如：AJAX请求。若是使用回调函数进行处理，代码就可以继续进行其他任务，而无需空等。实际开发中，经常在javascript中使用异步调用，甚至在这里强烈推荐使用。</p>
 <p>因此，回调本质上是一种设计模式，并且jQuery(包括其他框架)的设计原则遵循了这个模式。</p>
 <p>在JavaScript中，回调函数具体的定义为：函数A作为参数(函数引用)传递到另一个函数B中，并且这个函数B执行函数A。我们就说函数A叫做回调函数。如果没有名称(函数表达式)，就叫做匿名回调函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//基本方式</div><div class="line">function doSomething(callback) &#123;</div><div class="line">// … </div><div class="line">// Call the callback</div><div class="line">callback(&apos;stuff&apos;, &apos;goes&apos;, &apos;here&apos;);</div><div class="line">&#125; </div><div class="line">function foo(a, b, c) &#123;</div><div class="line">// I&apos;m the callback</div><div class="line">alert(a + &quot; &quot; + b + &quot; &quot; + c);</div><div class="line">&#125; </div><div class="line">doSomething(foo);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//匿名函数的形式</div><div class="line">function dosomething(damsg, callback)&#123;</div><div class="line">alert(damsg);</div><div class="line">if(typeof callback == &quot;function&quot;) </div><div class="line">callback();</div><div class="line">&#125; </div><div class="line">dosomething(&quot;回调函数&quot;, function()&#123;</div><div class="line">alert(&quot;和 jQuery 的 callbacks 形式一样!&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>所以callback 不一定用于异步，一般同步(阻塞)的场景下也经常用到回调，比如要求执行某些操作后执行回调函数。</p>
+<pre><code>//基本方式
+function doSomething(callback) {
+// … 
+// Call the callback
+callback(&#39;stuff&#39;, &#39;goes&#39;, &#39;here&#39;);
+} 
+function foo(a, b, c) {
+// I&#39;m the callback
+alert(a + &quot; &quot; + b + &quot; &quot; + c);
+} 
+doSomething(foo);
+</code></pre><pre><code>//匿名函数的形式
+function dosomething(damsg, callback){
+alert(damsg);
+if(typeof callback == &quot;function&quot;) 
+callback();
+} 
+dosomething(&quot;回调函数&quot;, function(){
+alert(&quot;和 jQuery 的 callbacks 形式一样!&quot;);
+});
+</code></pre><p>所以callback 不一定用于异步，一般同步(阻塞)的场景下也经常用到回调，比如要求执行某些操作后执行回调函数。</p>
 <p><strong>回调什么时候执行</strong></p>
 <p>回调函数，一般在同步情境下是最后执行的，而在异步情境下有可能不执行，因为事件没有被触发或者条件不满足。</p>
 <p><strong>回调函数的使用场合</strong></p>
@@ -392,19 +615,109 @@
 <p>setTimeout的延迟时间为0，这个hack经常被用到，settimeout调用的函数其实就是一个callback的体现</p>
 <p>链式调用：链式调用的时候，在赋值器(setter)方法中(或者本身没有返回值的方法中)很容易实现链式调用，而取值器(getter)相对来说不好实现链式调用，因为你需要取值器返回你需要的数据而不是this指针，如果要实现链式方法，可以用回调函数来实现setTimeout、setInterval的函数调用得到其返回值。由于两个函数都是异步的，即：他们的调用时序和程序的主流程是相对独立的，所以没有办法在主体里面等待它们的返回值，它们被打开的时候程序也不会停下来等待，否则也就失去了setTimeout及setInterval的意义了，所以用return已经没有意义，只能使用callback。callback的意义在于将timer执行的结果通知给代理函数进行及时处理。</p>
 <p><strong>回调函数的传递</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$.get(&apos;myhtmlpage.html&apos;, myCallBack);//这是对的</div><div class="line">$.get(&apos;myhtmlpage.html&apos;, myCallBack(&apos;foo&apos;, &apos;bar&apos;));//这是错的，那么要带参数呢？</div><div class="line">$.get(&apos;myhtmlpage.html&apos;, function()&#123;//带参数的使用函数表达式</div><div class="line">myCallBack(&apos;foo&apos;, &apos;bar&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<blockquote>
+<pre><code>$.get(&#39;myhtmlpage.html&#39;, myCallBack);//这是对的
+$.get(&#39;myhtmlpage.html&#39;, myCallBack(&#39;foo&#39;, &#39;bar&#39;));//这是错的，那么要带参数呢？
+$.get(&#39;myhtmlpage.html&#39;, function(){//带参数的使用函数表达式
+myCallBack(&#39;foo&#39;, &#39;bar&#39;);
+});
+</code></pre><blockquote>
 <p>另外，最好保证回调存在且必须是函数引用或者函数表达式： (callback &amp;&amp; typeof(callback) ===<br>“function”) &amp;&amp; callback();</p>
 </blockquote>
 <hr>
 <p>###回调函数使用实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//使用call方法</div><div class="line">function Thing(name) &#123;</div><div class="line">this.name = name;</div><div class="line">&#125;</div><div class="line">Thing.prototype.doSomething = function(callback) &#123;</div><div class="line">// Call our callback, but using our own instance as the context</div><div class="line">callback.call(this);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function foo() &#123;</div><div class="line">alert(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var t = new Thing(&apos;Joe&apos;);</div><div class="line">t.doSomething(foo); // Alerts &quot;Joe&quot; via `foo`</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//传参数</div><div class="line">function Thing(name) &#123;</div><div class="line">this.name = name;</div><div class="line">&#125;</div><div class="line">Thing.prototype.doSomething = function(callback, salutation) &#123;</div><div class="line">// Call our callback, but using our own instance as the context</div><div class="line">callback.call(this, salutation);</div><div class="line">&#125; </div><div class="line">function foo(salutation) &#123;</div><div class="line">alert(salutation + &quot; &quot; + this.name);</div><div class="line">&#125; </div><div class="line">var t = new Thing(&apos;Joe&apos;);</div><div class="line">t.doSomething(foo, &apos;Hi&apos;); // Alerts &quot;Hi Joe&quot; via `foo`</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//使用apply传参</div><div class="line">function Thing(name) &#123;</div><div class="line">this.name = name;</div><div class="line">&#125;</div><div class="line">Thing.prototype.doSomething = function(callback) &#123;</div><div class="line">// Call our callback, but using our own instance as the context</div><div class="line">callback.apply(this, [&apos;Hi&apos;, 3, 2, 1]);</div><div class="line">&#125; </div><div class="line">function foo(salutation, three, two, one) &#123;</div><div class="line">alert(salutation + &quot; &quot; + this.name + &quot; – &quot; + three + &quot; &quot; + two + &quot; &quot; + one);</div><div class="line">&#125; </div><div class="line">var t = new Thing(&apos;Joe&apos;);</div><div class="line">t.doSomething(foo); // Alerts &quot;Hi Joe – 3 2 1&quot; via `foo`</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//假如提供的数据源是一整数,为某学生的分数,当num&lt;=0,由底层处理,当n&gt;0时由高层处理.</div><div class="line">//将下面这个函数拷贝下来存盘为1.js</div><div class="line">function f(num,callback)&#123;</div><div class="line">if(num&lt;0) &#123; </div><div class="line">alert(&quot;调用低层函数处理!&quot;);</div><div class="line">alert(&quot;分数不能为负,输入错误!&quot;); </div><div class="line">&#125;else if(num==0)&#123;</div><div class="line">alert(&quot;调用低层函数处理!&quot;);</div><div class="line">alert(&quot;该学生可能未参加考试！&quot;);</div><div class="line">&#125;else&#123;</div><div class="line">alert(&quot;调用高层函数处理!&quot;);</div><div class="line">callback();</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">//将下面这个test.html文件存盘与1.js在一个目录下：</div><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</div><div class="line">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=gb2312&quot;&gt;</div><div class="line">&lt;script src=&quot;1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;title&gt;无标题文档&lt;/title&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">function test()&#123;</div><div class="line">var p=document.getElementById(&quot;pp&quot;);</div><div class="line">pp.innerText=&quot;&quot;;</div><div class="line">var num=document.getElementById(&quot;score&quot;).value;</div><div class="line">f(num,function()&#123; //匿名高层处理函数</div><div class="line">if(num&lt;60) alert(&quot;未及格！&quot;);</div><div class="line">else if(num&lt;=90) alert(&quot;该生成绩优良！&quot;);</div><div class="line">else alert(&quot;该生成绩优秀!&quot;); &#125;)</div><div class="line">pp.innerText=&quot;by since1978 qq558064!&quot;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">&lt;p&gt;</div><div class="line">回调函数示例:当学生成绩score&lt;=0分时候，由底层处理；当score&gt;0时，由高层处理。</div><div class="line">&lt;/p&gt;</div><div class="line">请输入学生成绩&lt;input type=&quot;text&quot; id=&quot;score&quot;&gt; </div><div class="line">&lt;input type=&quot;button&quot; onClick=&quot;test()&quot; value=&quot; 看看结果&quot;&gt;</div><div class="line">&lt;p id=&quot;pp&quot;&gt;&lt;/p&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//node.js中出现的回调函数</div><div class="line">app.use(function(req, res, next) &#123;</div><div class="line">var err = new Error(&apos;Not Found&apos;);</div><div class="line">err.status = 404;</div><div class="line">next(err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<hr>
+<pre><code>//使用call方法
+function Thing(name) {
+this.name = name;
+}
+Thing.prototype.doSomething = function(callback) {
+// Call our callback, but using our own instance as the context
+callback.call(this);
+}
+
+function foo() {
+alert(this.name);
+}
+
+var t = new Thing(&#39;Joe&#39;);
+t.doSomething(foo); // Alerts &quot;Joe&quot; via `foo`
+</code></pre><pre><code>//传参数
+function Thing(name) {
+this.name = name;
+}
+Thing.prototype.doSomething = function(callback, salutation) {
+// Call our callback, but using our own instance as the context
+callback.call(this, salutation);
+} 
+function foo(salutation) {
+alert(salutation + &quot; &quot; + this.name);
+} 
+var t = new Thing(&#39;Joe&#39;);
+t.doSomething(foo, &#39;Hi&#39;); // Alerts &quot;Hi Joe&quot; via `foo`
+</code></pre><pre><code>//使用apply传参
+function Thing(name) {
+this.name = name;
+}
+Thing.prototype.doSomething = function(callback) {
+// Call our callback, but using our own instance as the context
+callback.apply(this, [&#39;Hi&#39;, 3, 2, 1]);
+} 
+function foo(salutation, three, two, one) {
+alert(salutation + &quot; &quot; + this.name + &quot; – &quot; + three + &quot; &quot; + two + &quot; &quot; + one);
+} 
+var t = new Thing(&#39;Joe&#39;);
+t.doSomething(foo); // Alerts &quot;Hi Joe – 3 2 1&quot; via `foo`
+</code></pre><pre><code>//假如提供的数据源是一整数,为某学生的分数,当num&lt;=0,由底层处理,当n&gt;0时由高层处理.
+//将下面这个函数拷贝下来存盘为1.js
+function f(num,callback){
+if(num&lt;0) { 
+alert(&quot;调用低层函数处理!&quot;);
+alert(&quot;分数不能为负,输入错误!&quot;); 
+}else if(num==0){
+alert(&quot;调用低层函数处理!&quot;);
+alert(&quot;该学生可能未参加考试！&quot;);
+}else{
+alert(&quot;调用高层函数处理!&quot;);
+callback();
+}
+}
+</code></pre><pre><code>//将下面这个test.html文件存盘与1.js在一个目录下：
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=gb2312&quot;&gt;
+&lt;script src=&quot;1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;title&gt;无标题文档&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function test(){
+var p=document.getElementById(&quot;pp&quot;);
+pp.innerText=&quot;&quot;;
+var num=document.getElementById(&quot;score&quot;).value;
+f(num,function(){ //匿名高层处理函数
+if(num&lt;60) alert(&quot;未及格！&quot;);
+else if(num&lt;=90) alert(&quot;该生成绩优良！&quot;);
+else alert(&quot;该生成绩优秀!&quot;); })
+pp.innerText=&quot;by since1978 qq558064!&quot;
+}
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;p&gt;
+回调函数示例:当学生成绩score&lt;=0分时候，由底层处理；当score&gt;0时，由高层处理。
+&lt;/p&gt;
+请输入学生成绩&lt;input type=&quot;text&quot; id=&quot;score&quot;&gt; 
+&lt;input type=&quot;button&quot; onClick=&quot;test()&quot; value=&quot; 看看结果&quot;&gt;
+&lt;p id=&quot;pp&quot;&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><pre><code>//node.js中出现的回调函数
+app.use(function(req, res, next) {
+var err = new Error(&#39;Not Found&#39;);
+err.status = 404;
+next(err);
+});
+</code></pre><hr>
 <p>###小结<br>回调函数是实现js异步编程的四种方法之一，但并不推荐用此方法： 回调函数的优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合（Coupling），流程会很混乱，而且每个任务只能指定一个回调函数。</p>
 <p>不过正如上文所说，回调函数不一定用于异步，一般同步(阻塞)的场景下也经常用到回调，比如要求执行某些操作后执行回调函数。</p>
 <blockquote>
@@ -462,36 +775,110 @@
       <url>https://www.moumaobuchiyu.com/2017/03/22/JS%E4%B8%ADthis%E7%9A%84%E6%8C%87%E5%90%91/</url>
       <content type="html"><![CDATA[<p><strong>this是Javascript语言的一个关键字。</strong> </p>
 <p>它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。比如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function test()&#123; </div><div class="line"></div><div class="line">　　　　this.x = 1; </div><div class="line"></div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
-<blockquote>
+<pre><code>function test(){ 
+
+　　　　this.x = 1; 
+
+　　}
+</code></pre><blockquote>
 <p>随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是，调用函数的那个对象。</p>
 </blockquote>
 <p>下面分四种情况，详细讨论this的用法。<br><a id="more"></a></p>
 <p><strong>情况一：纯粹的函数调用</strong> </p>
 <p>这是函数的最通常用法，属于全局性调用，因此this就代表全局对象。</p>
 <p>请看下面这段代码，它的运行结果是1。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function test()&#123; </div><div class="line"></div><div class="line">　　　　this.x = 1; </div><div class="line"></div><div class="line">　　　　alert(this.x); </div><div class="line"></div><div class="line">　　&#125; </div><div class="line"></div><div class="line">　　test(); // 1</div></pre></td></tr></table></figure>
-<p>为了证明this就是全局对象，我对代码做一些改变：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var x = 1; </div><div class="line"></div><div class="line">　　function test()&#123; </div><div class="line"></div><div class="line">　　　　alert(this.x); </div><div class="line"></div><div class="line">　　&#125; </div><div class="line"></div><div class="line">　　test(); // 1</div></pre></td></tr></table></figure>
-<p>运行结果还是1。再变一下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var x = 1; </div><div class="line"></div><div class="line">　　function test()&#123; </div><div class="line"></div><div class="line">　　　　this.x = 0; </div><div class="line"></div><div class="line">　　&#125; </div><div class="line"></div><div class="line">　　test(); </div><div class="line"></div><div class="line">　　alert(x); //0</div></pre></td></tr></table></figure>
-<p><strong>情况二：作为对象方法的调用</strong> </p>
+<pre><code>function test(){ 
+
+　　　　this.x = 1; 
+
+　　　　alert(this.x); 
+
+　　} 
+
+　　test(); // 1
+</code></pre><p>为了证明this就是全局对象，我对代码做一些改变：</p>
+<pre><code>var x = 1; 
+
+　　function test(){ 
+
+　　　　alert(this.x); 
+
+　　} 
+
+　　test(); // 1
+</code></pre><p>运行结果还是1。再变一下：</p>
+<pre><code>var x = 1; 
+
+　　function test(){ 
+
+　　　　this.x = 0; 
+
+　　} 
+
+　　test(); 
+
+　　alert(x); //0
+</code></pre><p><strong>情况二：作为对象方法的调用</strong> </p>
 <p>函数还可以作为某个对象的方法调用，这时this就指这个上级对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function test()&#123; </div><div class="line"></div><div class="line">　　　　alert(this.x); </div><div class="line"></div><div class="line">　　&#125; </div><div class="line"></div><div class="line">　　var o = &#123;&#125;; </div><div class="line"></div><div class="line">　　o.x = 1; </div><div class="line"></div><div class="line">　　o.m = test; </div><div class="line"></div><div class="line">　　o.m(); // 1</div></pre></td></tr></table></figure>
-<p><strong>情况三 作为构造函数调用</strong> </p>
+<pre><code>function test(){ 
+
+　　　　alert(this.x); 
+
+　　} 
+
+　　var o = {}; 
+
+　　o.x = 1; 
+
+　　o.m = test; 
+
+　　o.m(); // 1
+</code></pre><p><strong>情况三 作为构造函数调用</strong> </p>
 <p>所谓构造函数，就是通过这个函数生成一个新对象（object）。这时，this就指这个新对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function test()&#123; </div><div class="line"></div><div class="line">　　　　this.x = 1; </div><div class="line"></div><div class="line">　　&#125; </div><div class="line"></div><div class="line">　　var o = new test(); </div><div class="line"></div><div class="line">　　alert(o.x); // 1</div></pre></td></tr></table></figure>
-<p>运行结果为1。为了表明这时this不是全局对象，我对代码做一些改变：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var x = 2; </div><div class="line"></div><div class="line">　　function test()&#123; </div><div class="line"></div><div class="line">　　　　this.x = 1; </div><div class="line"></div><div class="line">　　&#125; </div><div class="line"></div><div class="line">　　var o = new test(); </div><div class="line"></div><div class="line">　　alert(x); //2</div></pre></td></tr></table></figure>
-<p>运行结果为2，表明全局变量x的值根本没变。</p>
+<pre><code>function test(){ 
+
+　　　　this.x = 1; 
+
+　　} 
+
+　　var o = new test(); 
+
+　　alert(o.x); // 1
+</code></pre><p>运行结果为1。为了表明这时this不是全局对象，我对代码做一些改变：</p>
+<pre><code>var x = 2; 
+
+　　function test(){ 
+
+　　　　this.x = 1; 
+
+　　} 
+
+　　var o = new test(); 
+
+　　alert(x); //2
+</code></pre><p>运行结果为2，表明全局变量x的值根本没变。</p>
 <p><strong>情况四 apply调用</strong></p>
 <p>apply()是函数对象的一个方法，它的作用是改变函数的调用对象，它的第一个参数就表示改变后的调用这个函数的对象。因此，this指的就是这第一个参数</p>
 <p>　</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var x = 0; </div><div class="line"></div><div class="line">　　function test()&#123; </div><div class="line"></div><div class="line">　　　　alert(this.x); </div><div class="line"></div><div class="line">　　&#125; </div><div class="line"></div><div class="line">　　var o=&#123;&#125;; </div><div class="line"></div><div class="line">　　o.x = 1; </div><div class="line"></div><div class="line">　　o.m = test; </div><div class="line"></div><div class="line">　　o.m.apply(); //0</div></pre></td></tr></table></figure>
-<p>apply()的参数为空时，默认调用全局对象。因此，这时的运行结果为0，证明this指的是全局对象。 </p>
+<pre><code>var x = 0; 
+
+　　function test(){ 
+
+　　　　alert(this.x); 
+
+　　} 
+
+　　var o={}; 
+
+　　o.x = 1; 
+
+　　o.m = test; 
+
+　　o.m.apply(); //0
+</code></pre><p>apply()的参数为空时，默认调用全局对象。因此，这时的运行结果为0，证明this指的是全局对象。 </p>
 <p>如果把最后一行代码修改为 :</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">o.m.apply(o); //1</div></pre></td></tr></table></figure>
-<p>运行结果就变成了1，证明了这时this代表的是对象o</p>
+<pre><code>o.m.apply(o); //1
+</code></pre><p>运行结果就变成了1，证明了这时this代表的是对象o</p>
 ]]></content>
       
         <categories>
@@ -522,8 +909,12 @@
 <p>0.0 ~ 1.0 之间的一个伪随机数。</p>
 <p><strong>实例</strong></p>
 <p>在本例中，我们将取得介于 0 到 1 之间的一个随机数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">document.write(Math.random());</div><div class="line">&lt;/script&gt;</div><div class="line">// 输出：</div><div class="line">0.15246391076246546</div></pre></td></tr></table></figure>
-<p><strong>关于如何生成指定范围值的随机数？</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+document.write(Math.random());
+&lt;/script&gt;
+// 输出：
+0.15246391076246546
+</code></pre><p><strong>关于如何生成指定范围值的随机数？</strong></p>
 <blockquote>
 <p>利用 parseInt()、Math.floor() 或者 Math.ceil()进行四舍五入处理</p>
 </blockquote>
@@ -531,16 +922,29 @@
 <blockquote>
 <p>Math.random()*5</p>
 </blockquote>
-<p>得到的结果是一个小于5的随机数。而我们通常希望得到的是0-5之间的整数，所以我们需要对得到的结果四舍五入处理一下，从而得到我们期望的整数。parseInt()、Math.floor()和Math.ceil()都可以起到四舍五入的作用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var randomNum = Math.random()*5;</div><div class="line">alert(randomNum); // 2.9045290905811183 </div><div class="line">alert(parseInt(randomNum,10)); // 2</div><div class="line">alert(Math.floor(randomNum)); // 2</div><div class="line">alert(Math.ceil(randomNum)); // 3</div></pre></td></tr></table></figure></p>
-<p>由测试的代码我们可以看到，<code>parseInt()</code>和<code>Math.floor()</code>的效果是一样的，都是向下取整数部分。所以<code>parseInt(Math.random()*5,10)</code>和<code>Math.floor(Math.random()*5)</code>都是生成的0-4之间的随机数，<code>Math.ceil(Math.random()*5)</code>则是生成的1-5之间的随机数。</p>
+<p>得到的结果是一个小于5的随机数。而我们通常希望得到的是0-5之间的整数，所以我们需要对得到的结果四舍五入处理一下，从而得到我们期望的整数。parseInt()、Math.floor()和Math.ceil()都可以起到四舍五入的作用。</p>
+<pre><code>var randomNum = Math.random()*5;
+alert(randomNum); // 2.9045290905811183 
+alert(parseInt(randomNum,10)); // 2
+alert(Math.floor(randomNum)); // 2
+alert(Math.ceil(randomNum)); // 3
+</code></pre><p>由测试的代码我们可以看到，<code>parseInt()</code>和<code>Math.floor()</code>的效果是一样的，都是向下取整数部分。所以<code>parseInt(Math.random()*5,10)</code>和<code>Math.floor(Math.random()*5)</code>都是生成的0-4之间的随机数，<code>Math.ceil(Math.random()*5)</code>则是生成的1-5之间的随机数。</p>
 <p><strong>生成指定范围数值随机数</strong></p>
 <p>如果你希望生成1到任意值的随机数，公式就是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// max - 期望的最大值</div><div class="line">parseInt(Math.random()*max,10)+1;</div><div class="line">Math.floor(Math.random()*max)+1;</div><div class="line">Math.ceil(Math.random()*max);</div></pre></td></tr></table></figure>
-<p>如果你希望生成0到任意值的随机数，公式就是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// max - 期望的最大值</div><div class="line">parseInt(Math.random()*(max+1),10);</div><div class="line">Math.floor(Math.random()*(max+1));</div></pre></td></tr></table></figure>
-<p>如果你希望生成任意值到任意值的随机数，公式就是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// max - 期望的最大值</div><div class="line">// min - 期望的最小值 </div><div class="line">parseInt(Math.random()*(max-min+1)+min,10);</div><div class="line">Math.floor(Math.random()*(max-min+1)+min);</div></pre></td></tr></table></figure>
-]]></content>
+<pre><code>// max - 期望的最大值
+parseInt(Math.random()*max,10)+1;
+Math.floor(Math.random()*max)+1;
+Math.ceil(Math.random()*max);
+</code></pre><p>如果你希望生成0到任意值的随机数，公式就是这样的：</p>
+<pre><code>// max - 期望的最大值
+parseInt(Math.random()*(max+1),10);
+Math.floor(Math.random()*(max+1));
+</code></pre><p>如果你希望生成任意值到任意值的随机数，公式就是这样的：</p>
+<pre><code>// max - 期望的最大值
+// min - 期望的最小值 
+parseInt(Math.random()*(max-min+1)+min,10);
+Math.floor(Math.random()*(max-min+1)+min);
+</code></pre>]]></content>
       
         <categories>
             
@@ -576,65 +980,91 @@
 <p>node – 编译后二进制文件应在/usr/local/bin/node 下<br> mongodb –安装在/usr/local/mongodb 下</p>
 </blockquote>
 <p>下面就一步一步来，首先升级CentOS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y update</div></pre></td></tr></table></figure>
-<p>升级后，跳转到 /usr/local/src , 这个文件夹通常用来存放软件源代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/src</div></pre></td></tr></table></figure>
-<p>下载 nodejs 代码，也可以使用scp命令直接上传，因为下载实在太慢了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://nodejs.org/dist/v0.12.5/node-v0.12.5.tar.gz</div><div class="line">//注*根据最新版本号为准</div></pre></td></tr></table></figure>
-<p>解压</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xzvf node-v0.12.5.tar.gz</div></pre></td></tr></table></figure>
-<p>进入解压后的文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd node-v0.12.5</div></pre></td></tr></table></figure>
-<p>执行配置脚本来进行编译预处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure</div></pre></td></tr></table></figure>
-<p>编译源代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line">//注*这个时间可能会很久</div></pre></td></tr></table></figure>
-<p>当编译完成后，需要使之在系统范围内可用, 编译后的二进制文件将被放置到系统路径，默认情况下，Node二进制文件应该放在/user/local/bin/node文件夹下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make install</div></pre></td></tr></table></figure>
-<p>安装 express 和 forever，这两个模块都推荐 global 安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -g install express forever</div></pre></td></tr></table></figure>
-<p>建立超级链接, 不然 sudo node 时会报 “command not found”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /usr/local/bin/node /usr/bin/node</div><div class="line">sudo ln -s /usr/local/lib/node /usr/lib/node</div><div class="line">sudo ln -s /usr/local/bin/npm /usr/bin/npm</div><div class="line">sudo ln -s /usr/local/bin/node-waf /usr/bin/node-waf</div><div class="line">sudo ln -s /usr/local/bin/forever /usr/bin/forever</div></pre></td></tr></table></figure>
-<p>Nodejs到这里就基本安装完成了。</p>
+<pre><code>yum -y update
+</code></pre><p>升级后，跳转到 /usr/local/src , 这个文件夹通常用来存放软件源代码</p>
+<pre><code>cd /usr/local/src
+</code></pre><p>下载 nodejs 代码，也可以使用scp命令直接上传，因为下载实在太慢了。</p>
+<pre><code>wget http://nodejs.org/dist/v0.12.5/node-v0.12.5.tar.gz
+//注*根据最新版本号为准
+</code></pre><p>解压</p>
+<pre><code>tar -xzvf node-v0.12.5.tar.gz
+</code></pre><p>进入解压后的文件夹</p>
+<pre><code>cd node-v0.12.5
+</code></pre><p>执行配置脚本来进行编译预处理</p>
+<pre><code>./configure
+</code></pre><p>编译源代码</p>
+<pre><code>make
+//注*这个时间可能会很久
+</code></pre><p>当编译完成后，需要使之在系统范围内可用, 编译后的二进制文件将被放置到系统路径，默认情况下，Node二进制文件应该放在/user/local/bin/node文件夹下</p>
+<pre><code>make install
+</code></pre><p>安装 express 和 forever，这两个模块都推荐 global 安装</p>
+<pre><code>npm -g install express forever
+</code></pre><p>建立超级链接, 不然 sudo node 时会报 “command not found”</p>
+<pre><code>sudo ln -s /usr/local/bin/node /usr/bin/node
+sudo ln -s /usr/local/lib/node /usr/lib/node
+sudo ln -s /usr/local/bin/npm /usr/bin/npm
+sudo ln -s /usr/local/bin/node-waf /usr/bin/node-waf
+sudo ln -s /usr/local/bin/forever /usr/bin/forever
+</code></pre><p>Nodejs到这里就基本安装完成了。</p>
 <p><strong>下面来安装mongodb</strong></p>
 <blockquote>
 <p>软件安装位置：/usr/local/mongodb<br>数据存放位置：/var/mongodb/data<br>日志存放位置：/var/mongodb/logs</p>
 </blockquote>
 <p>首先下载安装包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local</div><div class="line">wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz</div></pre></td></tr></table></figure>
-<p>解压安装包，重命名文件夹为mongodb</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tar zxvf mongodb-linux-x86_64-2.6.0.tgz</div><div class="line">mv mongodb-linux-x86_64-2.6.0 mongodb</div></pre></td></tr></table></figure>
-<p>创建数据和日志存放目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir /var/mongodb</div><div class="line">mkdir /var/mongodb/data</div><div class="line">mkdir /var/mongodb/logs</div></pre></td></tr></table></figure>
-<p>打开rc.local文件，添加CentOS开机启动项：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/rc.d/rc.local</div></pre></td></tr></table></figure>
-<p>将mongodb启动命令追加到本文件中，让mongodb开机自启动：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath </div><div class="line">/var/mongodb/logs/log.log -fork</div></pre></td></tr></table></figure>
-<p>关闭 vim 后，直接手动启动mongodb</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath </div><div class="line">/var/mongodb/logs/log.log -fork</div></pre></td></tr></table></figure>
-<p>看到类似的信息，说明已启动成功。我在这里发了个傻，以为26308是port号，导致后面设置port时折腾了好久。其实这里的 forked process 和 port 号是两个东西， 这个是程序本身在Server上的进程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">forked process: 26308</div></pre></td></tr></table></figure>
-<p>启动mongo shell</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/mongodb/bin/</div><div class="line">./mongo</div></pre></td></tr></table></figure>
-<p>在 mongo shell 中创建管理员及数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">use admin //admin 数据库</div><div class="line">db.createUser(&#123;</div><div class="line">user: &quot;用户名&quot;,</div><div class="line">pwd:&quot;登陆密码&quot;,</div><div class="line">roles:[&quot;userAdminAnyDatabase&quot;] //超级管理员</div><div class="line">&#125;)</div><div class="line"></div><div class="line">use databaseFoo //nodeapp 要连接的数据库</div><div class="line">db.createUser(&#123;</div><div class="line">user: &quot;用户名&quot;,</div><div class="line">pwd:&quot;登陆密码&quot;,</div><div class="line">roles:[&quot;readWrite&quot;] //读写权限</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>到这里 mongodb 基本已经安装设置完成了。具体数据的迁移导入可自行研究。</p>
+<pre><code>cd /usr/local
+wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz
+</code></pre><p>解压安装包，重命名文件夹为mongodb</p>
+<pre><code>tar zxvf mongodb-linux-x86_64-2.6.0.tgz
+mv mongodb-linux-x86_64-2.6.0 mongodb
+</code></pre><p>创建数据和日志存放目录</p>
+<pre><code>mkdir /var/mongodb
+mkdir /var/mongodb/data
+mkdir /var/mongodb/logs
+</code></pre><p>打开rc.local文件，添加CentOS开机启动项：</p>
+<pre><code>vim /etc/rc.d/rc.local
+</code></pre><p>将mongodb启动命令追加到本文件中，让mongodb开机自启动：</p>
+<pre><code>/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath 
+/var/mongodb/logs/log.log -fork
+</code></pre><p>关闭 vim 后，直接手动启动mongodb</p>
+<pre><code>/usr/local/mongodb/bin/mongod --dbpath=/var/mongodb/data --logpath 
+/var/mongodb/logs/log.log -fork
+</code></pre><p>看到类似的信息，说明已启动成功。我在这里发了个傻，以为26308是port号，导致后面设置port时折腾了好久。其实这里的 forked process 和 port 号是两个东西， 这个是程序本身在Server上的进程。</p>
+<pre><code>forked process: 26308
+</code></pre><p>启动mongo shell</p>
+<pre><code>cd /usr/local/mongodb/bin/
+./mongo
+</code></pre><p>在 mongo shell 中创建管理员及数据库</p>
+<pre><code>use admin //admin 数据库
+db.createUser({
+user: &quot;用户名&quot;,
+pwd:&quot;登陆密码&quot;,
+roles:[&quot;userAdminAnyDatabase&quot;] //超级管理员
+})
+
+use databaseFoo //nodeapp 要连接的数据库
+db.createUser({
+user: &quot;用户名&quot;,
+pwd:&quot;登陆密码&quot;,
+roles:[&quot;readWrite&quot;] //读写权限
+})
+</code></pre><p>到这里 mongodb 基本已经安装设置完成了。具体数据的迁移导入可自行研究。</p>
 <p><strong>4.配置及启动node app</strong></p>
 <p>我们把 nodeapp 的程序放在 /home 下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /home</div></pre></td></tr></table></figure>
-<p>我使用 <a href="http://git.oschina.net/" target="_blank" rel="external">http://git.oschina.net/</a> 管理代码。它的私有库是免费的。基本操作和 github 一样。<br>复制代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://git.oschina.net/xxxxxxx/nodeapp.git   //你的repo地址</div></pre></td></tr></table></figure>
-<p>注*同时可以使用图形化程序进行上传如File Zilla<img src="http://img.blog.csdn.net/20170212201742447?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="FZ"><br>进入 nodeapp 文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd nodeapp</div></pre></td></tr></table></figure>
-<p>（若后续代码变更，提交到 git repo 后直接git pull即可部署代码）<br>安装nodeapp的所有依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
-<p>在启动文件 ( 我的是 app.js ) 中设置数据库连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim app.js</div></pre></td></tr></table></figure>
-<p>数据库连接类似下面的格式，由于数据库安装在同一服务器，因此 host 为127.0.0.1：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dbUrl = &apos;mongodb://用户名:登陆密码@127.0.0.1/databaseFoo&apos;;</div><div class="line">mongoose.connect(dbUrl)</div></pre></td></tr></table></figure>
-<p>这里要注意，如果直接 npm start 或 node app.js 启动，则一旦退出 ssh 远程登陆，nodeapp 就会停止运行。因此我们使用 forever 启动 nodeapp。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NODE_ENV=production forever start app.js</div></pre></td></tr></table></figure>
-<blockquote>
+<pre><code>cd /home
+</code></pre><p>我使用 <a href="http://git.oschina.net/" target="_blank" rel="external">http://git.oschina.net/</a> 管理代码。它的私有库是免费的。基本操作和 github 一样。<br>复制代码：</p>
+<pre><code>git clone https://git.oschina.net/xxxxxxx/nodeapp.git   //你的repo地址
+</code></pre><p>注*同时可以使用图形化程序进行上传如File Zilla<img src="http://img.blog.csdn.net/20170212201742447?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="FZ"><br>进入 nodeapp 文件夹</p>
+<pre><code>cd nodeapp
+</code></pre><p>（若后续代码变更，提交到 git repo 后直接git pull即可部署代码）<br>安装nodeapp的所有依赖</p>
+<pre><code>npm install
+</code></pre><p>在启动文件 ( 我的是 app.js ) 中设置数据库连接</p>
+<pre><code>vim app.js
+</code></pre><p>数据库连接类似下面的格式，由于数据库安装在同一服务器，因此 host 为127.0.0.1：</p>
+<pre><code>var dbUrl = &#39;mongodb://用户名:登陆密码@127.0.0.1/databaseFoo&#39;;
+mongoose.connect(dbUrl)
+</code></pre><p>这里要注意，如果直接 npm start 或 node app.js 启动，则一旦退出 ssh 远程登陆，nodeapp 就会停止运行。因此我们使用 forever 启动 nodeapp。</p>
+<pre><code>NODE_ENV=production forever start app.js
+</code></pre><blockquote>
 <p>如今可以使用PM2启动程序，步骤如下：<br>使用它要先安装它，用root账号和全局模式安装一下：<br><code>npm install -g pm2</code><br>用它来启动程序（在当前目录下可以直接启动）<br><code>pm2 start app.js --name uops</code></p>
 </blockquote>
 <p>在蹚过无数坑后，项目部署成功。用浏览器打开 公网IP:端口号 即可看到 nodeapp 的首页</p>
@@ -661,13 +1091,17 @@
       <title><![CDATA[Hello World]]></title>
       <url>https://www.moumaobuchiyu.com/2017/01/28/hello-world/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo server
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo generate
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo deploy
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
       
