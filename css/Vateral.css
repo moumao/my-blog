@@ -718,7 +718,8 @@ p.no-result {
     display: inline-block;
 }
 .post-page-content p img{
-    width: 100%;
+    width: auto;
+    max-width:100%;
 }
 .post-page-content h1{
     font-size: 3.3rem;
@@ -813,7 +814,8 @@ blockquote{
     cursor: Pointer;
 }
 .post-back img{
-    width: 100%;
+    width: auto;
+    max-width:100%;
 }
 .post-nav{
     width: 1050px;
