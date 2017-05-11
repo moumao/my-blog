@@ -31,6 +31,9 @@
 <h4 id="函数防抖与节流"><a href="#函数防抖与节流" class="headerlink" title="函数防抖与节流"></a>函数防抖与节流</h4><blockquote>
 <p><a href="http://blog.csdn.net/jinboker/article/details/52127612" target="_blank" rel="external">相关资料-1</a><br><a href="http://blog.csdn.net/charlene0824/article/details/52080181" target="_blank" rel="external">相关资料-2</a><br><a href="https://segmentfault.com/a/1190000006722279" target="_blank" rel="external">相关资料-3</a><br><a href="https://segmentfault.com/a/1190000006732819" target="_blank" rel="external">相关资料-4</a><br><a href="https://segmentfault.com/a/1190000008275548" target="_blank" rel="external">相关资料-5</a></p>
 </blockquote>
+<h4 id="优雅降级和渐进增强"><a href="#优雅降级和渐进增强" class="headerlink" title="优雅降级和渐进增强"></a>优雅降级和渐进增强</h4><blockquote>
+<p><a href="http://www.cnblogs.com/mofish/p/3822879.html" target="_blank" rel="external">相关资料-1</a></p>
+</blockquote>
 ]]></content>
       
         <categories>
