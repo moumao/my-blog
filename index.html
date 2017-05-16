@@ -18,9 +18,9 @@
   
   
     <style type="text/css">
-        html,body {
+        html {
             font-family: sans-serif;
-            font-weight:300 !important;
+            font-weight:300;
         }
         @font-face {
             font-family: 'Material Icons';
@@ -115,27 +115,9 @@
 
 <!--photo-->
 
-<li class="nav-list">
-    <a href="/photo" target="_self">
-        <div class="nav-ico"><i class="material-icons">insert_photo</i> </div><p>影集</p>
-    </a>
-</li>
-
 <!--friends-->
 
-<li class="nav-list">
-    <a href="/friends" target="_self">
-        <div class="nav-ico"><i class="material-icons">face</i> </div><p>友链</p>
-    </a>
-</li>
-
 <!--about-->
-
-<li class="nav-list">
-    <a href="/about" target="_self">
-        <div class="nav-ico"><i class="material-icons">copyright</i> </div><p>关于</p>
-    </a>
-</li>
 
 </ul>
   </div>
@@ -170,10 +152,11 @@
     
     
   <div class="recent-post-item lazy" style="min-height: 150px"   data-original="https://moumao.moumaobuchiyu.com/images/random/bg12.jpg"  >
+    <div class="recent-post-item-up"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyBjbGFzcz0iaWNvbiIgd2lkdGg9IjEyOHB4IiBoZWlnaHQ9IjEyOC4wMHB4IiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTI2MC4wMTYgNTg0LjA5NmwxMTIuNi0xMTIuNTM2IDEyLjQ0IDEyLjQ0OC0xMTIuNiAxMTIuNTM2ek0yMzYuNzIgNTYxLjE3NmwxMTIuNTc2LTExMi41NjggMTIuNDQgMTIuNDQ4LTExMi41NjggMTEyLjU2OHpNMTAxLjMxMiA0NTAuNzQ0bDM2LjItMzYuMiAxOC4xMDQgMTguMDk2LTM2LjIgMzYuMjA4ek0yMTMuOTY4IDUzOC44NGwxMTIuNTYtMTEyLjU3NiAxMi40NDggMTIuNDQ4LTExMi41NiAxMTIuNTY4ek0xOTEuMTg0IDUxNS40MzJMMzAzLjc2IDQwMi44NTZsMTIuNDQgMTIuNDQ4LTExMi41NjggMTEyLjU2OHpNMjAwLjQ0IDM1MS41NDRsMzYuNzY4LTM2Ljc3NiAxOC4xMDQgMTguMTA0LTM2Ljc3NiAzNi43Njh6IiBmaWxsPSIjNzA3MDcwIiAvPjxwYXRoIGQ9Ik0wIDB2MTAyNEwxMDI0IDBIMHogbTI0MCAyOTEuMmw0NCA0NC0xMy42IDEzLjYtNC44LTQuOC0xMzYgMTM2IDQuOCA0LjgtMTMuNiAxMy42LTQ0LTQ0TDI0MCAyOTEuMnogbTAuOCAzNjAuOGwtMTEuMi0xMS4yIDI5LjYtMjkuNi05Mi44LTkyIDYwLjgtNjAuOC0xMi44LTEyLjgtODUuNiA4NS42LTExLjItMTEuMiA4NS42LTg1LjYtMTAuNC0xMC40IDE0LjQtMTQuNCAxMC40IDEwLjQgODgtODggMTEuMiAxMS4yLTg4IDg4IDEyLjggMTIuOCA2NC44LTY0LjggOTIgOTIgMjcuMi0yNy4yIDExLjIgMTEuMi0xOTYgMTk2Ljh6TTQ2NS42IDQyNGMtNi40IDYuNC0xMiAxMi0xNi44IDE2LTYuNC01LjYtMTMuNi0xMC40LTIwLjgtMTQuNCA3LjItNC44IDE0LjQtMTAuNCAyMC44LTE2LjhzNi40LTEyLjggMC0xOC40TDMxNy42IDI1OC40bC0zMiAzMi0xNC40LTE0LjQgNzMuNi03My42IDE0LjQgMTQuNC0yNi40IDI2LjRMNDY2LjQgMzc2YzE2IDE2IDE2IDMyLTAuOCA0OHogbS03OC40LTE5MmwzNi44LTM2LjgtMjEuNi0zMi44LTQ0LjggNDQuOC0xMy42LTE0LjRMNDYyLjQgNzQuNGwxNC40IDE0LjQtNTcuNiA1Ny42IDIwLjggMzMuNiA1NS4yLTU1LjIgOTUuMiA5NS4yLTE1LjIgMTUuMi04MS42LTgwLjgtNzYuOCA3Ni44IDgxLjYgODEuNi0xNS4yIDE1LjItOTYtOTZ6IG0xMzMuNiAxNTZjLTcuMi0xLjYtMTUuMi0zLjItMjQtNC44IDE3LjYtMzIgMjUuNi02MCAyMy4yLTgzLjItMi40LTIwLjgtMTYtNDQtNDAtNjhsLTIyLjQtMjIuNCAxNS4yLTE1LjIgMjEuNiAyMS42YzE2LjggMTYuOCAyOC44IDMyLjggMzYuOCA0OCAzNi44LTggNzEuMi0xNC40IDEwMy4yLTE5LjJsMi40IDI0LjhjLTMyLjggMy4yLTY0LjggOC05Ny42IDE0LjQgMS42IDQgMi40IDggMi40IDExLjIgNC44IDI2LjQtMi40IDU3LjYtMjAuOCA5Mi44eiIgZmlsbD0iIzcwNzA3MCIgLz48cGF0aCBkPSJNMTUxLjM4NCA0MDEuNjk2bDM2LjIwOC0zNi4yIDE4LjA5NiAxOC4xMDQtMzYuMiAzNi4yeiIgZmlsbD0iIzcwNzA3MCIgLz48L3N2Zz4="></div>
     <a class="recent-post-link" href="/2017/04/21/在服务器上搭建hexo博客/" style="min-height: 150px">
       <div class="post-hover" style="min-height: 150px;text-align: center;padding: 20px 20px 20px 20px;">
         <!--title-->
-        <p class="post-title" style="line-height: 50px"><a href="/2017/04/21/在服务器上搭建hexo博客/" >[置顶]&nbsp在服务器上搭建hexo博客</a></p>
+        <p class="post-title" style="line-height: 50px"><a href="/2017/04/21/在服务器上搭建hexo博客/" >在服务器上搭建hexo博客</a></p>
       </div>
     </a>
   </div>
@@ -218,7 +201,7 @@
               摘要：
               
                 
-箭头函数表达式的语法比函数表达式短，并且不绑定自己的 this，arguments，super或 new.target。此外，箭头函数最好在非方法函数中使...
+箭头函数表达式的语法比函数表达式短，并且不绑定自己的 this，arguments，super或 new.target。
               
             </p>
           </div>
@@ -311,7 +294,7 @@
             <p>
               摘要：
               
-                上了两年多大学，现在算是基本毕业了吧现在被学校忽悠到什么杰普软件公司培训几个月还是培训JavaEE。。。。折腾了几天才安顿到苏州附近的昆山到这里的两天更新了...
+                上了两年多大学，现在算是基本毕业了吧现在被学校忽悠到什么杰普软件公司培训几个月还是培训JavaEE。。。。折腾了几天才安顿到...
               
             </p>
           </div>
@@ -354,7 +337,7 @@
             <p>
               摘要：
               
-                填了半个月的坑，终于用上了自己开发的hexo主题–vateral在这之间接触hexo这个框架不到一周的时间，并且使用了vio喵的material主题很喜欢这个主题的风格，也...
+                填了半个月的坑，终于用上了自己开发的hexo主题–vateral在这之间接触hexo这个框架不到一周的时间，并且使用了vio喵的materi...
               
             </p>
           </div>
