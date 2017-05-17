@@ -611,9 +611,9 @@ X-UA-Compatible(浏览器采取何种版本渲染当前页面)
         
         <tags>
             
-            <tag> html </tag>
-            
             <tag> meta </tag>
+            
+            <tag> html </tag>
             
         </tags>
         
