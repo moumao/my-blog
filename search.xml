@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  
+<search> 
   
     
     <entry>
       <title><![CDATA[学会使用ES6的箭头函数]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/05/16/%E5%AD%A6%E4%BC%9A%E4%BD%BF%E7%94%A8ES6%E7%9A%84%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</url>
+      <url>/2017/05/16/%E5%AD%A6%E4%BC%9A%E4%BD%BF%E7%94%A8ES6%E7%9A%84%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>箭头函数表达式的语法比函数表达式短，并且不绑定自己的 this，arguments，super或 new.target。<br>此外，箭头函数最好在非方法函数中使用，且不能用作构造函数。</p>
 </blockquote>
@@ -200,7 +199,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     
     <entry>
       <title><![CDATA[JavaScript重点总结(不定期更新)]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/04/27/JavaScript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93-%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0/</url>
+      <url>/2017/04/27/JavaScript%E9%87%8D%E7%82%B9%E6%80%BB%E7%BB%93-%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0/</url>
       <content type="html"><![CDATA[<h4 id="Javascript-Hoisting：变量提升"><a href="#Javascript-Hoisting：变量提升" class="headerlink" title="Javascript Hoisting：变量提升"></a>Javascript Hoisting：变量提升</h4><blockquote>
 <p><a href="http://www.cnblogs.com/isaboy/p/javascript_hoisting.html" target="_blank" rel="external">相关资料-1</a></p>
 </blockquote>
@@ -255,7 +254,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     
     <entry>
       <title><![CDATA[在服务器上搭建hexo博客]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/04/21/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/</url>
+      <url>/2017/04/21/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>随着<a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank" rel="external">Vateral主题</a>的开发接近了尾声，在对主题速度优化的时候发现之前用的githubpage问题多多：首先就是因为在国内的原因，访问速度本身就很慢，曾经有次加载一张16kb的图标时间耗费了26s！！？<a id="more"></a>其次，在对资源做CDN托管加速时，域名是需要备案的，显然githubpage也是做不了的；所以果断舍弃了这个把hexo搭建到了我的阿里云服务器上</p>
 </blockquote>
@@ -376,7 +375,7 @@ branch: master
     
     <entry>
       <title><![CDATA[大学算是毕业了]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/04/18/%E5%A4%A7%E5%AD%A6%E7%AE%97%E6%98%AF%E6%AF%95%E4%B8%9A%E4%BA%86/</url>
+      <url>/2017/04/18/%E5%A4%A7%E5%AD%A6%E7%AE%97%E6%98%AF%E6%AF%95%E4%B8%9A%E4%BA%86/</url>
       <content type="html"><![CDATA[<p>上了两年多大学，现在算是基本毕业了吧<br>现在被学校忽悠到什么杰普软件公司培训几个月<br>还是培训JavaEE。。。。<br>折腾了几天才安顿到苏州附近的昆山<br>到这里的两天更新了友链和摄影界面</p>
 <p>这里的环境不错，适合跑步</p>
 ]]></content>
@@ -400,7 +399,7 @@ branch: master
     
     <entry>
       <title><![CDATA[历经半个月 终于用上了自己开发的hexo主题]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/04/11/%E5%8E%86%E7%BB%8F%E5%8D%8A%E4%B8%AA%E6%9C%88-%E7%BB%88%E4%BA%8E%E7%94%A8%E4%B8%8A%E4%BA%86%E8%87%AA%E5%B7%B1%E5%BC%80%E5%8F%91%E7%9A%84hexo%E4%B8%BB%E9%A2%98/</url>
+      <url>/2017/04/11/%E5%8E%86%E7%BB%8F%E5%8D%8A%E4%B8%AA%E6%9C%88-%E7%BB%88%E4%BA%8E%E7%94%A8%E4%B8%8A%E4%BA%86%E8%87%AA%E5%B7%B1%E5%BC%80%E5%8F%91%E7%9A%84hexo%E4%B8%BB%E9%A2%98/</url>
       <content type="html"><![CDATA[<p>填了半个月的坑，终于用上了自己开发的hexo主题–vateral<br>在这之间接触hexo这个框架不到一周的时间，并且使用了vio喵的material主题<br>很喜欢这个主题的风格，也就有了开发自己主题的打算<br>这也是为什么vateral中在样式上会有些material的影子<br>熬了几次夜，终于这个主题实现了一些基本的功能，其中遇到了好多问题，也一点点解决了，而且不得不说还把新买的电脑的键盘敲坏了….<br>不过想想一开始的样子，心里还是蛮欣慰的，填坑中也学到了不少东西，然而主题还没有正式发布到hexo的主题里边，有文档要写，服务器还要配置环境，还要修改bug，和更多功能的开发。</p>
 <blockquote>
 <p>主题初始的样式</p>
@@ -428,7 +427,7 @@ branch: master
     
     <entry>
       <title><![CDATA[meta标签总结]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/04/05/meta%E6%A0%87%E7%AD%BE%E6%80%BB%E7%BB%93/</url>
+      <url>/2017/04/05/meta%E6%A0%87%E7%AD%BE%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
 <p>meta 元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。</p>
 </blockquote>
@@ -622,7 +621,7 @@ X-UA-Compatible(浏览器采取何种版本渲染当前页面)
     
     <entry>
       <title><![CDATA[关于Promise]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/03/28/%E5%85%B3%E4%BA%8EPromise/</url>
+      <url>/2017/03/28/%E5%85%B3%E4%BA%8EPromise/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
 <p>首先设想一个日常开发常常会遇到的需求：在多个接口异步请求数据，然后利用这些数据来进行一系列的操作。一般会这样去写：</p>
 <pre><code>$.ajax({
@@ -761,7 +760,7 @@ console.log(result); // [&quot;Hello&quot;, &quot;World&quot;]
     
     <entry>
       <title><![CDATA[JS中的回调函数]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/03/24/JS%E4%B8%AD%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</url>
+      <url>/2017/03/24/JS%E4%B8%AD%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</url>
       <content type="html"><![CDATA[<h4 id="关于回调函数"><a href="#关于回调函数" class="headerlink" title="关于回调函数"></a>关于回调函数</h4><p>首先要了解，在 js 中，函数也是对象，可以赋值给变量，可以作为参数放在函数的参数列表中。比如：</p>
 <pre class=" language-JavaScript"><code class="language-JavaScript">var doSomething = function(a,b)
 {
@@ -960,7 +959,7 @@ next(err);
     
     <entry>
       <title><![CDATA[什么是动态HTML？-DHTML]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/03/23/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A8%E6%80%81HTML%EF%BC%9F-DHTML/</url>
+      <url>/2017/03/23/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A8%E6%80%81HTML%EF%BC%9F-DHTML/</url>
       <content type="html"><![CDATA[<p>DHTML是Dynamic HTML的简称，中文译为“动态超文本标记语言”，主要用途是提**TML页面的交互性和可操作性。它是建立在传统HTML基础上的客户端动态技术，是一种技术的总称，它通过HTML、VBScript、JavaScript邮和CSS等语言、技术使网页能够具有动态交互功能。虽然HTML语言可以制作出具有复杂格式的网页，但这样制作出来的网页只包含静态内容。凡是网页上有任何信息需要更新，浏览器就必须从服务器上重新下载整个网页，因而给网络造成极大的负担。它是建立在传统HTML基础上的客户端动态技术。</p>
 <p>DHTML实现了网页从Web服务器下载后无需再经过服务的处理，而在浏览器中直接动态地更新网页的内容、排版样式和动画的功能。例如，当鼠标指针移到文章段落中时，段落能够变成蓝色，或者当鼠标指针移到一个超级链接上时，会自动生成一个下拉式子链接目录等。这是近年来网络飞速发展进程中员振奋人心也最具实用性的技术之一。DHTML是一种通过各种技术的综合发展而来的概念，这些技术包括JavaScript、VBScript、DOM(Document Object Mode，文档对象模型)、Layers和CSS(Cascading Style Sheets，层又叠样式表)等。目前IE4．0以上的大多数浏览器都加入了对DHTML的支持，主要包括以下内容：</p>
 <blockquote>
@@ -988,7 +987,7 @@ next(err);
     
     <entry>
       <title><![CDATA[JS中this的指向]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/03/22/JS%E4%B8%ADthis%E7%9A%84%E6%8C%87%E5%90%91/</url>
+      <url>/2017/03/22/JS%E4%B8%ADthis%E7%9A%84%E6%8C%87%E5%90%91/</url>
       <content type="html"><![CDATA[<p><strong>this是Javascript语言的一个关键字。</strong> </p>
 <p>它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。比如:</p>
 <pre><code>function test(){ 
@@ -1116,7 +1115,7 @@ next(err);
     
     <entry>
       <title><![CDATA[ js中Math.random()生成指定范围数值的随机数]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/03/20/js%E4%B8%ADMath-random-%E7%94%9F%E6%88%90%E6%8C%87%E5%AE%9A%E8%8C%83%E5%9B%B4%E6%95%B0%E5%80%BC%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/</url>
+      <url>/2017/03/20/js%E4%B8%ADMath-random-%E7%94%9F%E6%88%90%E6%8C%87%E5%AE%9A%E8%8C%83%E5%9B%B4%E6%95%B0%E5%80%BC%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/</url>
       <content type="html"><![CDATA[<p><strong>定义和用法</strong></p>
 <p>random() 方法可返回介于 0 ~ 1 之间的一个随机数。</p>
 <p><strong>语法</strong></p>
@@ -1184,7 +1183,7 @@ Math<span class="token punctuation">.</span><span class="token function">floor</
     
     <entry>
       <title><![CDATA[Node.js部署到阿里云服务器]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/03/16/nodejs%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%A8%E8%BF%87%E7%A8%8B/</url>
+      <url>/2017/03/16/nodejs%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%A8%E8%BF%87%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>整个部署过程学到了不少东西，记录一下。</p>
 <blockquote>
 <p>参考了以下文章：<br> <a href="http://itbilu.com/other/relate/NJ2TJohl.html" target="_blank" rel="external">http://itbilu.com/other/relate/NJ2TJohl.html</a><br><a href="https://segmentfault.com/a/1190000004051670" target="_blank" rel="external">https://segmentfault.com/a/1190000004051670</a><br><a href="http://borninsummer.com/2015/06/17/notes-on-developing-nodejs-webapp/" target="_blank" rel="external">http://borninsummer.com/2015/06/17/notes-on-developing-nodejs-webapp/</a><br><a href="https://bbs.aliyun.com/read/146189.html" target="_blank" rel="external">https://bbs.aliyun.com/read/146189.html</a></p>
@@ -1310,7 +1309,7 @@ mongoose.connect(dbUrl)
     
     <entry>
       <title><![CDATA[Hello World]]></title>
-      <url>https://www.moumaobuchiyu.com/2017/01/28/hello-world/</url>
+      <url>/2017/01/28/hello-world/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
 </code></pre>
