@@ -3,6 +3,40 @@
   
     
     <entry>
+      <title><![CDATA[本站性能优化以及Http安全报告]]></title>
+      <url>/2017/05/18/%E6%9C%AC%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%BB%A5%E5%8F%8AHttp%E5%AE%89%E5%85%A8%E6%8A%A5%E5%91%8A/</url>
+      <content type="html"><![CDATA[<p><img src="http://img.blog.csdn.net/20170518152637350?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="网站性能报告"></p>
+<blockquote>
+<p>本站性能报告，因为使用了Cache-Control所以没有用较旧的Expires，故YSlow的分数较低</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20170518152955403?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbW91bWFvYnVjaGl5dQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="本站http安全报告"></p>
+<blockquote>
+<p>本站Http安全报告，其中HSTS Preloaded仍然在审核中。</p>
+</blockquote>
+<p>断断续续折腾了半个月，终于把这几项测试从一开始的黄色甚至红色提升到了绿色，小小的满足了一下我的强迫症，其中还有一些琐碎的坑要继续填，以后也会写一些我是如何提升我的网站性能以及和http相关的博客。</p>
+<blockquote>
+<p>PS:最近再给一个github上的开源项目写一个文档，决定依旧采用我较为熟悉的hexo来搭建，不过好忙啊要加油啦~~</p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 日常 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> http安全 </tag>
+            
+            <tag> 网站性能优化 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[学会使用ES6的箭头函数]]></title>
       <url>/2017/05/16/%E5%AD%A6%E4%BC%9A%E4%BD%BF%E7%94%A8ES6%E7%9A%84%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</url>
       <content type="html"><![CDATA[<blockquote>
