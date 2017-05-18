@@ -290,7 +290,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
       <title><![CDATA[在服务器上搭建hexo博客]]></title>
       <url>/2017/04/21/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/</url>
       <content type="html"><![CDATA[<blockquote>
-<p>随着<a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank" rel="external">Vateral主题</a>的开发接近了尾声，在对主题速度优化的时候发现之前用的githubpage问题多多：首先就是因为在国内的原因，访问速度本身就很慢，曾经有次加载一张16kb的图标时间耗费了26s！！？<a id="more"></a>其次，在对资源做CDN托管加速时，域名是需要备案的，显然githubpage也是做不了的；所以果断舍弃了这个把hexo搭建到了我的阿里云服务器上</p>
+<p>随着<a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank" rel="external">Vateral主题</a>的开发接近了尾声，在对主题速度优化的时候发现之前用的githubpage问题多多：首先就是因为在国内的原因，访问速度本身就很慢，曾经有次加载一张16kb的图标时间耗费了26s！！？<a id="more"></a>其次，在对资源做CDN托管加速时，域名是需要备案的，显然githubpage也是做不了的；所以果断舍弃了这个把hexo搭建到了我的<del>阿里云服务器</del>现在是主机壳的香港VPS上</p>
 </blockquote>
 <p>总体来说还是比把hexo搭建到github上要复杂一些的，期间遇到了不少坑，也参考了很多资料，这里详细的总结一下具体的步骤。</p>
 <h3 id="hexo的架构"><a href="#hexo的架构" class="headerlink" title="hexo的架构"></a>hexo的架构</h3><hr>
