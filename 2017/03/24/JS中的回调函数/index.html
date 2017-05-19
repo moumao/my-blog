@@ -32,7 +32,7 @@
             url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
         }
     </style>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
+</head>
 <body>
 <div class="progress" >
     <div class="indeterminate"></div>
@@ -156,16 +156,16 @@
   </div>
   <div class="post-page-content">
   <h4 id="关于回调函数"><a href="#关于回调函数" class="headerlink" title="关于回调函数"></a>关于回调函数</h4><p>首先要了解，在 js 中，函数也是对象，可以赋值给变量，可以作为参数放在函数的参数列表中。比如：</p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">var doSomething = function(a,b)
+<pre><code class="JavaScript">var doSomething = function(a,b)
 {
 return a + b;
 }
 </code></pre>
 <p>这段代码的意思是定义一个匿名函数，这个匿名函数除了没有名字之外，其他跟普通的函数没有什么两样。然后把匿名函数赋值给变量doSomething。接下来我们调用：</p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">console.log(doSomething(2,3));//5
+<pre><code class="JavaScript">console.log(doSomething(2,3));//5
 </code></pre>
 <p>回调函数，就是放在另外一个函数（如 parent）的参数列表中，作为参数传递给这个 parent，然后在 parent 函数体的某个位置执行:</p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">var doit = function(callback)
+<pre><code class="JavaScript">var doit = function(callback)
 {
 var a = 1,
 b = 2,
@@ -187,26 +187,26 @@ console.log(d);
 <p>但是，当函数的实现过程非常漫长，你是选择等待函数完成处理，还是使用回调函数进行异步处理呢？这种情况下，使用回调函数变得至关重要，例如：AJAX请求。若是使用回调函数进行处理，代码就可以继续进行其他任务，而无需空等。实际开发中，经常在javascript中使用异步调用，甚至在这里强烈推荐使用。</p>
 <p>因此，回调本质上是一种设计模式，并且jQuery(包括其他框架)的设计原则遵循了这个模式。</p>
 <p>在JavaScript中，回调函数具体的定义为：函数A作为参数(函数引用)传递到另一个函数B中，并且这个函数B执行函数A。我们就说函数A叫做回调函数。如果没有名称(函数表达式)，就叫做匿名回调函数。</p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">//基本方式
+<pre><code class="JavaScript">//基本方式
 function doSomething(callback) {
 // … 
 // Call the callback
-callback('stuff', 'goes', 'here');
+callback(&#39;stuff&#39;, &#39;goes&#39;, &#39;here&#39;);
 } 
 function foo(a, b, c) {
-// I'm the callback
-alert(a + " " + b + " " + c);
+// I&#39;m the callback
+alert(a + &quot; &quot; + b + &quot; &quot; + c);
 } 
 doSomething(foo);
 </code></pre>
-<pre class=" language-JavaScript"><code class="language-JavaScript">//匿名函数的形式
+<pre><code class="JavaScript">//匿名函数的形式
 function dosomething(damsg, callback){
 alert(damsg);
-if(typeof callback == "function") 
+if(typeof callback == &quot;function&quot;) 
 callback();
 } 
-dosomething("回调函数", function(){
-alert("和 jQuery 的 callbacks 形式一样!");
+dosomething(&quot;回调函数&quot;, function(){
+alert(&quot;和 jQuery 的 callbacks 形式一样!&quot;);
 });
 </code></pre>
 <p>所以callback 不一定用于异步，一般同步(阻塞)的场景下也经常用到回调，比如要求执行某些操作后执行回调函数。</p>
@@ -218,17 +218,17 @@ alert("和 jQuery 的 callbacks 形式一样!");
 <p>setTimeout的延迟时间为0，这个hack经常被用到，settimeout调用的函数其实就是一个callback的体现</p>
 <p>链式调用：链式调用的时候，在赋值器(setter)方法中(或者本身没有返回值的方法中)很容易实现链式调用，而取值器(getter)相对来说不好实现链式调用，因为你需要取值器返回你需要的数据而不是this指针，如果要实现链式方法，可以用回调函数来实现setTimeout、setInterval的函数调用得到其返回值。由于两个函数都是异步的，即：他们的调用时序和程序的主流程是相对独立的，所以没有办法在主体里面等待它们的返回值，它们被打开的时候程序也不会停下来等待，否则也就失去了setTimeout及setInterval的意义了，所以用return已经没有意义，只能使用callback。callback的意义在于将timer执行的结果通知给代理函数进行及时处理。</p>
 <p><strong>回调函数的传递</strong></p>
-<pre class=" language-JavaScript"><code class="language-JavaScript">$.get('myhtmlpage.html', myCallBack);//这是对的
-$.get('myhtmlpage.html', myCallBack('foo', 'bar'));//这是错的，那么要带参数呢？
-$.get('myhtmlpage.html', function(){//带参数的使用函数表达式
-myCallBack('foo', 'bar');
+<pre><code class="JavaScript">$.get(&#39;myhtmlpage.html&#39;, myCallBack);//这是对的
+$.get(&#39;myhtmlpage.html&#39;, myCallBack(&#39;foo&#39;, &#39;bar&#39;));//这是错的，那么要带参数呢？
+$.get(&#39;myhtmlpage.html&#39;, function(){//带参数的使用函数表达式
+myCallBack(&#39;foo&#39;, &#39;bar&#39;);
 });
 </code></pre>
 <blockquote>
 <p>另外，最好保证回调存在且必须是函数引用或者函数表达式： (callback &amp;&amp; typeof(callback) ===<br>“function”) &amp;&amp; callback();</p>
 </blockquote>
 <hr>
-<h4 id="回调函数使用实例"><a href="#回调函数使用实例" class="headerlink" title="回调函数使用实例"></a>回调函数使用实例</h4><pre class=" language-JavaScript"><code class="language-JavaScript">//使用call方法
+<h4 id="回调函数使用实例"><a href="#回调函数使用实例" class="headerlink" title="回调函数使用实例"></a>回调函数使用实例</h4><pre><code class="JavaScript">//使用call方法
 function Thing(name) {
 this.name = name;
 }
@@ -241,10 +241,10 @@ function foo() {
 alert(this.name);
 }
 
-var t = new Thing('Joe');
-t.doSomething(foo); // Alerts "Joe" via `foo`
+var t = new Thing(&#39;Joe&#39;);
+t.doSomething(foo); // Alerts &quot;Joe&quot; via `foo`
 </code></pre>
-<pre class=" language-JavaScript"><code class="language-JavaScript">//传参数
+<pre><code class="JavaScript">//传参数
 function Thing(name) {
 this.name = name;
 }
@@ -253,75 +253,75 @@ Thing.prototype.doSomething = function(callback, salutation) {
 callback.call(this, salutation);
 } 
 function foo(salutation) {
-alert(salutation + " " + this.name);
+alert(salutation + &quot; &quot; + this.name);
 } 
-var t = new Thing('Joe');
-t.doSomething(foo, 'Hi'); // Alerts "Hi Joe" via `foo`
+var t = new Thing(&#39;Joe&#39;);
+t.doSomething(foo, &#39;Hi&#39;); // Alerts &quot;Hi Joe&quot; via `foo`
 </code></pre>
-<pre class=" language-JavaScript"><code class="language-JavaScript">//使用apply传参
+<pre><code class="JavaScript">//使用apply传参
 function Thing(name) {
 this.name = name;
 }
 Thing.prototype.doSomething = function(callback) {
 // Call our callback, but using our own instance as the context
-callback.apply(this, ['Hi', 3, 2, 1]);
+callback.apply(this, [&#39;Hi&#39;, 3, 2, 1]);
 } 
 function foo(salutation, three, two, one) {
-alert(salutation + " " + this.name + " – " + three + " " + two + " " + one);
+alert(salutation + &quot; &quot; + this.name + &quot; – &quot; + three + &quot; &quot; + two + &quot; &quot; + one);
 } 
-var t = new Thing('Joe');
-t.doSomething(foo); // Alerts "Hi Joe – 3 2 1" via `foo`
+var t = new Thing(&#39;Joe&#39;);
+t.doSomething(foo); // Alerts &quot;Hi Joe – 3 2 1&quot; via `foo`
 </code></pre>
-<pre class=" language-JavaScript"><code class="language-JavaScript">//假如提供的数据源是一整数,为某学生的分数,当num<=0,由底层处理,当n>0时由高层处理.
+<pre><code class="JavaScript">//假如提供的数据源是一整数,为某学生的分数,当num&lt;=0,由底层处理,当n&gt;0时由高层处理.
 //将下面这个函数拷贝下来存盘为1.js
 function f(num,callback){
-if(num<0) { 
-alert("调用低层函数处理!");
-alert("分数不能为负,输入错误!"); 
+if(num&lt;0) { 
+alert(&quot;调用低层函数处理!&quot;);
+alert(&quot;分数不能为负,输入错误!&quot;); 
 }else if(num==0){
-alert("调用低层函数处理!");
-alert("该学生可能未参加考试！");
+alert(&quot;调用低层函数处理!&quot;);
+alert(&quot;该学生可能未参加考试！&quot;);
 }else{
-alert("调用高层函数处理!");
+alert(&quot;调用高层函数处理!&quot;);
 callback();
 }
 }
 </code></pre>
-<pre class=" language-html"><code class="language-html">//将下面这个test.html文件存盘与1.js在一个目录下：
-<span class="token doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd"></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Content-Type<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/html; charset<span class="token punctuation">=</span>gb2312<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.js<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>无标题文档<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<pre><code class="html">//将下面这个test.html文件存盘与1.js在一个目录下：
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=gb2312&quot;&gt;
+&lt;script src=&quot;1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;title&gt;无标题文档&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
 function test(){
-var p=document.getElementById("pp");
-pp.innerText="";
-var num=document.getElementById("score").value;
+var p=document.getElementById(&quot;pp&quot;);
+pp.innerText=&quot;&quot;;
+var num=document.getElementById(&quot;score&quot;).value;
 f(num,function(){ //匿名高层处理函数
-if(num&lt;60) alert("未及格！");
-else if(num&lt;=90) alert("该生成绩优良！");
-else alert("该生成绩优秀!"); })
-pp.innerText="by since1978 qq558064!"
+if(num&lt;60) alert(&quot;未及格！&quot;);
+else if(num&lt;=90) alert(&quot;该生成绩优良！&quot;);
+else alert(&quot;该生成绩优秀!&quot;); })
+pp.innerText=&quot;by since1978 qq558064!&quot;
 }
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+&lt;/script&gt;
+&lt;/head&gt;
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
-回调函数示例:当学生成绩score&lt;=0分时候，由底层处理；当score>0时，由高层处理。
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-请输入学生成绩<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>score<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">onClick</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>test()<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span> 看看结果<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pp<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+&lt;body&gt;
+&lt;p&gt;
+回调函数示例:当学生成绩score&lt;=0分时候，由底层处理；当score&gt;0时，由高层处理。
+&lt;/p&gt;
+请输入学生成绩&lt;input type=&quot;text&quot; id=&quot;score&quot;&gt; 
+&lt;input type=&quot;button&quot; onClick=&quot;test()&quot; value=&quot; 看看结果&quot;&gt;
+&lt;p id=&quot;pp&quot;&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-<pre class=" language-JavaScript"><code class="language-JavaScript">//node.js中出现的回调函数
+<pre><code class="JavaScript">//node.js中出现的回调函数
 app.use(function(req, res, next) {
-var err = new Error('Not Found');
+var err = new Error(&#39;Not Found&#39;);
 err.status = 404;
 next(err);
 });
