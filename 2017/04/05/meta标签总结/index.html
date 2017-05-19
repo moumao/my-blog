@@ -17,6 +17,7 @@
     
   
   
+
     <style type="text/css">
         html{
             font-family: sans-serif;
@@ -329,8 +330,33 @@ X-UA-Compatible(浏览器采取何种版本渲染当前页面)
 <p>参考：<a href="https://github.com/yisibl/blog/issues/1" target="_blank" rel="external">常用的 HTML 头部标签</a></p>
 
   </div>
- <!-- <div id="SOHUCS" style="padding:15px"></div>-->
+  <!--评论块-->
+  <div id="disqus_thread" style="padding:30px;text-align: center;border-top:1px solid silver "><button style="margin: 0 auto; " class="btn" onclick="pinglun()">加载评论(被墙则无法加载)</button></div>
+ <!-- <script id="dsq-count-scr" src="//moumao.disqus.com/count.js"></script>-->
+  <script>
+
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+       var disqus_config = function () {
+       this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+       this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+       };
+       */
+      function pinglun() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script'),v = d.createElement('script');
+          v.id = 'dsq-count-scr'
+          v.src= '//moumao.disqus.com/count.js';
+          s.src = 'https://moumao.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(v);
+          (d.head || d.body).appendChild(s);
+      };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </article>
+
 <nav class="post-nav">
   <!-- Prev Nav -->
     
@@ -406,6 +432,7 @@ X-UA-Compatible(浏览器采取何种版本渲染当前页面)
 <script src="https://moumao.moumaobuchiyu.com/js/jquery.rotate.min.js"></script>
 
 <script src="https://moumao.moumaobuchiyu.com/js/Vateral.min.js"></script>
+
 
 
 
