@@ -32,7 +32,7 @@
             url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
         }
     </style>
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
 <body>
 <div class="progress" >
     <div class="indeterminate"></div>
@@ -158,39 +158,39 @@
   <blockquote>
 <p>箭头函数表达式的语法比函数表达式短，并且不绑定自己的 this，arguments，super或 new.target。<br>此外，箭头函数最好在非方法函数中使用，且不能用作构造函数。</p>
 </blockquote>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><pre><code class="javascript">(param1, param2, …, paramN) =&gt; { statements }
-(param1, param2, …, paramN) =&gt; expression // 等价于:  =&gt; { return expression; } 
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">(</span>param1<span class="token punctuation">,</span> param2<span class="token punctuation">,</span> …<span class="token punctuation">,</span> paramN<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> statements <span class="token punctuation">}</span>
+<span class="token punctuation">(</span>param1<span class="token punctuation">,</span> param2<span class="token punctuation">,</span> …<span class="token punctuation">,</span> paramN<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> expression <span class="token comment" spellcheck="true">// 等价于:  => { return expression; } </span>
 
-// 如果只有一个参数，圆括号是可选的:
-(singleParam) =&gt; { statements }
-singleParam =&gt; { statements }
+<span class="token comment" spellcheck="true">// 如果只有一个参数，圆括号是可选的:</span>
+<span class="token punctuation">(</span>singleParam<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> statements <span class="token punctuation">}</span>
+singleParam <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> statements <span class="token punctuation">}</span>
 
-// 无参数或者多参数的箭头函数需要使用圆括号或者下划线:
-() =&gt; { statements } _ =&gt; { statements }
+<span class="token comment" spellcheck="true">// 无参数或者多参数的箭头函数需要使用圆括号或者下划线:</span>
+<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> statements <span class="token punctuation">}</span> _ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> statements <span class="token punctuation">}</span>
 </code></pre>
-<h4 id="来看看和ES5的对比吧"><a href="#来看看和ES5的对比吧" class="headerlink" title="来看看和ES5的对比吧"></a>来看看和ES5的对比吧</h4><pre><code class="javascript">// ES5
-var selected = allJobs.filter(function (job) {
-    return job.isSelected();
-});
-// ES6
-var selected = allJobs.filter(job =&gt; job.isSelected());
+<h4 id="来看看和ES5的对比吧"><a href="#来看看和ES5的对比吧" class="headerlink" title="来看看和ES5的对比吧"></a>来看看和ES5的对比吧</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// ES5</span>
+<span class="token keyword">var</span> selected <span class="token operator">=</span> allJobs<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>job<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> job<span class="token punctuation">.</span><span class="token function">isSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// ES6</span>
+<span class="token keyword">var</span> selected <span class="token operator">=</span> allJobs<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>job <span class="token operator">=</span><span class="token operator">></span> job<span class="token punctuation">.</span><span class="token function">isSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>这是只有一个参数的情况，如果要写一个接受多重参数（也可能没有参数，或者是不定参数、默认参数、参数解构）的函数，你需要用小括号包裹参数list。</p>
-<pre><code class="javascript">// ES5
-var total = values.reduce(function (a, b) {
-  return a + b;
-}, 0);
-// ES6
-var total = values.reduce((a, b) =&gt; a + b, 0);
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// ES5</span>
+<span class="token keyword">var</span> total <span class="token operator">=</span> values<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// ES6</span>
+<span class="token keyword">var</span> total <span class="token operator">=</span> values<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> a <span class="token operator">+</span> b<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="高级语法"><a href="#高级语法" class="headerlink" title="高级语法"></a>高级语法</h4><p>并且支持 Rest parameters 和 default parameters以及参数列表中的解构赋值</p>
-<pre><code class="javascript">// 支持 Rest parameters 和 default parameters:
-(param1, param2, ...rest) =&gt; { statements }
-(param1 = defaultValue1, param2, …, paramN = defaultValueN) =&gt; { statements }
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 支持 Rest parameters 和 default parameters:</span>
+<span class="token punctuation">(</span>param1<span class="token punctuation">,</span> param2<span class="token punctuation">,</span> <span class="token operator">...</span>rest<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> statements <span class="token punctuation">}</span>
+<span class="token punctuation">(</span>param1 <span class="token operator">=</span> defaultValue1<span class="token punctuation">,</span> param2<span class="token punctuation">,</span> …<span class="token punctuation">,</span> paramN <span class="token operator">=</span> defaultValueN<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> statements <span class="token punctuation">}</span>
 
-// 支持参数列表中的解构赋值
-var f = ([a, b] = [1, 2], {x: c} = {x: a + b}) =&gt; a + b + c;
-f();  // 6
+<span class="token comment" spellcheck="true">// 支持参数列表中的解构赋值</span>
+<span class="token keyword">var</span> f <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> c<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> a <span class="token operator">+</span> b<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> a <span class="token operator">+</span> b <span class="token operator">+</span> c<span class="token punctuation">;</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 6</span>
 </code></pre>
 <p> 只返回一个对象字面量,没有其他语句时, 应当用圆括号将其包起来:</p>
 <pre><code>params =&gt; ({foo: bar})
@@ -198,134 +198,134 @@ f();  // 6
 <p>普通function函数和箭头函数的行为有一个微妙的区别，箭头函数没有它自己的this值，箭头函数内的this值继承自外围作用域。</p>
 </blockquote>
 <h5 id="在没有箭头函数的ES5中"><a href="#在没有箭头函数的ES5中" class="headerlink" title="在没有箭头函数的ES5中"></a>在没有箭头函数的ES5中</h5><p>首先看这段代码：</p>
-<pre><code class="javascript">function Person() {
-  // 构造函数 Person() 定义的 `this` 就是新实例对象自己
-  this.age = 0;
-  setInterval(function growUp() {
-    // 在非严格模式下，growUp() 函数定义了其内部的 `this`为全局对象, 
-      不同于构造函数Person()的定义的 `this`
-    this.age++; 
-  }, 1000);
-}
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 构造函数 Person() 定义的 `this` 就是新实例对象自己</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">growUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 在非严格模式下，growUp() 函数定义了其内部的 `this`为全局对象, </span>
+      <span class="token function">不同于构造函数Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span>的定义的 <span class="token template-string"><span class="token string">`this`</span></span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">++</span><span class="token punctuation">;</span> 
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-var p = new Person();
+<span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>在 ES5 中，通常把this的值赋给一个变量，然后将该变量放到闭包中来解决：</p>
-<pre><code class="javascript">function Person() {
-  var self = this; // 也有人选择使用 `that` 而非 `self`. 
-                   // 只要保证一致就好.
-  self.age = 0;
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 也有人选择使用 `that` 而非 `self`. </span>
+                   <span class="token comment" spellcheck="true">// 只要保证一致就好.</span>
+  self<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-  setInterval(function growUp() {
-    // 回调里面的 `self` 变量就指向了期望的那个对象了
-    self.age++;
-  }, 1000);
-}
+  <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">growUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 回调里面的 `self` 变量就指向了期望的那个对象了</span>
+    self<span class="token punctuation">.</span>age<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>当然，还可以使用 bind ，把期望的 this 值传递给函数。</p>
 <h5 id="在ES6中"><a href="#在ES6中" class="headerlink" title="在ES6中"></a>在ES6中</h5><p>箭头函数会在外围作用域获得this 值，因此下面的代码就完成了这个问题。</p>
-<pre><code class="javascript">function Person(){
-  this.age = 0;
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-  setInterval(() =&gt; {
-    this.age++; // this正确地指向了person对象
-  }, 1000);
-}
+  <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// this正确地指向了person对象</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-var p = new Person();
+<span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <blockquote>
 <p>考虑到 this 是词法层面上的，严格模式中与 this 相关的规则都将被忽略。</p>
 </blockquote>
 <h5 id="箭头函数和call-与apply"><a href="#箭头函数和call-与apply" class="headerlink" title="箭头函数和call()与apply()"></a>箭头函数和call()与apply()</h5><p>看看下面的程序会输出什么样的结果：</p>
-<pre><code class="javascript">  var adder = {
-        base : 1,
+<pre class=" language-javascript"><code class="language-javascript">  <span class="token keyword">var</span> adder <span class="token operator">=</span> <span class="token punctuation">{</span>
+        base <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
 
-        add : function(a) {
-            var f = v =&gt; v + this.base;
-            return f(a);
-        },
+        add <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> f <span class="token operator">=</span> v <span class="token operator">=</span><span class="token operator">></span> v <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>base<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token function">f</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-        addThruCall: function(a) {
-            var f = v =&gt; v + this.base;
-            var b = {
-                base : 2
-            };
+        addThruCall<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> f <span class="token operator">=</span> v <span class="token operator">=</span><span class="token operator">></span> v <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>base<span class="token punctuation">;</span>
+            <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token punctuation">{</span>
+                base <span class="token punctuation">:</span> <span class="token number">2</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-            return f.call(b,a);
-        },
+            <span class="token keyword">return</span> f<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-        addAnotherCall: function(a) {
-             var f = function (v) {
-             return v + this.base;
-             };
-            var b = {
-                base : 2
-            };
+        addAnotherCall<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             <span class="token keyword">var</span> f <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             <span class="token keyword">return</span> v <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>base<span class="token punctuation">;</span>
+             <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token punctuation">{</span>
+                base <span class="token punctuation">:</span> <span class="token number">2</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-            return f.call(b,a);
-        }
-    };
+            <span class="token keyword">return</span> f<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-    console.log(adder.add(1));
-    console.log(adder.addThruCall(1));
-    console.log(adder.addAnotherCall(1));
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>adder<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>adder<span class="token punctuation">.</span><span class="token function">addThruCall</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>adder<span class="token punctuation">.</span><span class="token function">addAnotherCall</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>由于 this 已经在词法层面完成了绑定，通过 call() 或 apply() 方法调用一个函数时，只是传入了参数而已，对 this 并没有什么影响，所以会输出如下结果：</p>
-<pre><code class="javascript">2
-2
-3
+<pre class=" language-javascript"><code class="language-javascript"><span class="token number">2</span>
+<span class="token number">2</span>
+<span class="token number">3</span>
 </code></pre>
 <h4 id="不支持arguments对象"><a href="#不支持arguments对象" class="headerlink" title="不支持arguments对象"></a>不支持arguments对象</h4><p>箭头函数不会在其内部暴露出arguments ：arguments.length, arguments[0], arguments[1] 等等，都不会指向箭头函数的 arguments，而是指向了箭头函数所在作用域的一个名为 arguments 的值，当然是如果有的情况，否则，就是 undefined。</p>
-<pre><code class="javascript">var arguments = 40;
-var arr = () =&gt; arguments;
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> arguments <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> arguments<span class="token punctuation">;</span>
 
-arr(); // 40 
+<span class="token function">arr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 40 </span>
 
-function foo() {
-  var f = (i) =&gt; arguments[0]+i; // foo函数的间接参数绑定
-  return f(2);
-}
+<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> f <span class="token operator">=</span> <span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> arguments<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span>i<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// foo函数的间接参数绑定</span>
+  <span class="token keyword">return</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-foo(1); // 3
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3</span>
 </code></pre>
 <p>不过rest参数可以给出一个解决方案：</p>
-<pre><code class="javascript">function foo() { 
-  var f = (...args) =&gt; args[0]; 
-  return f(2); 
-}
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+  <span class="token keyword">var</span> f <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+  <span class="token keyword">return</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
 
-foo(1); // 2
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2</span>
 </code></pre>
 <h4 id="不能像方法一样使用箭头函数"><a href="#不能像方法一样使用箭头函数" class="headerlink" title="不能像方法一样使用箭头函数"></a>不能像方法一样使用箭头函数</h4><p>箭头函数表达式对非方法函数是最合适的，然而不能把它们作为方法：</p>
-<pre><code class="javascript">var obj = {
-  i: 10,
-  b: () =&gt; console.log(this.i, this),
-  c: function() {
-    console.log( this.i, this)
-  }
-}
-obj.b(); // undefined，Window
-obj.c(); // 10, Object
-//箭头函数中的this指向了Window
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  i<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  b<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>i<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  c<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token keyword">this</span><span class="token punctuation">.</span>i<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+obj<span class="token punctuation">.</span><span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// undefined，Window</span>
+obj<span class="token punctuation">.</span><span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10, Object</span>
+<span class="token comment" spellcheck="true">//箭头函数中的this指向了Window</span>
 </code></pre>
 <h4 id="不能使用-new-操作符"><a href="#不能使用-new-操作符" class="headerlink" title="不能使用 new 操作符"></a>不能使用 new 操作符</h4><p>箭头函数不能才当成构造函数，因为和 new 一起用就会抛出错误</p>
-<pre><code class="javascript">var Foo = () =&gt; {};
-var foo = new Foo(); // TypeError: Foo is not a constructor
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> Foo <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// TypeError: Foo is not a constructor</span>
 </code></pre>
 <h4 id="无原型属性"><a href="#无原型属性" class="headerlink" title="无原型属性"></a>无原型属性</h4><p>箭头函数没有原型属性。</p>
-<pre><code class="javascript">var Foo = () =&gt; {};
-console.log(Foo.prototype); // undefined
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> Foo <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Foo<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// undefined</span>
 </code></pre>
 <h4 id="返回文字表达式"><a href="#返回文字表达式" class="headerlink" title="返回文字表达式"></a>返回文字表达式</h4><p>用 params =&gt; {object:literal} 这种简单的语法返回一个文字表达式是不行的：</p>
-<pre><code class="javascript">var func = () =&gt; {  foo: 1  };
-// undefined!
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> func <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>  foo<span class="token punctuation">:</span> <span class="token number">1</span>  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// undefined!</span>
 
-var func = () =&gt; {  foo: function() {}  };
-// SyntaxError: function statement requires a name（未定义函数语句）
+<span class="token keyword">var</span> func <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>  foo<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// SyntaxError: function statement requires a name（未定义函数语句）</span>
 
-// 所以，记得用圆括号把文字表达式包起来：
-var func = () =&gt; ({ foo: 1 });
+<span class="token comment" spellcheck="true">// 所以，记得用圆括号把文字表达式包起来：</span>
+<span class="token keyword">var</span> func <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="external">参考文档</a></p>
 
