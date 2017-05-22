@@ -271,7 +271,7 @@ console.log(result); // [&quot;Hello&quot;, &quot;World&quot;]
 <p>日常开发中经常会遇到这样的需求，在不同的接口请求数据然后拼合成自己所需的数据，通常这些接口之间没有关联（例如不需要前一个接口的数据作为后一个接口的参数），这个时候 Promise.all 方法就可以派上用场了。</p>
 <p>还有一个和 Promise.all 相类似的方法 Promise.race，它同样接收一个数组，不同的是只要该数组中的 Promise 对象的状态发生变化（无论是 resolve 还是 reject）该方法都会返回。</p>
 <h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><hr>
-<p><img src="https://segmentfault.com/img/bVmrXU" alt="这里写图片描述"><br>在浏览器端，一些主流的浏览器都已经可以使用 Promise 对象进行开发，在 Node.js 配合 babel 也可以很方便地使用。</p>
+<p><img src="https://ooo.0o0.ooo/2017/05/22/5922f144964af.png" alt="promise.png"><br>在浏览器端，一些主流的浏览器都已经可以使用 Promise 对象进行开发，在 Node.js 配合 babel 也可以很方便地使用。</p>
 <p>如果要兼容旧的浏览器，建议可以寻找一些第三方的解决方案，例如 jQuery 的 $.Deferred。</p>
 
   </div>
