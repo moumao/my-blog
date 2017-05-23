@@ -13,11 +13,10 @@
     
       <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/materialize.min.css">
     
-      <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/Vateral.min.css">
+      <link rel="stylesheet" href="/css/Vateral.min.css">
     
   
   
-
     <style type="text/css">
         html{
             font-family: sans-serif;
@@ -161,7 +160,7 @@
 
   </div>
   <!--评论块-->
-  
+    
   <div id="disqus_thread" style="padding:30px;text-align: center;border-top:1px solid silver " data-diaque="moumao.disqus.com"><button style="margin: 0 auto; " class="btn" onclick="disqus()">加载评论(被墙则无法加载)</button></div>
 
   <script>
@@ -176,20 +175,19 @@
        };
        */
       function disqus() { // DON'T EDIT BELOW THIS LINE
-              var d = document, s = d.createElement('script'),v = d.createElement('script'),disquUrl=document.getElementById("disqus_thread").dataset.diaque;
-              v.id = 'dsq-count-scr'
-              v.src= '//'+disquUrl+'/count.js';
-              s.src = 'https://'+disquUrl+'/embed.js';
-              s.setAttribute('data-timestamp', +new Date());
-              (d.head || d.body).appendChild(v);
-              (d.head || d.body).appendChild(s);
+          var d = document, s = d.createElement('script'),v = d.createElement('script'),disquUrl=document.getElementById("disqus_thread").dataset.diaque;
+          v.id = 'dsq-count-scr'
+          v.src= '//'+disquUrl+'/count.js';
+          s.src = 'https://'+disquUrl+'/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(v);
+          (d.head || d.body).appendChild(s);
       }
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  
+    
 
 </article>
-
 <nav class="post-nav">
   <!-- Prev Nav -->
     
@@ -217,14 +215,14 @@
 </div>
 <div id="bottom-outer">
   <div id="bottom-inner">
-    <a  id="top-button" onfocus="this.blur();"><div class="up"><i class="material-icons material-up">vertical_align_top</i></div></a>
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
 
 <p >Copyright ©  2017  某猫のBlog</p>
 <p >Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> & Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
 <p style="font-size: 10px" id="footer-times" data-time="1/28/2017 00:00:00"></p>
 <script>
     var beginTime=document.getElementById("footer-times").dataset.time
-
     function show_date_time(){
         var span=document.getElementById("footer-times")
         window.setTimeout("show_date_time()", 1000);
@@ -259,12 +257,7 @@
 
 <script src="https://moumao.moumaobuchiyu.com/js/materialize.min.js"></script>
 
-<script src="https://moumao.moumaobuchiyu.com/js/lazyload.min.js"></script>
-
-<script src="https://moumao.moumaobuchiyu.com/js/jquery.rotate.min.js"></script>
-
-<script src="https://moumao.moumaobuchiyu.com/js/Vateral.min.js"></script>
-
+<script src="/js/main.min.js"></script>
 
 
 
