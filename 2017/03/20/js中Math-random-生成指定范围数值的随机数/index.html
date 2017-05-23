@@ -32,8 +32,57 @@
             url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
         }
       #live2dcanvas{
+        width: 120px ;
+        height: 240px;
         left: 0;
       }
+      #live2dcanvashover{
+        width: 100px ;
+        height: 200px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -ms-user-select: none;
+      }
+      .statmentarea{
+        width: auto;
+        height: auto;
+        position: fixed;
+        bottom: 170px;
+        left: 15px;
+        z-index: 999;
+
+      }
+      .statmentsbox{
+        max-width:200px;
+        min-width: 120px;
+        height:auto;
+        min-height: 30px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 1px 1px 4px #b0b0b0;
+        text-align: center;
+        padding: 5px;
+        display: none;
+        margin-bottom: 5px;
+      }
+        @media only screen and (max-width: 768px){
+          #live2dcanvas,#live2dcanvashover{
+            width: 80px ;
+            height: 160px;
+            left: 180px;
+          }
+          .statmentarea{
+            left: 160px;
+          }
+          .statmentarea{
+            bottom: 120px;
+          }
+        }
     </style>
 <link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
 <body>
@@ -309,6 +358,7 @@ Math<span class="token punctuation">.</span><span class="token function">floor</
     </style>
     <script>loadlive2d("live2dcanvas" ,"/live2d/assets/shizuku/shizuku.model.json")</script>
   
+<div id="live2dcanvashover"></div>
 <!--影集界面需要的资源-->
 
 
@@ -324,5 +374,85 @@ Math<span class="token punctuation">.</span><span class="token function">floor</
 
 
 
+
+<script>
+    var throttle = function (fn, delay, atleast) {
+        var timer = null,
+            previous = null;
+        return  () => {
+            var now = +new Date();
+            if ( !previous ) previous = now;
+            if ( atleast && now - previous > atleast ) {
+                fn();
+                previous = now;
+                clearTimeout(timer);
+            } else {
+                clearTimeout(timer);
+                timer = setTimeout(() =>{
+                    fn();
+                    previous = null;
+                }, delay);
+            }
+        }
+    };
+
+    function setTimeoutPro(ms){
+        return new Promise((resolve,reject)=>{
+            setTimeout(resolve,ms);
+        })
+    }
+
+    (()=>{
+
+        var statments=["主人你好啊！","主人又跟我玩啦好开心呀~","嘤嘤嘤","主人不要欺负我啦","打你","拿小拳拳捶你胸口","今天又是元气满满的一天呢","在看什么呢","略略略~","(:」∠)_","我最好看啦~","主人~~~","诶嘿嘿","....","好无聊呀","做些什么好呢...","耶耶耶~","大~笨~蛋"],
+            statmentsauto=["快来点击我和我聊天吧~","欢迎来这个小站玩啊~","猜猜我叫什么嘿嘿"]
+            times=[10000,20000,15000,24000,12000,18000],
+            statmentsL=statments.length-1,
+            timesL=times.length-1,
+            statmentsautoL=statmentsauto.length-1;
+
+        var statmentarea=document.createElement('div');
+
+        statmentarea.className="statmentarea";
+        document.body.appendChild(statmentarea);
+
+        $("#live2dcanvashover").click(throttle(()=>{
+            var statmentsbox=document.createElement('div');
+
+            statmentsbox.className="statmentsbox";
+            statmentsbox.innerHTML=statments[Math.floor(Math.random()*(statmentsL+1))]
+            statmentarea.appendChild(statmentsbox);
+            $(".statmentsbox").fadeIn(1000)
+            setTimeoutPro(1000).then(()=>{
+                $(".statmentsbox").fadeOut(1000)
+                return setTimeoutPro(1000);
+            }).then(()=>{
+                statmentarea.removeChild(statmentsbox)
+            })
+        },300,1000));
+
+
+        setInterval(()=>{
+            if(!statmentarea.hasChildNodes()){
+                var statmentsbox=document.createElement('div');
+
+                statmentsbox.className="statmentsbox";
+                statmentsbox.innerHTML=statmentsauto[Math.floor(Math.random()*(statmentsautoL+1))]
+                statmentarea.appendChild(statmentsbox);
+                $(".statmentsbox").fadeIn(1000)
+                setTimeoutPro(3000).then(()=>{
+                    $(".statmentsbox").fadeOut(1000)
+                    return setTimeoutPro(1000);
+                }).then(()=>{
+                    statmentarea.removeChild(statmentsbox)
+                })
+            }
+
+        },times[Math.floor(Math.random()*(timesL+1))])
+
+    })()
+
+
+</script>
 </body>
 </html>
