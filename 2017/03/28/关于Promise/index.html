@@ -13,7 +13,7 @@
     
       <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/materialize.min.css">
     
-      <link rel="stylesheet" href="/css/Vateral.min.css">
+      <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/css/Vateral.min.css">
     
   
   
@@ -32,7 +32,7 @@
             url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
         }
     </style>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
+</head>
 <body>
 <div class="progress" >
     <div class="indeterminate"></div>
@@ -157,18 +157,8 @@
   <div class="post-page-content">
   <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
 <p>首先设想一个日常开发常常会遇到的需求：在多个接口异步请求数据，然后利用这些数据来进行一系列的操作。一般会这样去写：</p>
-<pre><code>$.ajax({
-url: &#39;......&#39;,
-success: function (data) {
-$.ajax({
-// 要在第一个请求成功后才可以执行下一步
-url: &#39;......&#39;,
-success: function (data) {
-// ......
-}
-});
-} });
-</code></pre><p>这样的写法的原理是，当执行一些异步操作时，我们需要知道操作是否已经完成，所有当执行完成的时候会返回一个回调函数，表示操作已经完成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">url: &apos;......&apos;,</div><div class="line">success: function (data) &#123;</div><div class="line">$.ajax(&#123;</div><div class="line">// 要在第一个请求成功后才可以执行下一步</div><div class="line">url: &apos;......&apos;,</div><div class="line">success: function (data) &#123;</div><div class="line">// ......</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125; &#125;);</div></pre></td></tr></table></figure>
+<p>这样的写法的原理是，当执行一些异步操作时，我们需要知道操作是否已经完成，所有当执行完成的时候会返回一个回调函数，表示操作已经完成。</p>
 <p>使用回调函数的形式理解起来并不困难，但是实际的应用当中会有以下的缺点：</p>
 <blockquote>
 <p>1.在需要多个操作的时候，会导致多个回调函数嵌套，导致代码不够直观，就是常说的 Callback Hell。<br>2.如果几个异步操作之间并没有前后顺序之分（例如不需要前一个请求的结果作为后一个请求的参数）时，同样需要等待上一个操作完成再实行下一个操作。</p>
@@ -180,22 +170,8 @@ success: function (data) {
 </blockquote>
 <p><strong>resolve 和 reject</strong></p>
 <p>首先来看一段使用了 Promise 对象的代码。首先来看一段使用了 Promise 对象的代码。</p>
-<pre><code>function helloWorld (ready) {
-return new Promise(function (resolve, reject) {
-if (ready) {
-resolve(&quot;Hello World!&quot;);
-} else {
-reject(&quot;Good bye!&quot;);
-}
-});
-}
-
-helloWorld(true).then(function (message) {
-alert(message);
-}, function (error) {
-alert(error);
-});
-</code></pre><p>上面的代码实现的功能非常简单，helloWord 函数接受一个参数，如果为 true 就打印 “Hello World!”，如果为 false 就打印错误的信息。helloWord 函数返回的是一个 Promise 对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function helloWorld (ready) &#123;</div><div class="line">return new Promise(function (resolve, reject) &#123;</div><div class="line">if (ready) &#123;</div><div class="line">resolve(&quot;Hello World!&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">reject(&quot;Good bye!&quot;);</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">helloWorld(true).then(function (message) &#123;</div><div class="line">alert(message);</div><div class="line">&#125;, function (error) &#123;</div><div class="line">alert(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面的代码实现的功能非常简单，helloWord 函数接受一个参数，如果为 true 就打印 “Hello World!”，如果为 false 就打印错误的信息。helloWord 函数返回的是一个 Promise 对象。</p>
 <p>在 Promise 对象当中有两个重要方法————resolve 和 reject。</p>
 <p>resolve 方法可以使 Promise 对象的状态改变成成功，同时传递一个参数用于后续成功后的操作，在这个例子当中就是 Hello World! 字符串。</p>
 <p>reject 方法则是将 Promise 对象的状态改变为失败，同时将错误的信息传递到后续错误处理的操作。</p>
@@ -209,64 +185,15 @@ alert(error);
 <p><strong>then 和 catch</strong></p>
 <p><strong>then</strong></p>
 <p>helloWorld 的例子当中利用了 then(onFulfilld, onRejected) 方法来执行一个任务打印 “Hello World!”，在多个任务的情况下 then 方法同样可以用一个清晰的方式完成。</p>
-<pre><code>function printHello (ready) {
-return new Promise(function (resolve, reject) {
-if (ready) {
-resolve(&quot;Hello&quot;);
-} else {
-reject(&quot;Good bye!&quot;);
-}
-});
-}
-
-function printWorld () {
-alert(&quot;World&quot;);
-}
-
-function printExclamation () {
-alert(&quot;!&quot;);
-}
-
-printHello(true)
-.then(function(message){
-alert(message);
-})
-.then(printWorld)
-.then(printExclamation);
-</code></pre><p>上述例子通过链式调用的方式，按顺序打印出了相应的内容。then 可以使用链式调用的写法原因在于，每一次执行该方法时总是会返回一个 Promise 对象。另外，在 then onFulfilled 的函数当中的返回值，可以作为后续操作的参数，因此上面的例子也可以写成：</p>
-<pre><code>printHello(true).then(function (message) {
-return message;
-}).then(function (message) {
-return message  + &#39; World&#39;;
-}).then(function (message) {
-return message + &#39;!&#39;;
-}).then(function (message) {
-alert(message);
-});
-</code></pre><p><strong>catch</strong><br>catch 方法是 then(onFulfilled, onRejected) 方法当中 onRejected 函数的一个简单的写法，也就是说可以写成 then(fn).catch(fn)，相当于 then(fn).then(null, fn)。使用 catch 的写法比一般的写法更加清晰明确。</p>
-<pre><code>somePromise().then(function () {
-return anotherPromise();
-}).then(function () {
-return yetAnotherPromise();
-}).catch(console.log.bind(console)); // &lt;-- this is badass
-</code></pre><p><strong>Promise.all 和 Promise.race</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function printHello (ready) &#123;</div><div class="line">return new Promise(function (resolve, reject) &#123;</div><div class="line">if (ready) &#123;</div><div class="line">resolve(&quot;Hello&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">reject(&quot;Good bye!&quot;);</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function printWorld () &#123;</div><div class="line">alert(&quot;World&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function printExclamation () &#123;</div><div class="line">alert(&quot;!&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">printHello(true)</div><div class="line">.then(function(message)&#123;</div><div class="line">alert(message);</div><div class="line">&#125;)</div><div class="line">.then(printWorld)</div><div class="line">.then(printExclamation);</div></pre></td></tr></table></figure>
+<p>上述例子通过链式调用的方式，按顺序打印出了相应的内容。then 可以使用链式调用的写法原因在于，每一次执行该方法时总是会返回一个 Promise 对象。另外，在 then onFulfilled 的函数当中的返回值，可以作为后续操作的参数，因此上面的例子也可以写成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">printHello(true).then(function (message) &#123;</div><div class="line">return message;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">return message  + &apos; World&apos;;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">return message + &apos;!&apos;;</div><div class="line">&#125;).then(function (message) &#123;</div><div class="line">alert(message);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>catch</strong><br>catch 方法是 then(onFulfilled, onRejected) 方法当中 onRejected 函数的一个简单的写法，也就是说可以写成 then(fn).catch(fn)，相当于 then(fn).then(null, fn)。使用 catch 的写法比一般的写法更加清晰明确。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">somePromise().then(function () &#123;</div><div class="line">return anotherPromise();</div><div class="line">&#125;).then(function () &#123;</div><div class="line">return yetAnotherPromise();</div><div class="line">&#125;).catch(console.log.bind(console)); // &lt;-- this is badass</div></pre></td></tr></table></figure>
+<p><strong>Promise.all 和 Promise.race</strong></p>
 <p>Promise.all 可以接收一个元素为 Promise 对象的数组作为参数，当这个数组里面所有的 Promise 对象都变为 resolve 时，该方法才会返回。</p>
-<pre><code>var p1 = new Promise(function (resolve) {
-setTimeout(function () {
-resolve(&quot;Hello&quot;);
-}, 3000);
-});
-
-var p2 = new Promise(function (resolve) {
-setTimeout(function () {
-resolve(&quot;World&quot;);
-}, 1000);
-});
-
-Promise.all([p1, p2]).then(function (result) {
-console.log(result); // [&quot;Hello&quot;, &quot;World&quot;]
-});
-</code></pre><p>上面的例子模拟了传输两个数据需要不同的时长，虽然 p2 的速度比 p1 要快，但是 Promise.all 方法会按照数组里面的顺序将结果返回。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var p1 = new Promise(function (resolve) &#123;</div><div class="line">setTimeout(function () &#123;</div><div class="line">resolve(&quot;Hello&quot;);</div><div class="line">&#125;, 3000);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var p2 = new Promise(function (resolve) &#123;</div><div class="line">setTimeout(function () &#123;</div><div class="line">resolve(&quot;World&quot;);</div><div class="line">&#125;, 1000);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">Promise.all([p1, p2]).then(function (result) &#123;</div><div class="line">console.log(result); // [&quot;Hello&quot;, &quot;World&quot;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面的例子模拟了传输两个数据需要不同的时长，虽然 p2 的速度比 p1 要快，但是 Promise.all 方法会按照数组里面的顺序将结果返回。</p>
 <p>日常开发中经常会遇到这样的需求，在不同的接口请求数据然后拼合成自己所需的数据，通常这些接口之间没有关联（例如不需要前一个接口的数据作为后一个接口的参数），这个时候 Promise.all 方法就可以派上用场了。</p>
 <p>还有一个和 Promise.all 相类似的方法 Promise.race，它同样接收一个数组，不同的是只要该数组中的 Promise 对象的状态发生变化（无论是 resolve 还是 reject）该方法都会返回。</p>
 <h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><hr>
@@ -372,7 +299,7 @@ console.log(result); // [&quot;Hello&quot;, &quot;World&quot;]
 
 <script src="https://moumao.moumaobuchiyu.com/js/materialize.min.js"></script>
 
-<script src="/js/main.min.js"></script>
+<script src="https://moumao.moumaobuchiyu.com/css/js/main.min.js"></script>
 
 
 
