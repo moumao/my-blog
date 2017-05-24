@@ -387,7 +387,7 @@
 
             statmentsbox.className="statmentsbox";
             statmentsbox.innerHTML=statments[Math.floor(Math.random()*(statmentsL+1))]
-            statmentarea.appendChild(statmentsbox);
+                .offsetTop
             $(".statmentsbox").fadeIn(1000)
             setTimeoutPro(1000).then(()=>{
                 $(".statmentsbox").fadeOut(1000)
