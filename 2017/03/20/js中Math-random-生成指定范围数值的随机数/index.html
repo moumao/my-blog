@@ -18,11 +18,11 @@
       <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/Vateral.min.css">
     
   
-  
     <style type="text/css">
-        html{
+        html,body{
             font-family: sans-serif;
             font-weight: 300;
+            background-color: #E9EBEC!important;
         }
         @font-face {
             font-family: 'Material Icons';
@@ -346,6 +346,8 @@ Math<span class="token punctuation">.</span><span class="token function">floor</
   </div>
 </div>
 
+
+
     <script type="text/javascript" src="/live2d/script.js"></script>
     <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
     <style>
@@ -361,10 +363,6 @@ Math<span class="token punctuation">.</span><span class="token function">floor</
   
 <div id="live2dcanvashover"></div>
 
-<!--影集界面需要的资源-->
-
-
-
 <!-- scripts list from theme config.yml -->
 
 <script src="https://moumao.moumaobuchiyu.com/js/jquery-3.1.1.min.js"></script>
@@ -379,6 +377,9 @@ Math<span class="token punctuation">.</span><span class="token function">floor</
 
 
 
+<!--影集界面需要的资源-->
+
+
 <script>
     $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000})
     $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
@@ -387,9 +388,6 @@ Math<span class="token punctuation">.</span><span class="token function">floor</
          $(".lazy").lazyload({
              effect : "fadeIn"
          });
-         /*$(".post-back").click(function () {
-             window.history.back();
-         });*/
          var $root = $('html, body');
          $('.post-toc-link').click(function() {
              $root.animate({
@@ -404,8 +402,8 @@ Math<span class="token punctuation">.</span><span class="token function">floor</
                  $(".post-toc-none").fadeToggle()
              }
          })
-     })
 
+     })
 
         var throttle = function (fn, delay, atleast) {
         var timer = null,
