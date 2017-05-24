@@ -13,6 +13,8 @@
     
       <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/materialize.min.css">
     
+      <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/nprogress.min.css">
+    
       <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/Vateral.min.css">
     
   
@@ -31,66 +33,64 @@
             url(/fonts/MaterialIcons-Regular.woff) format('woff'),
             url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
         }
-      #live2dcanvas{
+        #live2dcanvas{
         width: 120px ;
         height: 240px;
         left: 0;
         bottom: -30px!important;
-      }
-      #live2dcanvashover{
-        width: 100px ;
-        height: 200px;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        z-index: 1000;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -ms-user-select: none;
-      }
-      .statmentarea{
-        width: auto;
-        height: auto;
-        position: fixed;
-        bottom: 170px;
-        left: 15px;
-        z-index: 999;
-
-      }
-      .statmentsbox{
-        max-width:200px;
-        min-width: 120px;
-        height:auto;
-        min-height: 30px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 1px 1px 4px #b0b0b0;
-        text-align: center;
-        padding: 5px;
-        display: none;
-        margin-bottom: 5px;
-      }
-        @media only screen and (max-width: 768px){
-          #live2dcanvas,#live2dcanvashover{
-            width: 80px ;
-            height: 160px;
-            left: 180px;
-          }
-          .statmentarea{
-            left: 160px;
-          }
-          .statmentarea{
-            bottom: 120px;
-          }
         }
+        #live2dcanvashover{
+          width: 100px ;
+          height: 200px;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          z-index: 1000;
+          cursor: Pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -khtml-user-select: none;
+          -ms-user-select: none;
+        }
+        .statmentarea{
+          width: auto;
+          height: auto;
+          position: fixed;
+          bottom: 170px;
+          left: 15px;
+          z-index: 999;
+        }
+        .statmentsbox{
+          max-width:200px;
+          min-width: 120px;
+          height:auto;
+          min-height: 30px;
+          background-color: #ffffff;
+          border-radius: 8px;
+          box-shadow: 1px 1px 4px #b0b0b0;
+          text-align: center;
+          padding: 5px;
+          display: none;
+          margin-bottom: 5px;
+        }
+          @media only screen and (max-width: 768px){
+            #live2dcanvas,#live2dcanvashover{
+              width: 80px ;
+              height: 160px;
+              left: 180px;
+            }
+            .statmentarea{
+              left: 160px;
+            }
+            .statmentarea{
+              bottom: 120px;
+            }
+          }
+
     </style>
 <link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
 <body>
-<div class="progress" >
-    <div class="indeterminate"></div>
-</div>
-<a data-activates="slide-out"  class="button-collapse"><div class="nav-btn"><i class="material-icons">list</i></div></a>
+<a href="#" data-activates="slide-out"  class="button-collapse"><div class="nav-btn"><i class="material-icons">list</i></div></a>
 <div id="menu-outer">
   <div id="menu-inner">
       <ul id="slide-out" class="side-nav" >
@@ -168,7 +168,7 @@
 <!--photo-->
 
 <li class="nav-list">
-    <a href="/photo" target="_self">
+    <a href="/photo" class="nopjax" target="_self">
         <div class="nav-ico"><i class="material-icons">insert_photo</i> </div><p>影集</p>
     </a>
 </li>
@@ -291,7 +291,7 @@
 <div class="post-toc-box">
     <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Javascript-Hoisting：变量提升"><span class="post-toc-number">1.</span> <span class="post-toc-text">Javascript Hoisting：变量提升</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数声明和函数表达式的区别"><span class="post-toc-number">2.</span> <span class="post-toc-text">函数声明和函数表达式的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#javascript-closure-：闭包"><span class="post-toc-number">3.</span> <span class="post-toc-text">javascript closure ：闭包</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#this指针"><span class="post-toc-number">4.</span> <span class="post-toc-text">this指针</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ES6—Promise"><span class="post-toc-number">5.</span> <span class="post-toc-text">ES6—Promise</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#call-amp-apply-amp-bind"><span class="post-toc-number">6.</span> <span class="post-toc-text">call() & apply() & bind()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#prototype属性"><span class="post-toc-number">7.</span> <span class="post-toc-text">prototype属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#回调函数"><span class="post-toc-number">8.</span> <span class="post-toc-text">回调函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数防抖与节流"><span class="post-toc-number">9.</span> <span class="post-toc-text">函数防抖与节流</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#优雅降级和渐进增强"><span class="post-toc-number">10.</span> <span class="post-toc-text">优雅降级和渐进增强</span></a></li></ol>
 </div>
-<div class="post-back"><i class="material-icons">arrow_back</i></div>
+<a href="http://localhost:4000"> <div class="post-back"><i class="material-icons">arrow_back</i></div></a>
 
   </div>
 </div>
@@ -337,12 +337,13 @@
         right: 0px;
         z-index: 999;
         pointer-events: none;
-        bottom: -20px;
+        bottom: -30px;
       }
     </style>
     <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json")</script>
   
 <div id="live2dcanvashover"></div>
+
 <!--影集界面需要的资源-->
 
 
@@ -353,14 +354,45 @@
 
 <script src="https://moumao.moumaobuchiyu.com/js/materialize.min.js"></script>
 
+<script src="https://moumao.moumaobuchiyu.com/js/materialize.min.js"></script>
+
+<script src="https://moumao.moumaobuchiyu.com/js/jquery.pjax.min.js"></script>
+
+<script src="https://moumao.moumaobuchiyu.com/js/nprogress.min.js"></script>
+
 <script src="https://moumao.moumaobuchiyu.com/js/main.min.js"></script>
 
 
 
-
-
 <script>
-    var throttle = function (fn, delay, atleast) {
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000})
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+     .on('pjax:end', function() {
+         dowmdiv();
+         $(".lazy").lazyload({
+             effect : "fadeIn"
+         });
+         /*$(".post-back").click(function () {
+             window.history.back();
+         });*/
+         var $root = $('html, body');
+         $('.post-toc-link').click(function() {
+             $root.animate({
+                 scrollTop: $( $.attr(this, 'href') ).offset().top
+             }, 500);
+             return false;
+         });
+         $(".post-toc-btn").click(function () {
+             if($(".post-toc").exist()){
+                 $(".post-toc-box").fadeToggle()
+             }else {
+                 $(".post-toc-none").fadeToggle()
+             }
+         })
+     })
+
+
+        var throttle = function (fn, delay, atleast) {
         var timer = null,
             previous = null;
         return  () => {
@@ -435,8 +467,8 @@
         },times[Math.floor(Math.random()*(timesL+1))])
 
     })()
-
-
 </script>
+
+
 </body>
 </html>

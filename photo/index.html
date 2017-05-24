@@ -13,12 +13,13 @@
     
       <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/materialize.min.css">
     
+      <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/nprogress.min.css">
+    
       <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/Vateral.min.css">
     
   
   
     <!-- Single Gallery Page -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="/css/magnific-popup.css" rel="stylesheet">
     <link href="/css/templatemo_style.css" rel="stylesheet" type="text/css">
@@ -37,66 +38,64 @@
             url(/fonts/MaterialIcons-Regular.woff) format('woff'),
             url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
         }
-      #live2dcanvas{
+        #live2dcanvas{
         width: 120px ;
         height: 240px;
         left: 0;
         bottom: -30px!important;
-      }
-      #live2dcanvashover{
-        width: 100px ;
-        height: 200px;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        z-index: 1000;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -ms-user-select: none;
-      }
-      .statmentarea{
-        width: auto;
-        height: auto;
-        position: fixed;
-        bottom: 170px;
-        left: 15px;
-        z-index: 999;
-
-      }
-      .statmentsbox{
-        max-width:200px;
-        min-width: 120px;
-        height:auto;
-        min-height: 30px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 1px 1px 4px #b0b0b0;
-        text-align: center;
-        padding: 5px;
-        display: none;
-        margin-bottom: 5px;
-      }
-        @media only screen and (max-width: 768px){
-          #live2dcanvas,#live2dcanvashover{
-            width: 80px ;
-            height: 160px;
-            left: 180px;
-          }
-          .statmentarea{
-            left: 160px;
-          }
-          .statmentarea{
-            bottom: 120px;
-          }
         }
+        #live2dcanvashover{
+          width: 100px ;
+          height: 200px;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          z-index: 1000;
+          cursor: Pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -khtml-user-select: none;
+          -ms-user-select: none;
+        }
+        .statmentarea{
+          width: auto;
+          height: auto;
+          position: fixed;
+          bottom: 170px;
+          left: 15px;
+          z-index: 999;
+        }
+        .statmentsbox{
+          max-width:200px;
+          min-width: 120px;
+          height:auto;
+          min-height: 30px;
+          background-color: #ffffff;
+          border-radius: 8px;
+          box-shadow: 1px 1px 4px #b0b0b0;
+          text-align: center;
+          padding: 5px;
+          display: none;
+          margin-bottom: 5px;
+        }
+          @media only screen and (max-width: 768px){
+            #live2dcanvas,#live2dcanvashover{
+              width: 80px ;
+              height: 160px;
+              left: 180px;
+            }
+            .statmentarea{
+              left: 160px;
+            }
+            .statmentarea{
+              bottom: 120px;
+            }
+          }
+
     </style>
 <link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
 <body>
-<div class="progress" >
-    <div class="indeterminate"></div>
-</div>
-<a data-activates="slide-out"  class="button-collapse"><div class="nav-btn"><i class="material-icons">list</i></div></a>
+<a href="#" data-activates="slide-out"  class="button-collapse"><div class="nav-btn"><i class="material-icons">list</i></div></a>
 <div id="menu-outer">
   <div id="menu-inner">
       <ul id="slide-out" class="side-nav" >
@@ -174,7 +173,7 @@
 <!--photo-->
 
 <li class="nav-list">
-    <a href="/photo" target="_self">
+    <a href="/photo" class="nopjax" target="_self">
         <div class="nav-ico"><i class="material-icons">insert_photo</i> </div><p>影集</p>
     </a>
 </li>
@@ -658,6 +657,7 @@
         </div>
     </div>
 </div>
+
   </div>
 </div>
 <div id="bottom-outer">
@@ -702,31 +702,30 @@
         right: 0px;
         z-index: 999;
         pointer-events: none;
-        bottom: -20px;
+        bottom: -30px;
       }
     </style>
     <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json")</script>
   
 <div id="live2dcanvashover"></div>
+
 <!--影集界面需要的资源-->
 
-<script type="text/javascript" src="https://moumao.moumaobuchiyu.com/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="https://moumao.moumaobuchiyu.com/js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="https://moumao.moumaobuchiyu.com/js/modernizr.2.5.3.min.js"></script>
-<script type="text/javascript" src="https://moumao.moumaobuchiyu.com/js/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript" src="https://moumao.moumaobuchiyu.com/js/templatemo_script.js"></script>
-<script type="text/javascript" src="https://moumao.moumaobuchiyu.com/js/exif.js"></script>
-<script type="text/javascript" src="https://moumao.moumaobuchiyu.com/js/photopage.js"></script>
+<script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/js/modernizr.2.5.3.min.js"></script>
+<script type="text/javascript" src="/js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="/js/templatemo_script.js"></script>
+<script type="text/javascript" src="/js/exif.js"></script>
+<script type="text/javascript" src="/js/photopage.js"></script>
 <script type="text/javascript">
-
     var boxes=$('.portfolio-item');
     boxes.magnificPopup({
-          type: 'image',
-          gallery:{
-              enabled:true
-          }
+        type: 'image',
+        gallery:{
+            enabled:true
+        }
     });
-
 </script>
 
 
@@ -737,14 +736,45 @@
 
 <script src="https://moumao.moumaobuchiyu.com/js/materialize.min.js"></script>
 
+<script src="https://moumao.moumaobuchiyu.com/js/materialize.min.js"></script>
+
+<script src="https://moumao.moumaobuchiyu.com/js/jquery.pjax.min.js"></script>
+
+<script src="https://moumao.moumaobuchiyu.com/js/nprogress.min.js"></script>
+
 <script src="https://moumao.moumaobuchiyu.com/js/main.min.js"></script>
 
 
 
-
-
 <script>
-    var throttle = function (fn, delay, atleast) {
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000})
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+     .on('pjax:end', function() {
+         dowmdiv();
+         $(".lazy").lazyload({
+             effect : "fadeIn"
+         });
+         /*$(".post-back").click(function () {
+             window.history.back();
+         });*/
+         var $root = $('html, body');
+         $('.post-toc-link').click(function() {
+             $root.animate({
+                 scrollTop: $( $.attr(this, 'href') ).offset().top
+             }, 500);
+             return false;
+         });
+         $(".post-toc-btn").click(function () {
+             if($(".post-toc").exist()){
+                 $(".post-toc-box").fadeToggle()
+             }else {
+                 $(".post-toc-none").fadeToggle()
+             }
+         })
+     })
+
+
+        var throttle = function (fn, delay, atleast) {
         var timer = null,
             previous = null;
         return  () => {
@@ -819,8 +849,8 @@
         },times[Math.floor(Math.random()*(timesL+1))])
 
     })()
-
-
 </script>
+
+
 </body>
 </html>

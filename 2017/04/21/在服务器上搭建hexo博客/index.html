@@ -13,6 +13,8 @@
     
       <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/materialize.min.css">
     
+      <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/nprogress.min.css">
+    
       <link rel="stylesheet" href="https://moumao.moumaobuchiyu.com/css/Vateral.min.css">
     
   
@@ -31,66 +33,64 @@
             url(/fonts/MaterialIcons-Regular.woff) format('woff'),
             url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
         }
-      #live2dcanvas{
+        #live2dcanvas{
         width: 120px ;
         height: 240px;
         left: 0;
         bottom: -30px!important;
-      }
-      #live2dcanvashover{
-        width: 100px ;
-        height: 200px;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        z-index: 1000;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -ms-user-select: none;
-      }
-      .statmentarea{
-        width: auto;
-        height: auto;
-        position: fixed;
-        bottom: 170px;
-        left: 15px;
-        z-index: 999;
-
-      }
-      .statmentsbox{
-        max-width:200px;
-        min-width: 120px;
-        height:auto;
-        min-height: 30px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 1px 1px 4px #b0b0b0;
-        text-align: center;
-        padding: 5px;
-        display: none;
-        margin-bottom: 5px;
-      }
-        @media only screen and (max-width: 768px){
-          #live2dcanvas,#live2dcanvashover{
-            width: 80px ;
-            height: 160px;
-            left: 180px;
-          }
-          .statmentarea{
-            left: 160px;
-          }
-          .statmentarea{
-            bottom: 120px;
-          }
         }
+        #live2dcanvashover{
+          width: 100px ;
+          height: 200px;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          z-index: 1000;
+          cursor: Pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -khtml-user-select: none;
+          -ms-user-select: none;
+        }
+        .statmentarea{
+          width: auto;
+          height: auto;
+          position: fixed;
+          bottom: 170px;
+          left: 15px;
+          z-index: 999;
+        }
+        .statmentsbox{
+          max-width:200px;
+          min-width: 120px;
+          height:auto;
+          min-height: 30px;
+          background-color: #ffffff;
+          border-radius: 8px;
+          box-shadow: 1px 1px 4px #b0b0b0;
+          text-align: center;
+          padding: 5px;
+          display: none;
+          margin-bottom: 5px;
+        }
+          @media only screen and (max-width: 768px){
+            #live2dcanvas,#live2dcanvashover{
+              width: 80px ;
+              height: 160px;
+              left: 180px;
+            }
+            .statmentarea{
+              left: 160px;
+            }
+            .statmentarea{
+              bottom: 120px;
+            }
+          }
+
     </style>
 <link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
 <body>
-<div class="progress" >
-    <div class="indeterminate"></div>
-</div>
-<a data-activates="slide-out"  class="button-collapse"><div class="nav-btn"><i class="material-icons">list</i></div></a>
+<a href="#" data-activates="slide-out"  class="button-collapse"><div class="nav-btn"><i class="material-icons">list</i></div></a>
 <div id="menu-outer">
   <div id="menu-inner">
       <ul id="slide-out" class="side-nav" >
@@ -168,7 +168,7 @@
 <!--photo-->
 
 <li class="nav-list">
-    <a href="/photo" target="_self">
+    <a href="/photo" class="nopjax" target="_self">
         <div class="nav-ico"><i class="material-icons">insert_photo</i> </div><p>影集</p>
     </a>
 </li>
@@ -359,7 +359,7 @@ branch: master
 <div class="post-toc-box">
     <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#hexo的架构"><span class="post-toc-number">1.</span> <span class="post-toc-text">hexo的架构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#搭建流程"><span class="post-toc-number">2.</span> <span class="post-toc-text">搭建流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地环境"><span class="post-toc-number">3.</span> <span class="post-toc-text">本地环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装node-js"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">安装node.js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#初始化Hexo博客"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">初始化Hexo博客</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#生成自己的第一篇文章"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">生成自己的第一篇文章</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#生成ssh公钥密钥"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">生成ssh公钥密钥</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务器环境搭建"><span class="post-toc-number">4.</span> <span class="post-toc-text">服务器环境搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装nginx"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">安装nginx</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装node-js-1"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">安装node.js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装git"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">安装git</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建一个git用户"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">创建一个git用户</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#添加证书登录"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">添加证书登录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置-git-hooks"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">配置 git hooks</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#改变-blog-git-目录的拥有者为-git-用户"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">改变 blog.git 目录的拥有者为 git 用户</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#禁用-git-用户的-shell-登录权限"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">禁用 git 用户的 shell 登录权限</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置本地-config-yml文件-完成自动化部署"><span class="post-toc-number">5.</span> <span class="post-toc-text">配置本地_config.yml文件,完成自动化部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#现在配置-hexo-的-deploy。"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">现在配置 hexo 的 deploy。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开始使用"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">开始使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考</span></a></li></ol>
 </div>
-<div class="post-back"><i class="material-icons">arrow_back</i></div>
+<a href="http://localhost:4000"> <div class="post-back"><i class="material-icons">arrow_back</i></div></a>
 
   </div>
 </div>
@@ -405,12 +405,13 @@ branch: master
         right: 0px;
         z-index: 999;
         pointer-events: none;
-        bottom: -20px;
+        bottom: -30px;
       }
     </style>
     <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json")</script>
   
 <div id="live2dcanvashover"></div>
+
 <!--影集界面需要的资源-->
 
 
@@ -421,14 +422,45 @@ branch: master
 
 <script src="https://moumao.moumaobuchiyu.com/js/materialize.min.js"></script>
 
+<script src="https://moumao.moumaobuchiyu.com/js/materialize.min.js"></script>
+
+<script src="https://moumao.moumaobuchiyu.com/js/jquery.pjax.min.js"></script>
+
+<script src="https://moumao.moumaobuchiyu.com/js/nprogress.min.js"></script>
+
 <script src="https://moumao.moumaobuchiyu.com/js/main.min.js"></script>
 
 
 
-
-
 <script>
-    var throttle = function (fn, delay, atleast) {
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000})
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+     .on('pjax:end', function() {
+         dowmdiv();
+         $(".lazy").lazyload({
+             effect : "fadeIn"
+         });
+         /*$(".post-back").click(function () {
+             window.history.back();
+         });*/
+         var $root = $('html, body');
+         $('.post-toc-link').click(function() {
+             $root.animate({
+                 scrollTop: $( $.attr(this, 'href') ).offset().top
+             }, 500);
+             return false;
+         });
+         $(".post-toc-btn").click(function () {
+             if($(".post-toc").exist()){
+                 $(".post-toc-box").fadeToggle()
+             }else {
+                 $(".post-toc-none").fadeToggle()
+             }
+         })
+     })
+
+
+        var throttle = function (fn, delay, atleast) {
         var timer = null,
             previous = null;
         return  () => {
@@ -503,8 +535,8 @@ branch: master
         },times[Math.floor(Math.random()*(timesL+1))])
 
     })()
-
-
 </script>
+
+
 </body>
 </html>

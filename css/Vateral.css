@@ -61,6 +61,13 @@ body{
     position: fixed;
     top: 0;
 }
+#nprogress .bar{
+    background-color: #26A69A;
+}
+#nprogress .spinner-icon{
+    border-top-color:#26A69A;border-left-color:#26A69A;
+}
+
 /*导航按钮*/
 .nav-btn{
     width: 30px;
@@ -660,7 +667,6 @@ p.no-result {
 .post-author-link ul li:hover{
     background-color: rgba(219, 219, 219, 0.9);
 }
-
 #busuanzi_container_site_pv{
     color: white;
 }
