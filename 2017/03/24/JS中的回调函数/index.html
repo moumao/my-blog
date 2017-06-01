@@ -33,7 +33,7 @@
             url(/fonts/MaterialIcons-Regular.woff) format('woff'),
             url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
         }
-        #live2dcanvas{
+       /* #live2dcanvas{
         width: 120px ;
         height: 240px;
         left: 0;
@@ -85,7 +85,7 @@
             .statmentarea{
               bottom: 120px;
             }
-          }
+          }*/
 
     </style>
 <link rel="stylesheet" href="/css/prism.css" type="text/css"><script src="/js/prism.js"></script></head>
@@ -477,19 +477,6 @@ next(err);
 
 
 
-    <script type="text/javascript" src="/live2d/script.js"></script>
-    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
-    <style>
-      #live2dcanvas {
-        position: fixed;
-        right: 0px;
-        z-index: 999;
-        pointer-events: none;
-        bottom: -30px;
-      }
-    </style>
-    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json")</script>
-  
 <div id="live2dcanvashover"></div>
 
 <!-- scripts list from theme config.yml -->
@@ -534,7 +521,7 @@ next(err);
 
      })
 
-        var throttle = function (fn, delay, atleast) {
+       /* var throttle = function (fn, delay, atleast) {
         var timer = null,
             previous = null;
         return  () => {
@@ -608,7 +595,7 @@ next(err);
 
         },times[Math.floor(Math.random()*(timesL+1))])
 
-    })()
+    })()*/
 </script>
 
 
