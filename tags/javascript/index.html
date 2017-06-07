@@ -487,27 +487,52 @@ random() 方法可返回介于 0 ~ 1 之间的一个随机数。
 <script>
     $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000})
     $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
-     .on('pjax:end', function() {
-         dowmdiv();
-         $(".lazy").lazyload({
-             effect : "fadeIn"
-         });
-         var $root = $('html, body');
-         $('.post-toc-link').click(function() {
-             $root.animate({
-                 scrollTop: $( $.attr(this, 'href') ).offset().top
-             }, 500);
-             return false;
-         });
-         $(".post-toc-btn").click(function () {
-             if($(".post-toc").exist()){
-                 $(".post-toc-box").fadeToggle()
-             }else {
-                 $(".post-toc-none").fadeToggle()
-             }
-         })
+        .on('pjax:end', function() {
+            dowmdiv();
+            $(".lazy").lazyload({
+                effect : "fadeIn"
+            });
+            $(".post-back").click(function () {
+                window.history.back();
+            });
+            var $root = $('html, body');
+            $('.post-toc-link').click(function() {
+                $root.animate({
+                    scrollTop: $( $.attr(this, 'href') ).offset().top
+                }, 500);
+                return false;
+            });
+            $(".post-toc-btn").click(function () {
+                if($(".post-toc").exist()){
+                    $(".post-toc-box").fadeToggle()
+                }else {
+                    $(".post-toc-none").fadeToggle()
+                }
+            })
+            var links=$(".post-author-link");
+            var button=$(".post-author-button");
+            button.click(function (){
+                if(links.css("display")=== "none"){
+                    links.css({
+                        "display":"block"
+                    }).animate({
+                        "right":"60px",
+                        "opacity":1
+                    },500)
+                }else {
+                    links.animate({
+                        "opacity":0
+                    },500)
+                    setTimeout(function (){
 
-     })
+                        links.css({
+                            "display":"none",
+                            "right":"100px"
+                        })
+                    },500)
+                }
+            })
+        })
 
        /* var throttle = function (fn, delay, atleast) {
         var timer = null,
