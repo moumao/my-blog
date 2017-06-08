@@ -197,56 +197,116 @@
 
 <div id="content-outer">
   <div id="content-inner">
-    <div id="recent-posts">
-  
-      <div class="recent-post-item lazy"   data-original="https://moumao.moumaobuchiyu.com/images/random/bg1.jpg"  >
-        <a class="recent-post-link" href="/2017/03/16/nodejs部署到阿里云全过程/">
-        <div class="post-hover">
-          <!--title-->
-          <p class="post-title"><a href="/2017/03/16/nodejs部署到阿里云全过程/" >Node.js部署到阿里云服务器</a></p>
+    <article id="post">
+  <div class="post-page-title" style="background-image:url(https://moumao.moumaobuchiyu.com/images/random/bg17.jpg)" >
+  <h2>JS中常用的几种循环</h2>
+    
+  <p>作者:某猫 &nbsp&nbsp 发布于:<time datetime="2017-06-08T10:48:27.000Z">
+          2017-06-08
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <blockquote>
+<p>说到遍历，在Javascript中可能第一个想到的是for循环的方法，这可以视为一种十分简单易懂，并且十分高效的方法来进行遍历；但是在javascript中，却又有很多种用来遍历数组，或者类似数组的对象（array-like-object）甚至可遍历（iterable）的对象（比如generator）</p>
+</blockquote>
+<h3 id="从最基本的for循环说起"><a href="#从最基本的for循环说起" class="headerlink" title="从最基本的for循环说起"></a>从最基本的for循环说起</h3><p>如何写一个高效并且拥有块级作用域的for循环？</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>len<span class="token operator">=</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    XXXXXX<span class="token comment" spellcheck="true">//你要操作的部分</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>为什么用let？这样和用var有什么不同？如果有这样的疑问可以<a href="https://wohugb.gitbooks.io/ecmascript-6/content/docs/let.html" target="_blank" rel="external">查看这篇文章</a></p>
+<h3 id="只有数组才能使用的遍历"><a href="#只有数组才能使用的遍历" class="headerlink" title="只有数组才能使用的遍历"></a>只有数组才能使用的遍历</h3><h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h4><p>代码如下:</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
+arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    XXXXXX<span class="token comment" spellcheck="true">//你要操作的部分</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>数组自带的foreach循环，使用频率较高，实际上性能比普通for循环弱，<strong>并且没有返回值</strong></p>
+<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><p>map和forEach唯一的不同是map有返回值，所以就可以对每一项进行某些py操作再return出来：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> ary <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">24</span><span class="token punctuation">,</span><span class="token number">42</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  
+<span class="token keyword">let</span> res <span class="token operator">=</span> ary<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">,</span>input<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>  
+    <span class="token keyword">return</span> item<span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">)</span>  
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>这样区别就一目了然了吧<br>还有一些ES6新增的方法，但是并不怎么常用可以点击查看<a href="https://wohugb.gitbooks.io/ecmascript-6/content/docs/array.html" target="_blank" rel="external">ES6新增方法</a></p>
+<h3 id="所以对象都可以使用的方法"><a href="#所以对象都可以使用的方法" class="headerlink" title="所以对象都可以使用的方法"></a>所以对象都可以使用的方法</h3><p>比如类似数组的对象（array-like object）和可遍历（iterable）的对象</p>
+<h4 id="for…in…"><a href="#for…in…" class="headerlink" title="for…in…"></a>for…in…</h4><p>for in是遍历键名</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>a <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//1,2</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="for…of…"><a href="#for…of…" class="headerlink" title="for…of…"></a>for…of…</h4><p>for of是遍历键值，并且是ES6的新特性</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>a <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//a,b</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>由于for of的这个特性，还可以实现对iterator对象的遍历，然而for in就是简单的遍历了</p>
+<h3 id="如何使数组的方法使用到非数组对象上"><a href="#如何使数组的方法使用到非数组对象上" class="headerlink" title="如何使数组的方法使用到非数组对象上"></a>如何使数组的方法使用到非数组对象上</h3><blockquote>
+<p>Array.from()用于将两类对象转为真正的数组：类似数组的对象（array-like<br>object）和可遍历（iterable）的对象，其中包括ES6新增的Set和Map结构。</p>
+</blockquote>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> dom <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-          <!--date-->
-          
-            <p class="post-time">某猫 &nbsp &nbsp 发布于:<time datetime="2017-03-16T07:26:51.000Z">
-              2017-03-16
-            </time>
-            </p>
-          
+Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>dom<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>querySelectorAll方法返回的是一个类似数组的对象，只有将这个对象转为真正的数组，才能使用forEach方法。</p>
+<p>所以如何选择就要看面对什么样的需求了</p>
 
-          <!--tags-->
+  </div>
+  <!--评论块-->
+    
+  <div id="disqus_thread" style="padding:30px;text-align: center;border-top:1px solid silver " data-diaque="moumao.disqus.com"><button style="margin: 0 auto; " class="btn" onclick="disqus()">加载评论(被墙则无法加载)</button></div>
 
-          标签:
-            
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-            
-          <!--分类-->
+  <script>
 
-          分类:
-            
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a></li></ul>
-            
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+       var disqus_config = function () {
+       this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+       this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+       };
+       */
+      function disqus() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script'),v = d.createElement('script'),disquUrl=document.getElementById("disqus_thread").dataset.diaque;
+          v.id = 'dsq-count-scr'
+          v.src= '//'+disquUrl+'/count.js';
+          s.src = 'https://'+disquUrl+'/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(v);
+          (d.head || d.body).appendChild(s);
+      }
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
 
-          <!--excerpt-->
-          <div class="post-excerpt">
-            <p>
-              摘要：
-              
-                整个部署过程学到了不少东西，记录一下。
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
 
-参考了以下文章： 
-              
-            </p>
-          </div>
-          <div class="post-more"><a href="/2017/03/16/nodejs部署到阿里云全过程/" >全文阅读</a></div>
-        </div>
-        </a>
-      </div>
-  
-  <nav class="paging">
-    <span class="page-number current">1</span>
+
+  <!-- Next Nav -->
+    
+  <a href="/2017/06/08/async/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
 </nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#从最基本的for循环说起"><span class="post-toc-number">1.</span> <span class="post-toc-text">从最基本的for循环说起</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#只有数组才能使用的遍历"><span class="post-toc-number">2.</span> <span class="post-toc-text">只有数组才能使用的遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#forEach"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">forEach</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#map"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">map</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#所以对象都可以使用的方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">所以对象都可以使用的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#for…in…"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">for…in…</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#for…of…"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">for…of…</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何使数组的方法使用到非数组对象上"><span class="post-toc-number">4.</span> <span class="post-toc-text">如何使数组的方法使用到非数组对象上</span></a></li></ol>
 </div>
-
+<div class="post-back"><i class="material-icons">arrow_back</i></div>
 
   </div>
 </div>

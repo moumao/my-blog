@@ -3,6 +3,76 @@
   
     
     <entry>
+      <title><![CDATA[JS中常用的几种循环]]></title>
+      <url>/2017/06/08/JS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E5%BE%AA%E7%8E%AF/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>说到遍历，在Javascript中可能第一个想到的是for循环的方法，这可以视为一种十分简单易懂，并且十分高效的方法来进行遍历；但是在javascript中，却又有很多种用来遍历数组，或者类似数组的对象（array-like-object）甚至可遍历（iterable）的对象（比如generator）</p>
+</blockquote>
+<h3 id="从最基本的for循环说起"><a href="#从最基本的for循环说起" class="headerlink" title="从最基本的for循环说起"></a>从最基本的for循环说起</h3><p>如何写一个高效并且拥有块级作用域的for循环？</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>len<span class="token operator">=</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    XXXXXX<span class="token comment" spellcheck="true">//你要操作的部分</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>为什么用let？这样和用var有什么不同？如果有这样的疑问可以<a href="https://wohugb.gitbooks.io/ecmascript-6/content/docs/let.html" target="_blank" rel="external">查看这篇文章</a></p>
+<h3 id="只有数组才能使用的遍历"><a href="#只有数组才能使用的遍历" class="headerlink" title="只有数组才能使用的遍历"></a>只有数组才能使用的遍历</h3><h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h4><p>代码如下:</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
+arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    XXXXXX<span class="token comment" spellcheck="true">//你要操作的部分</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>数组自带的foreach循环，使用频率较高，实际上性能比普通for循环弱，<strong>并且没有返回值</strong></p>
+<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><p>map和forEach唯一的不同是map有返回值，所以就可以对每一项进行某些py操作再return出来：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> ary <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">24</span><span class="token punctuation">,</span><span class="token number">42</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  
+<span class="token keyword">let</span> res <span class="token operator">=</span> ary<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">,</span>input<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>  
+    <span class="token keyword">return</span> item<span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">)</span>  
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>这样区别就一目了然了吧<br>还有一些ES6新增的方法，但是并不怎么常用可以点击查看<a href="https://wohugb.gitbooks.io/ecmascript-6/content/docs/array.html" target="_blank" rel="external">ES6新增方法</a></p>
+<h3 id="所以对象都可以使用的方法"><a href="#所以对象都可以使用的方法" class="headerlink" title="所以对象都可以使用的方法"></a>所以对象都可以使用的方法</h3><p>比如类似数组的对象（array-like object）和可遍历（iterable）的对象</p>
+<h4 id="for…in…"><a href="#for…in…" class="headerlink" title="for…in…"></a>for…in…</h4><p>for in是遍历键名</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>a <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//1,2</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="for…of…"><a href="#for…of…" class="headerlink" title="for…of…"></a>for…of…</h4><p>for of是遍历键值，并且是ES6的新特性</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>a <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//a,b</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>由于for of的这个特性，还可以实现对iterator对象的遍历，然而for in就是简单的遍历了</p>
+<h3 id="如何使数组的方法使用到非数组对象上"><a href="#如何使数组的方法使用到非数组对象上" class="headerlink" title="如何使数组的方法使用到非数组对象上"></a>如何使数组的方法使用到非数组对象上</h3><blockquote>
+<p>Array.from()用于将两类对象转为真正的数组：类似数组的对象（array-like<br>object）和可遍历（iterable）的对象，其中包括ES6新增的Set和Map结构。</p>
+</blockquote>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> dom <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>dom<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>querySelectorAll方法返回的是一个类似数组的对象，只有将这个对象转为真正的数组，才能使用forEach方法。</p>
+<p>所以如何选择就要看面对什么样的需求了</p>
+]]></content>
+      
+        <categories>
+            
+            <category> javascript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[async]]></title>
       <url>/2017/06/08/async/</url>
       <content type="html"><![CDATA[<h3 id="什么是async"><a href="#什么是async" class="headerlink" title="什么是async"></a>什么是async</h3><blockquote>
