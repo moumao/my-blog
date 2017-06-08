@@ -29,9 +29,12 @@ arr<span class="token punctuation">.</span><span class="token function">forEach<
 <span class="token punctuation">}</span><span class="token punctuation">)</span>  
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>这样区别就一目了然了吧<br>还有一些ES6新增的方法，但是并不怎么常用可以点击查看<a href="https://wohugb.gitbooks.io/ecmascript-6/content/docs/array.html" target="_blank" rel="external">ES6新增方法</a></p>
-<h3 id="所以对象都可以使用的方法"><a href="#所以对象都可以使用的方法" class="headerlink" title="所以对象都可以使用的方法"></a>所以对象都可以使用的方法</h3><p>比如类似数组的对象（array-like object）和可遍历（iterable）的对象</p>
-<h4 id="for…in…"><a href="#for…in…" class="headerlink" title="for…in…"></a>for…in…</h4><p>for in是遍历键名</p>
+<p>这样区别就一目了然了吧<br>回调函数的语法如下所示：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">callbackfn</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">,</span> array<span class="token punctuation">)</span>
+</code></pre>
+<p>value:数组元素的值。<br>index:数组元素的数字索引。<br>array:包含该元素的数组对象</p>
+<p>还有一些ES6新增的方法，但是并不怎么常用可以点击查看<a href="https://wohugb.gitbooks.io/ecmascript-6/content/docs/array.html" target="_blank" rel="external">ES6新增方法</a></p>
+<h3 id="类似数组的对象可以使用的方法"><a href="#类似数组的对象可以使用的方法" class="headerlink" title="类似数组的对象可以使用的方法"></a>类似数组的对象可以使用的方法</h3><h4 id="for…in…"><a href="#for…in…" class="headerlink" title="for…in…"></a>for…in…</h4><p>for in是遍历键名</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span>a <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//1,2</span>
