@@ -197,194 +197,136 @@
 
 <div id="content-outer">
   <div id="content-inner">
-    <div id="tag">
-    <div id="recent-posts">
-  
-      <div class="recent-post-item lazy"   data-original="https://moumao.moumaobuchiyu.com/images/random/bg5.jpg"  >
-        <a class="recent-post-link" href="/2017/03/24/JS中的回调函数/">
-        <div class="post-hover">
-          <!--title-->
-          <p class="post-title"><a href="/2017/03/24/JS中的回调函数/" >JS中的回调函数</a></p>
+    <article id="post">
+  <div class="post-page-title" style="background-image:url(https://moumao.moumaobuchiyu.com/images/random/bg18.jpg)" >
+  <h2>解决浏览器跨域-JSONP</h2>
+    
+  <p>作者:某猫 &nbsp&nbsp 发布于:<time datetime="2017-06-12T07:32:52.000Z">
+          2017-06-12
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <h3 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h3><blockquote>
+<p> 当协议、子域名、主域名、端口号中任意一各不相同时，都算不同的“域”。</p>
+<p>不同的域之间相互请求资源，就叫“跨域”</p>
+</blockquote>
+<p>　　如果需要使用AJAX请求其他域名下的请求，会出现拒绝访问的情况，这是因为基于安全的考虑，即浏览器的同源策略，AJAX只能访问本地的资源，而不能跨域访问。<br><a id="more"></a></p>
+<h3 id="同源策略限制"><a href="#同源策略限制" class="headerlink" title="同源策略限制"></a>同源策略限制</h3><blockquote>
+<p>同源策略阻止从一个域上加载的脚本获取或操作另一个域上的文档属性。也就是说，受到请求的 URL 的域必须与当前 Web页面的域相同。这意味着浏览器隔离来自不同源的内容，以防止它们之间的操作。这个浏览器策略很旧，从 Netscape Navigator 2.0 版本开始就存在。</p>
+</blockquote>
+<h3 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h3><p>　　克服该限制的一个相对简单的方法是让 Web 页面向它源自的 Web 服务器请求数据，并且让 Web 服务器像代理一样将请求转发给真正的第三方服务器。尽管该技术获得了普遍使用，但它是不可伸缩的。另一种方式是使用框架要素在当前 Web 页面中创建新区域，并且使用 GET 请求获取任何第三方资源。不过，获取资源后，框架中的内容会受到同源策略的限制。</p>
+<p>　　克服该限制更理想方法是在 Web 页面中插入动态脚本元素，该页面源指向其他域中的服务 URL 并且在自身脚本中获取数据。脚本加载时它开始执行。该方法是可行的，因为同源策略不阻止动态脚本插入，并且将脚本看作是从提供 Web 页面的域上加载的。但如果该脚本尝试从另一个域上加载文档，就不会成功。幸运的是，通过添加 JavaScript Object Notation (JSON) 可以改进该技术。</p>
+<p>　　还有一种方式是XHR2：“XHR2” 全称 “XMLHttpRequest Level2” 是HTML5提供的方法，对跨域访问提供了很好的支持，并且还有一些新的功能。解决跨域问题只需要在服务器端头部加上下面两句代码：</p>
+<pre><code>header( &quot;Access-Control-Allow-Origin:*&quot; );
+header( &quot;Access-Control-Allow-Methods:POST,GET&quot; );
+</code></pre><h3 id="使用JSONP来解决跨域问题"><a href="#使用JSONP来解决跨域问题" class="headerlink" title="使用JSONP来解决跨域问题"></a>使用JSONP来解决跨域问题</h3><p>　　Ajax直接请求普通文件存在跨域无权限访问的问题，因为同源策略，是跨域的文件都访问不到，但是前面已经提到，同源策略不阻止将动态脚本元素插入文档中。也就是说，可以动态插入来自不同域的 JavaScript，并且可以在这些域中都携带我们所需要跨域的 JSON 数据。这其实是真正的 JSONP（JSON with Padding）：打包在函数调用中的 JSON 数据。</p>
+<h3 id="JSONP在客户端的具体实现"><a href="#JSONP在客户端的具体实现" class="headerlink" title="JSONP在客户端的具体实现"></a>JSONP在客户端的具体实现</h3><p>　　远程服务器remoteserver.com根目录下有个remote.js文件代码如下：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">localHandler</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"result"</span><span class="token punctuation">:</span><span class="token string">"我是远程js带来的数据"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>　　本地服务器localserver.com下有个jsonp.html页面代码如下：</p>
+<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    var localHandler = function(data){
+        alert('我是本地函数，可以被跨域的remote.js文件调用，远程js带来的数据是：' + data.result);
+    };
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://remoteserver.com/remote.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
 
-          <!--date-->
-          
-            <p class="post-time">某猫 &nbsp &nbsp 发布于:<time datetime="2017-03-24T00:28:52.000Z">
-              2017-03-24
-            </time>
-            </p>
-          
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>　　运行之后，页面成功弹出提示窗口。<br>　　上面的例子是最简单的JSONP的实现模型，不过它还算不上一个真正的JSONP服务。我们来看一下真正的JSONP服务是怎么样的，比如Google的ajax搜索接口：<br><code>http://ajax.googleapis.com/ajax/services/search/web?v=1.0&amp;q=?&amp;callback=?</code><br>q=?这个问号是表示你要搜索的内容，最重要的是第二个callback=?这个是正如其名表示回调函数的名称，也就是将你自己在客户端定义的回调函数的函数名传送给服务端，服务端则会返回以你定义的回调函数名的方法，将获取的json数据传入这个方法完成回调：</p>
+<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    // 得到航班信息查询结果后的回调函数
+    var flightHandler = function(data){
+        alert('你查询的航班结果是：票价 ' + data.price + ' 元，' + '余票 ' + data.tickets + ' 张。');
+    };
+    // 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码）
+    var url = "http://flightQuery.com/jsonp/flightResult.aspx?code=CA1998&amp;callback=flightHandler";
+    // 创建script标签，设置其属性
+    var script = document.createElement('script');
+    script.setAttribute('src', url);
+    // 把script标签加入head，此时调用开始
+    document.getElementsByTagName('head')[0].appendChild(script);
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
 
-          <!--tags-->
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>　　这次的代码变化比较大，不再直接把远程js文件写死，而是编码实现动态查询，而这也正是jsonp客户端实现的核心部分。<br>　　我们看到调用的url中传递了一个code参数，告诉服务器我要查的是CA1998次航班的信息，而callback参数则告诉服务器，我的本地回调函数叫做flightHandler，所以请把查询结果传入这个函数中进行调用。<br>　　flightResult.aspx的页面生成了一段这样的代码提供给jsonp.html：
+　　</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">flightHandler</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token string">"CA1998"</span><span class="token punctuation">,</span>
+    <span class="token string">"price"</span><span class="token punctuation">:</span> <span class="token number">1780</span><span class="token punctuation">,</span>
+    <span class="token string">"tickets"</span><span class="token punctuation">:</span> <span class="token number">5</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>　　传递给flightHandler函数的是一个json，描述了航班的基本信息。运行页面，成功弹出提示窗口。</p>
+<h3 id="JSONP和Ajax"><a href="#JSONP和Ajax" class="headerlink" title="JSONP和Ajax"></a>JSONP和Ajax</h3><blockquote>
+<p>　　jsonp不是ajax的一个特例，他们是不同的技术</p>
+</blockquote>
+<p>　　ajax和jsonp这两种技术在调用方式上“看起来”很像，目的也一样，都是请求一个url，然后把服务器返回的数据进行处理，因此jquery和ext等框架都把jsonp作为ajax的一种形式进行了封装；<br>　　但ajax和jsonp其实本质上是不同的东西。ajax的核心是通过XmlHttpRequest获取非本页内容，而jsonp的核心则是动态添加script标签来调用服务器提供的js脚本。<br>　　所以说，其实ajax与jsonp的区别不在于是否跨域，ajax通过服务端代理一样可以实现跨域，jsonp本身也不排斥同域的数据的获取。<br>　　还有就是，jsonp是一种方式或者说非强制性协议，如同ajax一样，它也不一定非要用json格式来传递数据，如果愿意，字符串都行，只不过这样不利于用jsonp提供公开服务。</p>
 
-          标签:
-            
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/回调函数/">回调函数</a></li></ul>
-            
-          <!--分类-->
+  </div>
+  <!--评论块-->
+    
+  <div id="disqus_thread" style="padding:30px;text-align: center;border-top:1px solid silver " data-diaque="moumao.disqus.com"><button style="margin: 0 auto; " class="btn" onclick="disqus()">加载评论(被墙则无法加载)</button></div>
 
-          分类:
-            
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li></ul>
-            
+  <script>
 
-          <!--excerpt-->
-          <div class="post-excerpt">
-            <p>
-              摘要：
-              
-                关于回调函...
-              
-            </p>
-          </div>
-          <div class="post-more"><a href="/2017/03/24/JS中的回调函数/" >全文阅读</a></div>
-        </div>
-        </a>
-      </div>
-  
-      <div class="recent-post-item lazy"   data-original="https://moumao.moumaobuchiyu.com/images/random/bg2.jpg"  >
-        <a class="recent-post-link" href="/2017/03/22/JS中this的指向/">
-        <div class="post-hover">
-          <!--title-->
-          <p class="post-title"><a href="/2017/03/22/JS中this的指向/" >JS中this的指向</a></p>
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+       var disqus_config = function () {
+       this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+       this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+       };
+       */
+      function disqus() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script'),v = d.createElement('script'),disquUrl=document.getElementById("disqus_thread").dataset.diaque;
+          v.id = 'dsq-count-scr'
+          v.src= '//'+disquUrl+'/count.js';
+          s.src = 'https://'+disquUrl+'/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(v);
+          (d.head || d.body).appendChild(s);
+      }
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
 
-          <!--date-->
-          
-            <p class="post-time">某猫 &nbsp &nbsp 发布于:<time datetime="2017-03-22T06:14:42.000Z">
-              2017-03-22
-            </time>
-            </p>
-          
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
 
-          <!--tags-->
 
-          标签:
-            
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a></li></ul>
-            
-          <!--分类-->
-
-          分类:
-            
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li></ul>
-            
-
-          <!--excerpt-->
-          <div class="post-excerpt">
-            <p>
-              摘要：
-              
-                this是Javascript语言的一个关键字。 
-它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。比如:
-function test(){ 
-
-　　　　this.x = 1; 
-
-　　}
-
-随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是，调用函数的那个对象。
-
-下面分四种情况，详细讨论this的用法。
-              
-            </p>
-          </div>
-          <div class="post-more"><a href="/2017/03/22/JS中this的指向/" >全文阅读</a></div>
-        </div>
-        </a>
-      </div>
-  
-      <div class="recent-post-item lazy"   data-original="https://moumao.moumaobuchiyu.com/images/random/bg3.jpg"  >
-        <a class="recent-post-link" href="/2017/03/20/js中Math-random-生成指定范围数值的随机数/">
-        <div class="post-hover">
-          <!--title-->
-          <p class="post-title"><a href="/2017/03/20/js中Math-random-生成指定范围数值的随机数/" > js中Math.random()生成指定范围数值的随机数</a></p>
-
-          <!--date-->
-          
-            <p class="post-time">某猫 &nbsp &nbsp 发布于:<time datetime="2017-03-20T15:43:56.000Z">
-              2017-03-20
-            </time>
-            </p>
-          
-
-          <!--tags-->
-
-          标签:
-            
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-            
-          <!--分类-->
-
-          分类:
-            
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li></ul>
-            
-
-          <!--excerpt-->
-          <div class="post-excerpt">
-            <p>
-              摘要：
-              
-                定义和用法
-random() 方法可返回介于 0 ~ 1 之间的一个随机数。
-
-              
-            </p>
-          </div>
-          <div class="post-more"><a href="/2017/03/20/js中Math-random-生成指定范围数值的随机数/" >全文阅读</a></div>
-        </div>
-        </a>
-      </div>
-  
-      <div class="recent-post-item lazy"   data-original="https://moumao.moumaobuchiyu.com/images/random/bg1.jpg"  >
-        <a class="recent-post-link" href="/2017/03/16/nodejs部署到阿里云全过程/">
-        <div class="post-hover">
-          <!--title-->
-          <p class="post-title"><a href="/2017/03/16/nodejs部署到阿里云全过程/" >Node.js部署到阿里云服务器</a></p>
-
-          <!--date-->
-          
-            <p class="post-time">某猫 &nbsp &nbsp 发布于:<time datetime="2017-03-16T07:26:51.000Z">
-              2017-03-16
-            </time>
-            </p>
-          
-
-          <!--tags-->
-
-          标签:
-            
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-            
-          <!--分类-->
-
-          分类:
-            
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a></li></ul>
-            
-
-          <!--excerpt-->
-          <div class="post-excerpt">
-            <p>
-              摘要：
-              
-                整个部署过程学到了不少东西，记录一下。
-
-参考了以下文章： 
-              
-            </p>
-          </div>
-          <div class="post-more"><a href="/2017/03/16/nodejs部署到阿里云全过程/" >全文阅读</a></div>
-        </div>
-        </a>
-      </div>
-  
-  <nav class="paging">
-    <span class="page-number current">1</span>
+  <!-- Next Nav -->
+    
+  <a href="/2017/06/08/JS中常用的几种循环/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
 </nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是跨域"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是跨域</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#同源策略限制"><span class="post-toc-number">2.</span> <span class="post-toc-text">同源策略限制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何解决跨域问题"><span class="post-toc-number">3.</span> <span class="post-toc-text">如何解决跨域问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用JSONP来解决跨域问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">使用JSONP来解决跨域问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSONP在客户端的具体实现"><span class="post-toc-number">5.</span> <span class="post-toc-text">JSONP在客户端的具体实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSONP和Ajax"><span class="post-toc-number">6.</span> <span class="post-toc-text">JSONP和Ajax</span></a></li></ol>
 </div>
+<div class="post-back"><i class="material-icons">arrow_back</i></div>
 
-
-</div>
   </div>
 </div>
 <div id="bottom-outer">
