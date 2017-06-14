@@ -3,6 +3,142 @@
   
     
     <entry>
+      <title><![CDATA[css中的伪类和伪元素]]></title>
+      <url>/2017/06/14/css%E4%B8%AD%E7%9A%84%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
+      <content type="html"><![CDATA[<h3 id="什么是伪类什么又是伪元素"><a href="#什么是伪类什么又是伪元素" class="headerlink" title="什么是伪类什么又是伪元素"></a>什么是伪类什么又是伪元素</h3><blockquote>
+<p>伪类选择器：和一般的DOM中的元素样式不一样，它并不改变任何DOM内容。只是插入了一些修饰类的元素，这些元素对于用户来说是可见的，但是对于DOM来说不可见。伪类的效果可以通过添加一个实际的类来达到。<br>伪元素选择器：伪元素的效果是需要通过添加一个实际的元素才能达到的。</p>
+</blockquote>
+<p>　　简单的来说伪类只是添加了样式，而伪元素则是添加了实际的元素</p>
+<h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><blockquote>
+<p>伪类存在的意义是为了通过选择器找到那些不存在与DOM树中的信息以及不能被常规CSS选择器获取到的信息。<br>伪类由一个冒号:开头，冒号后面是伪类的名称和包含在圆括号中的可选参数。<br>任何常规选择器可以再任何位置使用伪类。伪类语法不区别大小写。一些伪类的作用会互斥，另外一些伪类可以同时被同一个元素使用。并且，为了满足用户在操作DOM时产生的DOM结构改变，伪类也可以是动态的。</p>
+</blockquote>
+<p>　　我们可以用伪类实现这样的功能：<br>　　获取不存在与DOM树中的信息。比如a标签的:link、visited等，这些信息不存在与DOM树结构中，只能通过CSS选择器来获取；<br>　　获取不能被常规CSS选择器获取的信息。比如伪类:target，它的作用是匹配文档(页面)的URI中某个标志符的目标元素，再比如:hover，可以获取到鼠标悬浮之后的样式。</p>
+<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><blockquote>
+<p>伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的（可以理解为html源码）。比如：documen接口不提供访问元素内容的第一个字或者第一行的机制，而伪元素可以使开发者可以提取到这些信息。并且，一些伪元素可以使开发者获取到不存在于源文档中的内容（比如常见的::before,::after）。<br>伪元素的由两个冒号::开头，然后是伪元素的名称。<br>使用两个冒号::是为了区别伪类和伪元素（CSS2中并没有区别）。当然，考虑到兼容性CSS2中已存的伪元素仍然可以使用一个冒号:的语法，但是CSS3中新增的伪元素必须使用两个冒号::。</p>
+</blockquote>
+<p>　　伪元素创建了一个虚拟容器，这个容器不包含任何DOM元素，但是可以包含内容。另外，开发者还可以为伪元素定制样式。已::first-line为例，它获取了指定元素的第一行内容并且将第一行的内容加入到虚拟容器中。如果通过JavaScript来实现这个逻辑，那么要考虑的因素就太多了，比如制定元素的宽度、字体大小，甚至浮动元素的图文混排等等。一个选择器只能使用一个伪元素，并且伪元素必须处于选择器语句的最后。</p>
+<h3 id="before-和-before-有何不同"><a href="#before-和-before-有何不同" class="headerlink" title="::before 和:before 有何不同"></a>::before 和:before 有何不同</h3><p>　　伪元素由双冒号和伪元素名称组成。双冒号是在当前规范中引入的，用于区分伪类和伪元素。不过浏览器需要同时支持旧的已经存在的伪元素写法，比如:first-line、:first-letter、:before、:after等，而新的在CSS3中引入的伪元素则不允许再支持旧的单冒号的写法。<br>　　对于CSS2之前已有的伪元素，比如:before，单冒号和双冒号的写法::before作用是一样的。所以，如果你的网站只需要兼容webkit、firefox、opera等浏览器，建议对于伪元素采用双冒号的写法，如果不得不兼容IE浏览器，还是用CSS2的单冒号写法比较安全。</p>
+<h3 id="使用伪元素来制作一个菜单按钮"><a href="#使用伪元素来制作一个菜单按钮" class="headerlink" title="使用伪元素来制作一个菜单按钮"></a>使用伪元素来制作一个菜单按钮</h3><p>先来看一下演示效果<br><img src="https://ooo.0o0.ooo/2017/06/14/5940ea634b647.gif" alt="效果"><br>上一下代码：</p>
+<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>伪元素绘制menu动画<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+    <span class="token selector"><span class="token class">.menu</span></span><span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">48</span>px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">48</span>px<span class="token punctuation">;</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+        <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#D9D7D6</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.center</span></span><span class="token punctuation">{</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">2</span>px<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">4</span>px<span class="token punctuation">;</span>
+        <span class="token property">position</span><span class="token punctuation">:</span>absolute<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
+        <span class="token property">margin-top</span><span class="token punctuation">:</span> -<span class="token number">1</span>px<span class="token punctuation">;</span>
+        <span class="token property">margin-left</span><span class="token punctuation">:</span> -<span class="token number">9</span>px<span class="token punctuation">;</span>
+        <span class="token property">transition</span><span class="token punctuation">:</span> transform <span class="token number">.3</span>s ease, left <span class="token number">.3</span>s ease, top <span class="token number">.3</span>s ease,bottom <span class="token number">.3</span>s ease,width <span class="token number">.3</span>s ease<span class="token punctuation">;</span>
+        <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> transform <span class="token number">.3</span>s ease, left <span class="token number">.3</span>s ease, top <span class="token number">.3</span>s ease,bottom <span class="token number">.3</span>s ease,width <span class="token number">.3</span>s ease<span class="token punctuation">;</span>
+        <span class="token property">-moz-transition</span><span class="token punctuation">:</span>transform transform <span class="token number">.3</span>s ease, left <span class="token number">.3</span>s ease, top <span class="token number">.3</span>s ease,bottom <span class="token number">.3</span>s ease,width <span class="token number">.3</span>s ease<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">3</span>px<span class="token punctuation">;</span>
+        <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.center</span><span class="token pseudo-element">::before</span></span><span class="token punctuation">{</span>
+        <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">2</span>px<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">4</span>px<span class="token punctuation">;</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> -<span class="token number">5</span>px<span class="token punctuation">;</span>
+        <span class="token property">transition</span><span class="token punctuation">:</span> transform <span class="token number">.3</span>s ease, left <span class="token number">.3</span>s ease, top <span class="token number">.3</span>s ease,bottom <span class="token number">.3</span>s ease,width <span class="token number">.3</span>s ease<span class="token punctuation">;</span>
+        <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> transform <span class="token number">.3</span>s ease, left <span class="token number">.3</span>s ease, top <span class="token number">.3</span>s ease,bottom <span class="token number">.3</span>s ease,width <span class="token number">.3</span>s ease<span class="token punctuation">;</span>
+        <span class="token property">-moz-transition</span><span class="token punctuation">:</span>transform transform <span class="token number">.3</span>s ease, left <span class="token number">.3</span>s ease, top <span class="token number">.3</span>s ease,bottom <span class="token number">.3</span>s ease,width <span class="token number">.3</span>s ease<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">3</span>px<span class="token punctuation">;</span>
+        <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.center</span><span class="token pseudo-element">::after</span></span><span class="token punctuation">{</span>
+        <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">2</span>px<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">bottom</span><span class="token punctuation">:</span> -<span class="token number">5</span>px<span class="token punctuation">;</span>
+        <span class="token property">transition</span><span class="token punctuation">:</span> transform <span class="token number">.3</span>s ease, left <span class="token number">.3</span>s ease, top <span class="token number">.3</span>s ease,bottom <span class="token number">.3</span>s ease,width <span class="token number">.3</span>s ease<span class="token punctuation">;</span>
+        <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> transform <span class="token number">.3</span>s ease, left <span class="token number">.3</span>s ease, top <span class="token number">.3</span>s ease,bottom <span class="token number">.3</span>s ease,width <span class="token number">.3</span>s ease<span class="token punctuation">;</span>
+        <span class="token property">-moz-transition</span><span class="token punctuation">:</span>transform transform <span class="token number">.3</span>s ease, left <span class="token number">.3</span>s ease, top <span class="token number">.3</span>s ease,bottom <span class="token number">.3</span>s ease,width <span class="token number">.3</span>s ease<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">3</span>px<span class="token punctuation">;</span>
+        <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.back</span></span><span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span><span class="token function">rotate</span><span class="token punctuation">(</span><span class="token number">180</span>deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.back</span><span class="token pseudo-element">::after</span></span><span class="token punctuation">{</span>
+        <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>-<span class="token number">45</span>deg<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">13</span>px<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">8</span>px<span class="token punctuation">;</span>
+        <span class="token property">bottom</span><span class="token punctuation">:</span> -<span class="token number">4</span>px<span class="token punctuation">;</span>        
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.back</span><span class="token pseudo-element">::before</span></span><span class="token punctuation">{</span>
+        <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token number">45</span>deg<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">13</span>px<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">8</span>px<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> -<span class="token number">4</span>px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+&lt;a href="javascript:void(0)"class="menu">
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    'use strict'
+    let menu = $(".center");
+    $(".menu").on("click",(e)=>{
+        if(menu.hasClass("back")){
+            menu.removeClass("back");
+        }else{
+            menu.addClass("back");
+        }
+        e.stopPropagation();
+           e.preventDefault();
+    })
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>　　大概思路就是用一个span标签构成菜单按钮三个横杆的中间一个，然后通过伪元素来为这个span标签增加上下两个剩余的横杆，并且使用绝对定位来布局。<br>　　至于变成箭头就是在写一个箭头样式的类通过js动态加到原来的按钮上了，箭头样式同样使用了伪元素，只是在之前的基础上改了角度和位置以及长度就好了。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> css </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> css </tag>
+            
+            <tag> 伪类和伪元素 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[解决浏览器跨域-JSONP]]></title>
       <url>/2017/06/12/%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F-JSONP/</url>
       <content type="html"><![CDATA[<h3 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h3><blockquote>
