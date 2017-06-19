@@ -62,22 +62,90 @@ body{
     top: 0;
 }
 #nprogress .bar{
-    background-color: #26A69A;
+    background-color: #707070;
 }
 #nprogress .spinner-icon{
-    border-top-color:#26A69A;border-left-color:#26A69A;
+    border-top-color:#707070;
+    border-left-color:#707070;
 }
-
 /*导航按钮*/
-.nav-btn{
-    width: 30px;
-    height:30px;
-    display: block;
-    top: 30px;
+#menu-box{
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    box-sizing: border-box;
+    position: fixed;
     left: 30px;
-    z-index: 99;
-    position:fixed;
-    cursor: Pointer;
+    top:30px;
+}
+.menu{
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+}
+.nav-btn{
+    background-color: #707070;
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    line-height: 4px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -1px;
+    margin-left: -9px;
+    transition: transform .3s ease, left .3s ease, top .3s ease,bottom .3s ease,width .3s ease;
+    -webkit-transition: transform .3s ease, left .3s ease, top .3s ease,bottom .3s ease,width .3s ease;
+    -moz-transition:transform .3s ease, left .3s ease, top .3s ease,bottom .3s ease,width .3s ease;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.nav-btn::before{
+    content:"";
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background-color: #707070;
+    position: absolute;
+    left: 0;
+    top: -5px;
+    transition: transform .3s ease, left .3s ease, top .3s ease,bottom .3s ease,width .3s ease;
+    -webkit-transition: transform .3s ease, left .3s ease, top .3s ease,bottom .3s ease,width .3s ease;
+    -moz-transition:transform  .3s ease, left .3s ease, top .3s ease,bottom .3s ease,width .3s ease;
+    border-radius: 3px;
+    box-sizing: border-box;
+ }
+.nav-btn::after{
+    content:"";
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background-color: #707070;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: transform .3s ease, left .3s ease, top .3s ease,bottom .3s ease,width .3s ease;
+    -webkit-transition: transform .3s ease, left .3s ease, top .3s ease,bottom .3s ease,width .3s ease;
+    -moz-transition:transform  .3s ease, left .3s ease, top .3s ease,bottom .3s ease,width .3s ease;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.back{
+    transform:rotate(180deg);
+}
+.back::after{
+    -webkit-transform: rotate(-45deg);
+    width: 14px;
+    left: 7px;
+    bottom: -4px;
+}
+.back::before{
+    -webkit-transform: rotate(45deg);
+    width: 14px;
+    left: 6px;
+    top: -4px;
 }
 /*导航*/
 .nav-list{
@@ -173,7 +241,6 @@ body{
 .nav-header{
     width: 100%;
     height:300px;
-    background-color: #b5b5b5;
     position: relative;
     background-size: cover;
     background-repeat:no-repeat;
@@ -404,7 +471,6 @@ p.no-result {
 }
 /*返回顶部按钮*/
 .up{
-    background-color: #26A69A;
     border-radius: 20px;
     width: 40px;
     height: 40px;
@@ -580,7 +646,6 @@ p.no-result {
 .post-header{
     width: 1050px;
     height: 400px;
-    background-color: #b5b5b5;
     display: block;
     margin: 0 auto;
     margin-top: 100px;
@@ -777,7 +842,6 @@ p.no-result {
 }
 #archive .tag-list .tag-list-item .tag-list-link{
     display: inline-block;
-
     color: #686868;
     padding: 20px;
     text-shadow: none;
@@ -800,7 +864,6 @@ p.no-result {
 .post-page-title{
     width: 100%;
     min-height: 300px;
-    background-color: #cacaca;
     position: relative;
     background-size: cover;
     background-repeat:no-repeat;
