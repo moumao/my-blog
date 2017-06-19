@@ -114,25 +114,20 @@ function menu() {
             }else {
                 window.history.back();
             }
-            menu.removeClass("back");
         });
     }else {
+        menu.removeClass("back");
+        menuButton.unbind();
         setTimeout(function(){
-            menuButton.unbind();
-            setTimeout(function(){
-                menuButton.sideNav({
-                        menuWidth: 250, // Default is 240
-                        edge: 'left', // Choose the horizontal origin
-                        closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                        draggable: true // Choose whether you can drag to open on touch screens
-                    }
-                );
-            })
+            menuButton.sideNav({
+                    menuWidth: 250, // Default is 240
+                    edge: 'left', // Choose the horizontal origin
+                    closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                    draggable: true // Choose whether you can drag to open on touch screens
+                }
+            );
         })
     }
-    $(".recent-post-item").on("click",function(){
-
-    });
 }
 //左侧菜单栏配置
 (function () {

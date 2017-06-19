@@ -247,20 +247,16 @@
     NProgress.done();
     lazy();
     links();
-    menu();
+    window.onpopstate = menu();
     //pjax操作
     $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
     $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
-        .on('pjax:end', function() {
+        .on('pjax:end', () => {
             dowmdiv();
             lazy();
             toc();
             links();
             menu();
-            //post页面返回按钮绑定pjax事件
-            $(".post-back").click(function () {
-                window.history.back();
-            });
         });
 </script>
 

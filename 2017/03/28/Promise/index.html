@@ -329,7 +329,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是-Promise"><span class="post-toc-number">2.</span> <span class="post-toc-text">什么是 Promise</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#兼容性"><span class="post-toc-number">3.</span> <span class="post-toc-text">兼容性</span></a></li></ol>
 </div>
 <!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
-
+<script type="text/javascript">
+    menu();
+</script>
   </div>
 </div>
 <div id="bottom-outer">
@@ -384,20 +386,16 @@ console<span class="token punctuation">.</span><span class="token function">log<
     NProgress.done();
     lazy();
     links();
-    menu();
+    window.onpopstate = menu();
     //pjax操作
     $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
     $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
-        .on('pjax:end', function() {
+        .on('pjax:end', () => {
             dowmdiv();
             lazy();
             toc();
             links();
             menu();
-            //post页面返回按钮绑定pjax事件
-            $(".post-back").click(function () {
-                window.history.back();
-            });
         });
 </script>
 

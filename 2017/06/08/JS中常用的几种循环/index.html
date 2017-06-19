@@ -259,7 +259,9 @@ Array<span class="token punctuation">.</span><span class="token keyword">from</s
     <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#从最基本的for循环说起"><span class="post-toc-number">1.</span> <span class="post-toc-text">从最基本的for循环说起</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#只有数组才能使用的遍历"><span class="post-toc-number">2.</span> <span class="post-toc-text">只有数组才能使用的遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#forEach"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">forEach</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#map"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">map</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类似数组的对象可以使用的方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">类似数组的对象可以使用的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#for…in…"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">for…in…</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#for…of…"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">for…of…</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何使数组的方法使用到非数组对象上"><span class="post-toc-number">4.</span> <span class="post-toc-text">如何使数组的方法使用到非数组对象上</span></a></li></ol>
 </div>
 <!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
-
+<script type="text/javascript">
+    menu();
+</script>
   </div>
 </div>
 <div id="bottom-outer">
@@ -314,20 +316,16 @@ Array<span class="token punctuation">.</span><span class="token keyword">from</s
     NProgress.done();
     lazy();
     links();
-    menu();
+    window.onpopstate = menu();
     //pjax操作
     $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
     $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
-        .on('pjax:end', function() {
+        .on('pjax:end', () => {
             dowmdiv();
             lazy();
             toc();
             links();
             menu();
-            //post页面返回按钮绑定pjax事件
-            $(".post-back").click(function () {
-                window.history.back();
-            });
         });
 </script>
 
