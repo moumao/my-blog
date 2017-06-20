@@ -3,6 +3,190 @@
   
     
     <entry>
+      <title><![CDATA[history对象]]></title>
+      <url>/2017/06/20/history%E5%AF%B9%E8%B1%A1/</url>
+      <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>浏览器窗口有一个history对象，用来保存浏览历史。<br>如果当前窗口先后访问了三个网址，那么history对象就包括三项，history.length属性等于3。<br>history对象提供了一系列方法，允许在浏览历史之间移动。</p>
+<blockquote>
+<p>back()：移动到上一个访问页面，等同于浏览器的后退键。 forward()：移动到下一个访问页面，等同于浏览器的前进键。<br>go()：接受一个整数作为参数，移动到该整数指定的页面，比如go(1)相当于forward()，&gt;<br>go(-1)相当于back()。</p>
+</blockquote>
+<pre class=" language-javascript"><code class="language-javascript">history<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+history<span class="token punctuation">.</span><span class="token function">forward</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+history<span class="token punctuation">.</span><span class="token function">go</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>如果移动的位置超出了访问历史的边界，以上三个方法并不报错，而是默默的失败。</p>
+<p>history.go(0)相当于刷新当前页面。</p>
+<pre class=" language-javascript"><code class="language-javascript">history<span class="token punctuation">.</span><span class="token function">go</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>常见的“返回上一页”链接，代码如下。</p>
+<pre class=" language-javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'backLink'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  window<span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>注意，返回上一页时，页面通常是从浏览器缓存之中加载，而不是重新要求服务器发送新的网页。</p>
+<h3 id="history-pushState"><a href="#history-pushState" class="headerlink" title="history.pushState()"></a>history.pushState()</h3><p>HTML5为history对象添加了两个新方法，history.pushState()和history.replaceState()，用来在浏览历史中添加和修改记录。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>history <span class="token operator">&amp;&amp;</span> history<span class="token punctuation">.</span>pushState<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 支持History API</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 不支持</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>上面代码可以用来检查，当前浏览器是否支持History API。如果不支持的话，可以考虑使用Polyfill库<a href="https://github.com/browserstate/history.js/" target="_blank" rel="external">History.js</a><br>history.pushState方法接受三个参数，依次为：</p>
+<blockquote>
+<p>state：一个与指定网址相关的状态对象，popstate事件触发时，该对象会传入回调函数。如果不需要这个对象，此处可以填null。<br>title：新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填null。<br>url：新的网址，必须与当前页面处在同一个域。浏览器的地址栏将显示这个网址。</p>
+</blockquote>
+<p>假定当前网址是example.com/1.html，我们使用pushState方法在浏览记录（history对象）中添加一个新记录。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> stateObj <span class="token operator">=</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'bar'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span>stateObj<span class="token punctuation">,</span> <span class="token string">'page 2'</span><span class="token punctuation">,</span> <span class="token string">'2.html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>添加上面这个新记录后，浏览器地址栏立刻显示example.com/2.html，但并不会跳转到2.html，甚至也不会检查2.html是否存在，它只是成为浏览历史中的最新记录。假定这时你访问了google.com，然后点击了倒退按钮，页面的url将显示2.html，但是内容还是原来的1.html。你再点击一次倒退按钮，url将显示1.html，内容不变。</p>
+<p>总之，pushState方法不会触发页面刷新，只是导致history对象发生变化，地址栏会有反应。</p>
+<p>如果pushState的url参数，设置了一个新的锚点值（即hash），并不会触发hashchange事件。如果设置了一个跨域网址，则会报错。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 报错</span>
+history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">'https://twitter.com/hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>上面代码中，pushState想要插入一个跨域的网址，导致报错。这样设计的目的是，防止恶意代码让用户以为他们是在另一个网站上。</p>
+<h3 id="history-replaceState"><a href="#history-replaceState" class="headerlink" title="history.replaceState()"></a>history.replaceState()</h3><p>history.replaceState方法的参数与pushState方法一模一样，区别是它修改浏览历史中当前纪录。</p>
+<p>假定当前网页是example.com/example.html。</p>
+<pre class=" language-javascript"><code class="language-javascript">history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>page<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'title 1'</span><span class="token punctuation">,</span> <span class="token string">'?page=1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>page<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'title 2'</span><span class="token punctuation">,</span> <span class="token string">'?page=2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+history<span class="token punctuation">.</span><span class="token function">replaceState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>page<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'title 3'</span><span class="token punctuation">,</span> <span class="token string">'?page=3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+history<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// url显示为http://example.com/example.html?page=1</span>
+
+history<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// url显示为http://example.com/example.html</span>
+
+history<span class="token punctuation">.</span><span class="token function">go</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// url显示为http://example.com/example.html?page=3</span>
+</code></pre>
+<h3 id="history-state属性"><a href="#history-state属性" class="headerlink" title="history.state属性"></a>history.state属性</h3><p>history.state属性返回当前页面的state对象。</p>
+<pre class=" language-javascript"><code class="language-javascript">history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>page<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'title 1'</span><span class="token punctuation">,</span> <span class="token string">'?page=1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+history<span class="token punctuation">.</span>state
+<span class="token comment" spellcheck="true">// { page: 1 }</span>
+</code></pre>
+<h3 id="popstate事件"><a href="#popstate事件" class="headerlink" title="popstate事件"></a>popstate事件</h3><p>每当同一个文档的浏览历史（即history对象）出现变化时，就会触发popstate事件。</p>
+<p>需要注意的是，仅仅调用pushState方法或replaceState方法 ，并不会触发该事件，只有用户点击浏览器倒退按钮和前进按钮，或者使用JavaScript调用back、forward、go方法时才会触发。另外，该事件只针对同一个文档，如果浏览历史的切换，导致加载不同的文档，该事件也不会触发。</p>
+<p>使用的时候，可以为popstate事件指定回调函数。这个回调函数的参数是一个event事件对象，它的state属性指向pushState和replaceState方法为当前URL所提供的状态对象（即这两个方法的第一个参数）。</p>
+<pre class=" language-javascript"><code class="language-javascript">window<span class="token punctuation">.</span>onpopstate <span class="token operator">=</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`location: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> document<span class="token punctuation">.</span>location <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`state: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>state<span class="token punctuation">)</span> <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 或者</span>
+
+window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'popstate'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`location: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> document<span class="token punctuation">.</span>location <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`state: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>state<span class="token punctuation">)</span> <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>上面代码中的event.state，就是通过pushState和replaceState方法，为当前URL绑定的state对象。</p>
+<p>这个state对象也可以直接通过history对象读取。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> currentState <span class="token operator">=</span> history<span class="token punctuation">.</span>state<span class="token punctuation">;</span>
+</code></pre>
+<p>注意，页面第一次加载的时候，在load事件发生后，Chrome和Safari浏览器（Webkit核心）会触发popstate事件，而Firefox和IE浏览器不会。</p>
+<h3 id="URLSearchParams-API"><a href="#URLSearchParams-API" class="headerlink" title="URLSearchParams API"></a>URLSearchParams API</h3><p>URLSearchParams API用于处理URL之中的查询字符串，即问号之后的部分。没有部署这个API的浏览器，可以用<a href="https://github.com/WebReflection/url-search-params" target="_blank" rel="external">url-search-params</a>这个垫片库。</p>
+<pre><code>let paramsString = &#39;q=URLUtils.searchParams&amp;topic=api&#39;;
+let searchParams = new URLSearchParams(paramsString);
+</code></pre><p>URLSearchParams有以下方法，用来操作某个参数。</p>
+<blockquote>
+<p>has()：返回一个布尔值，表示是否具有某个参数<br>get()：返回指定参数的第一个值<br>getAll()：返回一个数组，成员是指定参数的所有值<br>set()：设置指定参数<br>delete()：删除指定参数<br>append()：在查询字符串之中，追加一个键值对</p>
+</blockquote>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> paramsString <span class="token operator">=</span> <span class="token string">'q=URLUtils.searchParams&amp;topic=api'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> searchParams <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">URLSearchParams</span><span class="token punctuation">(</span>paramsString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+searchParams<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token string">'topic'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span>
+searchParams<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'topic'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// "api"</span>
+searchParams<span class="token punctuation">.</span><span class="token function">getAll</span><span class="token punctuation">(</span><span class="token string">'topic'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// ["api"]</span>
+
+searchParams<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// null，注意Firefox返回空字符串</span>
+searchParams<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+searchParams<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 2</span>
+
+searchParams<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'topic'</span><span class="token punctuation">,</span> <span class="token string">'webdev'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+searchParams<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// "q=URLUtils.searchParams&amp;topic=api&amp;foo=2&amp;topic=webdev"</span>
+
+searchParams<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+searchParams<span class="token punctuation">.</span><span class="token function">getAll</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// [2, 3]</span>
+
+searchParams<span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token string">'topic'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+searchParams<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// "q=URLUtils.searchParams&amp;foo=2&amp;foo=3"</span>
+</code></pre>
+<p>URLSearchParams还有三个方法，用来遍历所有参数。</p>
+<blockquote>
+<p>keys()：遍历所有参数名<br>values()：遍历所有参数值<br>entries()：遍历所有参数的键值对</p>
+</blockquote>
+<p>上面三个方法返回的都是Iterator对象。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> searchParams <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">URLSearchParams</span><span class="token punctuation">(</span><span class="token string">'key1=value1&amp;key2=value2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> key <span class="token keyword">of</span> searchParams<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// key1</span>
+<span class="token comment" spellcheck="true">// key2</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> value <span class="token keyword">of</span> searchParams<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// value1</span>
+<span class="token comment" spellcheck="true">// value2</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> pair <span class="token keyword">of</span> searchParams<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>pair<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span> <span class="token string">', '</span><span class="token operator">+</span> pair<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// key1, value1</span>
+<span class="token comment" spellcheck="true">// key2, value2</span>
+</code></pre>
+<p>在Chrome浏览器之中，URLSearchParams实例本身就是Iterator对象，与entries方法返回值相同。所以，可以写成下面的样子。</p>
+<pre><code>for (var p of searchParams) {
+  console.log(p);
+}
+</code></pre><p>下面是一个替换当前URL的例子。</p>
+<pre><code>// URL: https://example.com?version=1.0
+var params = new URLSearchParams(location.search.slice(1));
+params.set(&#39;version&#39;, 2.0);
+
+window.history.replaceState({}, &#39;&#39;, `${location.pathname}?${params}`);
+// URL: https://example.com?version=2.0
+</code></pre><p>URLSearchParams实例可以当作POST数据发送，所有数据都会URL编码。</p>
+<pre><code>let params = new URLSearchParams();
+params.append(&#39;api_key&#39;, &#39;1234567890&#39;);
+
+fetch(&#39;https://example.com/api&#39;, {
+  method: &#39;POST&#39;,
+  body: params
+}).then(...)
+</code></pre><p>DOM的a元素节点的searchParams属性，就是一个URLSearchParams实例。</p>
+<pre><code>var a = document.createElement(&#39;a&#39;);
+a.href = &#39;https://example.com?filter=api&#39;;
+a.searchParams.get(&#39;filter&#39;) // &quot;api&quot;
+</code></pre><p>URLSearchParams还可以与URL接口结合使用。</p>
+<pre><code>var url = new URL(location);
+var foo = url.searchParams.get(&#39;foo&#39;) || &#39;somedefault&#39;;
+</code></pre><p><a href="http://javascript.ruanyifeng.com/bom/history.html#toc6" target="_blank" rel="external">原文链接</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> javascript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> js </tag>
+            
+            <tag> html </tag>
+            
+            <tag> history </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[css中的伪类和伪元素]]></title>
       <url>/2017/06/14/css%E4%B8%AD%E7%9A%84%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
       <content type="html"><![CDATA[<h3 id="什么是伪类什么又是伪元素"><a href="#什么是伪类什么又是伪元素" class="headerlink" title="什么是伪类什么又是伪元素"></a>什么是伪类什么又是伪元素</h3><blockquote>
@@ -1172,9 +1356,9 @@ X-UA-Compatible(浏览器采取何种版本渲染当前页面)
         
         <tags>
             
-            <tag> meta </tag>
-            
             <tag> html </tag>
+            
+            <tag> meta </tag>
             
         </tags>
         
