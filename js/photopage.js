@@ -1,7 +1,3 @@
-/**
- * Created by wangchengyu on 2017/5/3.
- */
-
 var boxes=$('.portfolio-item');
 
 $(document).ready(function () {
