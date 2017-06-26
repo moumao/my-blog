@@ -140,57 +140,79 @@
 
 <div id="content-outer">
   <div id="content-inner">
-    <div id="tag">
-    <div id="recent-posts">
-  
-      <div class="recent-post-item lazy" style="background-color:#26A69A"   data-original="https://moumao.moumaobuchiyu.com/images/random/bg20.jpg"  >
-        <a class="recent-post-link" href="/2017/06/20/history对象/">
-        <div class="post-hover">
-          <!--title-->
-          <p class="post-title"><a href="/2017/06/20/history对象/" >history对象</a></p>
+    
+<article id="post">
+  <div class="post-page-title" style="background-color:#26A69A;background-image:url(https://moumao.moumaobuchiyu.com/images/random/bg21.jpg)" >
+  <h2>关闭Mac上的Dashboard?</h2>
+    
+  <p>作者:某猫 &nbsp&nbsp 发布于:<time datetime="2017-06-26T02:37:09.000Z">
+          2017-06-26
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <p>Mac的Dashboard用来显示股票、日历、天气预报等小widget，应该在Leopard时代就有了。可以说是遗迹。不用的话可以关掉。</p>
+<p>关闭Dashboard：<br>打开“终端”，输入命令：</p>
+<pre><code>defaults write com.apple.dashboard mcx-disabled -boolean YES
+</code></pre><p>继续输入命令，重启Dock：</p>
+<pre><code>killall Dock
+</code></pre><p>如果想再重新开启，则使用下面的命令：</p>
+<pre><code>defaults write com.apple.dashboard mcx-disabled -boolean NO
+</code></pre><p>继续输入命令，重启Dock：</p>
+<pre><code>killall Dock
+</code></pre>
+  </div>
+  <!--评论块-->
+    
+  <div id="disqus_thread" style="padding:30px;text-align: center;border-top:1px solid silver " data-diaque="moumao.disqus.com"><button style="margin: 0 auto;background-color:#26A69A " class="btn" onclick="disqus()">加载评论(被墙则无法加载)</button></div>
 
-          <!--date-->
-          
-            <p class="post-time">某猫 &nbsp &nbsp 发布于:<time datetime="2017-06-20T03:07:55.000Z">
-              2017-06-20
-            </time>
-            </p>
-          
+  <script>
 
-          <!--tags-->
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+       var disqus_config = function () {
+       this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+       this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+       };
+       */
+      function disqus() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script'),v = d.createElement('script'),disquUrl=document.getElementById("disqus_thread").dataset.diaque;
+          v.id = 'dsq-count-scr'
+          v.src= '//'+disquUrl+'/count.js';
+          s.src = 'https://'+disquUrl+'/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(v);
+          (d.head || d.body).appendChild(s);
+      }
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
 
-          标签:
-            
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/history/">history</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li></ul>
-            
-          <!--分类-->
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
 
-          分类:
-            
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li></ul>
-            
 
-          <!--excerpt-->
-          <div class="post-excerpt">
-            <p>
-              摘要：
-              
-                概述浏览器窗口有一个history对象，用来保存浏览历史。如果当前窗口先后访问了三个网址，那么history对象就包括三项，history.length属性等于3。history对象提供了一系列方法，允...
-              
-            </p>
-          </div>
-          <div class="post-more"><a href="/2017/06/20/history对象/" >全文阅读</a></div>
-        </div>
-        </a>
-      </div>
-  
-  <nav class="paging">
-    <span class="page-number current">1</span>
+  <!-- Next Nav -->
+    
+  <a href="/2017/06/20/history对象/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
 </nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    
 </div>
-
-
-</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
   </div>
 </div>
 <div id="bottom-outer">

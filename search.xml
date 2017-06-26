@@ -3,6 +3,35 @@
   
     
     <entry>
+      <title><![CDATA[关闭Mac上的Dashboard?]]></title>
+      <url>/2017/06/26/%E5%85%B3%E9%97%ADMac%E4%B8%8A%E7%9A%84Dashboard/</url>
+      <content type="html"><![CDATA[<p>Mac的Dashboard用来显示股票、日历、天气预报等小widget，应该在Leopard时代就有了。可以说是遗迹。不用的话可以关掉。</p>
+<p>关闭Dashboard：<br>打开“终端”，输入命令：</p>
+<pre><code>defaults write com.apple.dashboard mcx-disabled -boolean YES
+</code></pre><p>继续输入命令，重启Dock：</p>
+<pre><code>killall Dock
+</code></pre><p>如果想再重新开启，则使用下面的命令：</p>
+<pre><code>defaults write com.apple.dashboard mcx-disabled -boolean NO
+</code></pre><p>继续输入命令，重启Dock：</p>
+<pre><code>killall Dock
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> MAC OS X </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> mac使用技巧 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[history对象]]></title>
       <url>/2017/06/20/history%E5%AF%B9%E8%B1%A1/</url>
       <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>浏览器窗口有一个history对象，用来保存浏览历史。<br>如果当前窗口先后访问了三个网址，那么history对象就包括三项，history.length属性等于3。<br>history对象提供了一系列方法，允许在浏览历史之间移动。</p>
