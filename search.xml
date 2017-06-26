@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[关闭Mac上的Dashboard?]]></title>
+      <title><![CDATA[关闭Mac上的Dashboard]]></title>
       <url>/2017/06/26/%E5%85%B3%E9%97%ADMac%E4%B8%8A%E7%9A%84Dashboard/</url>
       <content type="html"><![CDATA[<p>Mac的Dashboard用来显示股票、日历、天气预报等小widget，应该在Leopard时代就有了。可以说是遗迹。不用的话可以关掉。</p>
 <p>关闭Dashboard：<br>打开“终端”，输入命令：</p>
