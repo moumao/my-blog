@@ -3,6 +3,499 @@
   
     
     <entry>
+      <title><![CDATA[mac终端命令[转载]]]></title>
+      <url>/2017/06/27/mac%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<h4 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h4><table>
+<thead>
+<tr>
+<th>命令名</th>
+<th style="text-align:right">功能描述</th>
+<th style="text-align:center">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mkdir</td>
+<td style="text-align:right">创建一个目录</td>
+<td style="text-align:center">mkdir dirname</td>
+</tr>
+<tr>
+<td>rmdir</td>
+<td style="text-align:right">删除一个目录</td>
+<td style="text-align:center">rmdir dirname</td>
+</tr>
+<tr>
+<td>mvdir</td>
+<td style="text-align:right">移动或重命名一个目录</td>
+<td style="text-align:center">mvdir dir1 dir2</td>
+</tr>
+<tr>
+<td>cd</td>
+<td style="text-align:right">改变当前目录</td>
+<td style="text-align:center">cd dirname</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td style="text-align:right">显示当前目录的路径名</td>
+<td style="text-align:center">pwd</td>
+</tr>
+<tr>
+<td>ls</td>
+<td style="text-align:right">显示当前目录的内容    ls</td>
+<td style="text-align:center">-la</td>
+</tr>
+<tr>
+<td>dircmp</td>
+<td style="text-align:right">比较两个目录的内容</td>
+<td style="text-align:center">dircmp dir1 dir2</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><table>
+<thead>
+<tr>
+<th>命令名</th>
+<th style="text-align:right">功能描述</th>
+<th style="text-align:center">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cat</td>
+<td style="text-align:right">显示或连接文件</td>
+<td style="text-align:center">cat filename</td>
+</tr>
+<tr>
+<td>pg</td>
+<td style="text-align:right">分页格式化显示文件内容</td>
+<td style="text-align:center">pg filename</td>
+</tr>
+<tr>
+<td>more</td>
+<td style="text-align:right">分屏显示文件内容</td>
+<td style="text-align:center">more filename</td>
+</tr>
+<tr>
+<td>od</td>
+<td style="text-align:right">显示非文本文件的内容</td>
+<td style="text-align:center">od -c filename</td>
+</tr>
+<tr>
+<td>cp</td>
+<td style="text-align:right">复制文件或目录</td>
+<td style="text-align:center">cp file1 file2</td>
+</tr>
+<tr>
+<td>rm</td>
+<td style="text-align:right">删除文件或目录</td>
+<td style="text-align:center">rm filename</td>
+</tr>
+<tr>
+<td>mv</td>
+<td style="text-align:right">改变文件名或所在目录</td>
+<td style="text-align:center">mv file1 file2</td>
+</tr>
+<tr>
+<td>ln</td>
+<td style="text-align:right">联接文件</td>
+<td style="text-align:center">ln -s file1 file2</td>
+</tr>
+<tr>
+<td>find</td>
+<td style="text-align:right">使用匹配表达式查找文件</td>
+<td style="text-align:center">find . -name “*.c” -print</td>
+</tr>
+<tr>
+<td>file</td>
+<td style="text-align:right">显示文件类型</td>
+<td style="text-align:center">file filename</td>
+</tr>
+<tr>
+<td>open</td>
+<td style="text-align:right">使用默认的程序打开文件</td>
+<td style="text-align:center">open filename</td>
+</tr>
+</tbody>
+</table>
+<h4 id="选择操作"><a href="#选择操作" class="headerlink" title="选择操作"></a>选择操作</h4><table>
+<thead>
+<tr>
+<th>命令名</th>
+<th style="text-align:right">功能描述</th>
+<th style="text-align:center">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>head</td>
+<td style="text-align:right">显示文件的最初几行</td>
+<td style="text-align:center">head -20 filename</td>
+</tr>
+<tr>
+<td>tail</td>
+<td style="text-align:right">显示文件的最后几行</td>
+<td style="text-align:center">tail -15 filename</td>
+</tr>
+<tr>
+<td>cut</td>
+<td style="text-align:right">显示文件每行中的某些域</td>
+<td style="text-align:center">cut -f1,7 -d: /etc/passwd</td>
+</tr>
+<tr>
+<td>colrm</td>
+<td style="text-align:right">从标准输入中删除若干列</td>
+<td style="text-align:center">colrm 8 20 file2</td>
+</tr>
+<tr>
+<td>paste</td>
+<td style="text-align:right">横向连接文件</td>
+<td style="text-align:center">paste file1 file2</td>
+</tr>
+<tr>
+<td>diff</td>
+<td style="text-align:right">比较并显示两个文件的差异</td>
+<td style="text-align:center">diff file1 file2</td>
+</tr>
+<tr>
+<td>sed</td>
+<td style="text-align:right">非交互方式流编辑器</td>
+<td style="text-align:center">sed “s/red/green/g” filename</td>
+</tr>
+<tr>
+<td>grep</td>
+<td style="text-align:right">在文件中按模式查找</td>
+<td style="text-align:center">grep “^[a-zA-Z]” filename</td>
+</tr>
+<tr>
+<td>awk</td>
+<td style="text-align:right">在文件中查找并处理模式</td>
+<td style="text-align:center">awk ‘{print $1 $1}’ filename</td>
+</tr>
+<tr>
+<td>sort</td>
+<td style="text-align:right">排序或归并文件</td>
+<td style="text-align:center">sort -d -f -u file1</td>
+</tr>
+<tr>
+<td>uniq</td>
+<td style="text-align:right">去掉文件中的重复行</td>
+<td style="text-align:center">uniq file1 file2</td>
+</tr>
+<tr>
+<td>comm</td>
+<td style="text-align:right">显示两有序文件的公共和非公共行</td>
+<td style="text-align:center">comm file1 file2</td>
+</tr>
+<tr>
+<td>wc</td>
+<td style="text-align:right">统计文件的字符数、词数和行数</td>
+<td style="text-align:center">wc filename</td>
+</tr>
+<tr>
+<td>nl</td>
+<td style="text-align:right">给文件加上行号</td>
+<td style="text-align:center">nl file1 &gt;file2</td>
+</tr>
+</tbody>
+</table>
+<h4 id="安全操作"><a href="#安全操作" class="headerlink" title="安全操作"></a>安全操作</h4><table>
+<thead>
+<tr>
+<th>命令名</th>
+<th style="text-align:right">功能描述</th>
+<th style="text-align:center">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>passwd</td>
+<td style="text-align:right">修改用户密码</td>
+<td style="text-align:center">passwd</td>
+</tr>
+<tr>
+<td>chmod</td>
+<td style="text-align:right">改变文件或目录的权限</td>
+<td style="text-align:center">chmod ug+x filename</td>
+</tr>
+<tr>
+<td>umask</td>
+<td style="text-align:right">定义创建文件的权限掩码</td>
+<td style="text-align:center">umask 027</td>
+</tr>
+<tr>
+<td>chown</td>
+<td style="text-align:right">改变文件或目录的属主</td>
+<td style="text-align:center">chown newowner filename</td>
+</tr>
+<tr>
+<td>chgrp</td>
+<td style="text-align:right">改变文件或目录的所属组</td>
+<td style="text-align:center">chgrp staff filename</td>
+</tr>
+<tr>
+<td>xlock</td>
+<td style="text-align:right">给终端上锁</td>
+<td style="text-align:center">xlock -remote</td>
+</tr>
+</tbody>
+</table>
+<h4 id="编程操作"><a href="#编程操作" class="headerlink" title="编程操作"></a>编程操作</h4><table>
+<thead>
+<tr>
+<th>命令名</th>
+<th style="text-align:right">功能描述</th>
+<th style="text-align:center">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>make</td>
+<td style="text-align:right">维护可执行程序的最新版本</td>
+<td style="text-align:center">make</td>
+</tr>
+<tr>
+<td>touch</td>
+<td style="text-align:right">更新文件的访问和修改时间</td>
+<td style="text-align:center">touch -m 05202400 filename</td>
+</tr>
+<tr>
+<td>dbx</td>
+<td style="text-align:right">命令行界面调试工具</td>
+<td style="text-align:center">dbx a.out</td>
+</tr>
+<tr>
+<td>xde</td>
+<td style="text-align:right">图形用户界面调试工具</td>
+<td style="text-align:center">xde a.out</td>
+</tr>
+</tbody>
+</table>
+<h4 id="进程操作"><a href="#进程操作" class="headerlink" title="进程操作"></a>进程操作</h4><table>
+<thead>
+<tr>
+<th>命令名</th>
+<th style="text-align:right">功能描述</th>
+<th style="text-align:center">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ps</td>
+<td style="text-align:right">显示进程当前状态</td>
+<td style="text-align:center">ps u</td>
+</tr>
+<tr>
+<td>kill</td>
+<td style="text-align:right">终止进程</td>
+<td style="text-align:center">kill -9 30142</td>
+</tr>
+<tr>
+<td>nice</td>
+<td style="text-align:right">改变待执行命令的优先级</td>
+<td style="text-align:center">nice cc -c *.c</td>
+</tr>
+<tr>
+<td>renice</td>
+<td style="text-align:right">改变已运行进程的优先级</td>
+<td style="text-align:center">renice +20 32768</td>
+</tr>
+</tbody>
+</table>
+<h4 id="时间操作"><a href="#时间操作" class="headerlink" title="时间操作"></a>时间操作</h4><table>
+<thead>
+<tr>
+<th>命令名</th>
+<th style="text-align:right">功能描述</th>
+<th style="text-align:center">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td style="text-align:right">显示系统的当前日期和时间</td>
+<td style="text-align:center">date</td>
+</tr>
+<tr>
+<td>cal</td>
+<td style="text-align:right">显示日历</td>
+<td style="text-align:center">cal 8 1996</td>
+</tr>
+<tr>
+<td>time</td>
+<td style="text-align:right">统计程序的执行时间</td>
+<td style="text-align:center">time a.out</td>
+</tr>
+</tbody>
+</table>
+<h4 id="网络与通信操作"><a href="#网络与通信操作" class="headerlink" title="网络与通信操作"></a>网络与通信操作</h4><table>
+<thead>
+<tr>
+<th>命令名</th>
+<th style="text-align:right">功能描述</th>
+<th style="text-align:center">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>telnet</td>
+<td style="text-align:right">远程登录</td>
+<td style="text-align:center">telnet hpc.sp.net.edu.cn</td>
+</tr>
+<tr>
+<td>rlogin</td>
+<td style="text-align:right">远程登录</td>
+<td style="text-align:center">rlogin hostname -l username</td>
+</tr>
+<tr>
+<td>rsh</td>
+<td style="text-align:right">在远程主机执行指定命令</td>
+<td style="text-align:center">rsh f01n03 date</td>
+</tr>
+<tr>
+<td>ftp</td>
+<td style="text-align:right">在本地主机与远程主机之间传输文件</td>
+<td style="text-align:center">ftp ftp.sp.net.edu.cn</td>
+</tr>
+<tr>
+<td>rcp</td>
+<td style="text-align:right">在本地主机与远程主机 之间复制文件</td>
+<td style="text-align:center">rcp file1 host1:file2</td>
+</tr>
+<tr>
+<td>ping</td>
+<td style="text-align:right">给一个网络主机发送 回应请求</td>
+<td style="text-align:center">ping hpc.sp.net.edu.cn</td>
+</tr>
+<tr>
+<td>mail</td>
+<td style="text-align:right">阅读和发送电子邮件</td>
+<td style="text-align:center">mail</td>
+</tr>
+<tr>
+<td>write</td>
+<td style="text-align:right">给另一用户发送报文</td>
+<td style="text-align:center">write username pts/1</td>
+</tr>
+<tr>
+<td>mesg</td>
+<td style="text-align:right">允许或拒绝接收报文</td>
+<td style="text-align:center">mesg n</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Korn-Shell-命令"><a href="#Korn-Shell-命令" class="headerlink" title="Korn Shell 命令"></a>Korn Shell 命令</h4><table>
+<thead>
+<tr>
+<th>命令名</th>
+<th style="text-align:right">功能描述</th>
+<th style="text-align:center">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>history</td>
+<td style="text-align:right">列出最近执行过的 几条命令及编号</td>
+<td style="text-align:center">history</td>
+</tr>
+<tr>
+<td>r</td>
+<td style="text-align:right">重复执行最近执行过的 某条命令</td>
+<td style="text-align:center">r -2</td>
+</tr>
+<tr>
+<td>alias</td>
+<td style="text-align:right">给某个命令定义别名</td>
+<td style="text-align:center">alias del=rm -i</td>
+</tr>
+<tr>
+<td>unalias</td>
+<td style="text-align:right">取消对某个别名的定义</td>
+<td style="text-align:center">unalias del</td>
+</tr>
+</tbody>
+</table>
+<h4 id="其它命令"><a href="#其它命令" class="headerlink" title="其它命令"></a>其它命令</h4><table>
+<thead>
+<tr>
+<th>命令名</th>
+<th style="text-align:right">功能描述</th>
+<th style="text-align:center">使用举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uname</td>
+<td style="text-align:right">显示操作系统的有关信息</td>
+<td style="text-align:center">uname -a</td>
+</tr>
+<tr>
+<td>clear</td>
+<td style="text-align:right">清除屏幕或窗口内容</td>
+<td style="text-align:center">clear</td>
+</tr>
+<tr>
+<td>env</td>
+<td style="text-align:right">显示当前所有设置过的环境变量</td>
+<td style="text-align:center">env</td>
+</tr>
+<tr>
+<td>who</td>
+<td style="text-align:right">列出当前登录的所有用户</td>
+<td style="text-align:center">who</td>
+</tr>
+<tr>
+<td>whoami</td>
+<td style="text-align:right">显示当前正进行操作的用户名</td>
+<td style="text-align:center">whoami</td>
+</tr>
+<tr>
+<td>tty</td>
+<td style="text-align:right">显示终端或伪终端的名称</td>
+<td style="text-align:center">tty</td>
+</tr>
+<tr>
+<td>stty</td>
+<td style="text-align:right">显示或重置控制键定义</td>
+<td style="text-align:center">stty -a</td>
+</tr>
+<tr>
+<td>du</td>
+<td style="text-align:right">查询磁盘使用情况</td>
+<td style="text-align:center">du -k subdir</td>
+</tr>
+<tr>
+<td>df</td>
+<td style="text-align:right">显示文件系统的总空间和可用空间</td>
+<td style="text-align:center">df /tmp</td>
+</tr>
+<tr>
+<td>w</td>
+<td style="text-align:right">显示当前系统活动的总信息</td>
+<td style="text-align:center">w</td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://www.jianshu.com/p/3291de46f3ff" target="_blank" rel="external">原文链接</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> MAC OS X </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> mac使用技巧 </tag>
+            
+            <tag> shell </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[关闭Mac上的Dashboard]]></title>
       <url>/2017/06/26/%E5%85%B3%E9%97%ADMac%E4%B8%8A%E7%9A%84Dashboard/</url>
       <content type="html"><![CDATA[<p>Mac的Dashboard用来显示股票、日历、天气预报等小widget，应该在Leopard时代就有了。可以说是遗迹。不用的话可以关掉。</p>
@@ -32,7 +525,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[history对象]]></title>
+      <title><![CDATA[history对象[转载]]]></title>
       <url>/2017/06/20/history%E5%AF%B9%E8%B1%A1/</url>
       <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>浏览器窗口有一个history对象，用来保存浏览历史。<br>如果当前窗口先后访问了三个网址，那么history对象就包括三项，history.length属性等于3。<br>history对象提供了一系列方法，允许在浏览历史之间移动。</p>
 <blockquote>
@@ -1391,9 +1884,9 @@ X-UA-Compatible(浏览器采取何种版本渲染当前页面)
         
         <tags>
             
-            <tag> meta </tag>
-            
             <tag> html </tag>
+            
+            <tag> meta </tag>
             
         </tags>
         
