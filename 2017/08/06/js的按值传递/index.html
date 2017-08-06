@@ -140,62 +140,90 @@
 
 <div id="content-outer">
   <div id="content-inner">
-    <div id="tag">
-    <div id="recent-posts">
-  
-      <div class="recent-post-item lazy" style="background-color:#26A69A"   data-original="https://moumao.moumaobuchiyu.com/images/random/bg22.jpg"  >
-        <a class="recent-post-link" href="/2017/06/27/mac终端命令/">
-        <div class="post-hover">
-          <!--title-->
-          <p class="post-title"><a href="/2017/06/27/mac终端命令/" >mac终端命令[转载]</a></p>
+    
+<article id="post">
+  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-2.png)" >
+  <h2>js的按值传递</h2>
+    
+  <p>作者:某猫 &nbsp&nbsp 发布于:<time datetime="2017-08-06T15:02:27.000Z">
+          2017-08-06
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>首先抛开按值传递或者按引用传递这些名词，从最基本的看起<br>在 javascript 中数据类型可以分为两类：</p>
+<blockquote>
+<p>原始数据类型值 primitive type：比如Undefined,Null,Boolean,Number,String。<br>引用类型值：也就是对象类型 Object type,比如Object,Array,Function,Date等。</p>
+</blockquote>
+<p>而对于不同的数据类型，在声明变量时存在不同的内存分配：</p>
+<blockquote>
+<p>原始数据类型值：存储在栈（stack）中的简单数据段，也就是说，它们的值直接存储在变量访问的位置。这是因为这些原始类型占据的空间是固定的，所以可将他们存储在较小的内存区域–栈中。这样存储便于迅速查寻变量的值。<br>引用类型值：存储在堆（heap）中的对象，也就是说，存储在变量处的值是一个指针（point），指向存储对象的内存地址。这是因为：引用值的大小会改变，所以不能把它放在栈中，否则会降低变量查寻的速度。相反，放在变量的栈空间中的值是该对象存储在堆中的地址。地址的大小是固定的，所以把它存储在栈中对变量性能无任何负面影响。</p>
+</blockquote>
+<p>由于不同的内存分配，访问方式也有所不同</p>
+<blockquote>
+<p>原始数据类型值：可以直接在栈内存中访问到。<br>引用类型值：访问一个引用类型值比如一个数组或者对象时，首先在栈内存得到的是它在堆内存中的地址，然后再按照这个地址去获得这个对象中的值</p>
+</blockquote>
+<p>而关于复制变量会有什么不同吗</p>
+<blockquote>
+<p>原始数据类型值：在将一个保存着原始值的变量复制给另一个变量时，会将原始值的存储在栈内存的值复制一份赋值给新变量，此后这两个变量是完全独立的，他们只是拥有相同的值。<br>引用类型值：在将一个保存着对象内存地址的变量复制给另一个变量时，会把这个内存地址赋值给新变量，也就是说这两个变量都指向了堆内存中的同一个对象，他们中任何一个作出的改变都会反映在另一个身上。</p>
+</blockquote>
+<p>所以可以看到，抛开访问方式的不同，在复制变量时其实二者在本质上没有什么不同：</p>
+<blockquote>
+<p>对象的指针也不过是变量存储的值，复制变量也都是复制存储在栈内存中存储的值</p>
+</blockquote>
 
-          <!--date-->
-          
-            <p class="post-time">某猫 &nbsp &nbsp 发布于:<time datetime="2017-06-27T08:41:27.000Z">
-              2017-06-27
-            </time>
-            </p>
-          
+  </div>
+  <!--评论块-->
+    
+  <div id="disqus_thread" style="padding:30px;text-align: center;border-top:1px solid silver " data-diaque="moumao.disqus.com"><button style="margin: 0 auto;background-color:#26A69A " class="btn" onclick="disqus()">加载评论(被墙则无法加载)</button></div>
 
-          <!--tags-->
+  <script>
 
-          标签:
-            
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac使用技巧/">mac使用技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li></ul>
-            
-          <!--分类-->
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+       var disqus_config = function () {
+       this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+       this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+       };
+       */
+      function disqus() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script'),v = d.createElement('script'),disquUrl=document.getElementById("disqus_thread").dataset.diaque;
+          v.id = 'dsq-count-scr'
+          v.src= '//'+disquUrl+'/count.js';
+          s.src = 'https://'+disquUrl+'/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(v);
+          (d.head || d.body).appendChild(s);
+      }
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
 
-          分类:
-            
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MAC-OS-X/">MAC OS X</a></li></ul>
-            
-
-          <!--excerpt-->
-          <div class="post-excerpt">
-            <p>
-              摘要：
-              
-                目录操作
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
 
 
-命令名
-功能描述
-
-              
-            </p>
-          </div>
-          <div class="post-more"><a href="/2017/06/27/mac终端命令/" >全文阅读</a></div>
-        </div>
-        </a>
-      </div>
-  
-  <nav class="paging">
-    <span class="page-number current">1</span>
+  <!-- Next Nav -->
+    
+  <a href="/2017/07/04/实习了/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
 </nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据类型"><span class="post-toc-number">1.</span> <span class="post-toc-text">数据类型</span></a></li></ol>
 </div>
-
-
-</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
   </div>
 </div>
 <div id="bottom-outer">
