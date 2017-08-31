@@ -29,13 +29,63 @@
 <p>一个事件循环(EventLoop)中会有一个正在执行的任务(Task)，而这个任务就是从 macrotask 队列中来的。在whatwg规范中有 queue 就是任务队列。当这个 macrotask 执行结束后所有可用的 microtask 将会在同一个事件循环中执行，当这些 microtask 执行结束后还能继续添加 microtask 一直到真个 microtask 队列执行结束。</p>
 <p>执行过程如下：</p>
 <blockquote>
-<p>1、选出macrotask中最早的任务(macrotask中的第一个回调函数)<br>2、如果 macrotask 为null (那任务队列就是空)，跳到第6步<br>3、将 currently running task 设置为 macrotask中的第一个回调函数<br>4、执行回调函数<br>5、将 currently running task 设置为 null 并移出 执行完回调函数<br>6、执行 microtask 队列<br>    a: 在 microtask 中选出最早的任务 task X<br>    b: 如果 task X 为null (那 microtask 队列就是空)，直接跳到 g<br>    c: 将 currently running task 设置为 task X<br>    d: 执行 task X<br>    e: 将 currently running task 设置为 null 并移出 task X<br>    f: 在 microtask 中选出最早的任务 , 跳到 b<br>    g: 结束 microtask 队列<br>跳到第一步<br>那么看一下段代码：<br>```javascript<br>console.log(‘start’)</p>
+<p>1、选出macrotask中最早的任务(macrotask中的第一个回调函数)<br>2、如果 macrotask 为null (那任务队列就是空)，跳到第6步<br>3、将 currently running task 设置为 macrotask中的第一个回调函数<br>4、执行回调函数<br>5、将 currently running task 设置为 null 并移出 执行完回调函数<br>6、执行 microtask 队列<br>    a: 在 microtask 中选出最早的任务 task X<br>    b: 如果 task X 为null (那 microtask 队列就是空)，直接跳到 g<br>    c: 将 currently running task 设置为 task X<br>    d: 执行 task X<br>    e: 将 currently running task 设置为 null 并移出 task X<br>    f: 在 microtask 中选出最早的任务 , 跳到 b<br>    g: 结束 microtask 队列<br>跳到第一步</p>
 </blockquote>
-<p>const interval = setInterval(() =&gt; {<br>  console.log(‘setInterval’)<br>}, 0)</p>
-<p>setTimeout(() =&gt; {<br>  console.log(‘setTimeout 1’)<br>  Promise.resolve()<br>      .then(() =&gt; {<br>        console.log(‘promise 3’)<br>      })<br>      .then(() =&gt; {<br>        console.log(‘promise 4’)<br>      })<br>      .then(() =&gt; {<br>        setTimeout(() =&gt; {<br>          console.log(‘setTimeout 2’)<br>          Promise.resolve()<br>              .then(() =&gt; {<br>                console.log(‘promise 5’)<br>              })<br>              .then(() =&gt; {<br>                console.log(‘promise 6’)<br>              })<br>              .then(() =&gt; {<br>                clearInterval(interval)<br>              })<br>        }, 0)<br>      })<br>}, 0)</p>
-<p>Promise.resolve()<br>    .then(() =&gt; {<br>        console.log(‘promise 1’)<br>    })<br>    .then(() =&gt; {<br>        console.log(‘promise 2’)<br>    })</p>
-<pre><code>输出：
-</code></pre><p>start<br>promise 1<br>promise 2<br>setInterval<br>setTimeout 1<br>promise 3<br>promise 4<br>setInterval<br>setTimeout 2<br>promise 5<br>promise 6<br>```<br>*注：当首轮执行时，存放在script标签中的就是要执行的代码。</p>
+<p>那么看一下段代码：</p>
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'start'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> interval <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>  
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'setInterval'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>  
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'setTimeout 1'</span><span class="token punctuation">)</span>
+  Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise 3'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise 4'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'setTimeout 2'</span><span class="token punctuation">)</span>
+          Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+              <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise 5'</span><span class="token punctuation">)</span>
+              <span class="token punctuation">}</span><span class="token punctuation">)</span>
+              <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise 6'</span><span class="token punctuation">)</span>
+              <span class="token punctuation">}</span><span class="token punctuation">)</span>
+              <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                <span class="token function">clearInterval</span><span class="token punctuation">(</span>interval<span class="token punctuation">)</span>
+              <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>  
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise 1'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise 2'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>输出：</p>
+<pre class=" language-javascript"><code class="language-javascript">start
+promise <span class="token number">1</span>
+promise <span class="token number">2</span>
+setInterval
+setTimeout <span class="token number">1</span>
+promise <span class="token number">3</span>
+promise <span class="token number">4</span>
+setInterval
+setTimeout <span class="token number">2</span>
+promise <span class="token number">5</span>
+promise <span class="token number">6</span>
+</code></pre>
+<p>*注：当首轮执行时，存放在script标签中的就是要执行的代码。</p>
 ]]></content>
       
         <categories>
