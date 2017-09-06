@@ -3,6 +3,50 @@
   
     
     <entry>
+      <title><![CDATA[关于‘==’]]></title>
+      <url>/2017/09/05/%E5%85%B3%E4%BA%8E==/</url>
+      <content type="html"><![CDATA[<h3 id="相同的数据类型"><a href="#相同的数据类型" class="headerlink" title="相同的数据类型"></a>相同的数据类型</h3><p>在抽象相等的比较中，如果左右两边比较的是同种数据类型的话，那和完全相等的比较规则是相同的：基础类型比较值是否相等，引用类型比较是否引用到同一个对象；</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token comment" spellcheck="true">// 比较的是两个不同的空数组 和[] === []没有什么不同 都是false</span>
+<span class="token operator">+</span><span class="token number">0</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">0</span> <span class="token comment" spellcheck="true">// true 0 和 -0 在完全相等中也是返回true</span>
+</code></pre>
+<blockquote>
+<p>特别要注意的：等号运算符（== 和 ===） 不能被用来判断一个值是否是 NaN。必须使用 Number.isNaN() 或 isNaN() 函数。在执行自比较之中：NaN，也只有NaN，比较之中不等于它自己。</p>
+</blockquote>
+<h3 id="空：null和undefined"><a href="#空：null和undefined" class="headerlink" title="空：null和undefined"></a>空：null和undefined</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">null</span> <span class="token operator">==</span> undefined <span class="token comment" spellcheck="true">// true</span>
+</code></pre>
+<p>其他任何值与null和undefined比较，都为false</p>
+<h3 id="不同基础类型之间的比较-number-string-boolean"><a href="#不同基础类型之间的比较-number-string-boolean" class="headerlink" title="不同基础类型之间的比较(number, string, boolean)"></a>不同基础类型之间的比较(number, string, boolean)</h3><h4 id="number-string"><a href="#number-string" class="headerlink" title="number == string"></a>number == string</h4><p>把string转换为number 等同于：number == ToNumber(string)</p>
+<h4 id="number-boolean"><a href="#number-boolean" class="headerlink" title="number == boolean"></a>number == boolean</h4><p>把boolean转换为number 等同于：number == ToNumber(boolean)</p>
+<h4 id="string-boolean"><a href="#string-boolean" class="headerlink" title="string == boolean"></a>string == boolean</h4><p>同时转换为number 等同于：ToNumber(string) == ToNumber(boolean)</p>
+<blockquote>
+<p>总结来说，就是把比较的值全部转为number之后再比较</p>
+</blockquote>
+<h3 id="引用类型与基础类型之间的比较"><a href="#引用类型与基础类型之间的比较" class="headerlink" title="引用类型与基础类型之间的比较"></a>引用类型与基础类型之间的比较</h3><p>首先会通过内置的toString以及valueOf两种用来转换数据类型的方法，将对象转换为基础数据类型，如果此时两边数据类型相同，可以直接判断，反之用’不同基础类型之间的比较’中的方法继续比较；</p>
+<blockquote>
+<p>扩展：如何转化为基础类型？<br>在抽象相等的比较规则下，被转化的对象会优先调用valueOf方法(此方法如果不存在则忽略)，如果没有得到基础数据类型，继续调用toString(此方法如果不存在则忽略)，如果仍然没有得到基础数据类型，则报错<br>需要注意的是：如果是Date类型的话，会优先调用toString</p>
+</blockquote>
+<p>有趣的是，以前在看博客时会有人说使用==会导致数据类型转换，从而影响被比较对象本身的值；然而实际上，只要不擅自修改原型上的toString以及valueOf，就不会对比较对象产生任何影响</p>
+<h3 id="但是我们依旧推荐用完全等于"><a href="#但是我们依旧推荐用完全等于" class="headerlink" title="但是我们依旧推荐用完全等于"></a>但是我们依旧推荐用完全等于</h3>]]></content>
+      
+        <categories>
+            
+            <category> javascript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> javascript </tag>
+            
+            <tag> 坑 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[atom的mac快捷键]]></title>
       <url>/2017/08/31/atom%E7%9A%84mac%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
       <content type="html"><![CDATA[<table>
@@ -426,6 +470,8 @@ promise <span class="token number">6</span>
             <tag> js </tag>
             
             <tag> js异步 </tag>
+            
+            <tag> 坑 </tag>
             
         </tags>
         
