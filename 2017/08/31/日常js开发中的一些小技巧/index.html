@@ -316,6 +316,14 @@ test <span class="token operator">=</span> <span class="token boolean">false</sp
 <blockquote>
 <p>利用set这种数据结构没有重复项的性质来实现，仅限es6</p>
 </blockquote>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>ele<span class="token punctuation">,</span>index<span class="token punctuation">,</span>array<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> index<span class="token operator">===</span>array<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>ele<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+`
+</code></pre>
+<blockquote>
+<p>es5方法</p>
+</blockquote>
 <h4 id="通过正则把数字变成千分位格式"><a href="#通过正则把数字变成千分位格式" class="headerlink" title="通过正则把数字变成千分位格式"></a>通过正则把数字变成千分位格式</h4><blockquote>
 <p>展示数据时会经常用到，如果还要格式化小数还可以与toFixed()一起使用</p>
 </blockquote>
