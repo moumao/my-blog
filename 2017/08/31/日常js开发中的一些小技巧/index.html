@@ -389,10 +389,50 @@ obj<span class="token punctuation">[</span>Symbol<span class="token punctuation"
 <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span>push<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>arr1<span class="token punctuation">,</span> arr2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
 </code></pre>
-<h4 id="简单的深复制的实现"><a href="#简单的深复制的实现" class="headerlink" title="简单的深复制的实现"></a>简单的深复制的实现</h4><p>```javascript<br>function type(obj) {<br>  var toString = Object.prototype.toString;<br>  var map = {<br>      ‘[object Boolean]’  : ‘boolean’,<br>      ‘[object Number]’   : ‘number’,<br>      ‘[object String]’   : ‘string’,<br>      ‘[object Function]’ : ‘function’,<br>      ‘[object Array]’    : ‘array’,<br>      ‘[object Date]’     : ‘date’,<br>      ‘[object RegExp]’   : ‘regExp’,<br>      ‘[object Undefined]’: ‘undefined’,<br>      ‘[object Null]’     : ‘null’,<br>      ‘[object Object]’   : ‘object’<br>  };<br>  if(obj instanceof Element) {<br>        return ‘element’;<br>  }<br>  return map[toString.call(obj)];<br>}<br>function deepClone(data) {<br>  var t = type(data), o, i, ni;</p>
 </blockquote>
-<p>  if(t === ‘array’) {<br>      o = [];<br>  }else if( t === ‘object’) {<br>      o = {};<br>  }else {<br>      return data;<br>  }</p>
-<p>  if(t === ‘array’) {<br>      for (i = 0, ni = data.length; i &lt; ni; i++) {<br>          o.push(deepClone(data[i]));<br>      }<br>      return o;<br>  }else if( t === ‘object’) {<br>      for( i in data) {<br>          o[i] = deepClone(data[i]);<br>      }<br>      return o;<br>  }<br>}<br>```</p>
+<h4 id="简单的深复制的实现"><a href="#简单的深复制的实现" class="headerlink" title="简单的深复制的实现"></a>简单的深复制的实现</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">type</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> toString <span class="token operator">=</span> Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">;</span>
+  <span class="token keyword">var</span> map <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token string">'[object Boolean]'</span>  <span class="token punctuation">:</span> <span class="token string">'boolean'</span><span class="token punctuation">,</span> 
+      <span class="token string">'[object Number]'</span>   <span class="token punctuation">:</span> <span class="token string">'number'</span><span class="token punctuation">,</span> 
+      <span class="token string">'[object String]'</span>   <span class="token punctuation">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span> 
+      <span class="token string">'[object Function]'</span> <span class="token punctuation">:</span> <span class="token string">'function'</span><span class="token punctuation">,</span> 
+      <span class="token string">'[object Array]'</span>    <span class="token punctuation">:</span> <span class="token string">'array'</span><span class="token punctuation">,</span> 
+      <span class="token string">'[object Date]'</span>     <span class="token punctuation">:</span> <span class="token string">'date'</span><span class="token punctuation">,</span> 
+      <span class="token string">'[object RegExp]'</span>   <span class="token punctuation">:</span> <span class="token string">'regExp'</span><span class="token punctuation">,</span> 
+      <span class="token string">'[object Undefined]'</span><span class="token punctuation">:</span> <span class="token string">'undefined'</span><span class="token punctuation">,</span>
+      <span class="token string">'[object Null]'</span>     <span class="token punctuation">:</span> <span class="token string">'null'</span><span class="token punctuation">,</span> 
+      <span class="token string">'[object Object]'</span>   <span class="token punctuation">:</span> <span class="token string">'object'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">Element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">'element'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> map<span class="token punctuation">[</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> t <span class="token operator">=</span> <span class="token function">type</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span> o<span class="token punctuation">,</span> i<span class="token punctuation">,</span> ni<span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span><span class="token punctuation">(</span>t <span class="token operator">===</span> <span class="token string">'array'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      o <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span> t <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      o <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> data<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span><span class="token punctuation">(</span>t <span class="token operator">===</span> <span class="token string">'array'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> ni <span class="token operator">=</span> data<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> ni<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          o<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">deepClone</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> o<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span> t <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">for</span><span class="token punctuation">(</span> i <span class="token keyword">in</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          o<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> o<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 
   </div>
   <!--评论块-->
